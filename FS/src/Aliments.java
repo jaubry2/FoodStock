@@ -1,6 +1,6 @@
 import java.util.Date;
 
-public class Aliments_Stockable implements Aliments{
+public class Aliments {
 	
 	protected MoyenDeStockage Ms;
 	
@@ -10,7 +10,7 @@ public class Aliments_Stockable implements Aliments{
 	
 	protected String nom;
 
-	public Aliments_Stockable(MoyenDeStockage ms, Date dDP, UniteDeMesure uDM, String nom) {
+	public Aliments(MoyenDeStockage ms, Date dDP, UniteDeMesure uDM, String nom) {
 		super();
 		this.Ms = ms;
 		this.DDP = dDP;

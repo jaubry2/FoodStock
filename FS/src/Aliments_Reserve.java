@@ -1,6 +1,6 @@
 import java.util.Date;
 
-public class Aliments_Reserve extends Aliments_Stockable{
+public class Aliments_Reserve extends Aliments{
 	
 protected Integer Quantite;
 	/**
