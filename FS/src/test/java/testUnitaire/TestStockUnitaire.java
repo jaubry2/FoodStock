@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
@@ -67,6 +68,13 @@ public class TestStockUnitaire {
     }
 
     @Test
+    public void testAjouterListe() {
+        stock.creerstock("Frigo");
+        stock.ajouterListe("Frigo", listAlimentStockes);
+        assertTrue(stock.getStock().get("Frigo").contains(laitStockes));
+        
+    }
+    
     public void testAjouterAlimentAvecNom() {
         Aliments aliments = new Aliments("lait",UnitedeMesure.Litre,MoyendeConservation.Bouteille,TypeAliment.ProduitsLaitiers);
         stock.creerstock("Frigo");
@@ -95,6 +103,7 @@ public class TestStockUnitaire {
         assertEquals("lait", laitTest.getNom());
         assertEquals("farine", farineTest.getNom());
         assertNull(oeufTest);
+      
     }
     @Test
     public void testGetListFromMap() {
@@ -107,14 +116,25 @@ public class TestStockUnitaire {
     @Test
     public void testFiltrerType() {
         stock.remplirstock("Frigo", listAlimentStockes);
-        List<AlimentStockes> listAlimentsProduitLaitier = stock.filtrerType("principal", TypeAliment.ProduitsLaitiers);
+        List<AlimentStockes> listAlimentsProduitLaitier = stock.filtrerType("Frigo", TypeAliment.ProduitsLaitiers);
         assertEquals(1, listAlimentsProduitLaitier.size());
         assertEquals("lait", listAlimentsProduitLaitier.get(0).getAliment().getNom());
-        List<AlimentStockes> listAlimentsCereales = stock.filtrerType("principal", TypeAliment.Céreales);
+        List<AlimentStockes> listAlimentsCereales = stock.filtrerType("Frigo", TypeAliment.Céreales);
         assertEquals(1, listAlimentsCereales.size());
         assertEquals("farine", listAlimentsCereales.get(0).getAliment().getNom());
-        List<AlimentStockes> listAlimentsFL = stock.filtrerType("principal", TypeAliment.Fruits_Legumes);
-        assertNull(listAlimentsFL);
+        List<AlimentStockes> listAlimentsFL = stock.filtrerType("Frigo", TypeAliment.Fruits_Legumes);
+        assertEquals(Collections.emptyList(),listAlimentsFL);
+
+    }
+    
+    @Test
+    public void testFiltrerDate() {
+        stock.remplirstock("Frigo", listAlimentStockes);
+        List<AlimentStockes> listAlimentsProcheDate = stock.filtrerDate("Frigo", 4);
+        assertEquals(1, listAlimentsProcheDate.size());
+        assertEquals("lait", listAlimentsProcheDate.get(0).getAliment().getNom());
+        List<AlimentStockes> listAlimentsTresProcheDate = stock.filtrerDate("Frigo",2);
+        assertEquals(Collections.emptyList(),listAlimentsTresProcheDate);
 
     }
 
