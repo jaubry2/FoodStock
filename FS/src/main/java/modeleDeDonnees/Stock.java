@@ -83,7 +83,14 @@ public List<AlimentStockes> filtrerType(String nomStock,TypeAliment typeAliment)
 	return listStockfiltre;
 }
 
-
+/**
+ * Filtre les objets AlimentStockes d'un stock ayant une date de péremption proche
+ * selon la durée spécifiée.
+ *
+ * @param nomStock le nom du stock à filtrer
+ * @param duree la durée en jours pour laquelle les objets AlimentStockes sont considérés comme proches de leur date de péremption
+ * @return une liste des objets AlimentStockes dont la date de péremption est proche
+ */
 public List<AlimentStockes> filtrerDate(String nomStock, int duree) {
     List<AlimentStockes> listStock = this.getListFromMap(nomStock);
     List<AlimentStockes> listStockFiltre = new ArrayList<>();

@@ -146,7 +146,7 @@ public class Accueil extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));*/
-        List<AlimentStockes> stock = FoodStock.stocks.filtrerType("principal",TypeAliment.Fruits_Legumes);
+        List<AlimentStockes> stock = FoodStock.stocks.filtrerDate("principal",4);
         Object[][] data = new Object[stock.size()][4];
         for (int i = 0; i < stock.size(); i++) {
             AlimentStockes alimentStocke = stock.get(i);
