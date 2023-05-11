@@ -164,4 +164,10 @@ public void ajouterAliment(String nomStock ,AlimentStockes alimentsStock) {
         }
     }
 
+
+	public List<AlimentStockes> filtrerDate(String string, int i) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

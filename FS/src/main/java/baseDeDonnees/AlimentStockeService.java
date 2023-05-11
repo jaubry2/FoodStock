@@ -9,14 +9,18 @@ import jakarta.persistence.Query;
 import modeleDeDonnees.AlimentStockes;
 import modeleDeDonnees.Aliments;
 
-public class AlimentStockeService extends HibernateService  {
-	public void ajouter(AlimentStockes a) {
-        session.persist(a);
-        transaction.commit();
+/**
 
-	}
+Cette classe représente le service pour la gestion des AlimentStockes en base de données avec Hibernate.
+Elle contient des méthodes pour ajouter, mettre à jour et supprimer des éléments de la table AlimentStockes.
+*/
+public class AlimentStockeService extends HibernateService  {
 	
 	
+	/**
+	 * Met à jour la table AlimentStockes en ajoutant, modifiant ou supprimant des éléments.
+	 * @param ListAlimentStockes la liste d'AlimentStockes à mettre à jour.
+	 */
 	public static void mettreAJourTable(List<AlimentStockes> ListAlimentStockes) {
 	 
 		
@@ -29,7 +33,6 @@ public class AlimentStockeService extends HibernateService  {
 				        // Parcourir la liste de la table et supprimer les AlimentStockes qui ne sont plus dans ListAlimentStockes
 				        for (AlimentStockes alimentsBDD : listBDD) {
 				            if (!ListAlimentStockes.stream().anyMatch(aliments -> alimentsBDD.getId() == aliments.getId())) {
-				            	/*session.remove(alimentsBDD);*/
 				            	String hql = "DELETE FROM AlimentStockes WHERE id = :alimentId";
 				            	Query query = session.createQuery(hql);
 				            	query.setParameter("alimentId", alimentsBDD.getId());
@@ -40,17 +43,7 @@ public class AlimentStockeService extends HibernateService  {
 			for (AlimentStockes aliments : ListAlimentStockes) {
 				session.merge(aliments);
 			}
-			/*}
-		catch (Exception e) {
-			
-		}
-		transaction.commit();
-
-
-        transaction = session.beginTransaction();
-
-		try {*/
-			
+					
 	        
 		}
 
@@ -63,68 +56,13 @@ public class AlimentStockeService extends HibernateService  {
         
 	}
 	
-/*public static void mettreAJourTable(List<AlimentStockes> ListAlimentStockes) {
-	
-	ModifElemTable(ListAlimentStockes);
-	SupprimerElemTable(ListAlimentStockes);
-
-}*/
 
 
-public static void ModifElemTable(List<AlimentStockes> ListAlimentStockes) {
-	
-	transaction = session.beginTransaction();
-	try {
-		
-		for (AlimentStockes aliments : ListAlimentStockes) {
-			session.merge(aliments);
-		}
-	}
-	catch (Exception e) {
-		
-	}
-	transaction.commit();
+/**
 
-
-   
-
-	
-    
-}
-public static void SupprimerElemTable(List<AlimentStockes> ListAlimentStockes) {
-		
-	
-        transaction = session.beginTransaction();
-
-		try {
-			
-	        // Récupérer tous les AlimentStockes de la table avec HQL
-			List<AlimentStockes> listBDD=AlimentStockeService.importerTableAlimentStock();
-
-	        
-	        // Parcourir la liste de la table et supprimer les AlimentStockes qui ne sont plus dans ListAlimentStockes
-	        for (AlimentStockes alimentsBDD : listBDD) {
-	            if (!ListAlimentStockes.stream().anyMatch(aliments -> alimentsBDD.getId() == aliments.getId())) {
-	            	String hql = "DELETE FROM AlimentStockes WHERE id = :alimentId";
-	            	Query query = session.createQuery(hql);
-	            	query.setParameter("alimentId", alimentsBDD.getId());
-	            	int result = query.executeUpdate();
-
-	                /*session.refresh(alimentsBDD);
-	            	session.remove(alimentsBDD);*/
-	            }
-	        }
-		}
-
-		catch (Exception e) {
-			
-		}
-		
-		transaction.commit();
-		
-        
-	}
-	
+Cette méthode permet d'importer les données de la table alimentStockes de la base de données en les transformant en liste d'objets AlimentStockes.
+@return Une liste d'objets AlimentStockes importés depuis la base de données.
+*/
 	public static List<AlimentStockes> importerTableAlimentStock(){
 		List<Object[]> elements=  session.createNativeQuery("SELECT * FROM alimentStockes").getResultList();
 		List<AlimentStockes> alimentStockes = new ArrayList<>();
@@ -134,6 +72,15 @@ public static void SupprimerElemTable(List<AlimentStockes> ListAlimentStockes) {
 
 		    return alimentStockes;
 	}
+	
+	/**
+
+    Cette méthode permet de convertir un tableau d'objets représentant un élément de la table alimentStockes en un objet AlimentStocke.
+
+    @param element Le tableau d'objets représentant l'élément à convertir.
+
+    @return L'objet AlimentStocke créé à partir des données de l'élément.
+    */
 	public static AlimentStockes convertirEnAlimentStocke(Object[] element) {
 	    // Récupération des données de l'élément
 	    Long id = (Long) element[0];

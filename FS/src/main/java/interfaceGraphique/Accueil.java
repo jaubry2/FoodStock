@@ -4,6 +4,13 @@
  */
 package interfaceGraphique ;
 
+import java.util.List;
+
+import javax.swing.table.DefaultTableModel;
+
+import modeleDeDonnees.AlimentStockes;
+import modeleDeDonnees.TypeAliment;
+
 /**
  *
  * @author julesa
@@ -136,7 +143,7 @@ public class Accueil extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("FOODSTOCK");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        /*jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -146,7 +153,19 @@ public class Accueil extends javax.swing.JFrame {
             new String [] {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
-        ));
+        ));*/
+        List<AlimentStockes> stock = FoodStock.stocks.filtrerType("principal",TypeAliment.Fruits_Legumes);
+        Object[][] data = new Object[stock.size()][4];
+        for (int i = 0; i < stock.size(); i++) {
+            AlimentStockes alimentStocke = stock.get(i);
+            data[i][0] = alimentStocke.getAliment().getNom();
+            data[i][1] = alimentStocke.getDatePeremption();
+            data[i][2] = alimentStocke.getQuantite();
+            data[i][3] = alimentStocke.getAliment().getTypeAliment();
+        }
+        String[] columnNames = {"Aliment", "Date de Péremption", "Quantité", "Type"};
+        DefaultTableModel model = new DefaultTableModel(data, columnNames);
+        jTable1.setModel(model);
         jScrollPane1.setViewportView(jTable1);
 
         jLabel2.setText("Aliments bientôt périmés");
