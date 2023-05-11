@@ -83,6 +83,19 @@ public List<AlimentStockes> filtrerType(String nomStock,TypeAliment typeAliment)
 	return listStockfiltre;
 }
 
+
+public List<AlimentStockes> filtrerDate(String nomStock, int duree) {
+    List<AlimentStockes> listStock = this.getListFromMap(nomStock);
+    List<AlimentStockes> listStockFiltre = new ArrayList<>();
+    for (AlimentStockes alimentStock : listStock) {
+        if (alimentStock.getDatePeremption().minusDays(duree).isBefore(LocalDate.now())) {
+            listStockFiltre.add(alimentStock);
+        }
+    }
+    return listStockFiltre;
+}
+
+
 /**
  * Ajoute un aliment stocké dans un emplacement du Map stock à partir du nom de l'emplacement et de l'aliment stocké.
  * @param nomStock le nom de l'emplacement où ajouter l'aliment.
@@ -107,6 +120,16 @@ public void ajouterAliment(String nomStock ,AlimentStockes alimentsStock) {
     	AlimentStockes alimentsStock = new AlimentStockes(aliment,quantite, datePeremption);
     	ajouterAliment(nomStock ,alimentsStock);
     }
+    
+    /**
+     * Ajoute un aliment stocké dans un emplacement du Map stock à partir d'une liste
+     * @param nomStock le nom de l'emplacement où ajouter l'aliment.
+     * @param listAjout la liste à ajouter dans l'emplacement.
+     */
+        public void ajouterListe(String nomStock ,List<AlimentStockes> listAjout) {
+        	stocks.get(nomStock).addAll(listAjout);
+
+        }
     /**
 
     Cette méthode retire un aliment stocké dans le stock spécifié.
@@ -164,10 +187,5 @@ public void ajouterAliment(String nomStock ,AlimentStockes alimentsStock) {
         }
     }
 
-
-	public List<AlimentStockes> filtrerDate(String string, int i) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 }
