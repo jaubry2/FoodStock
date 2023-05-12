@@ -19,41 +19,49 @@ public class Controller {
             case "accueil" : {
                 newPage = new Accueil();
                 OuvrirPage(newPage);
+                break;
             }
             
             case "ajouterAliment" : {
                 newPage = new AjouterAliment();
                 OuvrirPage(newPage);
+                break;
             }
             
             case "fenetreErreur" : {
                 newPage = new FenetreErreur(_erreur, _message);
                 OuvrirPage(newPage);
+                break;
             }
             
             case "ficheAliment" : {
                 newPage = new FicheAliment(_nomAliment);
                 OuvrirPage(newPage);
+                break;
             }
             
             case "menuListe" : {
                 newPage = new MenuListe();
                 OuvrirPage(newPage);
+                break;
             }
             
             case "menuRecette" : {
                 newPage = new MenuRecette();
                 OuvrirPage(newPage);
+                break;
             }
             
             case "menuStock" : {
                 newPage = new MenuStock();
                 OuvrirPage(newPage);
+                break;
             }
             
             case "modifierUnAliment" : {
                 newPage = new ModifierUnAliment();
                 OuvrirPage(newPage);
+                break;
             }
             
             default : {
