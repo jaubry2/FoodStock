@@ -151,7 +151,7 @@ public class MenuStock extends javax.swing.JFrame {
                 AddButtonActionPerformed(evt);
             }
         });
-        List<AlimentStockes> stock = FoodStock.stocks.getListFromMap("principal");
+        List<AlimentStockes> stock = Main.stocks.getListFromMap("principal");
         Object[][] data = new Object[stock.size()][4];
         for (int i = 0; i < stock.size(); i++) {
             AlimentStockes alimentStocke = stock.get(i);
