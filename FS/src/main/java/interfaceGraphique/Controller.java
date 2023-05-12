@@ -16,47 +16,47 @@ public class Controller {
         javax.swing.JFrame newPage;
         switch(_page){
              
-            case "accueil" -> {
+            case "accueil" : {
                 newPage = new Accueil();
                 OuvrirPage(newPage);
             }
             
-            case "ajouterAliment" -> {
+            case "ajouterAliment" : {
                 newPage = new AjouterAliment();
                 OuvrirPage(newPage);
             }
             
-            case "fenetreErreur" -> {
+            case "fenetreErreur" : {
                 newPage = new FenetreErreur(_erreur, _message);
                 OuvrirPage(newPage);
             }
             
-            case "ficheAliment" -> {
+            case "ficheAliment" : {
                 newPage = new FicheAliment(_nomAliment);
                 OuvrirPage(newPage);
             }
             
-            case "menuListe" -> {
+            case "menuListe" : {
                 newPage = new MenuListe();
                 OuvrirPage(newPage);
             }
             
-            case "menuRecette" -> {
+            case "menuRecette" : {
                 newPage = new MenuRecette();
                 OuvrirPage(newPage);
             }
             
-            case "menuStock" -> {
+            case "menuStock" : {
                 newPage = new MenuStock();
                 OuvrirPage(newPage);
             }
             
-            case "modifierUnAliment" -> {
+            case "modifierUnAliment" : {
                 newPage = new ModifierUnAliment();
                 OuvrirPage(newPage);
             }
             
-            default -> {
+            default : {
                 //Erreur
             }
         }

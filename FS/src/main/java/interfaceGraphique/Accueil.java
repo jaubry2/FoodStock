@@ -60,14 +60,6 @@ public class Accueil extends javax.swing.JFrame {
         StockButton3.setBackground(new java.awt.Color(153, 204, 255));
         StockButton3.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
         StockButton3.setText("Stock");
-        StockButton3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                StockButton3MouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                StockButton3MouseEntered(evt);
-            }
-        });
         StockButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 StockButton3ActionPerformed(evt);
@@ -77,11 +69,6 @@ public class Accueil extends javax.swing.JFrame {
         RecetteButton3.setBackground(new java.awt.Color(153, 204, 255));
         RecetteButton3.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
         RecetteButton3.setText("Recette");
-        RecetteButton3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                RecetteButton3MouseClicked(evt);
-            }
-        });
         RecetteButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RecetteButton3ActionPerformed(evt);
@@ -91,11 +78,6 @@ public class Accueil extends javax.swing.JFrame {
         ListButton3.setBackground(new java.awt.Color(153, 204, 255));
         ListButton3.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
         ListButton3.setText("Liste");
-        ListButton3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ListButton3MouseClicked(evt);
-            }
-        });
         ListButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ListButton3ActionPerformed(evt);

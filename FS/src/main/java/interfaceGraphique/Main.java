@@ -18,7 +18,10 @@ import modeleDeDonnees.Stock;
 public class Main {
 	
 	public static Stock stocks;
-	
+	/**
+     * Controleur qui permet de mettre à jour les informations
+     */
+    public static final Controller controller = new Controller();
 	
     
     public static void main(String[] args) {
@@ -27,7 +30,6 @@ public class Main {
         stocks = new Stock();
 		List<AlimentStockes> list=AlimentStockeService.importerTableAlimentStock();
 		stocks.remplirstock("principal",list );
-        Accueil mA = new Accueil();
-        mA.setVisible(true);
+		controller.ChangerPage("accueil", null, null, null);
     }
 }

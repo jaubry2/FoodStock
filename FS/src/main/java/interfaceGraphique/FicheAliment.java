@@ -34,24 +34,24 @@ public class FicheAliment extends javax.swing.JFrame {
         StockButton3 = new javax.swing.JButton();
         RecetteButton3 = new javax.swing.JButton();
         ListButton3 = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
+        pageFicheAliment = new javax.swing.JPanel();
         NomAlimentText = new javax.swing.JLabel();
         AlimentChoisi = new javax.swing.JTextField();
         SearchButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        NomAlimentText1 = new javax.swing.JLabel();
-        NomAlimentText2 = new javax.swing.JLabel();
-        NomAlimentText3 = new javax.swing.JLabel();
+        DDPText = new javax.swing.JLabel();
+        TypeAlimentText = new javax.swing.JLabel();
+        MDSText = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        TableRecette = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         AlimentName = new javax.swing.JLabel();
         Qte = new javax.swing.JLabel();
         MDS = new javax.swing.JLabel();
         TA = new javax.swing.JLabel();
-        NomAlimentText4 = new javax.swing.JLabel();
+        QteText = new javax.swing.JLabel();
         DDP = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        ModifierAlimButton = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -84,14 +84,7 @@ public class FicheAliment extends javax.swing.JFrame {
         StockButton3.setBackground(new java.awt.Color(153, 204, 255));
         StockButton3.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
         StockButton3.setText("Stock");
-        StockButton3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                StockButton3MouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                StockButton3MouseEntered(evt);
-            }
-        });
+
         StockButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 StockButton3ActionPerformed(evt);
@@ -101,11 +94,7 @@ public class FicheAliment extends javax.swing.JFrame {
         RecetteButton3.setBackground(new java.awt.Color(153, 204, 255));
         RecetteButton3.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
         RecetteButton3.setText("Recette");
-        RecetteButton3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                RecetteButton3MouseClicked(evt);
-            }
-        });
+
         RecetteButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RecetteButton3ActionPerformed(evt);
@@ -115,11 +104,6 @@ public class FicheAliment extends javax.swing.JFrame {
         ListButton3.setBackground(new java.awt.Color(153, 204, 255));
         ListButton3.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
         ListButton3.setText("Liste");
-        ListButton3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ListButton3MouseClicked(evt);
-            }
-        });
         ListButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ListButton3ActionPerformed(evt);
@@ -153,18 +137,13 @@ public class FicheAliment extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1.setBackground(new java.awt.Color(255, 204, 204));
+        pageFicheAliment.setBackground(new java.awt.Color(255, 204, 204));
 
         NomAlimentText.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         NomAlimentText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         NomAlimentText.setText("Nom Aliment :");
 
         AlimentChoisi.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        AlimentChoisi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AlimentChoisiActionPerformed(evt);
-            }
-        });
 
         SearchButton.setText("Actualiser");
         SearchButton.addActionListener(new java.awt.event.ActionListener() {
@@ -177,19 +156,19 @@ public class FicheAliment extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Fiche Aliment");
 
-        NomAlimentText1.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        NomAlimentText1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        NomAlimentText1.setText("Date de Péremption :");
+        DDPText.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        DDPText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        DDPText.setText("Date de Péremption :");
 
-        NomAlimentText2.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        NomAlimentText2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        NomAlimentText2.setText("Type d'Aliment :");
+        TypeAlimentText.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        TypeAlimentText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        TypeAlimentText.setText("Type d'Aliment :");
 
-        NomAlimentText3.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        NomAlimentText3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        NomAlimentText3.setText("Moyen de Stockage :");
+        MDSText.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        MDSText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        MDSText.setText("Moyen de Stockage :");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TableRecette.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -200,12 +179,12 @@ public class FicheAliment extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(TableRecette);
 
         jLabel2.setText("Recettes Associés");
 
         AlimentName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        AlimentName.setText("...");
+        AlimentName.setText(nomAliment);
 
         Qte.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Qte.setText("...");
@@ -216,106 +195,106 @@ public class FicheAliment extends javax.swing.JFrame {
         TA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TA.setText("...");
 
-        NomAlimentText4.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        NomAlimentText4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        NomAlimentText4.setText("Quantite :");
+        QteText.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        QteText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        QteText.setText("Quantite :");
 
         DDP.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         DDP.setText("...");
 
-        jButton1.setText("Supprimer Quantite");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        ModifierAlimButton.setText("Supprimer Quantite");
+        ModifierAlimButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                ModifierAlimButtonActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout pageFicheAlimentLayout = new javax.swing.GroupLayout(pageFicheAliment);
+        pageFicheAliment.setLayout(pageFicheAlimentLayout);
+        pageFicheAlimentLayout.setHorizontalGroup(
+            pageFicheAlimentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pageFicheAlimentLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pageFicheAlimentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(NomAlimentText3)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pageFicheAlimentLayout.createSequentialGroup()
+                        .addGroup(pageFicheAlimentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(pageFicheAlimentLayout.createSequentialGroup()
+                                .addComponent(MDSText)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(MDS, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(NomAlimentText2)
+                            .addGroup(pageFicheAlimentLayout.createSequentialGroup()
+                                .addComponent(TypeAlimentText)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(TA, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(pageFicheAlimentLayout.createSequentialGroup()
                                 .addComponent(NomAlimentText)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(AlimentName, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(NomAlimentText1)
+                            .addGroup(pageFicheAlimentLayout.createSequentialGroup()
+                                .addComponent(DDPText)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 179, Short.MAX_VALUE)
                                 .addComponent(DDP, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(NomAlimentText4)
+                            .addGroup(pageFicheAlimentLayout.createSequentialGroup()
+                                .addComponent(QteText)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(Qte, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(352, 352, 352))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pageFicheAlimentLayout.createSequentialGroup()
                 .addGap(157, 157, 157)
                 .addComponent(jLabel2)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(pageFicheAlimentLayout.createSequentialGroup()
                 .addGap(59, 59, 59)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(ModifierAlimButton)
                 .addGap(33, 33, 33))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pageFicheAlimentLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(AlimentChoisi, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(46, 46, 46)
                 .addComponent(SearchButton)
                 .addGap(240, 240, 240))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        pageFicheAlimentLayout.setVerticalGroup(
+            pageFicheAlimentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pageFicheAlimentLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pageFicheAlimentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pageFicheAlimentLayout.createSequentialGroup()
+                        .addGroup(pageFicheAlimentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(AlimentChoisi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(SearchButton))
                         .addGap(51, 51, 51)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(pageFicheAlimentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(NomAlimentText)
                             .addComponent(AlimentName))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(pageFicheAlimentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Qte)
-                            .addComponent(NomAlimentText4))
+                            .addComponent(QteText))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(NomAlimentText2)
+                        .addGroup(pageFicheAlimentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(TypeAlimentText)
                             .addComponent(TA))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(NomAlimentText3)
+                        .addGroup(pageFicheAlimentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(MDSText)
                             .addComponent(MDS))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(pageFicheAlimentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(DDP)
-                            .addComponent(NomAlimentText1))
+                            .addComponent(DDPText))
                         .addGap(147, 147, 147)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(pageFicheAlimentLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton1)))
+                        .addComponent(ModifierAlimButton)))
                 .addGap(82, 82, 82))
         );
 
@@ -326,60 +305,40 @@ public class FicheAliment extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(Menu3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(pageFicheAliment, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(Menu3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pageFicheAliment, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void MenuTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuTextMouseClicked
-        Accueil mA = new Accueil();
-        mA.setVisible(true);
+    private void MenuTextMouseClicked(java.awt.event.MouseEvent evt) {
+    	Main.controller.ChangerPage("accueil", null, null, null);
         this.dispose();
-    }//GEN-LAST:event_MenuTextMouseClicked
+    }
 
-    private void StockButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StockButton3MouseClicked
-        MenuStock mS = new MenuStock();
-        mS.setVisible(true);
+
+    private void StockButton3ActionPerformed(java.awt.event.ActionEvent evt) {
+    	Main.controller.ChangerPage("menuStock", null, null, null);
         this.dispose();
-    }//GEN-LAST:event_StockButton3MouseClicked
+    }
 
-    private void StockButton3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StockButton3MouseEntered
 
-    }//GEN-LAST:event_StockButton3MouseEntered
-
-    private void StockButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StockButton3ActionPerformed
-        MenuStock mS = new MenuStock();
-        mS.setVisible(true);
+    private void RecetteButton3ActionPerformed(java.awt.event.ActionEvent evt) {
+    	Main.controller.ChangerPage("menuRecette", null, null, null);
         this.dispose();
-    }//GEN-LAST:event_StockButton3ActionPerformed
+    }
 
-    private void RecetteButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RecetteButton3MouseClicked
-        MenuRecette mR = new MenuRecette();
-        mR.setVisible(true);
+    private void ListButton3ActionPerformed(java.awt.event.ActionEvent evt) {
+    	Main.controller.ChangerPage("menuListe", null, null, null);
         this.dispose();
-    }//GEN-LAST:event_RecetteButton3MouseClicked
+    }
 
-    private void RecetteButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RecetteButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_RecetteButton3ActionPerformed
-
-    private void ListButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListButton3MouseClicked
-        MenuListe mL = new MenuListe();
-        mL.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_ListButton3MouseClicked
-
-    private void ListButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ListButton3ActionPerformed
-
-    private void SearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchButtonActionPerformed
+    private void SearchButtonActionPerformed(java.awt.event.ActionEvent evt) {
         String ac;
         
         ac = AlimentChoisi.getText();
@@ -406,17 +365,12 @@ public class FicheAliment extends javax.swing.JFrame {
         TA.setText(ta);
         MDS.setText(mds);
         DDP.setText(ddp);
-    }//GEN-LAST:event_SearchButtonActionPerformed
+    }
 
-    private void AlimentChoisiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AlimentChoisiActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AlimentChoisiActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        ModifierUnAliment mM = new ModifierUnAliment();
-        mM.setVisible(true);
+    private void ModifierAlimButtonActionPerformed(java.awt.event.ActionEvent evt) {
+    	Main.controller.ChangerPage("modifierUnAliment", null, null, null);
         this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }
 
     /**
      * @param args the command line arguments
@@ -462,21 +416,21 @@ public class FicheAliment extends javax.swing.JFrame {
     private javax.swing.JPanel Menu3;
     private javax.swing.JLabel MenuText;
     private javax.swing.JLabel NomAlimentText;
-    private javax.swing.JLabel NomAlimentText1;
-    private javax.swing.JLabel NomAlimentText2;
-    private javax.swing.JLabel NomAlimentText3;
-    private javax.swing.JLabel NomAlimentText4;
+    private javax.swing.JLabel DDPText;
+    private javax.swing.JLabel TypeAlimentText;
+    private javax.swing.JLabel MDSText;
+    private javax.swing.JLabel QteText;
     private javax.swing.JLabel Qte;
     private javax.swing.JButton RecetteButton3;
     private javax.swing.JButton SearchButton;
     private javax.swing.JButton StockButton3;
     private javax.swing.JLabel TA;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton ModifierAlimButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel pageFicheAliment;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable TableRecette;
     // End of variables declaration//GEN-END:variables
 }
