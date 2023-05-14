@@ -11,7 +11,51 @@ import modeleDeDonnees.TypeAliment;
  * @author julesa
  */
 public class Accueil extends javax.swing.JFrame {
-    /**
+	/*
+	 * Bouton Liste dans le menu
+	 */
+    private javax.swing.JButton ListButton3;
+    /*
+	 * Panel du menu
+	 */
+    private javax.swing.JPanel Menu3;
+    /*
+	 * Text Menu dans le menu
+	 */
+    private javax.swing.JLabel MenuText;
+    /*
+	 * Bouton Recette dans le menu
+	 */
+    private javax.swing.JButton RecetteButton3;
+    /*
+     * Bouton Stock dans le menu
+     */
+    private javax.swing.JButton StockButton3;
+    /*
+     * Nom de l'entreprise 
+     */
+    private javax.swing.JLabel CorpName;
+    /*
+     * Text au dessus de la table des aliments perimes
+     */
+    private javax.swing.JLabel textTablePerime;
+    /*
+     * 
+     */
+    private javax.swing.JMenu jMenu1;
+    /*
+     * Panel de la page d'accueil
+     */
+    private javax.swing.JPanel pageAccueil;
+    /*
+     * Table des aliments perime
+     */
+    private javax.swing.JScrollPane jScrollPane1;
+    /*
+     * Table des aliments perime
+     */
+    private javax.swing.JTable jTable1;
+	/**
      * Creates new form Accueil
      */
     public Accueil() {
@@ -30,11 +74,11 @@ public class Accueil extends javax.swing.JFrame {
         StockButton3 = new javax.swing.JButton();
         RecetteButton3 = new javax.swing.JButton();
         ListButton3 = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        pageAccueil = new javax.swing.JPanel();
+        CorpName = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jLabel2 = new javax.swing.JLabel();
+        textTablePerime = new javax.swing.JLabel();
 
         jMenu1.setText("jMenu1");
 
@@ -48,7 +92,7 @@ public class Accueil extends javax.swing.JFrame {
         Menu3.setBackground(new java.awt.Color(153, 204, 255));
         Menu3.setForeground(new java.awt.Color(51, 204, 255));
 
-        MenuText.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        MenuText.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); 
         MenuText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         MenuText.setText("MENU");
         MenuText.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -58,7 +102,7 @@ public class Accueil extends javax.swing.JFrame {
         });
 
         StockButton3.setBackground(new java.awt.Color(153, 204, 255));
-        StockButton3.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        StockButton3.setFont(new java.awt.Font("Helvetica Neue", 0, 14));
         StockButton3.setText("Stock");
         StockButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,7 +111,7 @@ public class Accueil extends javax.swing.JFrame {
         });
 
         RecetteButton3.setBackground(new java.awt.Color(153, 204, 255));
-        RecetteButton3.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        RecetteButton3.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); 
         RecetteButton3.setText("Recette");
         RecetteButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,7 +120,7 @@ public class Accueil extends javax.swing.JFrame {
         });
 
         ListButton3.setBackground(new java.awt.Color(153, 204, 255));
-        ListButton3.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        ListButton3.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); 
         ListButton3.setText("Liste");
         ListButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,11 +155,11 @@ public class Accueil extends javax.swing.JFrame {
                 .addContainerGap(436, Short.MAX_VALUE))
         );
 
-        jPanel2.setBackground(new java.awt.Color(255, 204, 204));
+        pageAccueil.setBackground(new java.awt.Color(255, 204, 204));
 
-        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 0, 48)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("FOODSTOCK");
+        CorpName.setFont(new java.awt.Font("Helvetica Neue", 0, 48)); 
+        CorpName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        CorpName.setText("FOODSTOCK");
 
         /*jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -142,29 +186,29 @@ public class Accueil extends javax.swing.JFrame {
         jTable1.setModel(model);
         jScrollPane1.setViewportView(jTable1);
 
-        jLabel2.setText("Aliments bientôt périmés");
+        textTablePerime.setText("Aliments bientôt périmés");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout pageAccueilLayout = new javax.swing.GroupLayout(pageAccueil);
+        pageAccueil.setLayout(pageAccueilLayout);
+        pageAccueilLayout.setHorizontalGroup(
+            pageAccueilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(CorpName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(pageAccueilLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1)
                 .addContainerGap())
-            .addGroup(jPanel2Layout.createSequentialGroup()
+            .addGroup(pageAccueilLayout.createSequentialGroup()
                 .addGap(358, 358, 358)
-                .addComponent(jLabel2)
+                .addComponent(textTablePerime)
                 .addContainerGap(365, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        pageAccueilLayout.setVerticalGroup(
+            pageAccueilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pageAccueilLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addComponent(CorpName)
                 .addGap(29, 29, 29)
-                .addComponent(jLabel2)
+                .addComponent(textTablePerime)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -177,12 +221,12 @@ public class Accueil extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(Menu3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(pageAccueil, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(Menu3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pageAccueil, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -224,11 +268,6 @@ public class Accueil extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -247,40 +286,11 @@ public class Accueil extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        /* Create and display the form */
+        /* Creer et affiche la page */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Accueil().setVisible(true);
             }
         });
     }
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton ListButton;
-    private javax.swing.JButton ListButton1;
-    private javax.swing.JButton ListButton2;
-    private javax.swing.JButton ListButton3;
-    private javax.swing.JPanel Menu;
-    private javax.swing.JPanel Menu1;
-    private javax.swing.JPanel Menu2;
-    private javax.swing.JPanel Menu3;
-    private javax.swing.JLabel MenuText;
-    private javax.swing.JButton RecetteButton;
-    private javax.swing.JButton RecetteButton1;
-    private javax.swing.JButton RecetteButton2;
-    private javax.swing.JButton RecetteButton3;
-    private javax.swing.JButton StockButton;
-    private javax.swing.JButton StockButton1;
-    private javax.swing.JButton StockButton2;
-    private javax.swing.JButton StockButton3;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    // End of variables declaration//GEN-END:variables
 }

@@ -9,6 +9,28 @@ import java.util.*;
 
 public class AjouterAliment extends javax.swing.JFrame {
 
+    private javax.swing.JButton ListButton3;
+    private javax.swing.JPanel Menu3;
+    private javax.swing.JLabel MenuText;
+    private javax.swing.JButton ModiferButton;
+    private javax.swing.JButton RecetteButton3;
+    private javax.swing.JButton StockButton3;
+    private javax.swing.JButton SupprimerButton;
+    private javax.swing.JTable TableAliments;
+    private javax.swing.JButton boutonAjouter;
+    private javax.swing.JLabel TitrePage;
+    private javax.swing.JLabel DDPText;
+    private javax.swing.JLabel QuantiteText;
+    private javax.swing.JLabel NomAlimentText;
+    private javax.swing.JPanel PageAjouterAliment;
+    private javax.swing.JScrollPane jScrollPaneAliment;
+    private javax.swing.JScrollPane ScrollPaneTableAliment;
+    private javax.swing.JTable TableAliment;
+    private javax.swing.JComboBox<String> txtAnnee;
+    private javax.swing.JComboBox<String> txtJour;
+    private javax.swing.JComboBox<String> txtMois;
+    private javax.swing.JTextField txtNom;
+    private javax.swing.JTextField txtQte;
 
     DefaultTableModel d = new DefaultTableModel();
     
@@ -25,29 +47,95 @@ public class AjouterAliment extends javax.swing.JFrame {
      * Initialise les composants JSwing
      */
     private void initComponents() {
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        /*
+         * JScrollPane des aliments
+         */
+    	jScrollPaneAliment = new javax.swing.JScrollPane();
+        /*
+         * Table des aliments
+         */
+    	TableAliment = new javax.swing.JTable();
+        /*
+         * Panel de la page ajouter aliment
+         */
+    	PageAjouterAliment = new javax.swing.JPanel();
+        /*
+         * Titre de la page
+         */
+    	TitrePage = new javax.swing.JLabel();
+        /*
+         * Text pour recuperer le nom de l'aliment
+         */
         txtNom = new javax.swing.JTextField();
+        /*
+         * Text pour recuperer la quantite de l'aliment
+         */
         txtQte = new javax.swing.JTextField();
+        /*
+         * Boite qui permet de recuperer le jour de la date de peremption
+         */
         txtJour = new javax.swing.JComboBox<>();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jScrollPane4 = new javax.swing.JScrollPane();
+        /*
+         * Text quantite
+         */
+        QuantiteText = new javax.swing.JLabel();
+        /*
+         * Text date de peremption
+         */
+        DDPText = new javax.swing.JLabel();
+        /*
+         * ScrollPane de la table d'aliment
+         */
+        ScrollPaneTableAliment = new javax.swing.JScrollPane();
+        /*
+         * Table des aliments
+         */
         TableAliments = new javax.swing.JTable();
+        /*
+         * Bouton ajouter à la table
+         */
         boutonAjouter = new javax.swing.JButton();
+        /*
+         * Boite qui permet de recuperer le mois de la date de peremption
+         */
         txtMois = new javax.swing.JComboBox<>();
+        /*
+         * Boite qui permet de recuperer l'annee de la date de peremption
+         */
         txtAnnee = new javax.swing.JComboBox<>();
-        jLabel5 = new javax.swing.JLabel();
+        /*
+         * Text nom aliment
+         */
+        NomAlimentText = new javax.swing.JLabel();
+        /*
+         * Bouton supprimer
+         */
         SupprimerButton = new javax.swing.JButton();
+        /*
+         * Bouton modifier
+         */
         ModiferButton = new javax.swing.JButton();
+        /*
+    	 * Panel du menu
+    	 */
         Menu3 = new javax.swing.JPanel();
+        /*
+    	 * Text Menu dans le menu
+    	 */
         MenuText = new javax.swing.JLabel();
+        /*
+    	 * Bouton stock dans le menu
+    	 */
         StockButton3 = new javax.swing.JButton();
+        /*
+    	 * Bouton recette dans le menu
+    	 */
         RecetteButton3 = new javax.swing.JButton();
+        /*
+    	 * Bouton liste dans le menu
+    	 */
         ListButton3 = new javax.swing.JButton();
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        TableAliment.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -58,7 +146,7 @@ public class AjouterAliment extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane3.setViewportView(jTable2);
+        jScrollPaneAliment.setViewportView(TableAliment);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -67,44 +155,29 @@ public class AjouterAliment extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(1020, 768));
         setPreferredSize(new java.awt.Dimension(1020, 768));
 
-        jPanel2.setBackground(new java.awt.Color(255, 204, 204));
+        PageAjouterAliment.setBackground(new java.awt.Color(255, 204, 204));
 
-        jLabel1.setFont(new java.awt.Font("PCMyungjo", 0, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("ALIMENT");
+        TitrePage.setFont(new java.awt.Font("PCMyungjo", 0, 24)); 
+        TitrePage.setForeground(new java.awt.Color(255, 0, 0));
+        TitrePage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        TitrePage.setText("ALIMENT");
 
-        txtNom.setFont(new java.awt.Font("Helvetica Neue", 0, 12)); // NOI18N
+        txtNom.setFont(new java.awt.Font("Helvetica Neue", 0, 12));
         txtNom.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtNom.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNomActionPerformed(evt);
-            }
-        });
 
-        txtQte.setFont(new java.awt.Font("Helvetica Neue", 0, 12)); // NOI18N
+        txtQte.setFont(new java.awt.Font("Helvetica Neue", 0, 12)); 
         txtQte.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtQte.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtQteActionPerformed(evt);
-            }
-        });
 
-        txtJour.setFont(new java.awt.Font("Helvetica Neue", 0, 12)); // NOI18N
+        txtJour.setFont(new java.awt.Font("Helvetica Neue", 0, 12)); 
         txtJour.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Jour--", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
         txtJour.setName(""); // NOI18N
-        txtJour.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtJourActionPerformed(evt);
-            }
-        });
 
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel4.setText("Quantité :");
+        QuantiteText.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        QuantiteText.setText("Quantité :");
 
-        jLabel3.setFont(new java.awt.Font("Helvetica Neue", 0, 12)); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel3.setText("Date de Péremption :");
+        DDPText.setFont(new java.awt.Font("Helvetica Neue", 0, 12)); 
+        DDPText.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        DDPText.setText("Date de Péremption :");
 
         TableAliments.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -126,9 +199,9 @@ public class AjouterAliment extends javax.swing.JFrame {
         TableAliments.setRowHeight(25);
         TableAliments.setSelectionBackground(new java.awt.Color(232, 57, 95));
         TableAliments.getTableHeader().setReorderingAllowed(false);
-        jScrollPane4.setViewportView(TableAliments);
+        ScrollPaneTableAliment.setViewportView(TableAliments);
 
-        boutonAjouter.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        boutonAjouter.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); 
         boutonAjouter.setText("AJOUTER");
         boutonAjouter.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         boutonAjouter.addActionListener(new java.awt.event.ActionListener() {
@@ -137,104 +210,95 @@ public class AjouterAliment extends javax.swing.JFrame {
             }
         });
 
-        txtMois.setFont(new java.awt.Font("Helvetica Neue", 0, 12)); // NOI18N
+        txtMois.setFont(new java.awt.Font("Helvetica Neue", 0, 12)); 
         txtMois.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Mois--", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", " " }));
-        txtMois.setName(""); // NOI18N
-        txtMois.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtMoisActionPerformed(evt);
-            }
-        });
+        txtMois.setName(""); 
+ 
 
-        txtAnnee.setFont(new java.awt.Font("Helvetica Neue", 0, 12)); // NOI18N
-        txtAnnee.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Annee--", "2023", "2024", "2025", "2026", " " }));
-        txtAnnee.setName(""); // NOI18N
-        txtAnnee.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAnneeActionPerformed(evt);
-            }
-        });
+        txtAnnee.setFont(new java.awt.Font("Helvetica Neue", 0, 12)); 
+        txtAnnee.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Annee--", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032" }));
+        txtAnnee.setName(""); 
 
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel5.setText("Nom :");
+        NomAlimentText.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        NomAlimentText.setText("Nom :");
 
-        SupprimerButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        SupprimerButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); 
         SupprimerButton.setText("SUPPRIMER");
         SupprimerButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        ModiferButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        ModiferButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); 
         ModiferButton.setText("MODIFIER");
         ModiferButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout PageAjouterAlimentLayout = new javax.swing.GroupLayout(PageAjouterAliment);
+        PageAjouterAliment.setLayout(PageAjouterAlimentLayout);
+        PageAjouterAlimentLayout.setHorizontalGroup(
+            PageAjouterAlimentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PageAjouterAlimentLayout.createSequentialGroup()
+                .addGroup(PageAjouterAlimentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PageAjouterAlimentLayout.createSequentialGroup()
                         .addGap(225, 225, 225)
-                        .addComponent(jLabel4)
+                        .addComponent(QuantiteText)
                         .addGap(63, 63, 63)
                         .addComponent(txtQte, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PageAjouterAlimentLayout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(PageAjouterAlimentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(PageAjouterAlimentLayout.createSequentialGroup()
+                                .addComponent(DDPText, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(68, 68, 68)
                                 .addComponent(txtJour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(50, 50, 50)
                                 .addComponent(txtMois, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addGroup(PageAjouterAlimentLayout.createSequentialGroup()
                                 .addComponent(boutonAjouter)
                                 .addGap(97, 97, 97)
                                 .addComponent(ModiferButton)))
                         .addGap(82, 82, 82)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(PageAjouterAlimentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(txtAnnee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(SupprimerButton))))
                 .addGap(279, 279, 279))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 923, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+            .addGroup(PageAjouterAlimentLayout.createSequentialGroup()
+                .addGroup(PageAjouterAlimentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(TitrePage, javax.swing.GroupLayout.PREFERRED_SIZE, 923, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(PageAjouterAlimentLayout.createSequentialGroup()
                         .addGap(81, 81, 81)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 716, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(ScrollPaneTableAliment, javax.swing.GroupLayout.PREFERRED_SIZE, 716, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PageAjouterAlimentLayout.createSequentialGroup()
                         .addGap(238, 238, 238)
-                        .addComponent(jLabel5)
+                        .addComponent(NomAlimentText)
                         .addGap(48, 48, 48)
                         .addComponent(txtNom, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        PageAjouterAlimentLayout.setVerticalGroup(
+            PageAjouterAlimentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PageAjouterAlimentLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(TitrePage, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(PageAjouterAlimentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(NomAlimentText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(25, 25, 25)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(PageAjouterAlimentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtQte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(QuantiteText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(PageAjouterAlimentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtJour, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtMois, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtAnnee, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
+                    .addComponent(DDPText))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(PageAjouterAlimentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(boutonAjouter, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(SupprimerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ModiferButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ScrollPaneTableAliment, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36))
         );
 
@@ -244,7 +308,7 @@ public class AjouterAliment extends javax.swing.JFrame {
         Menu3.setBackground(new java.awt.Color(153, 204, 255));
         Menu3.setForeground(new java.awt.Color(51, 204, 255));
 
-        MenuText.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        MenuText.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); 
         MenuText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         MenuText.setText("MENU");
         MenuText.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -254,7 +318,7 @@ public class AjouterAliment extends javax.swing.JFrame {
         });
 
         StockButton3.setBackground(new java.awt.Color(153, 204, 255));
-        StockButton3.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        StockButton3.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); 
         StockButton3.setText("Stock");
         StockButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -263,7 +327,7 @@ public class AjouterAliment extends javax.swing.JFrame {
         });
 
         RecetteButton3.setBackground(new java.awt.Color(153, 204, 255));
-        RecetteButton3.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        RecetteButton3.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); 
         RecetteButton3.setText("Recette");
         RecetteButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -272,7 +336,7 @@ public class AjouterAliment extends javax.swing.JFrame {
         });
 
         ListButton3.setBackground(new java.awt.Color(153, 204, 255));
-        ListButton3.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        ListButton3.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); 
         ListButton3.setText("Liste");
         ListButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -314,19 +378,22 @@ public class AjouterAliment extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(Menu3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(PageAjouterAliment, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(PageAjouterAliment, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(Menu3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         setSize(new java.awt.Dimension(1040, 490));
         setLocationRelativeTo(null);
-    }// </editor-fold>//GEN-END:initComponents
-
-    private void boutonAjouterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boutonAjouterActionPerformed
+    }
+    /**
+     * Ajouter un aliment à la table
+     * @param evt Click de la souris sur le bouton
+     */
+    private void boutonAjouterActionPerformed(java.awt.event.ActionEvent evt) {
         String nom;
         String quantite;
         Date DDP;
@@ -377,27 +444,7 @@ public class AjouterAliment extends javax.swing.JFrame {
         /* Ajout à la Table */
         String[] ligne = new String[] {nom, quantite, ddp};
         d.addRow(ligne);
-    }//GEN-LAST:event_boutonAjouterActionPerformed
-
-    private void txtJourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtJourActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtJourActionPerformed
-
-    private void txtQteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtQteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtQteActionPerformed
-
-    private void txtNomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNomActionPerformed
-
-    private void txtMoisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMoisActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtMoisActionPerformed
-
-    private void txtAnneeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAnneeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtAnneeActionPerformed
+    }
     /**
     * Permet d'ouvrir le menu stock
     * @param evt Click sur le bouton Stock
@@ -435,11 +482,6 @@ public class AjouterAliment extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -456,10 +498,6 @@ public class AjouterAliment extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(AjouterAliment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -468,29 +506,4 @@ public class AjouterAliment extends javax.swing.JFrame {
             }
         });
     }
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton ListButton3;
-    private javax.swing.JPanel Menu3;
-    private javax.swing.JLabel MenuText;
-    private javax.swing.JButton ModiferButton;
-    private javax.swing.JButton RecetteButton3;
-    private javax.swing.JButton StockButton3;
-    private javax.swing.JButton SupprimerButton;
-    private javax.swing.JTable TableAliments;
-    private javax.swing.JButton boutonAjouter;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JComboBox<String> txtAnnee;
-    private javax.swing.JComboBox<String> txtJour;
-    private javax.swing.JComboBox<String> txtMois;
-    private javax.swing.JTextField txtNom;
-    private javax.swing.JTextField txtQte;
-    // End of variables declaration//GEN-END:variables
 }
