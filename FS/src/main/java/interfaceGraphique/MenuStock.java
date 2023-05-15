@@ -287,8 +287,8 @@ public class MenuStock extends javax.swing.JFrame {
 
     private void StockButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StockButtonActionPerformed
         MenuStock mS = new MenuStock();
-        mS.setVisible(true);
-        this.dispose();
+        this.dispose();        
+    	Main.controller.ChangerPage("accueil", null, null, null);
     }//GEN-LAST:event_StockButtonActionPerformed
 
     private void RecetteButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RecetteButtonMouseClicked

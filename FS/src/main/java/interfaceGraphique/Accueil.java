@@ -192,15 +192,16 @@ public class Accueil extends javax.swing.JFrame {
     * @param evt Click sur le bouton Stock
     */
     private void StockButton3ActionPerformed(java.awt.event.ActionEvent evt) {
-        /*Main.controller.ChangerPage("menuStock", null, null, null);*/
         this.dispose();
+        Main.controller.ChangerPage("menuStock", null, null, null);
+
     }
     /**
     * Permet d'ouvrir le menu recette
     * @param evt Click sur le bouton Recette
     */
     private void RecetteButton3ActionPerformed(java.awt.event.ActionEvent evt) {
-        /*Main.controller.ChangerPage("menuRecette", null, null, null);*/
+        Main.controller.ChangerPage("menuRecette", null, null, null);
         this.dispose();
     }
     /**
