@@ -1,3 +1,4 @@
+interfaceGraphique\FermetureFenetre.class
 baseDeDonnees\StockService.class
 interfaceGraphique\MenuRecette$4.class
 interfaceGraphique\AjouterAliment$3.class
@@ -6,7 +7,6 @@ interfaceGraphique\MenuStock$2.class
 interfaceGraphique\ModifierUnAliment$6.class
 interfaceGraphique\FenetreErreur$2.class
 interfaceGraphique\MenuRecette$7.class
-interfaceGraphique\MainNew.class
 interfaceGraphique\MenuRecette$8.class
 interfaceGraphique\AjouterAliment.class
 interfaceGraphique\ModifierUnAliment$9.class
@@ -46,8 +46,8 @@ interfaceGraphique\ModifierUnAliment$13.class
 interfaceGraphique\ModifierUnAliment$8.class
 interfaceGraphique\Accueil$1.class
 interfaceGraphique\AjouterAliment$12.class
-interfaceGraphique\PanelMenu.class
 interfaceGraphique\ModifierUnAliment$14.class
+modeleDeDonnees\AlimentsNonPresentException.class
 interfaceGraphique\ModifierUnAliment$1.class
 interfaceGraphique\AjouterAliment$8.class
 interfaceGraphique\FicheAliment$5.class
@@ -67,13 +67,11 @@ interfaceGraphique\AjouterAliment$1.class
 interfaceGraphique\MenuStock$6.class
 interfaceGraphique\AjouterAliment$2.class
 interfaceGraphique\ModifierUnAliment$7.class
-interfaceGraphique\FenetreAccueil.class
 modeleDeDonnees\AlimentStockes.class
 interfaceGraphique\FicheAliment$4.class
 interfaceGraphique\FicheAliment$1.class
 interfaceGraphique\MenuStock$10.class
 modeleDeDonnees\Aliments.class
-interfaceGraphique\PanelStock.class
 interfaceGraphique\MenuRecette$1.class
 interfaceGraphique\ModifierUnAliment$3.class
 interfaceGraphique\Accueil.class

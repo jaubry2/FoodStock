@@ -178,7 +178,7 @@ public void ajouterAliment(String nomStock ,AlimentStockes alimentsStock) {
                 return aliment;
             }
         }
-        return null;
+        throw new AlimentsNonPresentException(nom);
     }
     /**
      * Renvoie la liste d'objets AlimentStockes associée à la clé donnée, ou une nouvelle liste vide si la clé n'est pas trouvée.

@@ -3,6 +3,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package interfaceGraphique;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.swing.table.DefaultTableModel;
+
+import modeleDeDonnees.AlimentStockes;
+import modeleDeDonnees.Aliments;
+import modeleDeDonnees.AlimentsNonPresentException;
+
 /**
  *
  * @author julesa
@@ -48,6 +60,33 @@ public class Controller {
 
             
         }
+ public void AjouterStock(DefaultTableModel d) {
+    	
+    	List<AlimentStockes> listRajout= new ArrayList<>();
+    	
+    	for (int ligne = 0; ligne < d.getRowCount(); ligne++) {
+    		
+	    	try {
+	
+		    	String nom = (String) d.getValueAt(ligne, 0);
+		 
+		    	int quantite = Integer.parseInt( (String) d.getValueAt(ligne, 1));
+		    	
+		    	LocalDate datePeremption = LocalDate.parse((String) d.getValueAt(ligne, 2),DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+
+		    	Aliments aliment = Main.stocks.getAlimentByName(Main.listAliments,nom);
+		    	
+		    	AlimentStockes alimentRajout= new AlimentStockes(aliment,quantite,datePeremption);
+		    	    	listRajout.add(alimentRajout);
+	    	} catch(AlimentsNonPresentException e) {
+	    		e.getMessage();
+	    	}
+
+    	}
+        Main.stocks.ajouterListe("principal",listRajout );
+        Main.stocks.afficherContenuStock();
+        
+    };
     }
         
 

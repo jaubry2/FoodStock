@@ -22,6 +22,8 @@ public class MenuStock extends javax.swing.JFrame {
      */
     public MenuStock() {
         initComponents();
+        this.addWindowListener(new FermetureFenetre());
+
     }
 
     /**

@@ -7,8 +7,10 @@ package interfaceGraphique ;
 import java.util.List;
 
 import baseDeDonnees.AlimentStockeService;
+import baseDeDonnees.AlimentsService;
 import baseDeDonnees.HibernateService;
 import modeleDeDonnees.AlimentStockes;
+import modeleDeDonnees.Aliments;
 import modeleDeDonnees.Stock;
 
 /**
@@ -22,15 +24,17 @@ public class Main {
      * Controleur qui permet de mettre à jour les informations
      */
     public static final Controller controller = new Controller();
-	
+    public static List<Aliments> listAliments;
     
     public static void main(String[] args) {
     	HibernateService.CreerConfig();
         // importation de la base 
         stocks = new Stock();
+        listAliments = AlimentsService.importerTableAliment();
 		List<AlimentStockes> list=AlimentStockeService.importerTableAlimentStock();
 		stocks.remplirstock("principal",list );
-		FenetreAccueil ac = new FenetreAccueil();
+		stocks.afficherContenuStock();
+		Accueil ac = new Accueil();
 		ac.setVisible(true);
     }
 }

@@ -15,6 +15,8 @@ public class MenuListe extends javax.swing.JFrame {
      */
     public MenuListe() {
         initComponents();
+        this.addWindowListener(new FermetureFenetre());
+
     }
 
     /**

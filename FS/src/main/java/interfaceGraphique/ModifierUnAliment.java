@@ -15,6 +15,8 @@ public class ModifierUnAliment extends javax.swing.JFrame {
      */
     public ModifierUnAliment() {
         initComponents();
+        this.addWindowListener(new FermetureFenetre());
+
     }
 
     /**

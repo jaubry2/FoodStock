@@ -17,6 +17,7 @@ public class Accueil extends javax.swing.JFrame {
      */
     public Accueil() {
         initComponents();
+        this.addWindowListener(new FermetureFenetre());
     }
 
     @SuppressWarnings("unchecked")

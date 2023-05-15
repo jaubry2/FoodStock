@@ -17,6 +17,8 @@ public class FicheAliment extends javax.swing.JFrame {
     public FicheAliment(String nom) {
         this.nomAliment = nom;
         initComponents();
+        this.addWindowListener(new FermetureFenetre());
+
     }
 
     /**

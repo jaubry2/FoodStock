@@ -44,6 +44,8 @@ public class AjouterAliment extends javax.swing.JFrame {
     public AjouterAliment() {
         initComponents();
         d = (DefaultTableModel) TableAliments.getModel();
+        this.addWindowListener(new FermetureFenetre());
+
     }
 
     @SuppressWarnings("unchecked")
@@ -119,7 +121,7 @@ public class AjouterAliment extends javax.swing.JFrame {
         });
 
         txtJour.setFont(new java.awt.Font("Helvetica Neue", 0, 12)); // NOI18N
-        txtJour.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Jour--", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        txtJour.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Jour--", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
         txtJour.setName(""); // NOI18N
         txtJour.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -457,7 +459,7 @@ public class AjouterAliment extends javax.swing.JFrame {
     * @param evt Click sur le bouton Stock
     */
     private void StockButton3ActionPerformed(java.awt.event.ActionEvent evt) {
-        Stock newPage = new Stock();
+        MenuStock newPage = new MenuStock();
 		newPage.setVisible(true);
         this.dispose();
     }
@@ -491,6 +493,7 @@ public class AjouterAliment extends javax.swing.JFrame {
 
     private void AddStockButtonActionPerformed(java.awt.event.ActionEvent evt) {                                               
         // TODO add your handling code here:
+    	Main.controller.AjouterStock(d);
     }                                              
 
     private void AddTicketButtonActionPerformed(java.awt.event.ActionEvent evt) {                                                
