@@ -10,6 +10,32 @@ import java.util.*;
 public class AjouterAliment extends javax.swing.JFrame {
 
 
+    private javax.swing.JButton ListButton3;
+    private javax.swing.JButton AddStockButton;
+    private javax.swing.JButton AddTicketButton;
+    private javax.swing.JPanel Menu3;
+    private javax.swing.JLabel MenuText;
+    private javax.swing.JButton ModiferButton;
+    private javax.swing.JButton RecetteButton3;
+    private javax.swing.JButton StockButton3;
+    private javax.swing.JButton SupprimerButton;
+    private javax.swing.JTable TableAliments;
+    private javax.swing.JButton boutonAjouter;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JTable jTable2;
+    private javax.swing.JComboBox<String> txtAnnee;
+    private javax.swing.JComboBox<String> txtJour;
+    private javax.swing.JComboBox<String> txtMois;
+    private javax.swing.JTextField txtNom;
+    private javax.swing.JTextField txtQte;
+
+
     DefaultTableModel d = new DefaultTableModel();
     
     /**
@@ -431,7 +457,8 @@ public class AjouterAliment extends javax.swing.JFrame {
     * @param evt Click sur le bouton Stock
     */
     private void StockButton3ActionPerformed(java.awt.event.ActionEvent evt) {
-        Main.controller.ChangerPage("menuStock", null, null, null);
+        Stock newPage = new Stock();
+		newPage.setVisible(true);
         this.dispose();
     }
     /**
@@ -439,7 +466,8 @@ public class AjouterAliment extends javax.swing.JFrame {
     * @param evt Click sur le bouton Recette
     */
     private void RecetteButton3ActionPerformed(java.awt.event.ActionEvent evt) {
-        Main.controller.ChangerPage("menuRecette", null, null, null);
+        MenuRecette newPage = new MenuRecette();
+		newPage.setVisible(true);
         this.dispose();
     }
     /**
@@ -447,7 +475,8 @@ public class AjouterAliment extends javax.swing.JFrame {
      * @param evt Click sur le bouton Liste
      */
     private void ListButton3ActionPerformed(java.awt.event.ActionEvent evt) {
-        Main.controller.ChangerPage("menuListe", null, null, null);
+        MenuListe newPage = new MenuListe();
+		newPage.setVisible(true);
         this.dispose();
     }
     /**
@@ -455,7 +484,8 @@ public class AjouterAliment extends javax.swing.JFrame {
      * @param evt Click sur le text menu
      */
     private void MenuTextMouseClicked(java.awt.event.MouseEvent evt) {
-        Main.controller.ChangerPage("accueil", null, null, null);
+        Accueil newPage = new Accueil();
+		newPage.setVisible(true);
         this.dispose();
     }
 
@@ -492,10 +522,6 @@ public class AjouterAliment extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(AjouterAliment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -504,31 +530,4 @@ public class AjouterAliment extends javax.swing.JFrame {
             }
         });
     }
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton ListButton3;
-    private javax.swing.JButton AddStockButton;
-    private javax.swing.JButton AddTicketButton;
-    private javax.swing.JPanel Menu3;
-    private javax.swing.JLabel MenuText;
-    private javax.swing.JButton ModiferButton;
-    private javax.swing.JButton RecetteButton3;
-    private javax.swing.JButton StockButton3;
-    private javax.swing.JButton SupprimerButton;
-    private javax.swing.JTable TableAliments;
-    private javax.swing.JButton boutonAjouter;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JComboBox<String> txtAnnee;
-    private javax.swing.JComboBox<String> txtJour;
-    private javax.swing.JComboBox<String> txtMois;
-    private javax.swing.JTextField txtNom;
-    private javax.swing.JTextField txtQte;
-    // End of variables declaration//GEN-END:variables
 }

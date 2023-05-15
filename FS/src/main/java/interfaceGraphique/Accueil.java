@@ -195,17 +195,20 @@ public class Accueil extends javax.swing.JFrame {
     */
     private void StockButton3ActionPerformed(java.awt.event.ActionEvent evt) {
     	/*remove(panelTout);*/
-        Main.controller.ChangerPage("menuStock", null, null, null);
+        /* Main.controller.ChangerPage("menuStock", null, null, null);
         this.dispose();
-
-
+        */
+        MenuStock newPage = new MenuStock();
+		newPage.setVisible(true);
+        this.dispose();
     }
     /**
     * Permet d'ouvrir le menu recette
     * @param evt Click sur le bouton Recette
     */
     private void RecetteButton3ActionPerformed(java.awt.event.ActionEvent evt) {
-        Main.controller.ChangerPage("menuRecette", null, null, null);
+        MenuRecette newPage = new MenuRecette();
+		newPage.setVisible(true);
         this.dispose();
     }
     /**
@@ -213,7 +216,8 @@ public class Accueil extends javax.swing.JFrame {
      * @param evt Click sur le bouton Liste
      */
     private void ListButton3ActionPerformed(java.awt.event.ActionEvent evt) {
-        Main.controller.ChangerPage("menuListe", null, null, null);
+        MenuListe newPage = new MenuListe();
+		newPage.setVisible(true);
         this.dispose();
     }
     /**
@@ -221,7 +225,8 @@ public class Accueil extends javax.swing.JFrame {
      * @param evt Click sur le text menu
      */
     private void MenuTextMouseClicked(java.awt.event.MouseEvent evt) {
-        Main.controller.ChangerPage("accueil", null, null, null);
+        Accueil newPage = new Accueil();
+		newPage.setVisible(true);
         this.dispose();
     }
 

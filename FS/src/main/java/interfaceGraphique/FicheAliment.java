@@ -317,24 +317,28 @@ public class FicheAliment extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void MenuTextMouseClicked(java.awt.event.MouseEvent evt) {
-    	Main.controller.ChangerPage("accueil", null, null, null);
+    	Accueil newPage = new Accueil();
+		newPage.setVisible(true);
         this.dispose();
     }
 
 
     private void StockButton3ActionPerformed(java.awt.event.ActionEvent evt) {
-    	Main.controller.ChangerPage("menuStock", null, null, null);
+    	MenuStock newPage = new MenuStock();
+		newPage.setVisible(true);
         this.dispose();
     }
 
 
     private void RecetteButton3ActionPerformed(java.awt.event.ActionEvent evt) {
-    	Main.controller.ChangerPage("menuRecette", null, null, null);
+    	MenuRecette newPage = new MenuRecette();
+		newPage.setVisible(true);
         this.dispose();
     }
 
     private void ListButton3ActionPerformed(java.awt.event.ActionEvent evt) {
-    	Main.controller.ChangerPage("menuListe", null, null, null);
+    	MenuListe newPage = new MenuListe();
+		newPage.setVisible(true);
         this.dispose();
     }
 
@@ -368,7 +372,8 @@ public class FicheAliment extends javax.swing.JFrame {
     }
 
     private void ModifierAlimButtonActionPerformed(java.awt.event.ActionEvent evt) {
-    	Main.controller.ChangerPage("modifierUnAliment", null, null, null);
+    	ModifierUnAliment newPage = new ModifierUnAliment();
+		newPage.setVisible(true);
         this.dispose();
     }
 
