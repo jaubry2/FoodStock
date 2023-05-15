@@ -2,6 +2,7 @@ package interfaceGraphique ;
 
 import java.util.List;
 
+import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 import modeleDeDonnees.AlimentStockes;
@@ -23,7 +24,8 @@ public class Accueil extends javax.swing.JFrame {
      * Initialise tous nos composants
      */
     private void initComponents() {
-
+    	JPanel PanelTout = new JPanel();
+    	
         jMenu1 = new javax.swing.JMenu();
         Menu3 = new javax.swing.JPanel();
         MenuText = new javax.swing.JLabel();
@@ -192,8 +194,10 @@ public class Accueil extends javax.swing.JFrame {
     * @param evt Click sur le bouton Stock
     */
     private void StockButton3ActionPerformed(java.awt.event.ActionEvent evt) {
-        this.dispose();
+    	/*remove(panelTout);*/
         Main.controller.ChangerPage("menuStock", null, null, null);
+        this.dispose();
+
 
     }
     /**
@@ -209,7 +213,7 @@ public class Accueil extends javax.swing.JFrame {
      * @param evt Click sur le bouton Liste
      */
     private void ListButton3ActionPerformed(java.awt.event.ActionEvent evt) {
-        /*Main.controller.ChangerPage("menuListe", null, null, null);*/
+        Main.controller.ChangerPage("menuListe", null, null, null);
         this.dispose();
     }
     /**
@@ -217,7 +221,7 @@ public class Accueil extends javax.swing.JFrame {
      * @param evt Click sur le text menu
      */
     private void MenuTextMouseClicked(java.awt.event.MouseEvent evt) {
-        /*Main.controller.ChangerPage("accueil", null, null, null);*/
+        Main.controller.ChangerPage("accueil", null, null, null);
         this.dispose();
     }
 

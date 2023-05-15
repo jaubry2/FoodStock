@@ -20,32 +20,31 @@ public class Controller {
         
         if (_page.equals("accueil")) {
             newPage = new Accueil();
-           // OuvrirPage(newPage);
+           OuvrirPage(newPage);
         } else if (_page.equals("ajouterAliment")) {
             newPage = new AjouterAliment();
-           // OuvrirPage(newPage);
+           OuvrirPage(newPage);
         } else if (_page.equals("fenetreErreur")) {
             newPage = new FenetreErreur(_erreur, _message);
-           // OuvrirPage(newPage);
+           OuvrirPage(newPage);
         } else if (_page.equals("ficheAliment")) {
             newPage = new FicheAliment(_nomAliment);
-            //OuvrirPage(newPage);
+            OuvrirPage(newPage);
         } else if (_page.equals("menuListe")) {
             newPage = new MenuListe();
-           // OuvrirPage(newPage);
+           OuvrirPage(newPage);
         } else if (_page.equals("menuRecette")) {
             newPage = new MenuRecette();
-            //OuvrirPage(newPage);
+            OuvrirPage(newPage);
         } else if (_page.equals("menuStock")) {
             newPage = new MenuStock();
-            //OuvrirPage(newPage);
+            OuvrirPage(newPage);
         } else if (_page.equals("modifierUnAliment")) {
             newPage = new ModifierUnAliment();
-           // OuvrirPage(newPage);
+           OuvrirPage(newPage);
         } else {
             // Erreur
         }
-        OuvrirPage(newPage);
 
             
         }
