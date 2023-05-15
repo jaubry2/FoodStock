@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: TestBDD.TestAlimentService
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 2, Errors: 1, Skipped: 0, Time elapsed: 4.517 sec <<< FAILURE!
-testFindByName(TestBDD.TestAlimentService)  Time elapsed: 3.997 sec  <<< ERROR!
+Tests run: 3, Failures: 2, Errors: 1, Skipped: 0, Time elapsed: 7.051 sec <<< FAILURE!
+testFindByName(TestBDD.TestAlimentService)  Time elapsed: 6.148 sec  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "modeleDeDonnees.Aliments.getNom()" because "resultat" is null
 	at TestBDD.TestAlimentService.testFindByName(TestAlimentService.java:100)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -40,8 +40,8 @@ java.lang.NullPointerException: Cannot invoke "modeleDeDonnees.Aliments.getNom()
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-testImporterTableAliment(TestBDD.TestAlimentService)  Time elapsed: 0.235 sec  <<< FAILURE!
-java.lang.AssertionError: expected:<3> but was:<4>
+testImporterTableAliment(TestBDD.TestAlimentService)  Time elapsed: 0.335 sec  <<< FAILURE!
+java.lang.AssertionError: expected:<3> but was:<7>
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.failNotEquals(Assert.java:835)
 	at org.junit.Assert.assertEquals(Assert.java:647)
@@ -82,8 +82,8 @@ java.lang.AssertionError: expected:<3> but was:<4>
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-testMetreAJourTable(TestBDD.TestAlimentService)  Time elapsed: 0.192 sec  <<< FAILURE!
-java.lang.AssertionError: expected:<4> but was:<5>
+testMetreAJourTable(TestBDD.TestAlimentService)  Time elapsed: 0.408 sec  <<< FAILURE!
+java.lang.AssertionError: expected:<4> but was:<8>
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.failNotEquals(Assert.java:835)
 	at org.junit.Assert.assertEquals(Assert.java:647)

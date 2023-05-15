@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: TestBDD.TestAlimentsStockeService
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 2, Errors: 1, Skipped: 0, Time elapsed: 0.505 sec <<< FAILURE!
-testConvertirEnAlimentStocke(TestBDD.TestAlimentsStockeService)  Time elapsed: 0.108 sec  <<< ERROR!
+Tests run: 3, Failures: 2, Errors: 1, Skipped: 0, Time elapsed: 0.69 sec <<< FAILURE!
+testConvertirEnAlimentStocke(TestBDD.TestAlimentsStockeService)  Time elapsed: 0.161 sec  <<< ERROR!
 jakarta.persistence.NoResultException: No result found for query [FROM Aliments WHERE id = :id]
 	at org.hibernate.query.spi.AbstractSelectionQuery.getSingleResult(AbstractSelectionQuery.java:460)
 	at org.hibernate.query.sqm.internal.QuerySqmImpl.getSingleResult(QuerySqmImpl.java:1103)
@@ -44,7 +44,7 @@ jakarta.persistence.NoResultException: No result found for query [FROM Aliments 
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-testImporterTableAlimentStock(TestBDD.TestAlimentsStockeService)  Time elapsed: 0.144 sec  <<< FAILURE!
+testImporterTableAlimentStock(TestBDD.TestAlimentsStockeService)  Time elapsed: 0.218 sec  <<< FAILURE!
 org.junit.ComparisonFailure: expected:<[poivron]> but was:<[tomate]>
 	at org.junit.Assert.assertEquals(Assert.java:117)
 	at org.junit.Assert.assertEquals(Assert.java:146)
@@ -84,7 +84,7 @@ org.junit.ComparisonFailure: expected:<[poivron]> but was:<[tomate]>
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-testMettreAJourTable(TestBDD.TestAlimentsStockeService)  Time elapsed: 0.252 sec  <<< FAILURE!
+testMettreAJourTable(TestBDD.TestAlimentsStockeService)  Time elapsed: 0.311 sec  <<< FAILURE!
 org.junit.ComparisonFailure: expected:<[melon]> but was:<[tomate]>
 	at org.junit.Assert.assertEquals(Assert.java:117)
 	at org.junit.Assert.assertEquals(Assert.java:146)

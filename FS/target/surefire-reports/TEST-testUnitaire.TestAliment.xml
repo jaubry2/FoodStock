@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="9" failures="0" name="testUnitaire.TestStockUnitaire" time="0" errors="0" skipped="0">
+<testsuite tests="6" failures="0" name="testUnitaire.TestAliment" time="0" errors="0" skipped="0">
   <properties>
     <property name="jansi.mode" value="strip"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
@@ -59,13 +59,10 @@
     <property name="java.vendor.version" value="Temurin-17.0.2+8"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="testUnitaire.TestStockUnitaire" name="testRemplirStock" time="0"/>
-  <testcase classname="testUnitaire.TestStockUnitaire" name="testRetirerAliment" time="0"/>
-  <testcase classname="testUnitaire.TestStockUnitaire" name="testGetAlimentByName" time="0"/>
-  <testcase classname="testUnitaire.TestStockUnitaire" name="testCreerStock" time="0"/>
-  <testcase classname="testUnitaire.TestStockUnitaire" name="testAjouterAliment" time="0"/>
-  <testcase classname="testUnitaire.TestStockUnitaire" name="testAjouterListe" time="0"/>
-  <testcase classname="testUnitaire.TestStockUnitaire" name="testFiltrerDate" time="0"/>
-  <testcase classname="testUnitaire.TestStockUnitaire" name="testFiltrerType" time="0"/>
-  <testcase classname="testUnitaire.TestStockUnitaire" name="testGetListFromMap" time="0"/>
+  <testcase classname="testUnitaire.TestAliment" name="testGetTypeAliment" time="0"/>
+  <testcase classname="testUnitaire.TestAliment" name="testConstructeurAvecParametres" time="0"/>
+  <testcase classname="testUnitaire.TestAliment" name="testGetMoyenConservation" time="0"/>
+  <testcase classname="testUnitaire.TestAliment" name="testGetId" time="0"/>
+  <testcase classname="testUnitaire.TestAliment" name="testGetUniteMesure" time="0"/>
+  <testcase classname="testUnitaire.TestAliment" name="testGetNom" time="0"/>
 </testsuite>
