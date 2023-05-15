@@ -38,6 +38,7 @@ interfaceGraphique\MenuRecette$6.class
 interfaceGraphique\Accueil$3.class
 interfaceGraphique\MenuListe$1.class
 modeleDeDonnees\UnitedeMesure.class
+ScanTicket\TestScan.class
 interfaceGraphique\FenetreErreur.class
 interfaceGraphique\FicheAliment$3.class
 interfaceGraphique\MenuStock$5.class
@@ -67,6 +68,7 @@ interfaceGraphique\AjouterAliment$1.class
 interfaceGraphique\MenuStock$6.class
 interfaceGraphique\AjouterAliment$2.class
 interfaceGraphique\ModifierUnAliment$7.class
+ScanTicket\TestScan$Item.class
 modeleDeDonnees\AlimentStockes.class
 interfaceGraphique\FicheAliment$4.class
 interfaceGraphique\FicheAliment$1.class

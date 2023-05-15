@@ -462,6 +462,7 @@ public class AjouterAliment extends javax.swing.JFrame {
         MenuStock newPage = new MenuStock();
 		newPage.setVisible(true);
         this.dispose();
+
     }
     /**
     * Permet d'ouvrir le menu recette
