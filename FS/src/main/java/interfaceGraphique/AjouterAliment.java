@@ -41,6 +41,8 @@ public class AjouterAliment extends javax.swing.JFrame {
         txtAnnee = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
         SupprimerButton = new javax.swing.JButton();
+        AddStockButton = new javax.swing.JButton();
+        AddTicketButton = new javax.swing.JButton();
         ModiferButton = new javax.swing.JButton();
         Menu3 = new javax.swing.JPanel();
         MenuText = new javax.swing.JLabel();
@@ -166,6 +168,24 @@ public class AjouterAliment extends javax.swing.JFrame {
         ModiferButton.setText("MODIFIER");
         ModiferButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        AddStockButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        AddStockButton.setText("AJOUTER AU STOCK");
+        AddStockButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        AddStockButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddStockButtonActionPerformed(evt);
+            }
+        });
+
+        AddTicketButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        AddTicketButton.setText("AJOUTER TICKET");
+        AddTicketButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        AddTicketButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddTicketButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -188,6 +208,9 @@ public class AjouterAliment extends javax.swing.JFrame {
                                 .addGap(50, 50, 50)
                                 .addComponent(txtMois, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(60, 60, 60)
+                                .addComponent(AddTicketButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(boutonAjouter)
                                 .addGap(97, 97, 97)
                                 .addComponent(ModiferButton)))
@@ -206,7 +229,10 @@ public class AjouterAliment extends javax.swing.JFrame {
                         .addGap(238, 238, 238)
                         .addComponent(jLabel5)
                         .addGap(48, 48, 48)
-                        .addComponent(txtNom, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtNom, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(366, 366, 366)
+                        .addComponent(AddStockButton)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -233,10 +259,12 @@ public class AjouterAliment extends javax.swing.JFrame {
                     .addComponent(boutonAjouter, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(SupprimerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ModiferButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(AddTicketButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36))
-        );
+                .addComponent(AddStockButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+        ;
 
         txtJour.getAccessibleContext().setAccessibleName("");
         txtJour.getAccessibleContext().setAccessibleDescription("");
@@ -430,6 +458,14 @@ public class AjouterAliment extends javax.swing.JFrame {
         Main.controller.ChangerPage("accueil", null, null, null);
         this.dispose();
     }
+
+    private void AddStockButtonActionPerformed(java.awt.event.ActionEvent evt) {                                               
+        // TODO add your handling code here:
+    }                                              
+
+    private void AddTicketButtonActionPerformed(java.awt.event.ActionEvent evt) {                                                
+        // TODO add your handling code here:
+    } 
     
     /**
      * @param args the command line arguments
@@ -471,6 +507,8 @@ public class AjouterAliment extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ListButton3;
+    private javax.swing.JButton AddStockButton;
+    private javax.swing.JButton AddTicketButton;
     private javax.swing.JPanel Menu3;
     private javax.swing.JLabel MenuText;
     private javax.swing.JButton ModiferButton;
