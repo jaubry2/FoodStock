@@ -9,67 +9,48 @@ package interfaceGraphique;
  */
 public class Controller {
     
-    public void OuvrirPage(javax.swing.JFrame _page){
+    
+	public Controller() {};
+	
+	public void OuvrirPage(javax.swing.JFrame _page){
         _page.setVisible(true);
     }
     public void ChangerPage(String _page, String _erreur, String _message, String _nomAliment){
-        javax.swing.JFrame newPage;
-        switch(_page){
-             
-            case "accueil" : {
-                newPage = new Accueil();
-                OuvrirPage(newPage);
-                break;
-            }
+        javax.swing.JFrame newPage = null;
+        
+        if (_page.equals("accueil")) {
+            newPage = new Accueil();
+           // OuvrirPage(newPage);
+        } else if (_page.equals("ajouterAliment")) {
+            newPage = new AjouterAliment();
+           // OuvrirPage(newPage);
+        } else if (_page.equals("fenetreErreur")) {
+            newPage = new FenetreErreur(_erreur, _message);
+           // OuvrirPage(newPage);
+        } else if (_page.equals("ficheAliment")) {
+            newPage = new FicheAliment(_nomAliment);
+            //OuvrirPage(newPage);
+        } else if (_page.equals("menuListe")) {
+            newPage = new MenuListe();
+           // OuvrirPage(newPage);
+        } else if (_page.equals("menuRecette")) {
+            newPage = new MenuRecette();
+            //OuvrirPage(newPage);
+        } else if (_page.equals("menuStock")) {
+            newPage = new MenuStock();
+            //OuvrirPage(newPage);
+        } else if (_page.equals("modifierUnAliment")) {
+            newPage = new ModifierUnAliment();
+           // OuvrirPage(newPage);
+        } else {
+            // Erreur
+        }
+        OuvrirPage(newPage);
+
             
-            case "ajouterAliment" : {
-                newPage = new AjouterAliment();
-                OuvrirPage(newPage);
-                break;
-            }
-            
-            case "fenetreErreur" : {
-                newPage = new FenetreErreur(_erreur, _message);
-                OuvrirPage(newPage);
-                break;
-            }
-            
-            case "ficheAliment" : {
-                newPage = new FicheAliment(_nomAliment);
-                OuvrirPage(newPage);
-                break;
-            }
-            
-            case "menuListe" : {
-                newPage = new MenuListe();
-                OuvrirPage(newPage);
-                break;
-            }
-            
-            case "menuRecette" : {
-                newPage = new MenuRecette();
-                OuvrirPage(newPage);
-                break;
-            }
-            
-            case "menuStock" : {
-                newPage = new MenuStock();
-                OuvrirPage(newPage);
-                break;
-            }
-            
-            case "modifierUnAliment" : {
-                newPage = new ModifierUnAliment();
-                OuvrirPage(newPage);
-                break;
-            }
-            
-            default : {
-                //Erreur
-            }
         }
     }
         
 
         
-}
+

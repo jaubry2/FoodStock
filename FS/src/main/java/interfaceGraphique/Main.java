@@ -30,6 +30,7 @@ public class Main {
         stocks = new Stock();
 		List<AlimentStockes> list=AlimentStockeService.importerTableAlimentStock();
 		stocks.remplirstock("principal",list );
-		controller.ChangerPage("accueil", null, null, null);
+		Accueil ac = new Accueil();
+		ac.setVisible(true);
     }
 }

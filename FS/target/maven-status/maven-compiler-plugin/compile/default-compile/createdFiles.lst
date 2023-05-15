@@ -26,6 +26,7 @@ interfaceGraphique\ModifierUnAliment$10.class
 interfaceGraphique\ModifierUnAliment$5.class
 interfaceGraphique\FicheAliment.class
 interfaceGraphique\ModifierUnAliment$2.class
+modeleDeDonnees\Stock.class
 interfaceGraphique\MenuListe.class
 interfaceGraphique\MenuRecette$3.class
 interfaceGraphique\MenuStock$12.class
@@ -34,9 +35,11 @@ interfaceGraphique\Main.class
 interfaceGraphique\MenuRecette$6.class
 interfaceGraphique\Accueil$3.class
 interfaceGraphique\MenuListe$1.class
+modeleDeDonnees\UnitedeMesure.class
 interfaceGraphique\FenetreErreur.class
 interfaceGraphique\FicheAliment$3.class
 interfaceGraphique\MenuStock$5.class
+modeleDeDonnees\TypeAliment.class
 interfaceGraphique\ModifierUnAliment$13.class
 interfaceGraphique\ModifierUnAliment$8.class
 interfaceGraphique\Accueil$1.class
@@ -61,9 +64,11 @@ interfaceGraphique\AjouterAliment$1.class
 interfaceGraphique\MenuStock$6.class
 interfaceGraphique\AjouterAliment$2.class
 interfaceGraphique\ModifierUnAliment$7.class
+modeleDeDonnees\AlimentStockes.class
 interfaceGraphique\FicheAliment$4.class
 interfaceGraphique\FicheAliment$1.class
 interfaceGraphique\MenuStock$10.class
+modeleDeDonnees\Aliments.class
 interfaceGraphique\MenuRecette$1.class
 interfaceGraphique\ModifierUnAliment$3.class
 interfaceGraphique\Accueil.class
@@ -73,3 +78,4 @@ interfaceGraphique\Controller.class
 baseDeDonnees\AlimentStockeService.class
 interfaceGraphique\AjouterAliment$11.class
 interfaceGraphique\ModifierUnAliment.class
+modeleDeDonnees\MoyendeConservation.class
