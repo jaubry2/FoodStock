@@ -13,15 +13,15 @@ import modeleDeDonnees.TypeAliment;
  */
 public class Accueil extends javax.swing.JFrame {
     /**
-     * Bouton dans le menu qui redirige vers la page Liste 
+     * Bouton dans le menu de navigation qui redirige vers la page Liste 
      */
     private javax.swing.JButton ListButton;
     /**
-     * Bouton dans le menu qui redirige vers la page Recette 
+     * Bouton dans le menu de navigation qui redirige vers la page Recette 
      */
     private javax.swing.JButton RecetteButton;
     /**
-     * Bouton dans le menu qui redirige vers la page Stock 
+     * Bouton dans le menu de navigation qui redirige vers la page Stock 
      */
     private javax.swing.JButton StockButton;
     /**
@@ -106,11 +106,16 @@ public class Accueil extends javax.swing.JFrame {
          */
         setPreferredSize(new java.awt.Dimension(1020, 768));
 
-        
+        /*
+         * On set les  couleurs de la page menu
+         */
         PageMenu.setBackground(new java.awt.Color(153, 204, 255));
         PageMenu.setForeground(new java.awt.Color(51, 204, 255));
 
-        MenuText.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        /*
+         * On set Le text menu avec sa police, son alignement, text , etc …
+         */
+        MenuText.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); 
         MenuText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         MenuText.setText("MENU");
         MenuText.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -119,8 +124,11 @@ public class Accueil extends javax.swing.JFrame {
             }
         });
 
+        /*
+         * On set les caracteristiques du bouton stock et les action listener
+         */
         StockButton.setBackground(new java.awt.Color(153, 204, 255));
-        StockButton.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        StockButton.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); 
         StockButton.setText("Stock");
         StockButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,8 +136,11 @@ public class Accueil extends javax.swing.JFrame {
             }
         });
 
+        /*
+         * On set les caracteristiques du bouton recette et les action listener
+         */
         RecetteButton.setBackground(new java.awt.Color(153, 204, 255));
-        RecetteButton.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        RecetteButton.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); 
         RecetteButton.setText("Recette");
         RecetteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -137,8 +148,11 @@ public class Accueil extends javax.swing.JFrame {
             }
         });
 
+        /*
+         * On set les caracteristiques du bouton liste et les action listener
+         */
         ListButton.setBackground(new java.awt.Color(153, 204, 255));
-        ListButton.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        ListButton.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); 
         ListButton.setText("Liste");
         ListButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -175,7 +189,7 @@ public class Accueil extends javax.swing.JFrame {
 
         PageAccueil.setBackground(new java.awt.Color(255, 204, 204));
 
-        CorpNameText.setFont(new java.awt.Font("Helvetica Neue", 0, 48)); // NOI18N
+        CorpNameText.setFont(new java.awt.Font("Helvetica Neue", 0, 48)); 
         CorpNameText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         CorpNameText.setText("FOODSTOCK");
 
