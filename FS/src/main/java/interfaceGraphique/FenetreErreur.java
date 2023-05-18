@@ -73,11 +73,11 @@ public class FenetreErreur extends javax.swing.JFrame {
 
         MessageErreur.setFont(new java.awt.Font("Helvetica Neue", 1, 10)); // NOI18N
         MessageErreur.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        MessageErreur.setText("...");
+        MessageErreur.setText(erreur);
 
         Conseil.setFont(new java.awt.Font("Helvetica Neue", 0, 8)); // NOI18N
         Conseil.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Conseil.setText("...");
+        Conseil.setText(conseil);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
