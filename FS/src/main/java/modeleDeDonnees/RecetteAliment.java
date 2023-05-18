@@ -40,5 +40,17 @@ public class RecetteAliment {
 	public long getId() {
 		return id;
 	}
+
+	public Aliment getAliment() {
+		return aliment;
+	}
+
+	public void setQuantite(int nouvelleQuantite) {
+		this.quantite=nouvelleQuantite;
+	}
+
+	public Recette getRecette() {
+		return recette;
+	}
 }
 

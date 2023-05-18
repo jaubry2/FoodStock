@@ -202,6 +202,16 @@ public Long getId() {
     public void setRecetteAliments(Set<RecetteAliment> recetteAliments) {
         this.recetteAliments = recetteAliments;
     }
+    public void changerQuantiteRecetteAliment(String nomRecette, int nouvelleQuantite) {
+        for (RecetteAliment recetteAliment : recetteAliments) {
+            if (recetteAliment.getRecette().getNom().equals(nomRecette)) {
+                recetteAliment.setQuantite(nouvelleQuantite);
+                break;
+            }
+        }
+        // Si aucun RecetteAliment correspondant n'est trouvé, vous pouvez lancer une exception, afficher un message d'erreur, ou effectuer une autre action appropriée.
+    }
+
 
 }
 

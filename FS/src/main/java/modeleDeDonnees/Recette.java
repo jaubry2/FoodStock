@@ -136,4 +136,15 @@ public class Recette {
     public void setRecetteAliments(Set<RecetteAliment> recetteAliments) {
         this.recetteAliments = recetteAliments;
     }
+    
+    public void changerQuantiteRecetteAliment(String nomAliment, int nouvelleQuantite) {
+        for (RecetteAliment recetteAliment : recetteAliments) {
+            if (recetteAliment.getAliment().getNom().equals(nomAliment)) {
+                recetteAliment.setQuantite(nouvelleQuantite);
+                break;
+            }
+        }
+        // Si aucun RecetteAliment correspondant n'est trouvé, vous pouvez lancer une exception, afficher un message d'erreur, ou effectuer une autre action appropriée.
+    }
+
 }

@@ -46,12 +46,13 @@ public class RecetteService extends HibernateService {
                 	}
                 	for (RecetteAliment recetteAlimentBDD : recetteBDD.getRecetteAliments()) {
                 
-                        if (!recetteTrouvee.getRecetteAliments().contains(recetteBDD)) {
+                        if (!recetteTrouvee.getRecetteAliments().contains(recetteAlimentBDD)) {
  
 	                    // Suppression des associations RecetteAliment
-	                       String deleteAssociationsQuery = "DELETE FROM RecetteAliment WHERE recette.id = :recetteId";
-	                       Query query = session.createQuery(deleteAssociationsQuery);
-	                       query.setParameter("recetteId", recetteBDD.getId());
+                        	String deleteAssociationsQuery = "DELETE FROM RecetteAliment WHERE recette.id = :recetteId AND aliment.id = :alimentId";
+                            Query query = session.createQuery(deleteAssociationsQuery);
+                            query.setParameter("recetteId", recetteBDD.getId());
+                            query.setParameter("alimentId", recetteAlimentBDD.getAliment().getId());
 	                       int result = query.executeUpdate();
                         	}
                 	}
