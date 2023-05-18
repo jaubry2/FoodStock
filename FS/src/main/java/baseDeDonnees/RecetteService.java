@@ -4,6 +4,8 @@ import jakarta.persistence.Query;
 import modeleDeDonnees.Recette;
 import modeleDeDonnees.RecetteAliment;
 
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -70,13 +72,9 @@ public class RecetteService extends HibernateService {
      * @return Le set des recettes importées.
      */
     public static Set<Recette> importerTableRecette() {
-        return session.createNativeQuery("SELECT * FROM Recettes", Recette.class).getResultStream().collect(Collectors.toSet());
+        List<Recette> recettes = session.createNativeQuery("SELECT * FROM Recettes", Recette.class).getResultList();
+        return new HashSet<>(recettes);
     }
-
-    /**
-     * Cette méthode permet de chercher une recette par son identifiant dans la table "Recettes" de la base de données.
-     * @param idRecette L'identifiant de la recette cherchée.
-     * @return La recette cherchée.
-     */
-
 }
+
+

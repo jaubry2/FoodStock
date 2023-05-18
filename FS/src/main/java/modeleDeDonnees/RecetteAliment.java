@@ -36,5 +36,9 @@ public class RecetteAliment {
         this.aliment = aliment;
         this.quantite = quantite;
     }
+
+	public long getId() {
+		return id;
+	}
 }
 

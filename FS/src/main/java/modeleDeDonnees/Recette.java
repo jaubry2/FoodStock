@@ -1,5 +1,6 @@
 package modeleDeDonnees;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -9,6 +10,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.Table;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.JoinColumn;
 
 import java.util.Set;
@@ -40,10 +42,11 @@ public class Recette {
     /**
      * Aliments liés à la recette.
      */
-    @ManyToMany(fetch = FetchType.LAZY)
+    /*@OneToMany(mappedBy = "recette")
     @JoinTable(name = "recette_aliment",
             joinColumns = @JoinColumn(name = "idRecette"),
-            inverseJoinColumns = @JoinColumn(name = "idAliment"))
+            inverseJoinColumns = @JoinColumn(name = "idAliment"))*/
+    @OneToMany(mappedBy = "recette", cascade = CascadeType.ALL, orphanRemoval = true)
      private Set<RecetteAliment> recetteAliments;
 
 
