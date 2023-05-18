@@ -17,7 +17,7 @@ import jakarta.persistence.Table;
 
 
 @Entity
-@Table(name = "aliments")
+@Table(name = "aliment")
 /**
 
 Cette classe représente les aliments stockés.

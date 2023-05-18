@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import baseDeDonnees.AlimentsService;
+import baseDeDonnees.AlimentService;
 
 public class Stock {
 

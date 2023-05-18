@@ -7,16 +7,16 @@ import modeleDeDonnees.Aliment;
 
 /**
 
-Cette classe gère les interactions avec la table "Aliments" de la base de données.
+Cette classe gère les interactions avec la table "Aliment" de la base de données.
 Elle hérite de la classe HibernateService pour utiliser les fonctionnalités d'Hibernate.
 */
 
-public class AlimentsService extends HibernateService  {
+public class AlimentService extends HibernateService  {
 	
 	
 
 	/**
-	 * Cette méthode permet de mettre à jour plusieurs aliments dans la table "Aliments" de la base de données.
+	 * Cette méthode permet de mettre à jour plusieurs aliments dans la table "Aliment" de la base de données.
 	 * @param ListAliments La liste des aliments à mettre à jour.
 	 */
 	public static void mettreAJourTable(List<Aliment> ListAliments) {
@@ -54,7 +54,7 @@ public class AlimentsService extends HibernateService  {
 	 * @return La liste des aliments importés.
 	 */
 	public static List<Aliment> importerTableAliment(){
-		return session.createNativeQuery("SELECT * FROM Aliments", Aliment.class).getResultList();
+		return session.createNativeQuery("SELECT * FROM Aliment", Aliment.class).getResultList();
 	}
 	/**
 	 * Cette méthode permet de chercher un aliment par son nom dans la table "Aliments" de la base de données.
@@ -63,7 +63,7 @@ public class AlimentsService extends HibernateService  {
 	 */
 	public static Aliment findByName(String nom) {
 		try {
-		    Query query = session.createQuery("FROM Aliments WHERE nom = :nom");
+		    Query query = session.createQuery("FROM Aliment WHERE nom = :nom");
 		    query.setParameter("nom", nom);
 		    return (Aliment) query.getSingleResult();
 
@@ -78,7 +78,7 @@ public class AlimentsService extends HibernateService  {
 	 * @return L'aliment cherché.
 	 */
 	public static Aliment getById(Long idAliment) {
-	    Query query = session.createQuery("FROM Aliments WHERE id = :id");
+	    Query query = session.createQuery("FROM Aliment WHERE id = :id");
 	    query.setParameter("id", idAliment);
 	    return (Aliment) query.getSingleResult();
 	}

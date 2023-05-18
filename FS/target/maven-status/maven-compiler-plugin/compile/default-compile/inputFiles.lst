@@ -4,7 +4,6 @@ C:\Users\Loïc\Documents\1A SN\S6\Tob\FoodStock\FS\src\main\java\interfaceGraphiq
 C:\Users\Loïc\Documents\1A SN\S6\Tob\FoodStock\FS\src\main\java\modeleDeDonnees\AlimentStockes.java
 C:\Users\Loïc\Documents\1A SN\S6\Tob\FoodStock\FS\src\main\java\baseDeDonnees\RecetteService.java
 C:\Users\Loïc\Documents\1A SN\S6\Tob\FoodStock\FS\src\main\java\modeleDeDonnees\UnitedeMesure.java
-C:\Users\Loïc\Documents\1A SN\S6\Tob\FoodStock\FS\src\main\java\baseDeDonnees\AlimentsService.java
 C:\Users\Loïc\Documents\1A SN\S6\Tob\FoodStock\FS\src\main\java\modeleDeDonnees\Aliment.java
 C:\Users\Loïc\Documents\1A SN\S6\Tob\FoodStock\FS\src\main\java\modeleDeDonnees\MoyendeConservation.java
 C:\Users\Loïc\Documents\1A SN\S6\Tob\FoodStock\FS\src\main\java\interfaceGraphique\FenetreErreur.java
@@ -19,6 +18,7 @@ C:\Users\Loïc\Documents\1A SN\S6\Tob\FoodStock\FS\src\main\java\modeleDeDonnees\
 C:\Users\Loïc\Documents\1A SN\S6\Tob\FoodStock\FS\src\main\java\interfaceGraphique\ModifierUnAliment.java
 C:\Users\Loïc\Documents\1A SN\S6\Tob\FoodStock\FS\src\main\java\modeleDeDonnees\TypeAliment.java
 C:\Users\Loïc\Documents\1A SN\S6\Tob\FoodStock\FS\src\main\java\ScanTicket\TestScan.java
+C:\Users\Loïc\Documents\1A SN\S6\Tob\FoodStock\FS\src\main\java\baseDeDonnees\AlimentService.java
 C:\Users\Loïc\Documents\1A SN\S6\Tob\FoodStock\FS\src\main\java\interfaceGraphique\MenuListe.java
 C:\Users\Loïc\Documents\1A SN\S6\Tob\FoodStock\FS\src\main\java\interfaceGraphique\MenuRecette.java
 C:\Users\Loïc\Documents\1A SN\S6\Tob\FoodStock\FS\src\main\java\interfaceGraphique\FermetureFenetre.java

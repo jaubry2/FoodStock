@@ -16,7 +16,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import baseDeDonnees.AlimentStockeService;
-import baseDeDonnees.AlimentsService;
+import baseDeDonnees.AlimentService;
 import baseDeDonnees.HibernateService;
 import modeleDeDonnees.AlimentStockes;
 import modeleDeDonnees.Aliment;
@@ -76,7 +76,7 @@ public class TestAlimentsStockeService {
 	    listAlimentStockes = AlimentStockeService.importerTableAlimentStock();
 	    // ajouter un nouvel AlimentStocke
 
-	    AlimentStockes alimentStocke = new AlimentStockes(null, AlimentsService.findByName("tomate") , 3.0f, LocalDate.now().plusDays(7));
+	    AlimentStockes alimentStocke = new AlimentStockes(null, AlimentService.findByName("tomate") , 3.0f, LocalDate.now().plusDays(7));
 	    listAlimentStockes.add(alimentStocke);
 	    AlimentStockeService.mettreAJourTable(listAlimentStockes);
 	
