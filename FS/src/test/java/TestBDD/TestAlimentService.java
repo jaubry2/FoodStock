@@ -13,7 +13,7 @@ import baseDeDonnees.AlimentStockeService;
 import baseDeDonnees.AlimentsService;
 import baseDeDonnees.HibernateService;
 import modeleDeDonnees.AlimentStockes;
-import modeleDeDonnees.Aliments;
+import modeleDeDonnees.Aliment;
 import modeleDeDonnees.MoyendeConservation;
 import modeleDeDonnees.TypeAliment;
 import modeleDeDonnees.UnitedeMesure;
@@ -36,7 +36,7 @@ public class TestAlimentService {
 	
 	@Test
     public void testImporterTableAliment() {
-        List<Aliments> listAliments = AlimentsService.importerTableAliment();
+        List<Aliment> listAliments = AlimentsService.importerTableAliment();
         assertNotNull(listAliments);
         assertEquals(3, listAliments.size());
         assertEquals("poivron", listAliments.get(0).getNom());
@@ -48,11 +48,11 @@ public class TestAlimentService {
 		
 		
 		// importation de la base de donnée
-		List<Aliments> listAliments = new ArrayList<Aliments>();
+		List<Aliment> listAliments = new ArrayList<Aliment>();
 		listAliments = AlimentsService.importerTableAliment();
 
 		// Création de quelques aliments à mettre à jour
-		Aliments aliment = new Aliments("banane",UnitedeMesure.Unite,MoyendeConservation.Sachet
+		Aliment aliment = new Aliment("banane",UnitedeMesure.Unite,MoyendeConservation.Sachet
 				,TypeAliment.Fruits_Legumes);
 		
 		listAliments.add(aliment);
@@ -92,8 +92,8 @@ public class TestAlimentService {
 	public void testFindByName() {
 				
 		// Chercher l'aliment par son nom
-		Aliments resultat = AlimentsService.findByName("poivron");
-		Aliments resultat2 = AlimentsService.findByName("pomme");
+		Aliment resultat = AlimentsService.findByName("poivron");
+		Aliment resultat2 = AlimentsService.findByName("pomme");
 
 		
 		// Vérifier que l'aliment cherché est bien celui qui a été ajouté

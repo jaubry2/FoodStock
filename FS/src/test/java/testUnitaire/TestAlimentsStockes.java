@@ -5,7 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import modeleDeDonnees.AlimentStockes;
-import modeleDeDonnees.Aliments;
+import modeleDeDonnees.Aliment;
 import modeleDeDonnees.MoyendeConservation;
 import modeleDeDonnees.TypeAliment;
 import modeleDeDonnees.UnitedeMesure;
@@ -14,14 +14,14 @@ import java.time.LocalDate;
 
 public class TestAlimentsStockes {
 
-    private Aliments aliment;
+    private Aliment aliment;
     private float quantite;
     private LocalDate datePeremption;
     private AlimentStockes alimentStocke;
 
     @Before
     public void setUp() {
-        aliment = new Aliments("Tomate", UnitedeMesure.Gramme, MoyendeConservation.Vrac, TypeAliment.Fruits_Legumes);
+        aliment = new Aliment("Tomate", UnitedeMesure.Gramme, MoyendeConservation.Vrac, TypeAliment.Fruits_Legumes);
         quantite = 2.5f;
         datePeremption = LocalDate.of(2023, 12, 31);
         alimentStocke = new AlimentStockes(aliment, quantite, datePeremption);

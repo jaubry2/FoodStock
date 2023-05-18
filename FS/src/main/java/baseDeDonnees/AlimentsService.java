@@ -3,7 +3,7 @@ package baseDeDonnees;
 import java.util.List;
 import jakarta.persistence.Query;
 import modeleDeDonnees.AlimentStockes;
-import modeleDeDonnees.Aliments;
+import modeleDeDonnees.Aliment;
 
 /**
 
@@ -19,16 +19,16 @@ public class AlimentsService extends HibernateService  {
 	 * Cette méthode permet de mettre à jour plusieurs aliments dans la table "Aliments" de la base de données.
 	 * @param ListAliments La liste des aliments à mettre à jour.
 	 */
-	public static void mettreAJourTable(List<Aliments> ListAliments) {
+	public static void mettreAJourTable(List<Aliment> ListAliments) {
 		
         transaction = session.beginTransaction();
         
         try {
      // Récupérer tous les AlimentStockes de la table avec HQL
-		List<Aliments> listBDD = importerTableAliment();
+		List<Aliment> listBDD = importerTableAliment();
 
         // Parcourir la liste de la table et supprimer les AlimentStockes qui ne sont plus dans ListAlimentStockes
-        for (Aliments alimentsBDD : listBDD) {
+        for (Aliment alimentsBDD : listBDD) {
             if (!ListAliments.stream().anyMatch(aliments -> alimentsBDD.getId() == aliments.getId())) {
             	String hql = "DELETE FROM Aliments WHERE id = :alimentId";
             	Query query = session.createQuery(hql);
@@ -38,7 +38,7 @@ public class AlimentsService extends HibernateService  {
         }
 
 		
-			for (Aliments aliments : ListAliments) {
+			for (Aliment aliments : ListAliments) {
 				session.merge(aliments);
 
 			}
@@ -53,19 +53,19 @@ public class AlimentsService extends HibernateService  {
 	 * Cette méthode permet d'importer la table "Aliments" de la base de données.
 	 * @return La liste des aliments importés.
 	 */
-	public static List<Aliments> importerTableAliment(){
-		return session.createNativeQuery("SELECT * FROM Aliments", Aliments.class).getResultList();
+	public static List<Aliment> importerTableAliment(){
+		return session.createNativeQuery("SELECT * FROM Aliments", Aliment.class).getResultList();
 	}
 	/**
 	 * Cette méthode permet de chercher un aliment par son nom dans la table "Aliments" de la base de données.
 	 * @param nom Le nom de l'aliment cherché.
 	 * @return L'aliment cherché.
 	 */
-	public static Aliments findByName(String nom) {
+	public static Aliment findByName(String nom) {
 		try {
 		    Query query = session.createQuery("FROM Aliments WHERE nom = :nom");
 		    query.setParameter("nom", nom);
-		    return (Aliments) query.getSingleResult();
+		    return (Aliment) query.getSingleResult();
 
 		}
 		catch (Exception e) {
@@ -77,10 +77,10 @@ public class AlimentsService extends HibernateService  {
 	 * @param idAliment L'identifiant de l'aliment cherché.
 	 * @return L'aliment cherché.
 	 */
-	public static Aliments getById(Long idAliment) {
+	public static Aliment getById(Long idAliment) {
 	    Query query = session.createQuery("FROM Aliments WHERE id = :id");
 	    query.setParameter("id", idAliment);
-	    return (Aliments) query.getSingleResult();
+	    return (Aliment) query.getSingleResult();
 	}
 
 }
