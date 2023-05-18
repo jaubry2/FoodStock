@@ -89,7 +89,7 @@ Cette méthode permet d'importer les données de la table alimentStockes de la b
 	    Long idAliment = (Long) element[3];
 
 	    // Récupération de l'aliment correspondant à l'id
-	    Aliment aliment = AlimentsService.getById(idAliment);
+	    Aliment aliment = AlimentService.getById(idAliment);
 
 	    // Création de l'objet AlimentStocke
 	    AlimentStockes alimentStocke = new AlimentStockes(id,aliment, quantite, datePeremption);

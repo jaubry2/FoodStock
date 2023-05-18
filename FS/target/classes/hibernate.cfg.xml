@@ -10,7 +10,7 @@
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password">Foodstock_2023</property>
         <property name="hibernate.hbm2ddl.auto">update</property>
-        <mapping class="modeleDeDonnees.Aliments" />
+        <mapping class="modeleDeDonnees.Aliment" />
         <mapping class="modeleDeDonnees.AlimentStockes" />
         <mapping class="modeleDeDonnees.Stock" />
         <mapping class="modeleDeDonnees.Recette" />

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="3" failures="0" name="TestBDD.TestAlimentService" time="1.536" errors="3" skipped="0">
+<testsuite tests="3" failures="2" name="TestBDD.TestAlimentService" time="2.865" errors="1" skipped="0">
   <properties>
     <property name="jansi.mode" value="strip"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
@@ -26,7 +26,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="user.variant" value=""/>
     <property name="os.name" value="Windows 11"/>
-    <property name="classworlds.conf" value="C:\Users\Loïc\Documents\1A SN\S6\Tob\FoodStock\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf14848477455315967267.tmp"/>
+    <property name="classworlds.conf" value="C:\Users\Loïc\Documents\1A SN\S6\Tob\FoodStock\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf15317284930494822906.tmp"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
     <property name="java.library.path" value="C:\Users\Loïc\eclipse\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.2.v20220201-1208\jre\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:/Users/Loïc/eclipse//plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.2.v20220201-1208/jre/bin/server;C:/Users/Loïc/eclipse//plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.2.v20220201-1208/jre/bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\nodejs\;C:\Program Files\PuTTY\;C:\Program Files\MATLAB\R2022a\bin;C:\Program Files\Git\cmd;C:\Program Files\Microchip\xc16\v2.00\bin;C:\Users\Loïc\AppData\Local\Microsoft\WindowsApps;C:\Users\Loïc\AppData\Local\Programs\Python\Python310\Scripts;C:\Users\Loïc\AppData\Roaming\npm;C:\Users\Loïc\AppData\Local\Programs\Microsoft VS Code\bin;C:\ProgramData\Loïc\GitHubDesktop\bin;C:\Users\Loïc\AppData\Local\GitHubDesktop\bin;C:\Users\Loïc\eclipse;;."/>
     <property name="jdk.debug" value="release"/>
@@ -59,19 +59,9 @@
     <property name="java.vendor.version" value="Temurin-17.0.2+8"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="TestBDD.TestAlimentService" name="testFindByName" time="1.427">
-    <error message="Unable to load class [modeleDeDonnees.Aliments]" type="org.hibernate.boot.registry.classloading.spi.ClassLoadingException">org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [modeleDeDonnees.Aliments]
-	at org.hibernate.boot.registry.classloading.internal.ClassLoaderServiceImpl.classForName(ClassLoaderServiceImpl.java:123)
-	at org.hibernate.boot.model.source.internal.annotations.AnnotationMetadataSourceProcessorImpl.&lt;init&gt;(AnnotationMetadataSourceProcessorImpl.java:103)
-	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess$1.&lt;init&gt;(MetadataBuildingProcess.java:172)
-	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:166)
-	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.build(MetadataBuildingProcess.java:97)
-	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:402)
-	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:90)
-	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:735)
-	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:773)
-	at baseDeDonnees.HibernateService.CreerConfig(HibernateService.java:38)
-	at TestBDD.TestAlimentService.setUp(TestAlimentService.java:28)
+  <testcase classname="TestBDD.TestAlimentService" name="testFindByName" time="2.512">
+    <error message="Cannot invoke &quot;modeleDeDonnees.Aliment.getNom()&quot; because &quot;resultat&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke &quot;modeleDeDonnees.Aliment.getNom()&quot; because &quot;resultat&quot; is null
+	at TestBDD.TestAlimentService.testFindByName(TestAlimentService.java:100)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -79,8 +69,8 @@
 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
 	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
-	at org.junit.internal.runners.statements.RunBefores.invokeMethod(RunBefores.java:33)
-	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
 	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
 	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
 	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
@@ -106,33 +96,19 @@
 	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
-Caused by: java.lang.ClassNotFoundException: Could not load requested class : modeleDeDonnees.Aliments
-	at org.hibernate.boot.registry.classloading.internal.AggregatedClassLoader.findClass(AggregatedClassLoader.java:210)
-	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:587)
-	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:520)
-	at java.base/java.lang.Class.forName0(Native Method)
-	at java.base/java.lang.Class.forName(Class.java:467)
-	at org.hibernate.boot.registry.classloading.internal.ClassLoaderServiceImpl.classForName(ClassLoaderServiceImpl.java:120)
-	... 44 more
 </error>
     <system-err>log4j:WARN No appenders could be found for logger (org.jboss.logging).
 log4j:WARN Please initialize the log4j system properly.
 log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
 </system-err>
   </testcase>
-  <testcase classname="TestBDD.TestAlimentService" name="testImporterTableAliment" time="0.058">
-    <error message="Unable to load class [modeleDeDonnees.Aliments]" type="org.hibernate.boot.registry.classloading.spi.ClassLoadingException">org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [modeleDeDonnees.Aliments]
-	at org.hibernate.boot.registry.classloading.internal.ClassLoaderServiceImpl.classForName(ClassLoaderServiceImpl.java:123)
-	at org.hibernate.boot.model.source.internal.annotations.AnnotationMetadataSourceProcessorImpl.&lt;init&gt;(AnnotationMetadataSourceProcessorImpl.java:103)
-	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess$1.&lt;init&gt;(MetadataBuildingProcess.java:172)
-	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:166)
-	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.build(MetadataBuildingProcess.java:97)
-	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:402)
-	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:90)
-	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:735)
-	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:773)
-	at baseDeDonnees.HibernateService.CreerConfig(HibernateService.java:38)
-	at TestBDD.TestAlimentService.setUp(TestAlimentService.java:28)
+  <testcase classname="TestBDD.TestAlimentService" name="testImporterTableAliment" time="0.182">
+    <failure message="expected:&lt;3&gt; but was:&lt;0&gt;" type="java.lang.AssertionError">java.lang.AssertionError: expected:&lt;3&gt; but was:&lt;0&gt;
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotEquals(Assert.java:835)
+	at org.junit.Assert.assertEquals(Assert.java:647)
+	at org.junit.Assert.assertEquals(Assert.java:633)
+	at TestBDD.TestAlimentService.testImporterTableAliment(TestAlimentService.java:41)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -140,8 +116,8 @@ log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more in
 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
 	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
-	at org.junit.internal.runners.statements.RunBefores.invokeMethod(RunBefores.java:33)
-	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
 	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
 	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
 	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
@@ -167,29 +143,15 @@ log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more in
 	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
-Caused by: java.lang.ClassNotFoundException: Could not load requested class : modeleDeDonnees.Aliments
-	at org.hibernate.boot.registry.classloading.internal.AggregatedClassLoader.findClass(AggregatedClassLoader.java:210)
-	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:587)
-	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:520)
-	at java.base/java.lang.Class.forName0(Native Method)
-	at java.base/java.lang.Class.forName(Class.java:467)
-	at org.hibernate.boot.registry.classloading.internal.ClassLoaderServiceImpl.classForName(ClassLoaderServiceImpl.java:120)
-	... 44 more
-</error>
+</failure>
   </testcase>
-  <testcase classname="TestBDD.TestAlimentService" name="testMetreAJourTable" time="0.051">
-    <error message="Unable to load class [modeleDeDonnees.Aliments]" type="org.hibernate.boot.registry.classloading.spi.ClassLoadingException">org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [modeleDeDonnees.Aliments]
-	at org.hibernate.boot.registry.classloading.internal.ClassLoaderServiceImpl.classForName(ClassLoaderServiceImpl.java:123)
-	at org.hibernate.boot.model.source.internal.annotations.AnnotationMetadataSourceProcessorImpl.&lt;init&gt;(AnnotationMetadataSourceProcessorImpl.java:103)
-	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess$1.&lt;init&gt;(MetadataBuildingProcess.java:172)
-	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:166)
-	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.build(MetadataBuildingProcess.java:97)
-	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:402)
-	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:90)
-	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:735)
-	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:773)
-	at baseDeDonnees.HibernateService.CreerConfig(HibernateService.java:38)
-	at TestBDD.TestAlimentService.setUp(TestAlimentService.java:28)
+  <testcase classname="TestBDD.TestAlimentService" name="testMetreAJourTable" time="0.171">
+    <failure message="expected:&lt;4&gt; but was:&lt;1&gt;" type="java.lang.AssertionError">java.lang.AssertionError: expected:&lt;4&gt; but was:&lt;1&gt;
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotEquals(Assert.java:835)
+	at org.junit.Assert.assertEquals(Assert.java:647)
+	at org.junit.Assert.assertEquals(Assert.java:633)
+	at TestBDD.TestAlimentService.testMetreAJourTable(TestAlimentService.java:66)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -197,8 +159,8 @@ Caused by: java.lang.ClassNotFoundException: Could not load requested class : mo
 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
 	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
-	at org.junit.internal.runners.statements.RunBefores.invokeMethod(RunBefores.java:33)
-	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
 	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
 	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
 	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
@@ -224,14 +186,6 @@ Caused by: java.lang.ClassNotFoundException: Could not load requested class : mo
 	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
-Caused by: java.lang.ClassNotFoundException: Could not load requested class : modeleDeDonnees.Aliments
-	at org.hibernate.boot.registry.classloading.internal.AggregatedClassLoader.findClass(AggregatedClassLoader.java:210)
-	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:587)
-	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:520)
-	at java.base/java.lang.Class.forName0(Native Method)
-	at java.base/java.lang.Class.forName(Class.java:467)
-	at org.hibernate.boot.registry.classloading.internal.ClassLoaderServiceImpl.classForName(ClassLoaderServiceImpl.java:120)
-	... 44 more
-</error>
+</failure>
   </testcase>
 </testsuite>

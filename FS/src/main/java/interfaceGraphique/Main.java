@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Set;
 
 import baseDeDonnees.AlimentStockeService;
-import baseDeDonnees.AlimentsService;
+import baseDeDonnees.AlimentService;
 import baseDeDonnees.HibernateService;
 import baseDeDonnees.RecetteService;
 import modeleDeDonnees.AlimentStockes;
@@ -34,7 +34,7 @@ public class Main {
     	HibernateService.CreerConfig();
         // importation de la base 
         stocks = new Stock();
-        listAliments = AlimentsService.importerTableAliment();
+        listAliments = AlimentService.importerTableAliment();
         Set SetRecette = RecetteService.importerTableRecette();
 		List<AlimentStockes> list=AlimentStockeService.importerTableAlimentStock();
 		stocks.remplirstock("principal",list );
