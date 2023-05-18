@@ -1,5 +1,6 @@
 package modeleDeDonnees;
 import java.util.Date;
+import java.util.Set;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -9,7 +10,7 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
@@ -90,6 +91,12 @@ public class Aliments {
     @Enumerated(EnumType.STRING) 
     @Column(name = "typeAliment")
     private TypeAliment typeAliment;
+    
+    /**
+     * Recettes liées à l'aliment.
+     */
+    @OneToMany(mappedBy = "aliment")
+    private Set<RecetteAliment> recetteAliments;
     
 
 /**
@@ -177,6 +184,24 @@ public Long getId() {
 	public void setNom(String nom) {
 		this.nom  = nom;
 	}
+	
+	/**
+     * Retourne les aliments liés à la recette avec leur quantité.
+     *
+     * @return Les aliments liés à la recette avec leur quantité.
+     */
+	
+    public Set<RecetteAliment> getRecetteAliments() {
+        return recetteAliments;
+    }
+
+    /**
+     * Modifie les aliments liés à la recette avec leur quantité.
+     * @param recetteAliments Les nouveaux aliments liés à la recette avec leur quantité.
+     */
+    public void setRecetteAliments(Set<RecetteAliment> recetteAliments) {
+        this.recetteAliments = recetteAliments;
+    }
 
 }
 
