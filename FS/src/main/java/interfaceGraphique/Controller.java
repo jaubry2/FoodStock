@@ -12,7 +12,7 @@ import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
 import modeleDeDonnees.AlimentStockes;
-import modeleDeDonnees.Aliments;
+import modeleDeDonnees.Aliment;
 import modeleDeDonnees.AlimentsNonPresentException;
 
 /**
@@ -74,7 +74,7 @@ public class Controller {
 		    	
 		    	LocalDate datePeremption = LocalDate.parse((String) d.getValueAt(ligne, 2),DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 
-		    	Aliments aliment = Main.stocks.getAlimentByName(Main.listAliments,nom);
+		    	Aliment aliment = Main.stocks.getAlimentByName(Main.listAliments,nom);
 		    	
 		    	AlimentStockes alimentRajout= new AlimentStockes(aliment,quantite,datePeremption);
 		    	    	listRajout.add(alimentRajout);

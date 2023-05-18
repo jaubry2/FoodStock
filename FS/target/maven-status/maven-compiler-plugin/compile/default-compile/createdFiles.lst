@@ -76,7 +76,6 @@ interfaceGraphique\FicheAliment$4.class
 interfaceGraphique\FicheAliment$1.class
 modeleDeDonnees\Recette.class
 interfaceGraphique\MenuStock$10.class
-modeleDeDonnees\Aliments.class
 interfaceGraphique\MenuRecette$1.class
 interfaceGraphique\ModifierUnAliment$3.class
 interfaceGraphique\Accueil.class

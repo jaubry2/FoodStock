@@ -10,7 +10,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import modeleDeDonnees.AlimentStockes;
-import modeleDeDonnees.Aliments;
+import modeleDeDonnees.Aliment;
 import modeleDeDonnees.MoyendeConservation;
 import modeleDeDonnees.Stock;
 import modeleDeDonnees.TypeAliment;
@@ -20,20 +20,20 @@ public class TestStockUnitaire {
 	
 
     private Stock stock;
-    private Aliments lait;
+    private Aliment lait;
     private AlimentStockes laitStockes;
     private List<AlimentStockes> listAlimentStockes;
-    private List<Aliments> listAliments;
-    private Aliments farine;
+    private List<Aliment> listAliments;
+    private Aliment farine;
     private AlimentStockes farineStockes;
 
 
     @Before
     public void setUp() {
         stock = new Stock();
-        lait = new Aliments("lait",UnitedeMesure.Litre,MoyendeConservation.Bouteille,TypeAliment.ProduitsLaitiers);
+        lait = new Aliment("lait",UnitedeMesure.Litre,MoyendeConservation.Bouteille,TypeAliment.ProduitsLaitiers);
         laitStockes = new AlimentStockes(lait,(float) 2.5, LocalDate.now().plusDays(3));
-        farine = new Aliments("farine",UnitedeMesure.Gramme,MoyendeConservation.Sachet,TypeAliment.Céreales);
+        farine = new Aliment("farine",UnitedeMesure.Gramme,MoyendeConservation.Sachet,TypeAliment.Céreales);
         farineStockes = new AlimentStockes(farine,(float) 500, LocalDate.now().plusDays(100));
         listAlimentStockes = new ArrayList<>();
         listAlimentStockes.add(laitStockes);
@@ -76,7 +76,7 @@ public class TestStockUnitaire {
     }
     
     public void testAjouterAlimentAvecNom() {
-        Aliments aliments = new Aliments("lait",UnitedeMesure.Litre,MoyendeConservation.Bouteille,TypeAliment.ProduitsLaitiers);
+        Aliment aliments = new Aliment("lait",UnitedeMesure.Litre,MoyendeConservation.Bouteille,TypeAliment.ProduitsLaitiers);
         stock.creerstock("Frigo");
         stock.ajouterAliment("Frigo", aliments, 2.5f, LocalDate.now().plusDays(3));
         assertEquals(stock.getStock().get("Frigo").get(0).getQuantite(), 2.5f, 0.01);
@@ -86,7 +86,7 @@ public class TestStockUnitaire {
 
     @Test
     public void testRetirerAliment() {
-        Aliments aliments = new Aliments("lait",UnitedeMesure.Litre,MoyendeConservation.Bouteille,TypeAliment.ProduitsLaitiers);
+        Aliment aliments = new Aliment("lait",UnitedeMesure.Litre,MoyendeConservation.Bouteille,TypeAliment.ProduitsLaitiers);
         AlimentStockes alimentStockes = new AlimentStockes(aliments, 2.5f, LocalDate.now().plusDays(3));
         stock.creerstock("Frigo");
         stock.ajouterAliment("Frigo", alimentStockes);
@@ -96,9 +96,9 @@ public class TestStockUnitaire {
     
     @Test
     public void testGetAlimentByName() {
-        Aliments laitTest = Stock.getAlimentByName(listAliments, "lait");
-        Aliments farineTest = Stock.getAlimentByName(listAliments, "farine");
-        Aliments oeufTest = Stock.getAlimentByName(listAliments, "oeuf");
+        Aliment laitTest = Stock.getAlimentByName(listAliments, "lait");
+        Aliment farineTest = Stock.getAlimentByName(listAliments, "farine");
+        Aliment oeufTest = Stock.getAlimentByName(listAliments, "oeuf");
 
         assertEquals("lait", laitTest.getNom());
         assertEquals("farine", farineTest.getNom());

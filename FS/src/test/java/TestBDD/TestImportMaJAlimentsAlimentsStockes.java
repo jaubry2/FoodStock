@@ -16,10 +16,10 @@ public class TestImportMaJAlimentsAlimentsStockes {
 		HibernateService.CreerConfig();
 		
 		try {
-			List<Aliments> ListAliments = AlimentsService.importerTableAliment();
+			List<Aliment> ListAliments = AlimentsService.importerTableAliment();
 			List<AlimentStockes> ListAlimentsStockes = AlimentStockeService.importerTableAlimentStock();
 			//System.out.println(ListAliments.get(0));
-			Aliments poivron = new Aliments("poivron",UnitedeMesure.Unite,MoyendeConservation.Sachet
+			Aliment poivron = new Aliment("poivron",UnitedeMesure.Unite,MoyendeConservation.Sachet
 					,TypeAliment.Fruits_Legumes);
 	        ListAliments.add(poivron);
 	        

@@ -12,7 +12,7 @@ import baseDeDonnees.AlimentsService;
 import baseDeDonnees.HibernateService;
 import baseDeDonnees.RecetteService;
 import modeleDeDonnees.AlimentStockes;
-import modeleDeDonnees.Aliments;
+import modeleDeDonnees.Aliment;
 import modeleDeDonnees.Stock;
 
 
@@ -28,7 +28,7 @@ public class Main {
      * Controleur qui permet de mettre à jour les informations
      */
     public static final Controller controller = new Controller();
-    public static List<Aliments> listAliments;
+    public static List<Aliment> listAliments;
     
     public static void main(String[] args) {
     	HibernateService.CreerConfig();

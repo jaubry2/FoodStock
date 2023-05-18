@@ -19,7 +19,7 @@ import baseDeDonnees.AlimentStockeService;
 import baseDeDonnees.AlimentsService;
 import baseDeDonnees.HibernateService;
 import modeleDeDonnees.AlimentStockes;
-import modeleDeDonnees.Aliments;
+import modeleDeDonnees.Aliment;
 import modeleDeDonnees.MoyendeConservation;
 import modeleDeDonnees.TypeAliment;
 import modeleDeDonnees.UnitedeMesure;
