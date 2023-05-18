@@ -13,6 +13,10 @@
         <mapping class="modeleDeDonnees.Aliments" />
         <mapping class="modeleDeDonnees.AlimentStockes" />
         <mapping class="modeleDeDonnees.Stock" />
+        <mapping class="modeleDeDonnees.Recette" />
+        <mapping class="modeleDeDonnees.RecetteAliment" />
+        
+        
         
   </session-factory>
 </hibernate-configuration>

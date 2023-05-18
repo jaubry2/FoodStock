@@ -25,6 +25,7 @@ interfaceGraphique\MenuStock.class
 interfaceGraphique\FicheAliment$6.class
 interfaceGraphique\ModifierUnAliment$10.class
 interfaceGraphique\ModifierUnAliment$5.class
+modeleDeDonnees\RecetteAliment.class
 interfaceGraphique\FicheAliment.class
 interfaceGraphique\ModifierUnAliment$2.class
 modeleDeDonnees\Stock.class
@@ -69,9 +70,11 @@ interfaceGraphique\MenuStock$6.class
 interfaceGraphique\AjouterAliment$2.class
 interfaceGraphique\ModifierUnAliment$7.class
 ScanTicket\TestScan$Item.class
+baseDeDonnees\RecetteService.class
 modeleDeDonnees\AlimentStockes.class
 interfaceGraphique\FicheAliment$4.class
 interfaceGraphique\FicheAliment$1.class
+modeleDeDonnees\Recette.class
 interfaceGraphique\MenuStock$10.class
 modeleDeDonnees\Aliments.class
 interfaceGraphique\MenuRecette$1.class
