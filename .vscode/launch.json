@@ -1,0 +1,91 @@
+{
+    // Utilisez IntelliSense pour en savoir plus sur les attributs possibles.
+    // Pointez pour afficher la description des attributs existants.
+    // Pour plus d'informations, visitez : https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "TestScan",
+            "request": "launch",
+            "mainClass": "ScanTicket.TestScan",
+            "projectName": "hibernate"
+        },
+        {
+            "type": "java",
+            "name": "TestImportMaJAlimentsAlimentsStockes",
+            "request": "launch",
+            "mainClass": "TestBDD.TestImportMaJAlimentsAlimentsStockes",
+            "projectName": "hibernate"
+        },
+        {
+            "type": "java",
+            "name": "Accueil",
+            "request": "launch",
+            "mainClass": "interfaceGraphique.Accueil",
+            "projectName": "hibernate"
+        },
+        {
+            "type": "java",
+            "name": "AjouterAliment",
+            "request": "launch",
+            "mainClass": "interfaceGraphique.AjouterAliment",
+            "projectName": "hibernate"
+        },
+        {
+            "type": "java",
+            "name": "FenetreErreur",
+            "request": "launch",
+            "mainClass": "interfaceGraphique.FenetreErreur",
+            "projectName": "hibernate"
+        },
+        {
+            "type": "java",
+            "name": "FicheAliment",
+            "request": "launch",
+            "mainClass": "interfaceGraphique.FicheAliment",
+            "projectName": "hibernate"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "interfaceGraphique.Main",
+            "projectName": "hibernate"
+        },
+        {
+            "type": "java",
+            "name": "MenuListe",
+            "request": "launch",
+            "mainClass": "interfaceGraphique.MenuListe",
+            "projectName": "hibernate"
+        },
+        {
+            "type": "java",
+            "name": "MenuRecette",
+            "request": "launch",
+            "mainClass": "interfaceGraphique.MenuRecette",
+            "projectName": "hibernate"
+        },
+        {
+            "type": "java",
+            "name": "MenuStock",
+            "request": "launch",
+            "mainClass": "interfaceGraphique.MenuStock",
+            "projectName": "hibernate"
+        },
+        {
+            "type": "java",
+            "name": "ModifierUnAliment",
+            "request": "launch",
+            "mainClass": "interfaceGraphique.ModifierUnAliment",
+            "projectName": "hibernate"
+        }
+    ]
+}

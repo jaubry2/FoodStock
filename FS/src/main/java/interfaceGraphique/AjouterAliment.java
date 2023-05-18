@@ -105,6 +105,10 @@ public class AjouterAliment extends javax.swing.JFrame {
      * TextField pour recuperer la quantite de l'aliment
      */
     private javax.swing.JTextField qteTextField;
+    /**
+     * Ligne selcetionne dans la table
+     */
+    private int selectedRow;
 
 
     DefaultTableModel d = new DefaultTableModel();
@@ -524,6 +528,14 @@ public class AjouterAliment extends javax.swing.JFrame {
 
     private void addTicketButtonActionPerformed(java.awt.event.ActionEvent evt) {                                                
         // TODO add your handling code here:
+    } 
+
+    private void SupprimerButtonActionPerformed(java.awt.event.ActionEvent evt) {                                                
+        d.removeRow(selectedRow);
+    } 
+    
+    private void TableAlimentsMouseClicked(java.awt.event.MouseEvent evt) {                                           
+        selectedRow = TableAliments.getSelectedRow();
     } 
     
     

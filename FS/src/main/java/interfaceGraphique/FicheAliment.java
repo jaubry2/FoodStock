@@ -77,30 +77,65 @@ public class FicheAliment extends javax.swing.JFrame {
      * Type  de l'aliment que l'on affiche
      */
     private javax.swing.JLabel TA;
-
-    private javax.swing.JLabel NomAlimentText;
+    /**
+     * Text nom de l'aliment
+     */
+    private javax.swing.JLabel nomAlimentText;
+    /**
+     * Text date de peremption de l'aliment
+     */
     private javax.swing.JLabel dateDePeremptionText;
-    private javax.swing.JLabel TypeAlimentText;
-    private javax.swing.JLabel MDSText;
-    private javax.swing.JLabel QteText;
-
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-
-    private javax.swing.JPanel Menu3;
+    /**
+     * Text date de peremption de l'aliment
+     */
+    private javax.swing.JLabel typeAlimentText;
+    /**
+     * Text moyen de stockage de l'aliment
+     */
+    private javax.swing.JLabel moyenDeStockageText;
+    /**git
+     * Text quantite de l'aliment
+     */
+    private javax.swing.JLabel quantiteText;
+    /**
+     * Text en haut de la page
+     */
+    private javax.swing.JLabel ficheAlimentText;
+    /**
+     * text au dessus de la table des recettes
+     */
+    private javax.swing.JLabel recetteAssocieText;
+    /**
+     * Panel du menu de navigation a gauche
+     */
+    private javax.swing.JPanel pageMenu;
+    /**
+     * Page Fiche aliment a droite
+     */
     private javax.swing.JPanel pageFicheAliment;
+    /**
+     * 
+     */
     private javax.swing.JPanel jPanel2;
-
+    /**
+     * ScrollPane de la table des recettes
+     */
     private javax.swing.JScrollPane jScrollPane1;
-
+    /**
+     * Table des recette associé a l'aliment
+     */
     private javax.swing.JTable TableRecette;
 
     /**
      * Cree une nouvelle page FicheAliment
      * @param nom Nom de l'aliment
      */
-    public FicheAliment(String nom) {
-        this.nomAliment = nom;
+    public FicheAliment(String _nom, String _qte, String  _typeAliment, String _moyenDeStockage, String _dateDePeremption) {
+        this.nomAliment = _nom;
+        this.moyenDeStockageAliment = _moyenDeStockage;
+        this.qteAliment = _qte;
+        this.typeAliment = _typeAliment;
+        this.dateDePeremptionAliment = _dateDePeremption;
         initComponents();
         this.addWindowListener(new FermetureFenetre());
     }
@@ -114,27 +149,27 @@ public class FicheAliment extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
-        Menu3 = new javax.swing.JPanel();
+        pageMenu = new javax.swing.JPanel();
         menuText = new javax.swing.JLabel();
         stockButton = new javax.swing.JButton();
         recetteButton = new javax.swing.JButton();
         listButton = new javax.swing.JButton();
         pageFicheAliment = new javax.swing.JPanel();
-        NomAlimentText = new javax.swing.JLabel();
+        nomAlimentText = new javax.swing.JLabel();
         alimentChoisi = new javax.swing.JTextField();
         searchButton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        ficheAlimentText = new javax.swing.JLabel();
         dateDePeremptionText = new javax.swing.JLabel();
-        TypeAlimentText = new javax.swing.JLabel();
-        MDSText = new javax.swing.JLabel();
+        typeAlimentText = new javax.swing.JLabel();
+        moyenDeStockageText = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TableRecette = new javax.swing.JTable();
-        jLabel2 = new javax.swing.JLabel();
+        recetteAssocieText = new javax.swing.JLabel();
         alimentName = new javax.swing.JLabel();
         Qte = new javax.swing.JLabel();
         MDS = new javax.swing.JLabel();
         TA = new javax.swing.JLabel();
-        QteText = new javax.swing.JLabel();
+        quantiteText = new javax.swing.JLabel();
         DDP = new javax.swing.JLabel();
         modifierAlimButton = new javax.swing.JButton();
 
@@ -150,12 +185,12 @@ public class FicheAliment extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setLocation(new java.awt.Point(1020, 768));
+        setLocationRelativeTo(null);  
         setMaximumSize(new java.awt.Dimension(1020, 768));
         setMinimumSize(new java.awt.Dimension(1020, 768));
 
-        Menu3.setBackground(new java.awt.Color(153, 204, 255));
-        Menu3.setForeground(new java.awt.Color(51, 204, 255));
+        pageMenu.setBackground(new java.awt.Color(153, 204, 255));
+        pageMenu.setForeground(new java.awt.Color(51, 204, 255));
 
         menuText.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         menuText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -195,22 +230,22 @@ public class FicheAliment extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout Menu3Layout = new javax.swing.GroupLayout(Menu3);
-        Menu3.setLayout(Menu3Layout);
-        Menu3Layout.setHorizontalGroup(
-            Menu3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Menu3Layout.createSequentialGroup()
+        javax.swing.GroupLayout pageMenuLayout = new javax.swing.GroupLayout(pageMenu);
+        pageMenu.setLayout(pageMenuLayout);
+        pageMenuLayout.setHorizontalGroup(
+            pageMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pageMenuLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(Menu3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(pageMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(menuText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(listButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(recetteButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
                     .addComponent(stockButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
-        Menu3Layout.setVerticalGroup(
-            Menu3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Menu3Layout.createSequentialGroup()
+        pageMenuLayout.setVerticalGroup(
+            pageMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pageMenuLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(menuText)
                 .addGap(18, 18, 18)
@@ -224,9 +259,9 @@ public class FicheAliment extends javax.swing.JFrame {
 
         pageFicheAliment.setBackground(new java.awt.Color(255, 204, 204));
 
-        NomAlimentText.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        NomAlimentText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        NomAlimentText.setText("Nom Aliment :");
+        nomAlimentText.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        nomAlimentText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        nomAlimentText.setText("Nom Aliment :");
 
         alimentChoisi.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
@@ -237,25 +272,25 @@ public class FicheAliment extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 0, 36)); 
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Fiche Aliment");
+        ficheAlimentText.setFont(new java.awt.Font("Helvetica Neue", 0, 36)); 
+        ficheAlimentText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ficheAlimentText.setText("Fiche Aliment");
 
         dateDePeremptionText.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); 
         dateDePeremptionText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         dateDePeremptionText.setText("Date de Péremption :");
 
-        TypeAlimentText.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); 
-        TypeAlimentText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        TypeAlimentText.setText("Type d'Aliment :");
+        typeAlimentText.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); 
+        typeAlimentText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        typeAlimentText.setText("Type d'Aliment :");
 
-        MDSText.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); 
-        MDSText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        MDSText.setText("Moyen de Stockage :");
+        moyenDeStockageText.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); 
+        moyenDeStockageText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        moyenDeStockageText.setText("Moyen de Stockage :");
 
-        QteText.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); 
-        QteText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        QteText.setText("Quantite :");
+        quantiteText.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); 
+        quantiteText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        quantiteText.setText("Quantite :");
 
         TableRecette.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -270,7 +305,7 @@ public class FicheAliment extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(TableRecette);
 
-        jLabel2.setText("Recettes Associés");
+        recetteAssocieText.setText("Recettes Associés");
 
         alimentName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         alimentName.setText(nomAliment);
@@ -301,19 +336,19 @@ public class FicheAliment extends javax.swing.JFrame {
             .addGroup(pageFicheAlimentLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pageFicheAlimentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ficheAlimentText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pageFicheAlimentLayout.createSequentialGroup()
                         .addGroup(pageFicheAlimentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(pageFicheAlimentLayout.createSequentialGroup()
-                                .addComponent(MDSText)
+                                .addComponent(moyenDeStockageText)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(MDS, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(pageFicheAlimentLayout.createSequentialGroup()
-                                .addComponent(TypeAlimentText)
+                                .addComponent(typeAlimentText)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(TA, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(pageFicheAlimentLayout.createSequentialGroup()
-                                .addComponent(NomAlimentText)
+                                .addComponent(nomAlimentText)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(alimentName, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(pageFicheAlimentLayout.createSequentialGroup()
@@ -321,13 +356,13 @@ public class FicheAliment extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 179, Short.MAX_VALUE)
                                 .addComponent(DDP, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(pageFicheAlimentLayout.createSequentialGroup()
-                                .addComponent(QteText)
+                                .addComponent(quantiteText)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(Qte, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(352, 352, 352))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pageFicheAlimentLayout.createSequentialGroup()
                 .addGap(157, 157, 157)
-                .addComponent(jLabel2)
+                .addComponent(recetteAssocieText)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(pageFicheAlimentLayout.createSequentialGroup()
                 .addGap(59, 59, 59)
@@ -346,7 +381,7 @@ public class FicheAliment extends javax.swing.JFrame {
             pageFicheAlimentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pageFicheAlimentLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addComponent(ficheAlimentText)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pageFicheAlimentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pageFicheAlimentLayout.createSequentialGroup()
@@ -355,26 +390,26 @@ public class FicheAliment extends javax.swing.JFrame {
                             .addComponent(searchButton))
                         .addGap(51, 51, 51)
                         .addGroup(pageFicheAlimentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(NomAlimentText)
+                            .addComponent(nomAlimentText)
                             .addComponent(alimentName))
                         .addGap(18, 18, 18)
                         .addGroup(pageFicheAlimentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Qte)
-                            .addComponent(QteText))
+                            .addComponent(quantiteText))
                         .addGap(18, 18, 18)
                         .addGroup(pageFicheAlimentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(TypeAlimentText)
+                            .addComponent(typeAlimentText)
                             .addComponent(TA))
                         .addGap(18, 18, 18)
                         .addGroup(pageFicheAlimentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(MDSText)
+                            .addComponent(moyenDeStockageText)
                             .addComponent(MDS))
                         .addGap(18, 18, 18)
                         .addGroup(pageFicheAlimentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(DDP)
                             .addComponent(dateDePeremptionText))
                         .addGap(147, 147, 147)
-                        .addComponent(jLabel2)
+                        .addComponent(recetteAssocieText)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pageFicheAlimentLayout.createSequentialGroup()
@@ -388,13 +423,13 @@ public class FicheAliment extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(Menu3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pageMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pageFicheAliment, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Menu3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pageMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(pageFicheAliment, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -449,7 +484,7 @@ public class FicheAliment extends javax.swing.JFrame {
         String ddp = "";
         
         // Assigner les differentes valeurs au texte
-        NomAlimentText.setText(ac);
+        nomAlimentText.setText(ac);
         Qte.setText(qte);
         TA.setText(ta);
         MDS.setText(mds);
@@ -492,7 +527,7 @@ public class FicheAliment extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FicheAliment(nomAliment).setVisible(true);
+                new FicheAliment(nomAliment, qteAliment, typeAliment, moyenDeStockageAliment, dateDePeremptionAliment).setVisible(true);
             }
         });
     }
