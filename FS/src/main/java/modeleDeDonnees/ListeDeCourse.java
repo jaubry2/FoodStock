@@ -2,67 +2,81 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ListeDeCourse {
-    private Map<Aliment, Integer> ingredients;
-    private Map<Aliment, Integer> recettes;
+  
+    private Long id;
+
+ 
+    private Set<RecetteAliment> ingredients;
+
+  
+    private Set<Recette> recettes;
 
     public ListeDeCourse() {
-        ingredients = new HashMap<>();
-        recettes = new HashMap<>();
+        ingredients = new HashSet<>();
+        recettes = new HashSet<>();
     }
 
     /**
-     * Ajoute un aliment avec sa quantité à la liste de course.
-     * @param aliment l'aliment à ajouter
-     * @param quantite la quantité de l'aliment
+     * Ajoute un ingrédient à la liste de course.
+     *
+     * @param recetteAliment l'objet RecetteAliment à ajouter
      */
-    public void ajouterIngredient(Aliment aliment, int quantite) {
-        ingredients.put(aliment, quantite);
+    public void ajouterIngredient(RecetteAliment recetteAliment) {
+        ingredients.add(recetteAliment);
     }
 
     /**
-     * Supprime un aliment de la liste de course.
-     * @param aliment l'aliment à supprimer
+     * Supprime un ingrédient de la liste de course.
+     *
+     * @param recetteAliment l'objet RecetteAliment à supprimer
      */
-    public void supprimerIngredient(Aliment aliment) {
-        ingredients.remove(aliment);
+    public void supprimerIngredient(RecetteAliment recetteAliment) {
+        ingredients.remove(recetteAliment);
     }
 
     /**
      * Ajoute une recette à la liste de course.
+     *
      * @param recette la recette à ajouter
      */
     public void ajouterRecette(Recette recette) {
-        for (Map.Entry<Aliment, Integer> entry : recette.getIngredients().entrySet()) {
-            Aliment aliment = entry.getKey();
-            int quantite = entry.getValue();
-            recettes.put(aliment, recettes.getOrDefault(aliment, 0) + quantite);
+        // Parcourir les ingrédients de la recette avec leurs quantités nécessaires
+        for (RecetteAliment recetteAliment : recette.getRecetteAliments()) {
+            Aliment aliment = recetteAliment.getAliment();
+            int quantiteNecessaire = recetteAliment.getQuantite();
+
+            // Vérifier si l'aliment est déjà présent dans la liste de course
+            if (ingredients.containsKey(aliment)) {
+                // Ajouter la quantité nécessaire à la quantité existante dans la liste de course
+                int quantiteExistante = ingredients.get(aliment);
+                ingredients.put(aliment, quantiteExistante + quantiteNecessaire);
+            } else {
+                // Ajouter l'aliment avec sa quantité nécessaire à la liste de course
+                ingredients.put(aliment, quantiteNecessaire);
+            }
         }
     }
 
     /**
      * Compare la liste de course avec le stock pour générer la liste finale.
+     *
      * @param stock le stock d'ingrédients disponible
-     * @return la liste de course avec les ingrédients manquants
+     * @return la liste de course avec les ingrédients manquants et leurs quantités nécessaires
      */
-    public Map<Aliment, Integer> comparerStock(Stock stock) {
-        Map<Aliment, Integer> listeCourse = new HashMap<>(ingredients);
+    public Map<RecetteAliment, Integer> comparerStock(Stock stock) {
+        Map<RecetteAliment, Integer> listeCourse = new HashMap<>();
 
-        for (Map.Entry<Aliment, Integer> entry : stock.getIngredients().entrySet()) {
-            Aliment aliment = entry.getKey();
-            int quantiteEnStock = entry.getValue();
+        for (RecetteAliment recetteAliment : ingredients) {
+            int quantiteNecessaire = recetteAliment.getQuantite();
+            int quantiteEnStock = stock.getQuantite(recetteAliment.getAliment());
+            int quantiteRestante = quantiteEnStock - quantiteNecessaire;
 
-            if (listeCourse.containsKey(aliment)) {
-                int quantiteNecessaire = listeCourse.get(aliment);
-                int quantiteRestante = quantiteEnStock - quantiteNecessaire;
-
-                if (quantiteRestante >= 0) {
-                    listeCourse.remove(aliment);
-                } else {
-                    listeCourse.put(aliment, Math.abs(quantiteRestante));
-                }
+            if (quantiteRestante < 0) {
+                listeCourse.put(recetteAliment, Math.abs(quantiteRestante));
             }
         }
 
         return listeCourse;
     }
+
 }
