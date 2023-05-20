@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 interfaceGraphique\FermetureFenetre.class
 baseDeDonnees\StockService.class
 interfaceGraphique\MenuRecette$8.class
@@ -86,3 +88,4 @@ interfaceGraphique\AjouterAliment$5.class
 interfaceGraphique\MenuStock$3.class
 interfaceGraphique\AjouterAliment$14.class
 modeleDeDonnees\MoyendeConservation.class
+>>>>>>> main
