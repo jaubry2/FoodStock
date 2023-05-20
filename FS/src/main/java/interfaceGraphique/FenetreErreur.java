@@ -60,7 +60,7 @@ public class FenetreErreur extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setLocation(new java.awt.Point(102, 76));
+        setLocationRelativeTo(null); 
         setMaximumSize(new java.awt.Dimension(145, 109));
         setMinimumSize(new java.awt.Dimension(145, 109));
         setSize(new java.awt.Dimension(145, 109));

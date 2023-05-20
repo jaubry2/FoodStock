@@ -34,10 +34,6 @@ public class AjouterAliment extends javax.swing.JFrame {
      */
     private javax.swing.JButton boutonAjouter;
     /**
-     * Bouton qui permet de modifier un aliment dans la table
-     */
-    private javax.swing.JButton modifierButton;
-    /**
      * Bouton qui permet de supprimer un aliment dans la table
      */
     private javax.swing.JButton supprimerButton;
@@ -146,7 +142,6 @@ public class AjouterAliment extends javax.swing.JFrame {
         supprimerButton = new javax.swing.JButton();
         addStockButton = new javax.swing.JButton();
         addTicketButton = new javax.swing.JButton();
-        modifierButton = new javax.swing.JButton();
         pageMenu = new javax.swing.JPanel();
         menuText = new javax.swing.JLabel();
         stockButton = new javax.swing.JButton();
@@ -220,6 +215,11 @@ public class AjouterAliment extends javax.swing.JFrame {
         TableAliments.setRowHeight(25);
         TableAliments.setSelectionBackground(new java.awt.Color(232, 57, 95));
         TableAliments.getTableHeader().setReorderingAllowed(false);
+        TableAliments.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TableAlimentsMouseClicked(evt);
+            }
+        });
         jScrollPane4.setViewportView(TableAliments);
 
         boutonAjouter.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); 
@@ -245,10 +245,11 @@ public class AjouterAliment extends javax.swing.JFrame {
         supprimerButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13));
         supprimerButton.setText("SUPPRIMER");
         supprimerButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        modifierButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); 
-        modifierButton.setText("MODIFIER");
-        modifierButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        supprimerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SupprimerButtonActionPerformed(evt);
+            }
+        });
 
         addStockButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); 
         addStockButton.setText("AJOUTER AU STOCK");
@@ -278,33 +279,30 @@ public class AjouterAliment extends javax.swing.JFrame {
                         .addGap(225, 225, 225)
                         .addComponent(qteText)
                         .addGap(63, 63, 63)
-                        .addComponent(qteTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(qteText, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                 .addComponent(ddpText, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(68, 68, 68)
                                 .addComponent(jourComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(50, 50, 50)
-                                .addComponent(moisComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(50, 50, 50))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                 .addComponent(addTicketButton)
-                                .addGap(79, 79, 79)
-                                .addComponent(boutonAjouter)
-                                .addGap(90, 90, 90)))
+                                .addGap(85, 85, 85)))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(boutonAjouter)
+                            .addComponent(moisComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(82, 82, 82)
                                 .addComponent(anneeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(modifierButton)
-                                .addGap(70, 70, 70)))))
-                .addGap(32, 32, 32)
-                .addComponent(supprimerButton)
-                .addGap(165, 165, 165))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(68, 68, 68)
+                                .addComponent(supprimerButton)))))
+                .addGap(279, 279, 279))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pageNameText, javax.swing.GroupLayout.PREFERRED_SIZE, 923, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -344,7 +342,6 @@ public class AjouterAliment extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(boutonAjouter, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(supprimerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(modifierButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(addTicketButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -443,23 +440,11 @@ public class AjouterAliment extends javax.swing.JFrame {
     private void boutonAjouterActionPerformed(java.awt.event.ActionEvent evt) {
         String nom;
         String quantite;
-        Date DDP;
-        int quantiteint;
         /* On récuperre la date de peremption */
         String jour = (String)jourComboBox.getSelectedItem();
         String mois = (String)moisComboBox.getSelectedItem();
         String annee = (String)anneeComboBox.getSelectedItem();
         String ddp = jour + "/" + mois + "/" + annee;
-
-        try{
-            int jourint = Integer.parseInt(jour);
-            int moisint = Integer.parseInt(mois);
-            int anneeint = Integer.parseInt(annee);
-            DDP = new Date(anneeint, moisint, jourint);
-        }
-        catch (NumberFormatException ex){
-            ex.printStackTrace();
-        }
 
         /* On recupere le nom de l'objet */
         /* try {*/
@@ -471,14 +456,6 @@ public class AjouterAliment extends javax.swing.JFrame {
 
         /* On recupere la quantite*/
         quantite = qteTextField.getText();
-
-        try{
-            quantiteint = Integer.parseInt(qteTextField.getText());
-        }
-        catch (NumberFormatException ex){
-            ex.printStackTrace();
-        }
-
 
 
         /* Ajout à la Table */

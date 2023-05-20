@@ -585,7 +585,7 @@ public class MenuStock extends javax.swing.JFrame {
         jTable1.setModel(model);
     }
     
-    private void ficheAlimentButtonActionPerformed(java.awt.event.ActionEvent evt) {
+    private void ficheAlimentButtonActionPerformed(java.awt.event.ActionEvent evt) { 
         String nom = alimentChosi.getText();
         String qte = "";
         String typeAliment = "";
