@@ -40,7 +40,7 @@ public class Controller {
             newPage = new FenetreErreur(_erreur, _message);
            OuvrirPage(newPage);
         } else if (_page.equals("ficheAliment")) {
-            newPage = new FicheAliment(_nomAliment);
+            newPage = new FicheAliment(_nomAliment,"","","","");
             OuvrirPage(newPage);
         } else if (_page.equals("menuListe")) {
             newPage = new MenuListe();
