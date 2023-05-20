@@ -16,16 +16,16 @@ public class TestImportMaJAlimentsAlimentsStockes {
 		HibernateService.CreerConfig();
 		
 		try {
-			List<Aliments> ListAliments = AlimentsService.importerTableAliment();
+			List<Aliment> ListAliments = AlimentService.importerTableAliment();
 			List<AlimentStockes> ListAlimentsStockes = AlimentStockeService.importerTableAlimentStock();
 			//System.out.println(ListAliments.get(0));
-			Aliments poivron = new Aliments("poivron",UnitedeMesure.Unite,MoyendeConservation.Sachet
+			Aliment poivron = new Aliment("poivron",UnitedeMesure.Unite,MoyendeConservation.Sachet
 					,TypeAliment.Fruits_Legumes);
 	        ListAliments.add(poivron);
 	        
 	       
-	        AlimentsService.mettreAJourTable(ListAliments);
-	        AlimentStockes poivronStock = new AlimentStockes(AlimentsService.findByName("poivron"),3
+	        AlimentService.mettreAJourTable(ListAliments);
+	        AlimentStockes poivronStock = new AlimentStockes(AlimentService.findByName("poivron"),3
 	        		,LocalDate.of(2023, 4, 23));
 	       // poivronStock.setQuantite(3);
 	        //poivronStock.setDatePeremption(LocalDate.of(2023, 4, 23));

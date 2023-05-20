@@ -1,6 +1,7 @@
 -------------------------------------------------------------------------------
 Test set: TestBDD.TestAlimentsStockeService
 -------------------------------------------------------------------------------
+<<<<<<< HEAD
 Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.04 sec <<< FAILURE!
 testConvertirEnAlimentStocke(TestBDD.TestAlimentsStockeService)  Time elapsed: 0.015 sec  <<< ERROR!
 org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
@@ -18,6 +19,16 @@ org.hibernate.service.spi.ServiceException: Unable to create requested service [
 	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:773)
 	at baseDeDonnees.HibernateService.CreerConfig(HibernateService.java:38)
 	at TestBDD.TestAlimentsStockeService.setUp(TestAlimentsStockeService.java:31)
+=======
+Tests run: 3, Failures: 2, Errors: 1, Skipped: 0, Time elapsed: 0.342 sec <<< FAILURE!
+testConvertirEnAlimentStocke(TestBDD.TestAlimentsStockeService)  Time elapsed: 0.118 sec  <<< ERROR!
+jakarta.persistence.NoResultException: No result found for query [FROM Aliment WHERE id = :id]
+	at org.hibernate.query.spi.AbstractSelectionQuery.getSingleResult(AbstractSelectionQuery.java:460)
+	at org.hibernate.query.sqm.internal.QuerySqmImpl.getSingleResult(QuerySqmImpl.java:1103)
+	at baseDeDonnees.AlimentService.getById(AlimentService.java:83)
+	at baseDeDonnees.AlimentStockeService.convertirEnAlimentStocke(AlimentStockeService.java:92)
+	at TestBDD.TestAlimentsStockeService.testConvertirEnAlimentStocke(TestAlimentsStockeService.java:61)
+>>>>>>> main
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -90,6 +101,7 @@ Caused by: java.sql.SQLInvalidAuthorizationSpecException: (conn=6) Access denied
 	at org.mariadb.jdbc.internal.protocol.AbstractConnectProtocol.connectWithoutProxy(AbstractConnectProtocol.java:1387)
 	... 65 more
 
+<<<<<<< HEAD
 testImporterTableAlimentStock(TestBDD.TestAlimentsStockeService)  Time elapsed: 0.013 sec  <<< ERROR!
 org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
 	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:267)
@@ -106,6 +118,15 @@ org.hibernate.service.spi.ServiceException: Unable to create requested service [
 	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:773)
 	at baseDeDonnees.HibernateService.CreerConfig(HibernateService.java:38)
 	at TestBDD.TestAlimentsStockeService.setUp(TestAlimentsStockeService.java:31)
+=======
+testImporterTableAlimentStock(TestBDD.TestAlimentsStockeService)  Time elapsed: 0.102 sec  <<< FAILURE!
+java.lang.AssertionError: expected:<2> but was:<0>
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotEquals(Assert.java:835)
+	at org.junit.Assert.assertEquals(Assert.java:647)
+	at org.junit.Assert.assertEquals(Assert.java:633)
+	at TestBDD.TestAlimentsStockeService.testImporterTableAlimentStock(TestAlimentsStockeService.java:53)
+>>>>>>> main
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -178,6 +199,7 @@ Caused by: java.sql.SQLInvalidAuthorizationSpecException: (conn=7) Access denied
 	at org.mariadb.jdbc.internal.protocol.AbstractConnectProtocol.connectWithoutProxy(AbstractConnectProtocol.java:1387)
 	... 65 more
 
+<<<<<<< HEAD
 testMettreAJourTable(TestBDD.TestAlimentsStockeService)  Time elapsed: 0.011 sec  <<< ERROR!
 org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
 	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:267)
@@ -194,6 +216,15 @@ org.hibernate.service.spi.ServiceException: Unable to create requested service [
 	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:773)
 	at baseDeDonnees.HibernateService.CreerConfig(HibernateService.java:38)
 	at TestBDD.TestAlimentsStockeService.setUp(TestAlimentsStockeService.java:31)
+=======
+testMettreAJourTable(TestBDD.TestAlimentsStockeService)  Time elapsed: 0.121 sec  <<< FAILURE!
+java.lang.AssertionError: expected:<3> but was:<0>
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotEquals(Assert.java:835)
+	at org.junit.Assert.assertEquals(Assert.java:647)
+	at org.junit.Assert.assertEquals(Assert.java:633)
+	at TestBDD.TestAlimentsStockeService.testMettreAJourTable(TestAlimentsStockeService.java:85)
+>>>>>>> main
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)

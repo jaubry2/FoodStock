@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import baseDeDonnees.AlimentsService;
+import baseDeDonnees.AlimentService;
 
 public class Stock {
 
@@ -120,7 +120,7 @@ public void ajouterAliment(String nomStock ,AlimentStockes alimentsStock) {
  * @param quantite la quantité de l'aliment à ajouter.
  * @param datePeremption la date de péremption de l'aliment à ajouter.
  */
-    public void ajouterAliment(String nomStock ,Aliments aliment, float quantite,LocalDate datePeremption) {
+    public void ajouterAliment(String nomStock ,Aliment aliment, float quantite,LocalDate datePeremption) {
         /*if (!stock.containsKey(nomStock)) {
             stock.put(nomStock, new ArrayList<Aliments>());
         }*/
@@ -172,8 +172,8 @@ public void ajouterAliment(String nomStock ,AlimentStockes alimentsStock) {
      * @param nom le nom de l'aliment recherché
      * @return l'objet Aliments correspondant au nom de l'aliment recherché, ou null si l'aliment n'est pas trouvé
      */
-    public static Aliments getAlimentByName(List<Aliments> listAliments, String nom) {
-        for (Aliments aliment : listAliments) {
+    public static Aliment getAlimentByName(List<Aliment> listAliments, String nom) {
+        for (Aliment aliment : listAliments) {
             if (aliment.getNom().equals(nom)) {
                 return aliment;
             }

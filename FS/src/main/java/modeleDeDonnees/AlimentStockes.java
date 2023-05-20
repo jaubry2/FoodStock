@@ -39,7 +39,7 @@ public class AlimentStockes {
     @param quantite la quantité de l'aliment stocké
     @param datePeremption la date de péremption de l'aliment stocké
     */
-    public AlimentStockes(Aliments aliment, float quantite, LocalDate datePeremption) {
+    public AlimentStockes(Aliment aliment, float quantite, LocalDate datePeremption) {
 		super();
 		this.aliment = aliment;
 		this.quantite = quantite;
@@ -54,7 +54,7 @@ public class AlimentStockes {
     @param quantite la quantité de l'aliment stocké
     @param datePeremption la date de péremption de l'aliment stocké
     */
-    public AlimentStockes(Long id, Aliments aliment, float quantite, LocalDate datePeremption) {
+    public AlimentStockes(Long id, Aliment aliment, float quantite, LocalDate datePeremption) {
     	super();
     	this.id =id;
 		this.aliment = aliment;
@@ -90,14 +90,14 @@ public class AlimentStockes {
 
     L'aliment stocké.
     */
-    private Aliments aliment;
+    private Aliment aliment;
 
 	/**
 
     Retourne l'aliment stocké.
     @return l'aliment stocké
     */
-    public Aliments getAliment() {
+    public Aliment getAliment() {
 		return aliment;
 	}
     /**
@@ -105,7 +105,7 @@ public class AlimentStockes {
     Modifie l'aliment stocké.
     @param aliment le nouvel aliment stocké
     */
-	public void setAliment(Aliments aliment) {
+	public void setAliment(Aliment aliment) {
 		this.aliment = aliment;
 	}
 

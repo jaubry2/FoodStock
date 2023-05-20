@@ -1,6 +1,7 @@
 -------------------------------------------------------------------------------
 Test set: TestBDD.TestAlimentService
 -------------------------------------------------------------------------------
+<<<<<<< HEAD
 Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.419 sec <<< FAILURE!
 testFindByName(TestBDD.TestAlimentService)  Time elapsed: 0.391 sec  <<< ERROR!
 org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
@@ -18,6 +19,12 @@ org.hibernate.service.spi.ServiceException: Unable to create requested service [
 	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:773)
 	at baseDeDonnees.HibernateService.CreerConfig(HibernateService.java:38)
 	at TestBDD.TestAlimentService.setUp(TestAlimentService.java:28)
+=======
+Tests run: 3, Failures: 2, Errors: 1, Skipped: 0, Time elapsed: 2.925 sec <<< FAILURE!
+testFindByName(TestBDD.TestAlimentService)  Time elapsed: 2.512 sec  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "modeleDeDonnees.Aliment.getNom()" because "resultat" is null
+	at TestBDD.TestAlimentService.testFindByName(TestAlimentService.java:100)
+>>>>>>> main
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -90,6 +97,7 @@ Caused by: java.sql.SQLInvalidAuthorizationSpecException: (conn=3) Access denied
 	at org.mariadb.jdbc.internal.protocol.AbstractConnectProtocol.connectWithoutProxy(AbstractConnectProtocol.java:1387)
 	... 65 more
 
+<<<<<<< HEAD
 testImporterTableAliment(TestBDD.TestAlimentService)  Time elapsed: 0.016 sec  <<< ERROR!
 org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
 	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:267)
@@ -106,6 +114,15 @@ org.hibernate.service.spi.ServiceException: Unable to create requested service [
 	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:773)
 	at baseDeDonnees.HibernateService.CreerConfig(HibernateService.java:38)
 	at TestBDD.TestAlimentService.setUp(TestAlimentService.java:28)
+=======
+testImporterTableAliment(TestBDD.TestAlimentService)  Time elapsed: 0.182 sec  <<< FAILURE!
+java.lang.AssertionError: expected:<3> but was:<0>
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotEquals(Assert.java:835)
+	at org.junit.Assert.assertEquals(Assert.java:647)
+	at org.junit.Assert.assertEquals(Assert.java:633)
+	at TestBDD.TestAlimentService.testImporterTableAliment(TestAlimentService.java:41)
+>>>>>>> main
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -178,6 +195,7 @@ Caused by: java.sql.SQLInvalidAuthorizationSpecException: (conn=4) Access denied
 	at org.mariadb.jdbc.internal.protocol.AbstractConnectProtocol.connectWithoutProxy(AbstractConnectProtocol.java:1387)
 	... 65 more
 
+<<<<<<< HEAD
 testMetreAJourTable(TestBDD.TestAlimentService)  Time elapsed: 0.012 sec  <<< ERROR!
 org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
 	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:267)
@@ -194,6 +212,15 @@ org.hibernate.service.spi.ServiceException: Unable to create requested service [
 	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:773)
 	at baseDeDonnees.HibernateService.CreerConfig(HibernateService.java:38)
 	at TestBDD.TestAlimentService.setUp(TestAlimentService.java:28)
+=======
+testMetreAJourTable(TestBDD.TestAlimentService)  Time elapsed: 0.171 sec  <<< FAILURE!
+java.lang.AssertionError: expected:<4> but was:<1>
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotEquals(Assert.java:835)
+	at org.junit.Assert.assertEquals(Assert.java:647)
+	at org.junit.Assert.assertEquals(Assert.java:633)
+	at TestBDD.TestAlimentService.testMetreAJourTable(TestAlimentService.java:66)
+>>>>>>> main
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)

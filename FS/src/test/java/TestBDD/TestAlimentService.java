@@ -10,10 +10,10 @@ import org.junit.Before;
 import org.junit.Test;
 
 import baseDeDonnees.AlimentStockeService;
-import baseDeDonnees.AlimentsService;
+import baseDeDonnees.AlimentService;
 import baseDeDonnees.HibernateService;
 import modeleDeDonnees.AlimentStockes;
-import modeleDeDonnees.Aliments;
+import modeleDeDonnees.Aliment;
 import modeleDeDonnees.MoyendeConservation;
 import modeleDeDonnees.TypeAliment;
 import modeleDeDonnees.UnitedeMesure;
@@ -36,7 +36,7 @@ public class TestAlimentService {
 	
 	@Test
     public void testImporterTableAliment() {
-        List<Aliments> listAliments = AlimentsService.importerTableAliment();
+        List<Aliment> listAliments = AlimentService.importerTableAliment();
         assertNotNull(listAliments);
         assertEquals(3, listAliments.size());
         assertEquals("poivron", listAliments.get(0).getNom());
@@ -48,39 +48,39 @@ public class TestAlimentService {
 		
 		
 		// importation de la base de donnée
-		List<Aliments> listAliments = new ArrayList<Aliments>();
-		listAliments = AlimentsService.importerTableAliment();
+		List<Aliment> listAliments = new ArrayList<Aliment>();
+		listAliments = AlimentService.importerTableAliment();
 
 		// Création de quelques aliments à mettre à jour
-		Aliments aliment = new Aliments("banane",UnitedeMesure.Unite,MoyendeConservation.Sachet
+		Aliment aliment = new Aliment("banane",UnitedeMesure.Unite,MoyendeConservation.Sachet
 				,TypeAliment.Fruits_Legumes);
 		
 		listAliments.add(aliment);
 
 
 		// Ajout des aliments à la base de données
-	    AlimentsService.mettreAJourTable(listAliments);
+	    AlimentService.mettreAJourTable(listAliments);
 	    
 		// vérifier que l'AlimentStocke a été ajouté
-	    listAliments = AlimentsService.importerTableAliment();
+	    listAliments = AlimentService.importerTableAliment();
 	    assertEquals(4, listAliments.size());
 	    assertEquals("banane", listAliments.get(3).getNom());
 
 		// Modification des aliments
 	    listAliments.get(3).setMoyenConservation(MoyendeConservation.Vrac);;
-		AlimentsService.mettreAJourTable(listAliments);
+		AlimentService.mettreAJourTable(listAliments);
 		
 		// Vérification de la mise à jour des aliments
-	    listAliments = AlimentsService.importerTableAliment();
+	    listAliments = AlimentService.importerTableAliment();
 		assertEquals(MoyendeConservation.Vrac, listAliments.get(3).getMoyenConservation());
 		
 		// supprimer un AlimentStocke existant
 	    
 		listAliments.remove(0);
-	    AlimentsService.mettreAJourTable(listAliments);
+	    AlimentService.mettreAJourTable(listAliments);
 	    
 	 // vérifier que l'aliment stocké  a été supprimé
-	    listAliments = AlimentsService.importerTableAliment();
+	    listAliments = AlimentService.importerTableAliment();
 	    assertEquals(3, listAliments.size());
         assertEquals("tomate", listAliments.get(0).getNom());
         assertEquals("melon", listAliments.get(1).getNom());
@@ -92,8 +92,8 @@ public class TestAlimentService {
 	public void testFindByName() {
 				
 		// Chercher l'aliment par son nom
-		Aliments resultat = AlimentsService.findByName("poivron");
-		Aliments resultat2 = AlimentsService.findByName("pomme");
+		Aliment resultat = AlimentService.findByName("poivron");
+		Aliment resultat2 = AlimentService.findByName("pomme");
 
 		
 		// Vérifier que l'aliment cherché est bien celui qui a été ajouté

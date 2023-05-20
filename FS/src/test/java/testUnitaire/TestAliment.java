@@ -11,17 +11,17 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-import modeleDeDonnees.Aliments;
+import modeleDeDonnees.Aliment;
 import modeleDeDonnees.MoyendeConservation;
 import modeleDeDonnees.TypeAliment;
 import modeleDeDonnees.UnitedeMesure;
 
 public class TestAliment {
-private Aliments aliment;
+private Aliment aliment;
 
 @Before
 public void setUp() {
-    aliment = new Aliments("Tomate", UnitedeMesure.Gramme, MoyendeConservation.Vrac, TypeAliment.Fruits_Legumes);
+    aliment = new Aliment("Tomate", UnitedeMesure.Gramme, MoyendeConservation.Vrac, TypeAliment.Fruits_Legumes);
     aliment.setId(1L);
 }
 
@@ -53,7 +53,7 @@ public void testGetTypeAliment() {
 
 @Test
 public void testConstructeurAvecParametres() {
-    Aliments aliment2 = new Aliments("Banane", UnitedeMesure.Gramme, MoyendeConservation.Vrac, TypeAliment.Fruits_Legumes);
+    Aliment aliment2 = new Aliment("Banane", UnitedeMesure.Gramme, MoyendeConservation.Vrac, TypeAliment.Fruits_Legumes);
     assertNotNull(aliment2);
     assertEquals("Banane", aliment2.getNom());
     assertEquals(UnitedeMesure.Gramme, aliment2.getUniteMesure());

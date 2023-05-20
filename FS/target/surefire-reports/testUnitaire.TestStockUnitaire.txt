@@ -1,9 +1,15 @@
 -------------------------------------------------------------------------------
 Test set: testUnitaire.TestStockUnitaire
 -------------------------------------------------------------------------------
+<<<<<<< HEAD
 Tests run: 9, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.014 sec <<< FAILURE!
 testGetAlimentByName(testUnitaire.TestStockUnitaire)  Time elapsed: 0.005 sec  <<< ERROR!
 modeleDeDonnees.AlimentsNonPresentException: L'aliment 'oeuf' n'est pas prÃ©sent.
+=======
+Tests run: 9, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.001 sec <<< FAILURE!
+testGetAlimentByName(testUnitaire.TestStockUnitaire)  Time elapsed: 0 sec  <<< ERROR!
+modeleDeDonnees.AlimentsNonPresentException: L'aliment 'oeuf' n'est pas présent.
+>>>>>>> main
 	at modeleDeDonnees.Stock.getAlimentByName(Stock.java:181)
 	at testUnitaire.TestStockUnitaire.testGetAlimentByName(TestStockUnitaire.java:101)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)

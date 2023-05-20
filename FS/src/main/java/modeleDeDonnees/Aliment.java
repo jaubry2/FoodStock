@@ -17,7 +17,7 @@ import jakarta.persistence.Table;
 
 
 @Entity
-@Table(name = "aliments")
+@Table(name = "aliment")
 /**
 
 Cette classe représente les aliments stockés.
@@ -29,12 +29,12 @@ Elle contient les informations suivantes :
     typeAliment : type de l'aliment (par exemple : viande, légume, ...)
     */
 
-public class Aliments {
+public class Aliment {
 	
 	/**
 	 * Constructeur par défaut.
 	 */
-	public Aliments() {};
+	public Aliment() {};
 	/**
 	 * Constructeur avec paramètres
 	 * @param nom : nom de l'aliment
@@ -42,7 +42,7 @@ public class Aliments {
 	 * @param moyenConservation : moyen de conservation de l'aliment
 	 * @param typeAliment : type de l'aliment
 	 */
-    public Aliments(String nom, UnitedeMesure uniteMesure, MoyendeConservation moyenConservation,
+    public Aliment(String nom, UnitedeMesure uniteMesure, MoyendeConservation moyenConservation,
 			TypeAliment typeAliment) {
 		super();
 		this.nom = nom;

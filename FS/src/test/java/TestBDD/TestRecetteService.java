@@ -11,7 +11,7 @@ import org.junit.Test;
 
 import baseDeDonnees.HibernateService;
 import baseDeDonnees.RecetteService;
-import modeleDeDonnees.Aliments;
+import modeleDeDonnees.Aliment;
 import modeleDeDonnees.Recette;
 
 /**

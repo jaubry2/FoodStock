@@ -32,7 +32,7 @@ public class HibernateService {
     public static void  CreerConfig() {
         config = new Configuration();
         config.configure("hibernate.cfg.xml");
-        config.addAnnotatedClass(modeleDeDonnees.Aliments.class);
+        config.addAnnotatedClass(modeleDeDonnees.Aliment.class);
         config.addAnnotatedClass(modeleDeDonnees.AlimentStockes.class);
 
         SessionFactory sessionFactory = config.buildSessionFactory();

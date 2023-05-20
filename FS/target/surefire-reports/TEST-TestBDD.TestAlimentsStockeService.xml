@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+<<<<<<< HEAD
 <testsuite tests="3" failures="0" name="TestBDD.TestAlimentsStockeService" time="0.039" errors="3" skipped="0">
+=======
+<testsuite tests="3" failures="2" name="TestBDD.TestAlimentsStockeService" time="0.341" errors="1" skipped="0">
+>>>>>>> main
   <properties>
     <property name="jansi.mode" value="force"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
@@ -22,10 +26,18 @@
     <property name="line.separator" value="
 "/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+<<<<<<< HEAD
     <property name="os.name" value="Mac OS X"/>
     <property name="classworlds.conf" value="/Users/julesa/eclipse-workspace/.metadata/.plugins/org.eclipse.m2e.launching/launches/m2conf1565901536401236320.tmp"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
     <property name="java.library.path" value="/Users/julesa/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
+=======
+    <property name="user.variant" value=""/>
+    <property name="os.name" value="Windows 11"/>
+    <property name="classworlds.conf" value="C:\Users\Loïc\Documents\1A SN\S6\Tob\FoodStock\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf15317284930494822906.tmp"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Users\Loïc\eclipse\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.2.v20220201-1208\jre\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:/Users/Loïc/eclipse//plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.2.v20220201-1208/jre/bin/server;C:/Users/Loïc/eclipse//plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.2.v20220201-1208/jre/bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\nodejs\;C:\Program Files\PuTTY\;C:\Program Files\MATLAB\R2022a\bin;C:\Program Files\Git\cmd;C:\Program Files\Microchip\xc16\v2.00\bin;C:\Users\Loïc\AppData\Local\Microsoft\WindowsApps;C:\Users\Loïc\AppData\Local\Programs\Python\Python310\Scripts;C:\Users\Loïc\AppData\Roaming\npm;C:\Users\Loïc\AppData\Local\Programs\Microsoft VS Code\bin;C:\ProgramData\Loïc\GitHubDesktop\bin;C:\Users\Loïc\AppData\Local\GitHubDesktop\bin;C:\Users\Loïc\eclipse;;."/>
+>>>>>>> main
     <property name="jdk.debug" value="release"/>
     <property name="java.class.version" value="61.0"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
@@ -60,6 +72,7 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
   </properties>
+<<<<<<< HEAD
   <testcase classname="TestBDD.TestAlimentsStockeService" name="testConvertirEnAlimentStocke" time="0.015">
     <error message="Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]" type="org.hibernate.service.spi.ServiceException">org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
 	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:267)
@@ -76,6 +89,15 @@
 	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:773)
 	at baseDeDonnees.HibernateService.CreerConfig(HibernateService.java:38)
 	at TestBDD.TestAlimentsStockeService.setUp(TestAlimentsStockeService.java:31)
+=======
+  <testcase classname="TestBDD.TestAlimentsStockeService" name="testConvertirEnAlimentStocke" time="0.118">
+    <error message="No result found for query [FROM Aliment WHERE id = :id]" type="jakarta.persistence.NoResultException">jakarta.persistence.NoResultException: No result found for query [FROM Aliment WHERE id = :id]
+	at org.hibernate.query.spi.AbstractSelectionQuery.getSingleResult(AbstractSelectionQuery.java:460)
+	at org.hibernate.query.sqm.internal.QuerySqmImpl.getSingleResult(QuerySqmImpl.java:1103)
+	at baseDeDonnees.AlimentService.getById(AlimentService.java:83)
+	at baseDeDonnees.AlimentStockeService.convertirEnAlimentStocke(AlimentStockeService.java:92)
+	at TestBDD.TestAlimentsStockeService.testConvertirEnAlimentStocke(TestAlimentsStockeService.java:61)
+>>>>>>> main
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -149,6 +171,7 @@ Caused by: java.sql.SQLInvalidAuthorizationSpecException: (conn=6) Access denied
 	... 65 more
 </error>
   </testcase>
+<<<<<<< HEAD
   <testcase classname="TestBDD.TestAlimentsStockeService" name="testImporterTableAlimentStock" time="0.013">
     <error message="Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]" type="org.hibernate.service.spi.ServiceException">org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
 	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:267)
@@ -165,6 +188,15 @@ Caused by: java.sql.SQLInvalidAuthorizationSpecException: (conn=6) Access denied
 	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:773)
 	at baseDeDonnees.HibernateService.CreerConfig(HibernateService.java:38)
 	at TestBDD.TestAlimentsStockeService.setUp(TestAlimentsStockeService.java:31)
+=======
+  <testcase classname="TestBDD.TestAlimentsStockeService" name="testImporterTableAlimentStock" time="0.102">
+    <failure message="expected:&lt;2&gt; but was:&lt;0&gt;" type="java.lang.AssertionError">java.lang.AssertionError: expected:&lt;2&gt; but was:&lt;0&gt;
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotEquals(Assert.java:835)
+	at org.junit.Assert.assertEquals(Assert.java:647)
+	at org.junit.Assert.assertEquals(Assert.java:633)
+	at TestBDD.TestAlimentsStockeService.testImporterTableAlimentStock(TestAlimentsStockeService.java:53)
+>>>>>>> main
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -238,6 +270,7 @@ Caused by: java.sql.SQLInvalidAuthorizationSpecException: (conn=7) Access denied
 	... 65 more
 </error>
   </testcase>
+<<<<<<< HEAD
   <testcase classname="TestBDD.TestAlimentsStockeService" name="testMettreAJourTable" time="0.011">
     <error message="Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]" type="org.hibernate.service.spi.ServiceException">org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
 	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:267)
@@ -254,6 +287,15 @@ Caused by: java.sql.SQLInvalidAuthorizationSpecException: (conn=7) Access denied
 	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:773)
 	at baseDeDonnees.HibernateService.CreerConfig(HibernateService.java:38)
 	at TestBDD.TestAlimentsStockeService.setUp(TestAlimentsStockeService.java:31)
+=======
+  <testcase classname="TestBDD.TestAlimentsStockeService" name="testMettreAJourTable" time="0.121">
+    <failure message="expected:&lt;3&gt; but was:&lt;0&gt;" type="java.lang.AssertionError">java.lang.AssertionError: expected:&lt;3&gt; but was:&lt;0&gt;
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotEquals(Assert.java:835)
+	at org.junit.Assert.assertEquals(Assert.java:647)
+	at org.junit.Assert.assertEquals(Assert.java:633)
+	at TestBDD.TestAlimentsStockeService.testMettreAJourTable(TestAlimentsStockeService.java:85)
+>>>>>>> main
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)

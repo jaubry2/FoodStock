@@ -8,11 +8,11 @@ import java.util.List;
 import java.util.Set;
 
 import baseDeDonnees.AlimentStockeService;
-import baseDeDonnees.AlimentsService;
+import baseDeDonnees.AlimentService;
 import baseDeDonnees.HibernateService;
 import baseDeDonnees.RecetteService;
 import modeleDeDonnees.AlimentStockes;
-import modeleDeDonnees.Aliments;
+import modeleDeDonnees.Aliment;
 import modeleDeDonnees.Stock;
 
 
@@ -28,13 +28,13 @@ public class Main {
      * Controleur qui permet de mettre à jour les informations
      */
     public static final Controller controller = new Controller();
-    public static List<Aliments> listAliments;
+    public static List<Aliment> listAliments;
     
     public static void main(String[] args) {
     	HibernateService.CreerConfig();
         // importation de la base 
         stocks = new Stock();
-        listAliments = AlimentsService.importerTableAliment();
+        listAliments = AlimentService.importerTableAliment();
         Set SetRecette = RecetteService.importerTableRecette();
 		List<AlimentStockes> list=AlimentStockeService.importerTableAlimentStock();
 		stocks.remplirstock("principal",list );

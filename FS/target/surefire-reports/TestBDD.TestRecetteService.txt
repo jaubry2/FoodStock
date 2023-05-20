@@ -1,6 +1,7 @@
 -------------------------------------------------------------------------------
 Test set: TestBDD.TestRecetteService
 -------------------------------------------------------------------------------
+<<<<<<< HEAD
 Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.029 sec <<< FAILURE!
 testImporterTableRecette(TestBDD.TestRecetteService)  Time elapsed: 0.017 sec  <<< ERROR!
 org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
@@ -18,6 +19,16 @@ org.hibernate.service.spi.ServiceException: Unable to create requested service [
 	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:773)
 	at baseDeDonnees.HibernateService.CreerConfig(HibernateService.java:38)
 	at TestBDD.TestRecetteService.setUp(TestRecetteService.java:26)
+=======
+Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.252 sec <<< FAILURE!
+testImporterTableRecette(TestBDD.TestRecetteService)  Time elapsed: 0.147 sec  <<< FAILURE!
+java.lang.AssertionError: expected:<1> but was:<0>
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotEquals(Assert.java:835)
+	at org.junit.Assert.assertEquals(Assert.java:647)
+	at org.junit.Assert.assertEquals(Assert.java:633)
+	at TestBDD.TestRecetteService.testImporterTableRecette(TestRecetteService.java:35)
+>>>>>>> main
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -25,8 +36,13 @@ org.hibernate.service.spi.ServiceException: Unable to create requested service [
 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
 	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+<<<<<<< HEAD
 	at org.junit.internal.runners.statements.RunBefores.invokeMethod(RunBefores.java:33)
 	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
+=======
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+>>>>>>> main
 	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
 	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
 	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
@@ -51,6 +67,7 @@ org.hibernate.service.spi.ServiceException: Unable to create requested service [
 	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+<<<<<<< HEAD
 Caused by: org.hibernate.exception.JDBCConnectionException: Error calling Driver#connect
 	at org.hibernate.exception.internal.SQLExceptionTypeDelegate.convert(SQLExceptionTypeDelegate.java:49)
 	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:56)
@@ -105,6 +122,16 @@ org.hibernate.service.spi.ServiceException: Unable to create requested service [
 	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:773)
 	at baseDeDonnees.HibernateService.CreerConfig(HibernateService.java:38)
 	at TestBDD.TestRecetteService.setUp(TestRecetteService.java:26)
+=======
+
+testMetreAJourTable(TestBDD.TestRecetteService)  Time elapsed: 0.105 sec  <<< FAILURE!
+java.lang.AssertionError: expected:<2> but was:<1>
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotEquals(Assert.java:835)
+	at org.junit.Assert.assertEquals(Assert.java:647)
+	at org.junit.Assert.assertEquals(Assert.java:633)
+	at TestBDD.TestRecetteService.testMetreAJourTable(TestRecetteService.java:53)
+>>>>>>> main
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -112,8 +139,13 @@ org.hibernate.service.spi.ServiceException: Unable to create requested service [
 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
 	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+<<<<<<< HEAD
 	at org.junit.internal.runners.statements.RunBefores.invokeMethod(RunBefores.java:33)
 	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
+=======
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+>>>>>>> main
 	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
 	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
 	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
@@ -138,6 +170,7 @@ org.hibernate.service.spi.ServiceException: Unable to create requested service [
 	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+<<<<<<< HEAD
 Caused by: org.hibernate.exception.JDBCConnectionException: Error calling Driver#connect
 	at org.hibernate.exception.internal.SQLExceptionTypeDelegate.convert(SQLExceptionTypeDelegate.java:49)
 	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:56)
@@ -175,4 +208,6 @@ Caused by: java.sql.SQLInvalidAuthorizationSpecException: (conn=10) Access denie
 	at org.mariadb.jdbc.internal.protocol.AbstractConnectProtocol.createConnection(AbstractConnectProtocol.java:553)
 	at org.mariadb.jdbc.internal.protocol.AbstractConnectProtocol.connectWithoutProxy(AbstractConnectProtocol.java:1387)
 	... 64 more
+=======
+>>>>>>> main
 
