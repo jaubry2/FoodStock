@@ -1,12 +1,39 @@
+<<<<<<< HEAD
+/Users/julesa/Desktop/FoodStock/FS/src/main/java/ScanTicket/TestScan.java
+/Users/julesa/Desktop/FoodStock/FS/src/main/java/interfaceGraphique/Main.java
+/Users/julesa/Desktop/FoodStock/FS/src/main/java/baseDeDonnees/AlimentStockeService.java
+/Users/julesa/Desktop/FoodStock/FS/src/main/java/interfaceGraphique/MenuListe.java
+/Users/julesa/Desktop/FoodStock/FS/src/main/java/interfaceGraphique/Controller.java
+/Users/julesa/Desktop/FoodStock/FS/src/main/java/interfaceGraphique/FermetureFenetre.java
+/Users/julesa/Desktop/FoodStock/FS/src/main/java/modeleDeDonnees/Stock.java
+/Users/julesa/Desktop/FoodStock/FS/src/main/java/interfaceGraphique/MenuStock.java
+/Users/julesa/Desktop/FoodStock/FS/src/main/java/interfaceGraphique/FicheAliment.java
+/Users/julesa/Desktop/FoodStock/FS/src/main/java/modeleDeDonnees/Aliments.java
+/Users/julesa/Desktop/FoodStock/FS/src/main/java/modeleDeDonnees/Recette.java
+/Users/julesa/Desktop/FoodStock/FS/src/main/java/baseDeDonnees/StockService.java
+/Users/julesa/Desktop/FoodStock/FS/src/main/java/modeleDeDonnees/AlimentsNonPresentException.java
+/Users/julesa/Desktop/FoodStock/FS/src/main/java/interfaceGraphique/MenuRecette.java
+/Users/julesa/Desktop/FoodStock/FS/src/main/java/interfaceGraphique/Accueil.java
+/Users/julesa/Desktop/FoodStock/FS/src/main/java/interfaceGraphique/FenetreErreur.java
+/Users/julesa/Desktop/FoodStock/FS/src/main/java/baseDeDonnees/HibernateService.java
+/Users/julesa/Desktop/FoodStock/FS/src/main/java/modeleDeDonnees/MoyendeConservation.java
+/Users/julesa/Desktop/FoodStock/FS/src/main/java/modeleDeDonnees/TypeAliment.java
+/Users/julesa/Desktop/FoodStock/FS/src/main/java/modeleDeDonnees/RecetteAliment.java
+/Users/julesa/Desktop/FoodStock/FS/src/main/java/interfaceGraphique/AjouterAliment.java
+/Users/julesa/Desktop/FoodStock/FS/src/main/java/baseDeDonnees/RecetteService.java
+/Users/julesa/Desktop/FoodStock/FS/src/main/java/modeleDeDonnees/UnitedeMesure.java
+/Users/julesa/Desktop/FoodStock/FS/src/main/java/modeleDeDonnees/AlimentStockes.java
+/Users/julesa/Desktop/FoodStock/FS/src/main/java/baseDeDonnees/AlimentsService.java
+/Users/julesa/Desktop/FoodStock/FS/src/main/java/interfaceGraphique/ModifierUnAliment.java
+=======
+C:\Users\Loïc\Documents\1A SN\S6\Tob\FoodStock\FS\src\main\java\modeleDeDonnees\RecetteAliment.java
 C:\Users\Loïc\Documents\1A SN\S6\Tob\FoodStock\FS\src\main\java\interfaceGraphique\AjouterAliment.java
 C:\Users\Loïc\Documents\1A SN\S6\Tob\FoodStock\FS\src\main\java\interfaceGraphique\MenuStock.java
 C:\Users\Loïc\Documents\1A SN\S6\Tob\FoodStock\FS\src\main\java\modeleDeDonnees\AlimentStockes.java
 C:\Users\Loïc\Documents\1A SN\S6\Tob\FoodStock\FS\src\main\java\baseDeDonnees\RecetteService.java
 C:\Users\Loïc\Documents\1A SN\S6\Tob\FoodStock\FS\src\main\java\modeleDeDonnees\UnitedeMesure.java
 C:\Users\Loïc\Documents\1A SN\S6\Tob\FoodStock\FS\src\main\java\modeleDeDonnees\Aliment.java
-C:\Users\Loïc\Documents\1A SN\S6\Tob\FoodStock\FS\src\main\java\modeleDeDonnees\Ingredient.java
 C:\Users\Loïc\Documents\1A SN\S6\Tob\FoodStock\FS\src\main\java\modeleDeDonnees\MoyendeConservation.java
-C:\Users\Loïc\Documents\1A SN\S6\Tob\FoodStock\FS\src\main\java\baseDeDonnees\IngredientService.java
 C:\Users\Loïc\Documents\1A SN\S6\Tob\FoodStock\FS\src\main\java\interfaceGraphique\FenetreErreur.java
 C:\Users\Loïc\Documents\1A SN\S6\Tob\FoodStock\FS\src\main\java\modeleDeDonnees\AlimentsNonPresentException.java
 C:\Users\Loïc\Documents\1A SN\S6\Tob\FoodStock\FS\src\main\java\baseDeDonnees\HibernateService.java
@@ -25,3 +52,4 @@ C:\Users\Loïc\Documents\1A SN\S6\Tob\FoodStock\FS\src\main\java\interfaceGraphiq
 C:\Users\Loïc\Documents\1A SN\S6\Tob\FoodStock\FS\src\main\java\interfaceGraphique\FermetureFenetre.java
 C:\Users\Loïc\Documents\1A SN\S6\Tob\FoodStock\FS\src\main\java\interfaceGraphique\Controller.java
 C:\Users\Loïc\Documents\1A SN\S6\Tob\FoodStock\FS\src\main\java\interfaceGraphique\Main.java
+>>>>>>> main
