@@ -13,16 +13,18 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.JoinColumn;
 
+import java.util.HashSet;
 import java.util.Set;
 
 
 @Entity
-@Table(name = "recettes")
+@Table(name = "recette")
 public class Recette {
 	
 
-    @Id
+    @Id 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Long id;
     
     /**
@@ -46,8 +48,9 @@ public class Recette {
     @JoinTable(name = "recette_aliment",
             joinColumns = @JoinColumn(name = "idRecette"),
             inverseJoinColumns = @JoinColumn(name = "idAliment"))*/
-    @OneToMany(mappedBy = "recette", cascade = CascadeType.ALL, orphanRemoval = true)
-     private Set<RecetteAliment> recetteAliments;
+    @OneToMany ( cascade = CascadeType.ALL)
+    @JoinColumn(name = "recette_id")
+     private Set<Ingredient> listIngredient;
 
 
     
@@ -66,6 +69,7 @@ public class Recette {
     public Recette(String nom,int duree) {
         this.duree = duree;
         this.nom = nom;
+        this.listIngredient = new HashSet<>();
     }
 
     /**
@@ -125,26 +129,33 @@ public class Recette {
      *
      * @return Les aliments liés à la recette avec leur quantité.
      */
-    public Set<RecetteAliment> getRecetteAliments() {
-        return recetteAliments;
+    
+    public Set<Ingredient> getListIngredients() {
+        return listIngredient;
     }
 
     /**
      * Modifie les aliments liés à la recette avec leur quantité.
      * @param recetteAliments Les nouveaux aliments liés à la recette avec leur quantité.
      */
-    public void setRecetteAliments(Set<RecetteAliment> recetteAliments) {
-        this.recetteAliments = recetteAliments;
+    public void setListIngredients(Set<Ingredient> listIngredients) {
+        this.listIngredient = listIngredients;
     }
     
     public void changerQuantiteRecetteAliment(String nomAliment, int nouvelleQuantite) {
-        for (RecetteAliment recetteAliment : recetteAliments) {
-            if (recetteAliment.getAliment().getNom().equals(nomAliment)) {
-                recetteAliment.setQuantite(nouvelleQuantite);
+    	/*this.setId(null);*/
+        for (Ingredient ingredients : listIngredient) {
+            if (ingredients.getAliment().getNom().equals(nomAliment)) {
+                ingredients.setQuantite(nouvelleQuantite);
                 break;
             }
         }
-        // Si aucun RecetteAliment correspondant n'est trouvé, vous pouvez lancer une exception, afficher un message d'erreur, ou effectuer une autre action appropriée.
+    }
+    public  static Recette creerRecette(String nom , int  duree , Aliment aliment, int quantite) {
+    	Recette recette = new Recette(nom, duree);
+    	Ingredient ingredient = new Ingredient(aliment, quantite);
+    	recette.getListIngredients().add(ingredient);
+    	return recette;
     }
 
 }

@@ -92,11 +92,7 @@ public class Aliment {
     @Column(name = "typeAliment")
     private TypeAliment typeAliment;
     
-    /**
-     * Recettes liées à l'aliment.
-     */
-    @OneToMany(mappedBy = "aliment")
-    private Set<RecetteAliment> recetteAliments;
+
     
 
 /**
@@ -185,32 +181,10 @@ public Long getId() {
 		this.nom  = nom;
 	}
 	
-	/**
-     * Retourne les aliments liés à la recette avec leur quantité.
-     *
-     * @return Les aliments liés à la recette avec leur quantité.
-     */
-	
-    public Set<RecetteAliment> getRecetteAliments() {
-        return recetteAliments;
-    }
 
-    /**
-     * Modifie les aliments liés à la recette avec leur quantité.
-     * @param recetteAliments Les nouveaux aliments liés à la recette avec leur quantité.
-     */
-    public void setRecetteAliments(Set<RecetteAliment> recetteAliments) {
-        this.recetteAliments = recetteAliments;
-    }
-    public void changerQuantiteRecetteAliment(String nomRecette, int nouvelleQuantite) {
-        for (RecetteAliment recetteAliment : recetteAliments) {
-            if (recetteAliment.getRecette().getNom().equals(nomRecette)) {
-                recetteAliment.setQuantite(nouvelleQuantite);
-                break;
-            }
-        }
-        // Si aucun RecetteAliment correspondant n'est trouvé, vous pouvez lancer une exception, afficher un message d'erreur, ou effectuer une autre action appropriée.
-    }
+
+
+
 
 
 }

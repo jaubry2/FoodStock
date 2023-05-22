@@ -12,9 +12,8 @@
         <property name="hibernate.hbm2ddl.auto">update</property>
         <mapping class="modeleDeDonnees.Aliment" />
         <mapping class="modeleDeDonnees.AlimentStockes" />
-        <mapping class="modeleDeDonnees.Stock" />
         <mapping class="modeleDeDonnees.Recette" />
-        <mapping class="modeleDeDonnees.RecetteAliment" />
+        <mapping class="modeleDeDonnees.Ingredient" />
         
         
         

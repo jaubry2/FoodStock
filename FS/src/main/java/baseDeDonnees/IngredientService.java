@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 import jakarta.persistence.Query;
 import modeleDeDonnees.Recette;
-import modeleDeDonnees.RecetteAliment;
+import modeleDeDonnees.Ingredient;
 
 /**
 
@@ -14,7 +14,7 @@ import modeleDeDonnees.RecetteAliment;
 
     Elle contient des méthodes pour ajouter, mettre à jour et supprimer des éléments de la table RecetteAliment.
     */
-    public class RecetteAlimentService extends HibernateService {
+    public class IngredientService extends HibernateService {
 
     /**
 
@@ -22,26 +22,26 @@ import modeleDeDonnees.RecetteAliment;
 
         @param setRecetteAliment l'ensemble de RecetteAliment à mettre à jour.
         */
-        public static void mettreAJourTable(Set<RecetteAliment> setRecetteAliment) {
+        public static void mettreAJourTable(Set<Ingredient> setIngredient) {
         transaction = session.beginTransaction();
         try {
         // Récupérer tous les RecetteAliment de la table avec HQL
-        Set<RecetteAliment> setBDD = RecetteAlimentService.importerTableRecetteAliment();
+        Set<Ingredient> setBDD = IngredientService.importerTableRecetteAliment();
 
  
 
-     // Parcourir l'ensemble de la table et supprimer les RecetteAliment qui ne sont plus dans setRecetteAliment
-     for (RecetteAliment recetteAlimentBDD : setBDD) {
-         if (!setRecetteAliment.contains(recetteAlimentBDD)) {
-             String hql = "DELETE FROM RecetteAliment WHERE id = :recetteAlimentId";
+        // Parcourir l'ensemble de la table et supprimer les RecetteAliment qui ne sont plus dans setRecetteAliment
+        for (Ingredient ingredientBDD : setBDD) {
+        	if (!setIngredient.contains(ingredientBDD)) {
+             String hql = "DELETE FROM Ingredient WHERE id = :IngredientId";
              Query query = session.createQuery(hql);
-             query.setParameter("recetteAlimentId", recetteAlimentBDD.getId());
+             query.setParameter("IngredientId", ingredientBDD.getId());
              int result = query.executeUpdate();
          }
      }
 
-     for (RecetteAliment recetteAliment : setRecetteAliment) {
-         session.merge(recetteAliment);
+     for (Ingredient ingredient : setIngredient) {
+         session.merge(ingredient);
      }
 
     } catch (Exception e) {
@@ -57,8 +57,8 @@ import modeleDeDonnees.RecetteAliment;
 
     @return Un ensemble d'objets RecetteAliment importés depuis la base de données.
     */
-    public static Set<RecetteAliment> importerTableRecetteAliment() {
-        return session.createNativeQuery("SELECT * FROM RecetteAliment", RecetteAliment.class).getResultStream().collect(Collectors.toSet());
+    public static Set<Ingredient> importerTableRecetteAliment() {
+        return session.createNativeQuery("SELECT * FROM Ingredient", Ingredient.class).getResultStream().collect(Collectors.toSet());
 
     }
 }

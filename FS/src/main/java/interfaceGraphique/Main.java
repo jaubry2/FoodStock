@@ -14,9 +14,12 @@ import baseDeDonnees.HibernateService;
 import baseDeDonnees.RecetteService;
 import modeleDeDonnees.AlimentStockes;
 import modeleDeDonnees.Recette;
-import modeleDeDonnees.RecetteAliment;
+import modeleDeDonnees.Ingredient;
+import modeleDeDonnees.MoyendeConservation;
 import modeleDeDonnees.Aliment;
 import modeleDeDonnees.Stock;
+import modeleDeDonnees.TypeAliment;
+import modeleDeDonnees.UnitedeMesure;
 
 
 
@@ -32,54 +35,70 @@ public class Main {
      */
     public static final Controller controller = new Controller();
     public static List<Aliment> listAliments;
+
     
     public static void main(String[] args) {
     	HibernateService.CreerConfig();
         // importation de la base 
-        stocks = new Stock();
+        //stocks = new Stock();
         listAliments = AlimentService.importerTableAliment();
-        Set SetRecette = RecetteService.importerTableRecette();
+        /*Aliment poire =new Aliment("poire",UnitedeMesure.Unite,MoyendeConservation.Sachet
+				,TypeAliment.Fruits_Legumes);
+        listAliments.add(poire);
+        listAliments.remove(listAliments.get(2));
+        AlimentService.mettreAJourTable(listAliments);*/
+        
+        
+
+        Set<Recette> setRecette = RecetteService.importerTableRecette();
+        /*setRecette.remove(setRecette.iterator().next());
+        Recette aligot = Recette.creerRecette("aligot",20,listAliments.get(1),300);
+        setRecette.add(aligot);*/
+        setRecette.iterator().next().changerQuantiteRecetteAliment("banane", 0);
+        RecetteService.enregistrer(setRecette); 
+        
+        System.out.println("aa");
+        
      // Obtenir l'itérateur pour parcourir les éléments du Set
-        Iterator<Recette> iterator = SetRecette.iterator();
 
         // Vérifier s'il y a un élément suivant dans le Set
-       /* if (iterator.hasNext()) {
-            // Récupérer le premier élément du Set
-            Recette recette = iterator.next();
-            
-            // Appeler la méthode changerQuantiteRecetteAliment sur la recette avec les paramètres appropriés
-            recette.changerQuantiteRecetteAliment("tomate", 1);
-            Iterator<RecetteAliment> iteratorRecetteAliment = recette.getRecetteAliments().iterator();
-            // Vérifier s'il y a un élément suivant dans le Set
-            if (iteratorRecetteAliment.hasNext()) {
-                // Récupérer le premier élément du Set
-            	RecetteAliment recetteAliment = iteratorRecetteAliment.next();
-                
-            recette.getRecetteAliments().remove(recetteAliment);
+        
+        /*Iterator<Ingredient> iteratorRecetteAliment = null;
+        for (Recette recetteP : SetRecette ) {
+        	
+	        if (recetteP.getNom().equals("Salade de pate")){
+	            // Récupérer le premier élément du Set
+	              iteratorRecetteAliment = recetteP.getListIngredients().iterator();
+	              Ingredient recetteAliment = iteratorRecetteAliment.next();
+
+	              recetteP.getListIngredients().remove(recetteAliment);
+	              Ingredient pate = new Ingredient(listAliments.get(2),300);
+	              recetteP.getListIngredients().add(pate);
+	           
+	    
+	        }
+             
+        	
+        }
+         
+         
           
-            }
-        }    
+          
+         
+         
+            
         RecetteService.mettreAJourTable(SetRecette);
         SetRecette = RecetteService.importerTableRecette();*/
 
-		List<AlimentStockes> list=AlimentStockeService.importerTableAlimentStock();
-		stocks.remplirstock("principal",list );
-		stocks.afficherContenuStock();
-		listAliments.get(1).changerQuantiteRecetteAliment("pizza",2);
-		Iterator<RecetteAliment> iteratorRecetteAliment = listAliments.get(1).getRecetteAliments().iterator();
-        // Vérifier s'il y a un élément suivant dans le Set
-        if (iteratorRecetteAliment.hasNext()) {
-            // Récupérer le premier élément du Set
-        	RecetteAliment recetteAliment = iteratorRecetteAliment.next();
-            
-        	listAliments.get(1).getRecetteAliments().remove(recetteAliment);
-      
-        }
-
-		AlimentService.mettreAJourTable(listAliments);
-        listAliments = AlimentService.importerTableAliment();
+		/*List<AlimentStockes> list=AlimentStockeService.importerTableAlimentStock();
+		stocks.remplirstock("principal",list);
+		stocks.afficherContenuStock();*/
+		
         
-		Accueil ac = new Accueil();
-		ac.setVisible(true);
+		/*RecetteService.mettreAJourTable(SetRecette);
+        SetRecette = RecetteService.importerTableRecette();*/
+        
+		//Accueil ac = new Accueil();
+		//ac.setVisible(true);
     }
 }

@@ -4,7 +4,7 @@ import java.util.List;
 import jakarta.persistence.Query;
 import modeleDeDonnees.AlimentStockes;
 import modeleDeDonnees.Recette;
-import modeleDeDonnees.RecetteAliment;
+import modeleDeDonnees.Ingredient;
 import modeleDeDonnees.Aliment;
 
 /**
@@ -27,38 +27,17 @@ public class AlimentService extends HibernateService  {
         
         try {
      // Récupérer tous les AlimentStockes de la table avec HQL
-		List<Aliment> listBDD = importerTableAliment();
+		List<Aliment> listBDD = AlimentService.importerTableAliment();
 
         // Parcourir la liste de la table et supprimer les AlimentStockes qui ne sont plus dans ListAlimentStockes
         for (Aliment alimentsBDD : listBDD) {
             if (!ListAliments.stream().anyMatch(aliments -> alimentsBDD.getId() == aliments.getId())) {
-            	String hql = "DELETE FROM Aliments WHERE id = :alimentId";
+            	String hql = "DELETE FROM Aliment WHERE id = :alimentId";
             	Query query = session.createQuery(hql);
             	query.setParameter("alimentId", alimentsBDD.getId());
             	int result = query.executeUpdate();
             }
-            else {
-            	Aliment alimentTrouvee = null;
-            	for (Aliment aliment : ListAliments) {
-            	    if (aliment.equals(alimentsBDD)) {
-            	    	alimentTrouvee = aliment;
-            	        break;
-            	    }
-            	}
-            	for (RecetteAliment recetteAlimentBDD : alimentsBDD.getRecetteAliments()) {
             
-                    if (!alimentTrouvee.getRecetteAliments().contains(recetteAlimentBDD)) {
-
-                    // Suppression des associations RecetteAliment
-                       String deleteAssociationsQuery = "DELETE FROM RecetteAliment WHERE aliment.id = :alimentId AND recette.id = :recetteId ";
-                       Query query = session.createQuery(deleteAssociationsQuery);
-                       query.setParameter("alimentId", alimentsBDD.getId());
-                       query.setParameter("recetteId", recetteAlimentBDD.getRecette().getId());
-
-                       int result = query.executeUpdate();
-                    }
-            	}
-            }
         }
 
 		

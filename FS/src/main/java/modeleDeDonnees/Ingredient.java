@@ -7,32 +7,34 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "recette_aliment")
-public class RecetteAliment {
+@Table(name = "ingredient")
+public class Ingredient {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "idRecette", referencedColumnName = "id")
-    private Recette recette;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "idAliment", referencedColumnName = "id")
     private Aliment aliment;
 
     @Column(name = "quantite")
     private int quantite;
+    
+
+    
+	@Column(name = "recette_id")
+	private Long recette_id;
 
 
-    public RecetteAliment() {
+    public Ingredient() {
     }
 
-    public RecetteAliment(Recette recette, Aliment aliment, int quantite) {
-        this.recette = recette;
+    public Ingredient( Aliment aliment, int quantite) {
         this.aliment = aliment;
         this.quantite = quantite;
     }
@@ -49,8 +51,6 @@ public class RecetteAliment {
 		this.quantite=nouvelleQuantite;
 	}
 
-	public Recette getRecette() {
-		return recette;
-	}
+
 }
 
