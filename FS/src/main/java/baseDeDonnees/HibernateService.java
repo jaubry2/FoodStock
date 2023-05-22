@@ -34,6 +34,8 @@ public class HibernateService {
         config.configure("hibernate.cfg.xml");
         config.addAnnotatedClass(modeleDeDonnees.Aliment.class);
         config.addAnnotatedClass(modeleDeDonnees.AlimentStockes.class);
+        config.addAnnotatedClass(modeleDeDonnees.Recette.class);
+        config.addAnnotatedClass(modeleDeDonnees.Ingredient.class);
 
         SessionFactory sessionFactory = config.buildSessionFactory();
         session = sessionFactory.openSession();

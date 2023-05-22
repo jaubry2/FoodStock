@@ -92,11 +92,7 @@ public class Aliment {
     @Column(name = "typeAliment")
     private TypeAliment typeAliment;
     
-    /**
-     * Recettes liées à l'aliment.
-     */
-    @OneToMany(mappedBy = "aliment")
-    private Set<RecetteAliment> recetteAliments;
+
     
 
 /**
@@ -185,23 +181,11 @@ public Long getId() {
 		this.nom  = nom;
 	}
 	
-	/**
-     * Retourne les aliments liés à la recette avec leur quantité.
-     *
-     * @return Les aliments liés à la recette avec leur quantité.
-     */
-	
-    public Set<RecetteAliment> getRecetteAliments() {
-        return recetteAliments;
-    }
 
-    /**
-     * Modifie les aliments liés à la recette avec leur quantité.
-     * @param recetteAliments Les nouveaux aliments liés à la recette avec leur quantité.
-     */
-    public void setRecetteAliments(Set<RecetteAliment> recetteAliments) {
-        this.recetteAliments = recetteAliments;
-    }
+
+
+
+
 
 }
 

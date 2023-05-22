@@ -3,6 +3,8 @@ package baseDeDonnees;
 import java.util.List;
 import jakarta.persistence.Query;
 import modeleDeDonnees.AlimentStockes;
+import modeleDeDonnees.Recette;
+import modeleDeDonnees.Ingredient;
 import modeleDeDonnees.Aliment;
 
 /**
@@ -25,16 +27,17 @@ public class AlimentService extends HibernateService  {
         
         try {
      // Récupérer tous les AlimentStockes de la table avec HQL
-		List<Aliment> listBDD = importerTableAliment();
+		List<Aliment> listBDD = AlimentService.importerTableAliment();
 
         // Parcourir la liste de la table et supprimer les AlimentStockes qui ne sont plus dans ListAlimentStockes
         for (Aliment alimentsBDD : listBDD) {
             if (!ListAliments.stream().anyMatch(aliments -> alimentsBDD.getId() == aliments.getId())) {
-            	String hql = "DELETE FROM Aliments WHERE id = :alimentId";
+            	String hql = "DELETE FROM Aliment WHERE id = :alimentId";
             	Query query = session.createQuery(hql);
             	query.setParameter("alimentId", alimentsBDD.getId());
             	int result = query.executeUpdate();
             }
+            
         }
 
 		
