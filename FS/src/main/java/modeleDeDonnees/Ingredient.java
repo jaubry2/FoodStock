@@ -20,7 +20,7 @@ public class Ingredient {
 
     @OneToOne
     @JoinColumn(name = "idAliment", referencedColumnName = "id")
-    private Aliments aliment;
+    private Aliment aliment;
 
     @Column(name = "quantite")
     private int quantite;
@@ -30,24 +30,7 @@ public class Ingredient {
 	@Column(name = "recette_id")
 	private Long recette_id;
 
-<<<<<<< Updated upstream:FS/src/main/java/modeleDeDonnees/RecetteAliment.java
-    
-    public RecetteAliment() {
-    }
-
-    public RecetteAliment(Recette recette, Aliments aliment, int quantite) {
-        this.recette = recette;
-        this.aliment = aliment;
-        this.quantite = quantite;
-    }
-    public Aliments getAliment() {
-    	return this.aliment;
-    }
-    public int getQuantite() {
-    	return this.quantite;
-    }
-=======
-
+  
     public Ingredient() {
     }
 
@@ -68,7 +51,15 @@ public class Ingredient {
 		this.quantite=nouvelleQuantite;
 	}
 
+	public int  getQuantite() {
+		return quantite;
+	}
 
->>>>>>> Stashed changes:FS/src/main/java/modeleDeDonnees/Ingredient.java
+	public boolean isAliment(Aliment aliment) {
+		return this.aliment.equals(aliment);
+		
+	}
+
+
 }
 

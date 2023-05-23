@@ -180,6 +180,15 @@ public Long getId() {
 		this.nom  = nom;
 	}
 	
+	public boolean equals(Aliment alimentComparaison) {
+	    if (this == alimentComparaison ) {
+	        return true;
+	    }
+	    if (alimentComparaison == null ) {
+	        return false;
+	    }
+	    return this.nom.equals(alimentComparaison.getNom());
+	}	
 	
 }
 

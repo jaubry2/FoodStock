@@ -78,6 +78,7 @@ interfaceGraphique\Accueil.class
 interfaceGraphique\AjouterAliment$5.class
 interfaceGraphique\MenuStock$3.class
 modeleDeDonnees\Aliment.class
+modeleDeDonnees\LivreRecettes.class
 interfaceGraphique\Controller.class
 baseDeDonnees\AlimentStockeService.class
 interfaceGraphique\AjouterAliment$11.class

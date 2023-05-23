@@ -1,3 +1,4 @@
+
 package modeleDeDonnees;
 
 import java.util.HashSet;
@@ -5,6 +6,7 @@ import java.util.Set;
 
 public class LivreRecettes {
 	private Set<Recette> recettes;
+	
     public LivreRecettes() {
     	this.recettes=new HashSet<>();
     }
@@ -35,5 +37,25 @@ public class LivreRecettes {
     public void afficherIngredients(Recette r) {
     		r.afficherIngredient();
     	
+    }
+    
+    public LivreRecettes FiltrerParDuree(int duree) {
+    	LivreRecettes recettesFiltre = new LivreRecettes();
+    	for (Recette recette : recettes) {
+    		if(recette.getDuree() > duree ) {
+    			recettesFiltre.ajouterRecette(recette);
+    		}
+    	}
+    	return recettesFiltre;
+    }
+    
+    public LivreRecettes FiltrerParAliment(Aliment aliment) {
+    	LivreRecettes recettesFiltre = new LivreRecettes();
+    	for (Recette recette : recettes) {
+    		if(recette.isAliment(aliment)) {
+    			recettesFiltre.ajouterRecette(recette);
+    		}
+    	}
+    	return recettesFiltre;
     }
 }

@@ -141,14 +141,12 @@ public class Recette {
     public void setListIngredients(Set<Ingredient> listIngredients) {
         this.listIngredient = listIngredients;
     }
-<<<<<<< Updated upstream
     public void afficherIngredient() {
-    	for (RecetteAliment R:recetteAliments) {
-    		System.out.println(R.getAliment().getNom());
-    		System.out.println(R.getQuantite());
+    	for (Ingredient i : listIngredient) {
+    		System.out.println(i.getAliment().getNom());
+    		System.out.println(i.getQuantite());
     	}
     }
-=======
     
     public void changerQuantiteRecetteAliment(String nomAliment, int nouvelleQuantite) {
     	/*this.setId(null);*/
@@ -165,6 +163,13 @@ public class Recette {
     	recette.getListIngredients().add(ingredient);
     	return recette;
     }
+    public boolean isAliment(Aliment aliment) {
+    	for (Ingredient ingredient : listIngredient) {
+    		if (ingredient.isAliment(aliment)) {
+    			return true;
+    		}
+    	}
+    	return false;
+    }
 
->>>>>>> Stashed changes
 }
