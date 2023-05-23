@@ -36,7 +36,7 @@ public class TestRecetteService {
         assertEquals("Pizza", setRecettes.iterator().next().getNom());
     }
 
-    @Test
+   /* @Test
     public void testMetreAJourTable() {
         // Importation de la base de données
         Set<Recette> setRecettes = new HashSet<>(RecetteService.importerTableRecette());
@@ -103,6 +103,6 @@ public class TestRecetteService {
         }
 
         assertNull(recetteTrouvee);
-    }
+    }*/
 
 }

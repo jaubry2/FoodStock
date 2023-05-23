@@ -209,10 +209,9 @@ public class MenuStock extends javax.swing.JFrame {
                 addButtonActionPerformed(evt);
             }
         });
-        List<AlimentStockes> stock = Main.stocks.getListFromMap("principal");
-        Object[][] data = new Object[stock.size()][4];
-        for (int i = 0; i < stock.size(); i++) {
-            AlimentStockes alimentStocke = stock.get(i);
+        Object[][] data = new Object[Main.stock.getStock().size()][4];
+        for (int i = 0; i < Main.stock.getStock().size(); i++) {
+            AlimentStockes alimentStocke = Main.stock.getStock().get(i);
             data[i][0] = alimentStocke.getAliment().getNom();
             data[i][1] = alimentStocke.getDatePeremption();
             data[i][2] = alimentStocke.getQuantite();
@@ -439,7 +438,7 @@ public class MenuStock extends javax.swing.JFrame {
      */
     private void fruitLegumeButtonActionPerformed(java.awt.event.ActionEvent evt) {
         TypeAliment tA = TypeAliment.Fruits_Legumes;
-        List<AlimentStockes> stock = Main.stocks.filtrerType("principal", tA);
+        List<AlimentStockes> stock = Main.stock.filtrerType(tA);
         Object[][] data = new Object[stock.size()][4];
         for (int i = 0; i < stock.size(); i++) {
             AlimentStockes alimentStocke = stock.get(i);
@@ -458,7 +457,7 @@ public class MenuStock extends javax.swing.JFrame {
      */
     private void boissonsButtonActionPerformed(java.awt.event.ActionEvent evt) {
         TypeAliment tA = TypeAliment.Boissons;
-        List<AlimentStockes> stock = Main.stocks.filtrerType("principal", tA);
+        List<AlimentStockes> stock = Main.stock.filtrerType(tA);
         Object[][] data = new Object[stock.size()][4];
         for (int i = 0; i < stock.size(); i++) {
             AlimentStockes alimentStocke = stock.get(i);
@@ -477,7 +476,7 @@ public class MenuStock extends javax.swing.JFrame {
      */
     private void cerealesButtonActionPerformed(java.awt.event.ActionEvent evt) {
         TypeAliment tA = TypeAliment.Céreales;
-        List<AlimentStockes> stock = Main.stocks.filtrerType("principal", tA);
+        List<AlimentStockes> stock = Main.stock.filtrerType(tA);
         Object[][] data = new Object[stock.size()][4];
         for (int i = 0; i < stock.size(); i++) {
             AlimentStockes alimentStocke = stock.get(i);
@@ -496,7 +495,7 @@ public class MenuStock extends javax.swing.JFrame {
      */
     private void produitsLaitiersButtonActionPerformed(java.awt.event.ActionEvent evt) {
         TypeAliment tA = TypeAliment.ProduitsLaitiers;
-        List<AlimentStockes> stock = Main.stocks.filtrerType("principal", tA);
+        List<AlimentStockes> stock = Main.stock.filtrerType(tA);
         Object[][] data = new Object[stock.size()][4];
         for (int i = 0; i < stock.size(); i++) {
             AlimentStockes alimentStocke = stock.get(i);
@@ -515,7 +514,7 @@ public class MenuStock extends javax.swing.JFrame {
      */
     private void snacksButtonActionPerformed(java.awt.event.ActionEvent evt) {
         TypeAliment tA = TypeAliment.Snacks;
-        List<AlimentStockes> stock = Main.stocks.filtrerType("principal", tA);
+        List<AlimentStockes> stock = Main.stock.filtrerType( tA);
         Object[][] data = new Object[stock.size()][4];
         for (int i = 0; i < stock.size(); i++) {
             AlimentStockes alimentStocke = stock.get(i);
@@ -534,7 +533,7 @@ public class MenuStock extends javax.swing.JFrame {
      */
     private void surgelesButtonActionPerformed(java.awt.event.ActionEvent evt) {
         TypeAliment tA = TypeAliment.Surgeles;
-        List<AlimentStockes> stock = Main.stocks.filtrerType("principal", tA);
+        List<AlimentStockes> stock = Main.stock.filtrerType(tA);
         Object[][] data = new Object[stock.size()][4];
         for (int i = 0; i < stock.size(); i++) {
             AlimentStockes alimentStocke = stock.get(i);
@@ -553,7 +552,7 @@ public class MenuStock extends javax.swing.JFrame {
      */
     private void viandePoissonButtonActionPerformed(java.awt.event.ActionEvent evt) {
         TypeAliment tA = TypeAliment.Viande_Poisson;
-        List<AlimentStockes> stock = Main.stocks.filtrerType("principal", tA);
+        List<AlimentStockes> stock = Main.stock.filtrerType( tA);
         Object[][] data = new Object[stock.size()][4];
         for (int i = 0; i < stock.size(); i++) {
             AlimentStockes alimentStocke = stock.get(i);
@@ -571,10 +570,9 @@ public class MenuStock extends javax.swing.JFrame {
      * @param evt Click sur le bouton Reinitialiser
      */
     private void reinitialiserButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        List<AlimentStockes> stock = Main.stocks.getListFromMap("principal");
-        Object[][] data = new Object[stock.size()][4];
-        for (int i = 0; i < stock.size(); i++) {
-            AlimentStockes alimentStocke = stock.get(i);
+        Object[][] data = new Object[Main.stock.getStock().size()][4];
+        for (int i = 0; i < Main.stock.getStock().size(); i++) {
+            AlimentStockes alimentStocke = Main.stock.getStock().get(i);
             data[i][0] = alimentStocke.getAliment().getNom();
             data[i][1] = alimentStocke.getDatePeremption();
             data[i][2] = alimentStocke.getQuantite();

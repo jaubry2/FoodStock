@@ -3,10 +3,10 @@ import java.util.Map;
 
 public class ListeDeCourse {
   
-    private Long id;
+	/*   private Long id;
 
  
-    private Set<RecetteAliment> ingredients;
+    private Set<Ingredients> ingredients;
 
   
     private Set<Recette> recettes;
@@ -21,8 +21,8 @@ public class ListeDeCourse {
      *
      * @param recetteAliment l'objet RecetteAliment à ajouter
      */
-    public void ajouterIngredient(RecetteAliment recetteAliment) {
-        ingredients.add(recetteAliment);
+   /* public void ajouterIngredient(Ingredient ingredient) {
+        ingredients.add(ingredient);
     }
 
     /**
@@ -30,8 +30,8 @@ public class ListeDeCourse {
      *
      * @param recetteAliment l'objet RecetteAliment à supprimer
      */
-    public void supprimerIngredient(RecetteAliment recetteAliment) {
-        ingredients.remove(recetteAliment);
+   /* public void supprimerIngredient(Ingredient ingredient) {
+        ingredients.remove(ingredient);
     }
 
     /**
@@ -39,11 +39,11 @@ public class ListeDeCourse {
      *
      * @param recette la recette à ajouter
      */
-    public void ajouterRecette(Recette recette) {
+    /*public void ajouterRecette(Recette recette) {
         // Parcourir les ingrédients de la recette avec leurs quantités nécessaires
-        for (RecetteAliment recetteAliment : recette.getRecetteAliments()) {
-            Aliment aliment = recetteAliment.getAliment();
-            int quantiteNecessaire = recetteAliment.getQuantite();
+        for (Ingredient ingredient : recette.getIngredient()) {
+            Aliment aliment = ingredient.getAliment();
+            int quantiteNecessaire = ingredient.getQuantite();
 
             // Vérifier si l'aliment est déjà présent dans la liste de course
             if (ingredients.containsKey(aliment)) {
@@ -63,20 +63,20 @@ public class ListeDeCourse {
      * @param stock le stock d'ingrédients disponible
      * @return la liste de course avec les ingrédients manquants et leurs quantités nécessaires
      */
-    public Map<RecetteAliment, Integer> comparerStock(Stock stock) {
-        Map<RecetteAliment, Integer> listeCourse = new HashMap<>();
+    /*public Map<Ingredient, Integer> comparerStock(Stock stock) {
+        Map<Ingredient, Integer> listeCourse = new HashMap<>();
 
-        for (RecetteAliment recetteAliment : ingredients) {
+        for (Ingredient ingredient : ingredients) {
             int quantiteNecessaire = recetteAliment.getQuantite();
-            int quantiteEnStock = stock.getQuantite(recetteAliment.getAliment());
+            int quantiteEnStock = stock.getQuantite(ingredient.getAliment());
             int quantiteRestante = quantiteEnStock - quantiteNecessaire;
 
             if (quantiteRestante < 0) {
-                listeCourse.put(recetteAliment, Math.abs(quantiteRestante));
+                listeCourse.put(ingredient, Math.abs(quantiteRestante));
             }
         }
 
         return listeCourse;
-    }
+    }*/
 
 }

@@ -2,7 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
 
-package interfaceGraphique ;
+
+package interfaceGraphique;
+
 
 import java.util.List;
 import java.util.Set;
@@ -14,6 +16,8 @@ import baseDeDonnees.RecetteService;
 import modeleDeDonnees.AlimentStockes;
 import modeleDeDonnees.Aliment;
 import modeleDeDonnees.Stock;
+import interfaceGraphique.Controller;
+import interfaceGraphique.Accueil;
 
 
 
@@ -23,7 +27,7 @@ import modeleDeDonnees.Stock;
  */
 public class Main {
 	
-	public static Stock stocks;
+	public static Stock stock;
 	/**
      * Controleur qui permet de mettre à jour les informations
      */
@@ -33,12 +37,13 @@ public class Main {
     public static void main(String[] args) {
     	HibernateService.CreerConfig();
         // importation de la base 
-        stocks = new Stock();
+        stock = new Stock(AlimentStockeService.importerTableAlimentStock());
+        
         listAliments = AlimentService.importerTableAliment();
         Set SetRecette = RecetteService.importerTableRecette();
-		List<AlimentStockes> list=AlimentStockeService.importerTableAlimentStock();
-		stocks.remplirstock("principal",list );
-		stocks.afficherContenuStock();
+		/*List<AlimentStockes> list=AlimentStockeService.importerTableAlimentStock();*/
+		/*stocks.remplirstock("principal",list );*/
+		stock.afficherContenuStock();
 		
 		Accueil ac = new Accueil();
 		ac.setVisible(true);

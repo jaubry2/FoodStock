@@ -193,7 +193,7 @@ public class Accueil extends javax.swing.JFrame {
         CorpNameText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         CorpNameText.setText("FOODSTOCK");
 
-        List<AlimentStockes> stock = Main.stocks.filtrerDate("principal",4);
+        List<AlimentStockes> stock = Main.stock.filtrerDate(4);
         Object[][] data = new Object[stock.size()][4];
         for (int i = 0; i < stock.size(); i++) {
             AlimentStockes alimentStocke = stock.get(i);

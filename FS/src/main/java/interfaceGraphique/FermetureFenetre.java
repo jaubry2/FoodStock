@@ -10,6 +10,6 @@ public class FermetureFenetre extends WindowAdapter {
     @Override
     public void windowClosing(WindowEvent e) {
     	System.out.println("fermeture");
-       AlimentStockeService.mettreAJourTable(Main.stocks.getListFromMap("principal"));
+       AlimentStockeService.mettreAJourTable(Main.stock.getStock());
     }
 }

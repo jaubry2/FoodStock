@@ -92,7 +92,7 @@ public class TestAlimentService {
 	public void testFindByName() {
 				
 		// Chercher l'aliment par son nom
-		Aliment resultat = AlimentService.findByName("poivron");
+		Aliment resultat = AlimentService.findByName("banane");
 		Aliment resultat2 = AlimentService.findByName("pomme");
 
 		

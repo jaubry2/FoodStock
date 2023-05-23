@@ -30,12 +30,12 @@ public class TestStockUnitaire {
 
     @Before
     public void setUp() {
-        stock = new Stock();
+        listAlimentStockes = new ArrayList<>();
+        stock = new Stock(listAlimentStockes);
         lait = new Aliment("lait",UnitedeMesure.Litre,MoyendeConservation.Bouteille,TypeAliment.ProduitsLaitiers);
         laitStockes = new AlimentStockes(lait,(float) 2.5, LocalDate.now().plusDays(3));
         farine = new Aliment("farine",UnitedeMesure.Gramme,MoyendeConservation.Sachet,TypeAliment.Céreales);
         farineStockes = new AlimentStockes(farine,(float) 500, LocalDate.now().plusDays(100));
-        listAlimentStockes = new ArrayList<>();
         listAlimentStockes.add(laitStockes);
         listAlimentStockes.add(farineStockes);
         
@@ -46,52 +46,44 @@ public class TestStockUnitaire {
 
     }
 
-    @Test
-    public void testCreerStock() {
-        stock.creerstock("Frigo");
-        assertTrue(stock.getStock().containsKey("Frigo"));
-    }
+
 
     @Test
     public void testRemplirStock() {
        
 
-        stock.remplirstock("Frigo", listAlimentStockes);
-        assertEquals(stock.getStock().get("Frigo"), listAlimentStockes);
+        stock.ajouterListe(listAlimentStockes);
+        assertEquals(stock.getStock(), listAlimentStockes);
     }
 
     @Test
     public void testAjouterAliment() {
-        stock.creerstock("Frigo");
-        stock.ajouterAliment("Frigo", laitStockes);
-        assertTrue(stock.getStock().get("Frigo").contains(laitStockes));
+        stock.ajouterAliment( laitStockes);
+        assertTrue(stock.getStock().contains(laitStockes));
     }
 
     @Test
     public void testAjouterListe() {
-        stock.creerstock("Frigo");
-        stock.ajouterListe("Frigo", listAlimentStockes);
-        assertTrue(stock.getStock().get("Frigo").contains(laitStockes));
+        stock.ajouterListe(listAlimentStockes);
+        assertTrue(stock.getStock().contains(laitStockes));
         
     }
     
     public void testAjouterAlimentAvecNom() {
         Aliment aliments = new Aliment("lait",UnitedeMesure.Litre,MoyendeConservation.Bouteille,TypeAliment.ProduitsLaitiers);
-        stock.creerstock("Frigo");
-        stock.ajouterAliment("Frigo", aliments, 2.5f, LocalDate.now().plusDays(3));
-        assertEquals(stock.getStock().get("Frigo").get(0).getQuantite(), 2.5f, 0.01);
-        assertEquals(stock.getStock().get("Frigo").get(0).getDatePeremption(), LocalDate.now().plusDays(3));
-        assertEquals(stock.getStock().get("Frigo").get(0).getAliment(), aliments);
+        stock.ajouterAliment( aliments, 2.5f, LocalDate.now().plusDays(3));
+        assertEquals(stock.getStock().get(0).getQuantite(), 2.5f, 0.01);
+        assertEquals(stock.getStock().get(0).getDatePeremption(), LocalDate.now().plusDays(3));
+        assertEquals(stock.getStock().get(0).getAliment(), aliments);
     }
 
     @Test
     public void testRetirerAliment() {
         Aliment aliments = new Aliment("lait",UnitedeMesure.Litre,MoyendeConservation.Bouteille,TypeAliment.ProduitsLaitiers);
         AlimentStockes alimentStockes = new AlimentStockes(aliments, 2.5f, LocalDate.now().plusDays(3));
-        stock.creerstock("Frigo");
-        stock.ajouterAliment("Frigo", alimentStockes);
-        stock.retirerAliment("Frigo", alimentStockes);
-        assertFalse(stock.getStock().get("Frigo").contains(alimentStockes));
+        stock.ajouterAliment( alimentStockes);
+        stock.retirerAliment(alimentStockes);
+        assertFalse(stock.getStock().contains(alimentStockes));
     }
     
     @Test
@@ -105,35 +97,28 @@ public class TestStockUnitaire {
         assertNull(oeufTest);
       
     }
-    @Test
-    public void testGetListFromMap() {
-        stock.remplirstock("Frigo", listAlimentStockes);
-        List<AlimentStockes> frigoTests = stock.getListFromMap("Frigo");
-        
-        assertEquals(2, frigoTests.size());      
-    }
     
     @Test
     public void testFiltrerType() {
-        stock.remplirstock("Frigo", listAlimentStockes);
-        List<AlimentStockes> listAlimentsProduitLaitier = stock.filtrerType("Frigo", TypeAliment.ProduitsLaitiers);
+        stock.ajouterListe(listAlimentStockes);
+        List<AlimentStockes> listAlimentsProduitLaitier = stock.filtrerType(TypeAliment.ProduitsLaitiers);
         assertEquals(1, listAlimentsProduitLaitier.size());
         assertEquals("lait", listAlimentsProduitLaitier.get(0).getAliment().getNom());
-        List<AlimentStockes> listAlimentsCereales = stock.filtrerType("Frigo", TypeAliment.Céreales);
+        List<AlimentStockes> listAlimentsCereales = stock.filtrerType(TypeAliment.Céreales);
         assertEquals(1, listAlimentsCereales.size());
         assertEquals("farine", listAlimentsCereales.get(0).getAliment().getNom());
-        List<AlimentStockes> listAlimentsFL = stock.filtrerType("Frigo", TypeAliment.Fruits_Legumes);
+        List<AlimentStockes> listAlimentsFL = stock.filtrerType(TypeAliment.Fruits_Legumes);
         assertEquals(Collections.emptyList(),listAlimentsFL);
 
     }
     
     @Test
     public void testFiltrerDate() {
-        stock.remplirstock("Frigo", listAlimentStockes);
-        List<AlimentStockes> listAlimentsProcheDate = stock.filtrerDate("Frigo", 4);
+        stock.ajouterListe( listAlimentStockes);
+        List<AlimentStockes> listAlimentsProcheDate = stock.filtrerDate( 4);
         assertEquals(1, listAlimentsProcheDate.size());
         assertEquals("lait", listAlimentsProcheDate.get(0).getAliment().getNom());
-        List<AlimentStockes> listAlimentsTresProcheDate = stock.filtrerDate("Frigo",2);
+        List<AlimentStockes> listAlimentsTresProcheDate = stock.filtrerDate(2);
         assertEquals(Collections.emptyList(),listAlimentsTresProcheDate);
 
     }

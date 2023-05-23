@@ -14,6 +14,8 @@ import javax.swing.table.DefaultTableModel;
 import modeleDeDonnees.AlimentStockes;
 import modeleDeDonnees.Aliment;
 import modeleDeDonnees.AlimentsNonPresentException;
+import modeleDeDonnees.Stock;
+
 
 /**
  *
@@ -74,7 +76,7 @@ public class Controller {
 		    	
 		    	LocalDate datePeremption = LocalDate.parse((String) d.getValueAt(ligne, 2),DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 
-		    	Aliment aliment = Main.stocks.getAlimentByName(Main.listAliments,nom);
+		    	Aliment aliment = Stock.getAlimentByName(Main.listAliments, nom);
 		    	
 		    	AlimentStockes alimentRajout= new AlimentStockes(aliment,quantite,datePeremption);
 		    	    	listRajout.add(alimentRajout);
@@ -83,8 +85,8 @@ public class Controller {
 	    	}
 
     	}
-        Main.stocks.ajouterListe("principal",listRajout );
-        Main.stocks.afficherContenuStock();
+        Main.stock.ajouterListe(listRajout );
+        Main.stock.afficherContenuStock();
         
     };
     }

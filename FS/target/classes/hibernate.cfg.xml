@@ -14,7 +14,7 @@
         <mapping class="modeleDeDonnees.AlimentStockes" />
         <mapping class="modeleDeDonnees.Stock" />
         <mapping class="modeleDeDonnees.Recette" />
-        <mapping class="modeleDeDonnees.RecetteAliment" />
+        <mapping class="modeleDeDonnees.Ingredient" />
         
         
         

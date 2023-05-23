@@ -1,5 +1,6 @@
 package modeleDeDonnees;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -9,18 +10,21 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.Table;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.JoinColumn;
 
+import java.util.HashSet;
 import java.util.Set;
 
 
 @Entity
-@Table(name = "recettes")
+@Table(name = "recette")
 public class Recette {
 	
 
-    @Id
+    @Id 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Long id;
     
     /**
@@ -40,11 +44,13 @@ public class Recette {
     /**
      * Aliments liés à la recette.
      */
-    @ManyToMany(fetch = FetchType.LAZY)
+    /*@OneToMany(mappedBy = "recette")
     @JoinTable(name = "recette_aliment",
             joinColumns = @JoinColumn(name = "idRecette"),
-            inverseJoinColumns = @JoinColumn(name = "idAliment"))
-     private Set<RecetteAliment> recetteAliments;
+            inverseJoinColumns = @JoinColumn(name = "idAliment"))*/
+    @OneToMany ( cascade = CascadeType.ALL)
+    @JoinColumn(name = "recette_id")
+     private Set<Ingredient> listIngredient;
 
 
     
@@ -63,6 +69,7 @@ public class Recette {
     public Recette(String nom,int duree) {
         this.duree = duree;
         this.nom = nom;
+        this.listIngredient = new HashSet<>();
     }
 
     /**
@@ -122,21 +129,42 @@ public class Recette {
      *
      * @return Les aliments liés à la recette avec leur quantité.
      */
-    public Set<RecetteAliment> getRecetteAliments() {
-        return recetteAliments;
+    
+    public Set<Ingredient> getListIngredients() {
+        return listIngredient;
     }
 
     /**
      * Modifie les aliments liés à la recette avec leur quantité.
      * @param recetteAliments Les nouveaux aliments liés à la recette avec leur quantité.
      */
-    public void setRecetteAliments(Set<RecetteAliment> recetteAliments) {
-        this.recetteAliments = recetteAliments;
+    public void setListIngredients(Set<Ingredient> listIngredients) {
+        this.listIngredient = listIngredients;
     }
+<<<<<<< Updated upstream
     public void afficherIngredient() {
     	for (RecetteAliment R:recetteAliments) {
     		System.out.println(R.getAliment().getNom());
     		System.out.println(R.getQuantite());
     	}
     }
+=======
+    
+    public void changerQuantiteRecetteAliment(String nomAliment, int nouvelleQuantite) {
+    	/*this.setId(null);*/
+        for (Ingredient ingredients : listIngredient) {
+            if (ingredients.getAliment().getNom().equals(nomAliment)) {
+                ingredients.setQuantite(nouvelleQuantite);
+                break;
+            }
+        }
+    }
+    public  static Recette creerRecette(String nom , int  duree , Aliment aliment, int quantite) {
+    	Recette recette = new Recette(nom, duree);
+    	Ingredient ingredient = new Ingredient(aliment, quantite);
+    	recette.getListIngredients().add(ingredient);
+    	return recette;
+    }
+
+>>>>>>> Stashed changes
 }
