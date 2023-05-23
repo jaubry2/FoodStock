@@ -22,19 +22,25 @@ public class RecetteAliment {
 
     @ManyToOne
     @JoinColumn(name = "idAliment", referencedColumnName = "id")
-    private Aliment aliment;
+    private Aliments aliment;
 
     @Column(name = "quantite")
     private int quantite;
 
-
+    
     public RecetteAliment() {
     }
 
-    public RecetteAliment(Recette recette, Aliment aliment, int quantite) {
+    public RecetteAliment(Recette recette, Aliments aliment, int quantite) {
         this.recette = recette;
         this.aliment = aliment;
         this.quantite = quantite;
+    }
+    public Aliments getAliment() {
+    	return this.aliment;
+    }
+    public int getQuantite() {
+    	return this.quantite;
     }
 }
 
