@@ -13,7 +13,6 @@ public class ListeDeCourse {
 
     public ListeDeCourse() {
         ingredients = new HashSet<>();
-        recettes = new HashSet<>();
     }
 
     /**
