@@ -5,7 +5,6 @@ import org.junit.Test;
 import java.util.Map;
 
 public class ListeDeCourseTest {
-
     private ListeDeCourse listeDeCourse;
     private Stock stock;
 
@@ -13,64 +12,65 @@ public class ListeDeCourseTest {
     public void setUp() {
         listeDeCourse = new ListeDeCourse();
         stock = new Stock();
+        stock.ajouterIngredient(new Aliment("Farine"));
+        stock.ajouterIngredient(new Aliment("Sucre"));
+        stock.ajouterIngredient(new Aliment("Lait"));
+        stock.ajouterIngredient(new Aliment("Oeufs"));
     }
 
     @Test
     public void testAjouterIngredient() {
-        RecetteAliment recetteAliment = new RecetteAliment(new Aliment("Pommes"), 5);
+        RecetteAliment recetteAliment = new RecetteAliment(new Aliment("Chocolat"), 200);
         listeDeCourse.ajouterIngredient(recetteAliment);
-
         Assert.assertTrue(listeDeCourse.getIngredients().contains(recetteAliment));
     }
 
     @Test
     public void testSupprimerIngredient() {
-        RecetteAliment recetteAliment = new RecetteAliment(new Aliment("Pommes"), 5);
+        RecetteAliment recetteAliment = new RecetteAliment(new Aliment("Sucre"), 100);
         listeDeCourse.ajouterIngredient(recetteAliment);
-
         listeDeCourse.supprimerIngredient(recetteAliment);
-
         Assert.assertFalse(listeDeCourse.getIngredients().contains(recetteAliment));
     }
 
     @Test
     public void testAjouterRecette() {
-        Aliment aliment1 = new Aliment("Pommes");
-        Aliment aliment2 = new Aliment("Lait");
-        RecetteAliment recetteAliment1 = new RecetteAliment(aliment1, 5);
-        RecetteAliment recetteAliment2 = new RecetteAliment(aliment2, 2);
-        Recette recette = new Recette();
+        Recette recette = new Recette("Gâteau au chocolat", 60);
+        RecetteAliment recetteAliment1 = new RecetteAliment(new Aliment("Chocolat"), 200);
+        RecetteAliment recetteAliment2 = new RecetteAliment(new Aliment("Sucre"), 100);
         recette.ajouterRecetteAliment(recetteAliment1);
         recette.ajouterRecetteAliment(recetteAliment2);
 
-        stock.ajouter(aliment1, 3);
-        stock.ajouter(aliment2, 1);
-
         listeDeCourse.ajouterRecette(recette);
 
+        Assert.assertTrue(listeDeCourse.getRecettes().contains(recette));
         Assert.assertTrue(listeDeCourse.getIngredients().contains(recetteAliment1));
         Assert.assertTrue(listeDeCourse.getIngredients().contains(recetteAliment2));
     }
 
     @Test
     public void testComparerStock() {
-        Aliment aliment1 = new Aliment("Pommes");
-        Aliment aliment2 = new Aliment("Lait");
-        RecetteAliment recetteAliment1 = new RecetteAliment(aliment1, 5);
-        RecetteAliment recetteAliment2 = new RecetteAliment(aliment2, 2);
-        Recette recette = new Recette();
-        recette.ajouterRecetteAliment(recetteAliment1);
-        recette.ajouterRecetteAliment(recetteAliment2);
+        Recette recette1 = new Recette("Gâteau au chocolat", 60);
+        RecetteAliment recetteAliment1 = new RecetteAliment(new Aliment("Chocolat"), 200);
+        RecetteAliment recetteAliment2 = new RecetteAliment(new Aliment("Sucre"), 100);
+        recette1.ajouterRecetteAliment(recetteAliment1);
+        recette1.ajouterRecetteAliment(recetteAliment2);
 
-        stock.ajouter(aliment1, 3);
-        stock.ajouter(aliment2, 1);
+        Recette recette2 = new Recette("Crêpes", 30);
+        RecetteAliment recetteAliment3 = new RecetteAliment(new Aliment("Farine"), 250);
+        RecetteAliment recetteAliment4 = new RecetteAliment(new Aliment("Lait"), 500);
+        recette2.ajouterRecetteAliment(recetteAliment3);
+        recette2.ajouterRecetteAliment(recetteAliment4);
 
-        listeDeCourse.ajouterRecette(recette);
+        listeDeCourse.ajouterRecette(recette1);
+        listeDeCourse.ajouterRecette(recette2);
 
-        Map<RecetteAliment, Integer> ingredientsManquants = listeDeCourse.comparerStock(stock);
+        Map<RecetteAliment, Integer> listeManquante = listeDeCourse.comparerStock(stock);
 
-        Assert.assertEquals(1, ingredientsManquants.size());
-        Assert.assertTrue(ingredientsManquants.containsKey(recetteAliment1));
-        Assert.assertEquals(2, ingredientsManquants.get(recetteAliment1).intValue());
+        Assert.assertEquals(2, listeManquante.size());
+        Assert.assertEquals(0, (int) listeManquante.get(recetteAliment1));
+        Assert.assertEquals(0, (int) listeManquante.get(recetteAliment2));
+        Assert.assertEquals(250, (int) listeManquante.get(recetteAliment3));
+        Assert.assertEquals(500, (int) listeManquante.get(recetteAliment4));
     }
 }

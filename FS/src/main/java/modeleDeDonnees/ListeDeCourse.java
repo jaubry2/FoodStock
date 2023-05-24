@@ -12,6 +12,8 @@ public class ListeDeCourse {
     private Set<Recette> recettes;
 
     public ListeDeCourse() {
+    	this.ingredients = new HashSet<>();
+        this.recettes = new HashSet<>();
     }
 
     /**
