@@ -133,4 +133,10 @@ public class Recette {
     public void setRecetteAliments(Set<RecetteAliment> recetteAliments) {
         this.recetteAliments = recetteAliments;
     }
+    public void afficherIngredient() {
+    	for (RecetteAliment R:recetteAliments) {
+    		System.out.println(R.getAliment().getNom());
+    		System.out.println(R.getQuantite());
+    	}
+    }
 }
