@@ -172,4 +172,16 @@ public class Recette {
     	return false;
     }
 
+	public int getQuantite(Aliment aliment) {
+
+		for (Ingredient ingredients : listIngredient) {
+            if (ingredients.isAliment(aliment)) {
+                return ingredients.getQuantite();
+            }
+	
+		}
+        throw new AlimentsNonPresentException(aliment.getNom());    
+
+	}
+
 }

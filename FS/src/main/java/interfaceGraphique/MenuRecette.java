@@ -2,21 +2,20 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package interfaceGraphique ;
+package interfaceGraphique;
+
+import modeleDeDonnees.CritereDureeRecette;
 
 /**
  *
  * @author julesa
  */
 public class MenuRecette extends javax.swing.JFrame {
-
     /**
      * Creates new form MenuRecette
      */
     public MenuRecette() {
         initComponents();
-        this.addWindowListener(new FermetureFenetre());
-
     }
 
     /**
@@ -28,27 +27,44 @@ public class MenuRecette extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
         Menu3 = new javax.swing.JPanel();
-        MenuText = new javax.swing.JLabel();
+        titreMenu3 = new javax.swing.JLabel();
         StockButton3 = new javax.swing.JButton();
         RecetteButton3 = new javax.swing.JButton();
         ListButton3 = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
+        pageMenuRecettes = new javax.swing.JPanel();
+        titreMenuRecettes = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tableRecettes = new javax.swing.JTable();
+        chercherIngredientRecettes = new javax.swing.JPanel();
+        titreChercherIngredientRecettes = new javax.swing.JLabel();
+        alimentChosi = new javax.swing.JTextField();
+        chercherIngredientRecettesButton = new javax.swing.JButton();
+        chercherNomRecette = new javax.swing.JPanel();
+        titreChercherNomRecettes = new javax.swing.JLabel();
+        alimentChosi1 = new javax.swing.JTextField();
+        chercherNomRecettesButton = new javax.swing.JButton();
+        Vitesses = new javax.swing.JPanel();
+        rapideButton = new javax.swing.JButton();
+        mediumButton = new javax.swing.JButton();
+        longueButton = new javax.swing.JButton();
+        favButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(1020, 768));
-        setMaximumSize(new java.awt.Dimension(1020, 768));
         setMinimumSize(new java.awt.Dimension(1020, 768));
 
         Menu3.setBackground(new java.awt.Color(153, 204, 255));
         Menu3.setForeground(new java.awt.Color(51, 204, 255));
 
-        MenuText.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        MenuText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        MenuText.setText("MENU");
-        MenuText.addMouseListener(new java.awt.event.MouseAdapter() {
+        titreMenu3.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        titreMenu3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        titreMenu3.setText("MENU");
+        titreMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                MenuTextMouseClicked(evt);
+                titreMenu3MouseClicked(evt);
             }
         });
 
@@ -104,7 +120,7 @@ public class MenuRecette extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Menu3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(Menu3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(MenuText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(titreMenu3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(ListButton3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(RecetteButton3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
                     .addComponent(StockButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -114,27 +130,202 @@ public class MenuRecette extends javax.swing.JFrame {
             Menu3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Menu3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(MenuText)
+                .addComponent(titreMenu3)
                 .addGap(18, 18, 18)
                 .addComponent(StockButton3)
                 .addGap(18, 18, 18)
                 .addComponent(RecetteButton3)
                 .addGap(18, 18, 18)
                 .addComponent(ListButton3)
-                .addContainerGap(241, Short.MAX_VALUE))
+                .addContainerGap(399, Short.MAX_VALUE))
         );
 
-        jPanel3.setBackground(new java.awt.Color(255, 204, 204));
+        pageMenuRecettes.setBackground(new java.awt.Color(255, 204, 204));
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 681, Short.MAX_VALUE)
+        titreMenuRecettes.setFont(new java.awt.Font("Liberation Sans", 0, 36)); // NOI18N
+        titreMenuRecettes.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        titreMenuRecettes.setText("Recettes");
+
+        tableRecettes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tableRecettes);
+
+        chercherIngredientRecettes.setBackground(new java.awt.Color(153, 204, 255));
+
+        titreChercherIngredientRecettes.setText("ingrédients :");
+
+        chercherIngredientRecettesButton.setText("Rechercher");
+        chercherIngredientRecettesButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chercherIngredientRecettesButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout chercherIngredientRecettesLayout = new javax.swing.GroupLayout(chercherIngredientRecettes);
+        chercherIngredientRecettes.setLayout(chercherIngredientRecettesLayout);
+        chercherIngredientRecettesLayout.setHorizontalGroup(
+            chercherIngredientRecettesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(chercherIngredientRecettesLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(titreChercherIngredientRecettes)
+                .addGap(18, 18, 18)
+                .addComponent(alimentChosi, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(chercherIngredientRecettesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+        chercherIngredientRecettesLayout.setVerticalGroup(
+            chercherIngredientRecettesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(chercherIngredientRecettesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(chercherIngredientRecettesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(alimentChosi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chercherIngredientRecettesButton)
+                    .addComponent(titreChercherIngredientRecettes))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        chercherNomRecette.setBackground(new java.awt.Color(153, 204, 255));
+
+        titreChercherNomRecettes.setText("nom :");
+
+        chercherNomRecettesButton.setText("Rechercher");
+        chercherNomRecettesButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chercherNomRecettesButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout chercherNomRecetteLayout = new javax.swing.GroupLayout(chercherNomRecette);
+        chercherNomRecette.setLayout(chercherNomRecetteLayout);
+        chercherNomRecetteLayout.setHorizontalGroup(
+            chercherNomRecetteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(chercherNomRecetteLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(titreChercherNomRecettes)
+                .addGap(18, 18, 18)
+                .addComponent(alimentChosi1, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(chercherNomRecettesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        chercherNomRecetteLayout.setVerticalGroup(
+            chercherNomRecetteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(chercherNomRecetteLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(chercherNomRecetteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(alimentChosi1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chercherNomRecettesButton)
+                    .addComponent(titreChercherNomRecettes))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        Vitesses.setBackground(new java.awt.Color(153, 204, 255));
+
+        rapideButton.setText("Rapide");
+        rapideButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rapideButtonActionPerformed(evt);
+            }
+        });
+
+        mediumButton.setText("Medium");
+        mediumButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mediumButtonActionPerformed(evt);
+            }
+        });
+
+        longueButton.setText("Longue");
+        longueButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                longueButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout VitessesLayout = new javax.swing.GroupLayout(Vitesses);
+        Vitesses.setLayout(VitessesLayout);
+        VitessesLayout.setHorizontalGroup(
+            VitessesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VitessesLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(VitessesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(longueButton)
+                    .addComponent(mediumButton)
+                    .addComponent(rapideButton))
+                .addContainerGap())
+        );
+        VitessesLayout.setVerticalGroup(
+            VitessesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(VitessesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(rapideButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(mediumButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(longueButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        favButton.setText("favorites");
+
+        javax.swing.GroupLayout pageMenuRecettesLayout = new javax.swing.GroupLayout(pageMenuRecettes);
+        pageMenuRecettes.setLayout(pageMenuRecettesLayout);
+        pageMenuRecettesLayout.setHorizontalGroup(
+            pageMenuRecettesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pageMenuRecettesLayout.createSequentialGroup()
+                .addGroup(pageMenuRecettesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pageMenuRecettesLayout.createSequentialGroup()
+                        .addGap(250, 250, 250)
+                        .addComponent(titreMenuRecettes))
+                    .addGroup(pageMenuRecettesLayout.createSequentialGroup()
+                        .addGap(139, 139, 139)
+                        .addGroup(pageMenuRecettesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(favButton)
+                            .addComponent(chercherIngredientRecettes, javax.swing.GroupLayout.PREFERRED_SIZE, 479, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(pageMenuRecettesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Vitesses, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 618, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 284, Short.MAX_VALUE))
+            .addGroup(pageMenuRecettesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pageMenuRecettesLayout.createSequentialGroup()
+                    .addGap(140, 140, 140)
+                    .addComponent(chercherNomRecette, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(400, Short.MAX_VALUE)))
+        );
+        pageMenuRecettesLayout.setVerticalGroup(
+            pageMenuRecettesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pageMenuRecettesLayout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(titreMenuRecettes)
+                .addGap(82, 82, 82)
+                .addComponent(chercherIngredientRecettes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(favButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addGroup(pageMenuRecettesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pageMenuRecettesLayout.createSequentialGroup()
+                        .addComponent(Vitesses, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(56, 56, 56))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pageMenuRecettesLayout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
+            .addGroup(pageMenuRecettesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pageMenuRecettesLayout.createSequentialGroup()
+                    .addGap(81, 81, 81)
+                    .addComponent(chercherNomRecette, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(385, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -144,58 +335,82 @@ public class MenuRecette extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(Menu3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(pageMenuRecettes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(Menu3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(pageMenuRecettes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void MenuTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuTextMouseClicked
-        Accueil mA = new Accueil();
-        mA.setVisible(true);
+    private void titreMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_titreMenu3MouseClicked
+        Main.controller.ChangerPage("accueil", null, null, null);
         this.dispose();
-    }//GEN-LAST:event_MenuTextMouseClicked
+    }//GEN-LAST:event_titreMenu3MouseClicked
 
     private void StockButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StockButton3MouseClicked
-        MenuStock mS = new MenuStock();
-        mS.setVisible(true);
-        this.dispose();
+        //SUP
     }//GEN-LAST:event_StockButton3MouseClicked
 
     private void StockButton3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StockButton3MouseEntered
-
+        //SUP
     }//GEN-LAST:event_StockButton3MouseEntered
 
     private void StockButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StockButton3ActionPerformed
-        MenuStock mS = new MenuStock();
-        mS.setVisible(true);
+        Main.controller.ChangerPage("menuStock", null, null, null);
         this.dispose();
     }//GEN-LAST:event_StockButton3ActionPerformed
 
     private void RecetteButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RecetteButton3MouseClicked
-        MenuRecette mR = new MenuRecette();
-        mR.setVisible(true);
-        this.dispose();
+        //SUP
     }//GEN-LAST:event_RecetteButton3MouseClicked
 
     private void RecetteButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RecetteButton3ActionPerformed
-        // TODO add your handling code here:
+        Main.controller.ChangerPage("menuRecette", null, null, null);
+        this.dispose();
     }//GEN-LAST:event_RecetteButton3ActionPerformed
 
     private void ListButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListButton3MouseClicked
-        MenuListe mL = new MenuListe();
-        mL.setVisible(true);
-        this.dispose();
+        //SUP
     }//GEN-LAST:event_ListButton3MouseClicked
 
     private void ListButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListButton3ActionPerformed
-        // TODO add your handling code here:
+        Main.controller.ChangerPage("menuListe", null, null, null);
+        this.dispose();
     }//GEN-LAST:event_ListButton3ActionPerformed
+
+    private void chercherIngredientRecettesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chercherIngredientRecettesButtonActionPerformed
+        Main.controller.ChangerPage("ficheAliment", null, null, alimentChosi.getText());
+        this.dispose();
+    }//GEN-LAST:event_chercherIngredientRecettesButtonActionPerformed
+
+    private void mediumButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mediumButtonActionPerformed
+        String filtre = "Fruits_Legumes";
+
+        for(int i = 0; i < tableRecettes.getRowCount(); i++){
+            if(tableRecettes.getValueAt(i,0).equals(filtre)){
+            }
+        }
+
+    }//GEN-LAST:event_mediumButtonActionPerformed
+
+    private void longueButtonActionPerformed(java.awt.event.ActionEvent evt) {
+    	Main.controller.afficherRecetteFiltrerDuree(CritereDureeRecette.LONG);
+    }
+
+    private void rapideButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rapideButtonActionPerformed
+    	Main.controller.afficherRecetteFiltrerDuree(CritereDureeRecette.RAPIDE);
+    }
+
+    private void chercherNomRecettesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chercherNomRecettesButtonActionPerformed
+        // TODO add your handling code here:
+    }
 
     /**
      * @param args the command line arguments
@@ -235,9 +450,27 @@ public class MenuRecette extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ListButton3;
     private javax.swing.JPanel Menu3;
-    private javax.swing.JLabel MenuText;
     private javax.swing.JButton RecetteButton3;
     private javax.swing.JButton StockButton3;
-    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel Vitesses;
+    private javax.swing.JTextField alimentChosi;
+    private javax.swing.JTextField alimentChosi1;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.JPanel chercherIngredientRecettes;
+    private javax.swing.JButton chercherIngredientRecettesButton;
+    private javax.swing.JPanel chercherNomRecette;
+    private javax.swing.JButton chercherNomRecettesButton;
+    private javax.swing.JButton favButton;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton longueButton;
+    private javax.swing.JButton mediumButton;
+    private javax.swing.JPanel pageMenuRecettes;
+    private javax.swing.JButton rapideButton;
+    private javax.swing.JTable tableRecettes;
+    private javax.swing.JLabel titreChercherIngredientRecettes;
+    private javax.swing.JLabel titreChercherNomRecettes;
+    private javax.swing.JLabel titreMenu3;
+    private javax.swing.JLabel titreMenuRecettes;
     // End of variables declaration//GEN-END:variables
 }

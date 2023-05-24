@@ -6,7 +6,7 @@ public class ListeDeCourse {
 	/*   private Long id;
 
  
-    private Set<Ingredients> ingredients;
+    private <Ingredients> ingredients;
 
   
     private Set<Recette> recettes;

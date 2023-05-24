@@ -4,6 +4,8 @@
  */
 package interfaceGraphique ;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author julesa
@@ -467,6 +469,7 @@ public class FicheAliment extends javax.swing.JFrame {
         
         ac = alimentChoisi.getText();
         
+        //je savais pas si je le passais dans le controlleur;
         if (ac.equals("")){
             String erreur = "Le nom d'aliment n'existe pas";
             String conseil = "Veuillez changer le nom d'aliments";
@@ -474,21 +477,20 @@ public class FicheAliment extends javax.swing.JFrame {
             fe.setVisible(true);
         }
         
-        // On verifie si le nom de l'aliment est dans la base de donnée
-     
+       String[] infoAliment =Main.controller.AfficherFicheAliment(ac);
+       DefaultTableModel recette =Main.controller.afficherRecetteLieAliment(ac);
+
+       
+
         
-        // Recuperer les valeurs dans la base de donnee
-        String qte = "";
-        String ta = "";
-        String mds = "";
-        String ddp = "";
         
         // Assigner les differentes valeurs au texte
-        nomAlimentText.setText(ac);
-        Qte.setText(qte);
-        TA.setText(ta);
-        MDS.setText(mds);
-        DDP.setText(ddp);
+        nomAlimentText.setText(infoAliment[0]);
+        Qte.setText(infoAliment[1]);
+        TA.setText(infoAliment[2]);
+        MDS.setText(infoAliment[3]);
+        DDP.setText(infoAliment[4]);
+        TableRecette.setModel(recette);
     }
 
     private void modifierAlimButtonActionPerformed(java.awt.event.ActionEvent evt) {

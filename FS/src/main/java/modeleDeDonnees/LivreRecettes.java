@@ -39,10 +39,10 @@ public class LivreRecettes {
     	
     }
     
-    public LivreRecettes FiltrerParDuree(int duree) {
+    public LivreRecettes FiltrerParDuree(CritereDureeRecette cdr) {
     	LivreRecettes recettesFiltre = new LivreRecettes();
     	for (Recette recette : recettes) {
-    		if(recette.getDuree() > duree ) {
+    		if(cdr.estDansLaPlage(recette.getDuree())) {
     			recettesFiltre.ajouterRecette(recette);
     		}
     	}
@@ -58,4 +58,12 @@ public class LivreRecettes {
     	}
     	return recettesFiltre;
     }
+	public Recette getRecetteByName(String nom) {
+    	for (Recette recette : recettes) {
+    		if(recette.getNom().equals(nom)) {
+    			return recette;
+    		}
+    	}
+    	throw new RecetteNonPresenteException(nom);
+	}
 }

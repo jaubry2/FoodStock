@@ -188,7 +188,8 @@ public Long getId() {
 	        return false;
 	    }
 	    return this.nom.equals(alimentComparaison.getNom());
-	}	
+	}
+
 	
 }
 

@@ -2,6 +2,12 @@ package interfaceGraphique ;
 
 import java.util.List;
 
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 import modeleDeDonnees.AlimentStockes;
@@ -107,26 +113,26 @@ public class MenuStock extends javax.swing.JFrame {
 
     private void initComponents() {
 
-        Menu = new javax.swing.JPanel();
-        menuText = new javax.swing.JLabel();
-        stockButton = new javax.swing.JButton();
-        recetteButton = new javax.swing.JButton();
-        listButton = new javax.swing.JButton();
-        pageStock = new javax.swing.JPanel();
-        addButton = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        Menu = new JPanel();
+        menuText = new JLabel();
+        stockButton = new JButton();
+        recetteButton = new JButton();
+        listButton = new JButton();
+        pageStock = new JPanel();
+        addButton = new JButton();
+        jScrollPane1 = new JScrollPane();
+        jTable1 = new JTable();
         ficheAlimentButton = new javax.swing.JButton();
-        stockText = new javax.swing.JLabel();
-        alimentChosi = new javax.swing.JTextField();
-        fruitLegumeButton = new javax.swing.JButton();
-        viandePoissonButton = new javax.swing.JButton();
-        produitsLaitiersButton = new javax.swing.JButton();
-        surgelesButton = new javax.swing.JButton();
-        snacksButton = new javax.swing.JButton();
-        boissonsButton = new javax.swing.JButton();
-        cerealesButton = new javax.swing.JButton();
-        reinitialiserButton = new javax.swing.JButton();
+        stockText = new JLabel();
+        alimentChosi = new JTextField();
+        fruitLegumeButton = new JButton();
+        viandePoissonButton = new JButton();
+        produitsLaitiersButton = new JButton();
+        surgelesButton = new JButton();
+        snacksButton = new JButton();
+        boissonsButton = new JButton();
+        cerealesButton = new JButton();
+        reinitialiserButton = new JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);  
@@ -209,17 +215,8 @@ public class MenuStock extends javax.swing.JFrame {
                 addButtonActionPerformed(evt);
             }
         });
-        Object[][] data = new Object[Main.stock.getStock().size()][4];
-        for (int i = 0; i < Main.stock.getStock().size(); i++) {
-            AlimentStockes alimentStocke = Main.stock.getStock().get(i);
-            data[i][0] = alimentStocke.getAliment().getNom();
-            data[i][1] = alimentStocke.getDatePeremption();
-            data[i][2] = alimentStocke.getQuantite();
-            data[i][3] = alimentStocke.getAliment().getTypeAliment();
-        }
-        String[] columnNames = {"Aliment", "Date de Péremption", "Quantité", "Type"};
-        DefaultTableModel model = new DefaultTableModel(data, columnNames);
-        jTable1.setModel(model);
+        
+        jTable1.setModel(Main.controller.afficherStock(Main.stock.getStock()));
 
         jScrollPane1.setViewportView(jTable1);
 
@@ -437,159 +434,70 @@ public class MenuStock extends javax.swing.JFrame {
      * @param evt Click sur le bouton Fruits/Legumes
      */
     private void fruitLegumeButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        TypeAliment tA = TypeAliment.Fruits_Legumes;
-        List<AlimentStockes> stock = Main.stock.filtrerType(tA);
-        Object[][] data = new Object[stock.size()][4];
-        for (int i = 0; i < stock.size(); i++) {
-            AlimentStockes alimentStocke = stock.get(i);
-            data[i][0] = alimentStocke.getAliment().getNom();
-            data[i][1] = alimentStocke.getDatePeremption();
-            data[i][2] = alimentStocke.getQuantite();
-            data[i][3] = alimentStocke.getAliment().getTypeAliment();
-        }
-        String[] columnNames = {"Aliment", "Date de Péremption", "Quantité", "Type"};
-        DefaultTableModel model = new DefaultTableModel(data, columnNames);
-        jTable1.setModel(model);
+        
+        jTable1.setModel(Main.controller.afficherStockFiltre(TypeAliment.Fruits_Legumes));
     }
     /**
      * Permet de trier et d'afficher les fruits et legumes
      * @param evt Click sur le bouton Fruits/Legumes
      */
     private void boissonsButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        TypeAliment tA = TypeAliment.Boissons;
-        List<AlimentStockes> stock = Main.stock.filtrerType(tA);
-        Object[][] data = new Object[stock.size()][4];
-        for (int i = 0; i < stock.size(); i++) {
-            AlimentStockes alimentStocke = stock.get(i);
-            data[i][0] = alimentStocke.getAliment().getNom();
-            data[i][1] = alimentStocke.getDatePeremption();
-            data[i][2] = alimentStocke.getQuantite();
-            data[i][3] = alimentStocke.getAliment().getTypeAliment();
-        }
-        String[] columnNames = {"Aliment", "Date de Péremption", "Quantité", "Type"};
-        DefaultTableModel model = new DefaultTableModel(data, columnNames);
-        jTable1.setModel(model);
+        jTable1.setModel(Main.controller.afficherStockFiltre(TypeAliment.Boissons));
+
     }
     /**
      * Permet de trier et d'afficher les cereales
      * @param evt Click sur le bouton Cereales
      */
     private void cerealesButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        TypeAliment tA = TypeAliment.Céreales;
-        List<AlimentStockes> stock = Main.stock.filtrerType(tA);
-        Object[][] data = new Object[stock.size()][4];
-        for (int i = 0; i < stock.size(); i++) {
-            AlimentStockes alimentStocke = stock.get(i);
-            data[i][0] = alimentStocke.getAliment().getNom();
-            data[i][1] = alimentStocke.getDatePeremption();
-            data[i][2] = alimentStocke.getQuantite();
-            data[i][3] = alimentStocke.getAliment().getTypeAliment();
-        }
-        String[] columnNames = {"Aliment", "Date de Péremption", "Quantité", "Type"};
-        DefaultTableModel model = new DefaultTableModel(data, columnNames);
-        jTable1.setModel(model);
+        jTable1.setModel(Main.controller.afficherStockFiltre(TypeAliment.Céreales));
+
     }
     /**
      * Permet de trier et d'afficher les produits laitiers
      * @param evt Click sur le bouton Produits Laitiers
      */
     private void produitsLaitiersButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        TypeAliment tA = TypeAliment.ProduitsLaitiers;
-        List<AlimentStockes> stock = Main.stock.filtrerType(tA);
-        Object[][] data = new Object[stock.size()][4];
-        for (int i = 0; i < stock.size(); i++) {
-            AlimentStockes alimentStocke = stock.get(i);
-            data[i][0] = alimentStocke.getAliment().getNom();
-            data[i][1] = alimentStocke.getDatePeremption();
-            data[i][2] = alimentStocke.getQuantite();
-            data[i][3] = alimentStocke.getAliment().getTypeAliment();
-        }
-        String[] columnNames = {"Aliment", "Date de Péremption", "Quantité", "Type"};
-        DefaultTableModel model = new DefaultTableModel(data, columnNames);
-        jTable1.setModel(model);
+        jTable1.setModel(Main.controller.afficherStockFiltre(TypeAliment.ProduitsLaitiers));
+
     }
     /**
      * Permet de trier et d'afficher les snacks
      * @param evt Click sur le bouton Snacks
      */
     private void snacksButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        TypeAliment tA = TypeAliment.Snacks;
-        List<AlimentStockes> stock = Main.stock.filtrerType( tA);
-        Object[][] data = new Object[stock.size()][4];
-        for (int i = 0; i < stock.size(); i++) {
-            AlimentStockes alimentStocke = stock.get(i);
-            data[i][0] = alimentStocke.getAliment().getNom();
-            data[i][1] = alimentStocke.getDatePeremption();
-            data[i][2] = alimentStocke.getQuantite();
-            data[i][3] = alimentStocke.getAliment().getTypeAliment();
-        }
-        String[] columnNames = {"Aliment", "Date de Péremption", "Quantité", "Type"};
-        DefaultTableModel model = new DefaultTableModel(data, columnNames);
-        jTable1.setModel(model);
+        jTable1.setModel(Main.controller.afficherStockFiltre(TypeAliment.Snacks));
+
     }
     /**
      * Permet de trier et d'afficher les surgeles
      * @param evt Click sur le bouton Surgeles
      */
     private void surgelesButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        TypeAliment tA = TypeAliment.Surgeles;
-        List<AlimentStockes> stock = Main.stock.filtrerType(tA);
-        Object[][] data = new Object[stock.size()][4];
-        for (int i = 0; i < stock.size(); i++) {
-            AlimentStockes alimentStocke = stock.get(i);
-            data[i][0] = alimentStocke.getAliment().getNom();
-            data[i][1] = alimentStocke.getDatePeremption();
-            data[i][2] = alimentStocke.getQuantite();
-            data[i][3] = alimentStocke.getAliment().getTypeAliment();
-        }
-        String[] columnNames = {"Aliment", "Date de Péremption", "Quantité", "Type"};
-        DefaultTableModel model = new DefaultTableModel(data, columnNames);
-        jTable1.setModel(model);
+        jTable1.setModel(Main.controller.afficherStockFiltre(TypeAliment.Surgeles));
+
     }
     /**
      * Permet de trier et d'afficher les viandes et possions
      * @param evt Click sur le bouton Viande/Poisson
      */
     private void viandePoissonButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        TypeAliment tA = TypeAliment.Viande_Poisson;
-        List<AlimentStockes> stock = Main.stock.filtrerType( tA);
-        Object[][] data = new Object[stock.size()][4];
-        for (int i = 0; i < stock.size(); i++) {
-            AlimentStockes alimentStocke = stock.get(i);
-            data[i][0] = alimentStocke.getAliment().getNom();
-            data[i][1] = alimentStocke.getDatePeremption();
-            data[i][2] = alimentStocke.getQuantite();
-            data[i][3] = alimentStocke.getAliment().getTypeAliment();
-        }
-        String[] columnNames = {"Aliment", "Date de Péremption", "Quantité", "Type"};
-        DefaultTableModel model = new DefaultTableModel(data, columnNames);
-        jTable1.setModel(model);
+        jTable1.setModel(Main.controller.afficherStockFiltre(TypeAliment.Viande_Poisson));
+
     }
     /**
      * Permet de reinitialiser la table stock
      * @param evt Click sur le bouton Reinitialiser
      */
     private void reinitialiserButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        Object[][] data = new Object[Main.stock.getStock().size()][4];
-        for (int i = 0; i < Main.stock.getStock().size(); i++) {
-            AlimentStockes alimentStocke = Main.stock.getStock().get(i);
-            data[i][0] = alimentStocke.getAliment().getNom();
-            data[i][1] = alimentStocke.getDatePeremption();
-            data[i][2] = alimentStocke.getQuantite();
-            data[i][3] = alimentStocke.getAliment().getTypeAliment();
-        }
-        String[] columnNames = {"Aliment", "Date de Péremption", "Quantité", "Type"};
-        DefaultTableModel model = new DefaultTableModel(data, columnNames);
-        jTable1.setModel(model);
+        jTable1.setModel(Main.controller.afficherStock(Main.stock.getStock()));
+
     }
     
     private void ficheAlimentButtonActionPerformed(java.awt.event.ActionEvent evt) { 
         String nom = alimentChosi.getText();
-        String qte = "";
-        String typeAliment = "";
-        String moyenDeStockage = "";
-        String dateDePeremption = "";
-        FicheAliment mF = new FicheAliment(nom, qte, typeAliment, moyenDeStockage, dateDePeremption);
+        String[] infoAliment = Main.controller.AfficherFicheAliment(nom);
+        FicheAliment mF = new FicheAliment(infoAliment[0], infoAliment[1], infoAliment[2], infoAliment[3], infoAliment[4]);                                   ;
         mF.setVisible(true);
         this.dispose();
     }

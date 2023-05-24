@@ -141,7 +141,7 @@ public void ajouterAliment(AlimentStockes alimentsStock) {
      * @param nom le nom de l'aliment recherché
      * @return l'objet Aliments correspondant au nom de l'aliment recherché, ou null si l'aliment n'est pas trouvé
      */
-    public  boolean  IsAlimentStockesByName(String nomAliment) {
+    public  boolean  isAlimentStockesByName(String nomAliment) {
         for (AlimentStockes alimentstockes : stock) {
             if (alimentstockes.getAliment().getNom().equals(nomAliment)) {
                 return true;
@@ -149,7 +149,7 @@ public void ajouterAliment(AlimentStockes alimentsStock) {
         }
         return false;
     }
-    public  AlimentStockes GetAlimentStockesByName( String nomAliment) {
+    public  AlimentStockes getAlimentStockesByName( String nomAliment) {
         for (AlimentStockes alimentstockes : stock) {
             if (alimentstockes.getAliment().getNom().equals(nomAliment)) {
                 return alimentstockes;

@@ -193,18 +193,8 @@ public class Accueil extends javax.swing.JFrame {
         CorpNameText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         CorpNameText.setText("FOODSTOCK");
 
-        List<AlimentStockes> stock = Main.stock.filtrerDate(4);
-        Object[][] data = new Object[stock.size()][4];
-        for (int i = 0; i < stock.size(); i++) {
-            AlimentStockes alimentStocke = stock.get(i);
-            data[i][0] = alimentStocke.getAliment().getNom();
-            data[i][1] = alimentStocke.getDatePeremption();
-            data[i][2] = alimentStocke.getQuantite();
-            data[i][3] = alimentStocke.getAliment().getTypeAliment();
-        }
-        String[] columnNames = {"Aliment", "Date de Péremption", "Quantité", "Type"};
-        DefaultTableModel model = new DefaultTableModel(data, columnNames);
-        TableAlimentPerime.setModel(model);
+        Main.controller.afficherStockFiltre(4);
+        TableAlimentPerime.setModel(Main.controller.afficherStockFiltre(4));
         ScrollPaneAlimentPerime.setViewportView(TableAlimentPerime);
 
         TablePerimeText.setText("Aliments bientôt périmés");
