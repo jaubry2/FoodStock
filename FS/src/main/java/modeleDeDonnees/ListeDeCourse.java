@@ -12,7 +12,6 @@ public class ListeDeCourse {
     private Set<Recette> recettes;
 
     public ListeDeCourse() {
-        ingredients = new HashSet<>();
     }
 
     /**
@@ -45,13 +44,21 @@ public class ListeDeCourse {
             int quantiteNecessaire = recetteAliment.getQuantite();
 
             // Vérifier si l'aliment est déjà présent dans la liste de course
-            if (ingredients.containsKey(aliment)) {
-                // Ajouter la quantité nécessaire à la quantité existante dans la liste de course
-                int quantiteExistante = ingredients.get(aliment);
-                ingredients.put(aliment, quantiteExistante + quantiteNecessaire);
-            } else {
-                // Ajouter l'aliment avec sa quantité nécessaire à la liste de course
-                ingredients.put(aliment, quantiteNecessaire);
+            boolean alimentExiste = false;
+            for (RecetteAliment ingredient : ingredients) {
+                if (ingredient.getAliment().equals(aliment)) {
+                    // Ajouter la quantité nécessaire à la quantité existante dans la liste de course
+                    int quantiteExistante = ingredient.getQuantite();
+                    ingredient.setQuantite(quantiteExistante + quantiteNecessaire);
+                    alimentExiste = true;
+                    break;
+                }
+            }
+
+            // Si l'aliment n'existe pas, l'ajouter à la liste de course
+            if (!alimentExiste) {
+                RecetteAliment nouvelIngredient = new RecetteAliment(aliment, quantiteNecessaire);
+                ingredients.add(nouvelIngredient);
             }
         }
     }
