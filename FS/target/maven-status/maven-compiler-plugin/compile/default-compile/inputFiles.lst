@@ -10,11 +10,13 @@ C:\Users\Loïc\Documents\1A SN\S6\Tob\FoodStock\FS\src\main\java\baseDeDonnees\Re
 C:\Users\Loïc\Documents\1A SN\S6\Tob\FoodStock\FS\src\main\java\interfaceGraphique\FicheRecette.java
 C:\Users\Loïc\Documents\1A SN\S6\Tob\FoodStock\FS\src\main\java\modeleDeDonnees\UnitedeMesure.java
 C:\Users\Loïc\Documents\1A SN\S6\Tob\FoodStock\FS\src\main\java\modeleDeDonnees\Aliment.java
+C:\Users\Loïc\Documents\1A SN\S6\Tob\FoodStock\FS\src\main\java\modeleDeDonnees\Observable.java
 C:\Users\Loïc\Documents\1A SN\S6\Tob\FoodStock\FS\src\main\java\modeleDeDonnees\Ingredient.java
 C:\Users\Loïc\Documents\1A SN\S6\Tob\FoodStock\FS\src\main\java\modeleDeDonnees\MoyendeConservation.java
 C:\Users\Loïc\Documents\1A SN\S6\Tob\FoodStock\FS\src\main\java\modeleDeDonnees\EnsembleStock.java
 C:\Users\Loïc\Documents\1A SN\S6\Tob\FoodStock\FS\src\main\java\interfaceGraphique\FenetreErreur.java
 C:\Users\Loïc\Documents\1A SN\S6\Tob\FoodStock\FS\src\main\java\modeleDeDonnees\AlimentsNonPresentException.java
+C:\Users\Loïc\Documents\1A SN\S6\Tob\FoodStock\FS\src\main\java\modeleDeDonnees\Observer.java
 C:\Users\Loïc\Documents\1A SN\S6\Tob\FoodStock\FS\src\main\java\baseDeDonnees\HibernateService.java
 C:\Users\Loïc\Documents\1A SN\S6\Tob\FoodStock\FS\src\main\java\modeleDeDonnees\Recette.java
 C:\Users\Loïc\Documents\1A SN\S6\Tob\FoodStock\FS\src\main\java\baseDeDonnees\AlimentStockeService.java
@@ -26,6 +28,7 @@ C:\Users\Loïc\Documents\1A SN\S6\Tob\FoodStock\FS\src\main\java\modeleDeDonnees\
 C:\Users\Loïc\Documents\1A SN\S6\Tob\FoodStock\FS\src\main\java\ScanTicket\TestScan.java
 C:\Users\Loïc\Documents\1A SN\S6\Tob\FoodStock\FS\src\main\java\baseDeDonnees\AlimentService.java
 C:\Users\Loïc\Documents\1A SN\S6\Tob\FoodStock\FS\src\main\java\interfaceGraphique\MenuListe.java
+C:\Users\Loïc\Documents\1A SN\S6\Tob\FoodStock\FS\src\main\java\modeleDeDonnees\ControllerListeCourse.java
 C:\Users\Loïc\Documents\1A SN\S6\Tob\FoodStock\FS\src\main\java\modeleDeDonnees\RecetteNonPresenteException.java
 C:\Users\Loïc\Documents\1A SN\S6\Tob\FoodStock\FS\src\main\java\interfaceGraphique\MenuRecette.java
 C:\Users\Loïc\Documents\1A SN\S6\Tob\FoodStock\FS\src\main\java\interfaceGraphique\FermetureFenetre.java

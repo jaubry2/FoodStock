@@ -144,11 +144,11 @@ public class MenuListe extends javax.swing.JFrame {
         titreAjoutRecetteListe.setText("Ajouter une recette :");
 
         ajoutRecetteListeButton.setText("Ajouter");
-        ajoutRecetteListeButton.addActionListener(new java.awt.event.ActionListener() {
+        /*ajoutRecetteListeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ajoutRecetteListeButtonActionPerformed(evt);
             }
-        });
+        });*/
 
         javax.swing.GroupLayout ajoutRecetteListeLayout = new javax.swing.GroupLayout(ajoutRecetteListe);
         ajoutRecetteListe.setLayout(ajoutRecetteListeLayout);
@@ -280,7 +280,27 @@ public class MenuListe extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void titreMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_titreMenu3MouseClicked
+    public javax.swing.JButton getAjoutAlimentListeButton() {
+		return ajoutAlimentListeButton;
+	}
+
+	public javax.swing.JButton getAjoutRecetteListeButton() {
+		return ajoutRecetteListeButton;
+	}
+
+	public javax.swing.JTextField getChoixAlimentListe() {
+		return choixAlimentListe;
+	}
+
+	public javax.swing.JTextField getChoixRecetteListe() {
+		return choixRecetteListe;
+	}
+
+	public javax.swing.JTable getTableListe() {
+		return tableListe;
+	}
+
+	private void titreMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_titreMenu3MouseClicked
         Main.controller.ChangerPage("accueil", null, null, null);
         this.dispose();
     }//GEN-LAST:event_titreMenu3MouseClicked

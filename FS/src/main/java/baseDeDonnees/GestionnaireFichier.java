@@ -37,7 +37,7 @@ public class GestionnaireFichier {
 
             for (Ingredient ingredient : ingredients) {
                 Aliment aliment = ingredient.getAliment();
-                int quantite = ingredient.getQuantite();
+                float quantite = ingredient.getQuantite();
                 String nomAliment = aliment.getNom();
 
                 writer.write("Quantité : " + quantite + ", Nom : " + nomAliment);
@@ -68,7 +68,7 @@ public class GestionnaireFichier {
                     Aliment aliment = listAliments.getAlimentByName(nom);
                     
 
-                    int quantite = Integer.parseInt(quantiteStr);
+                    float quantite = Float.parseFloat(quantiteStr);
 
                     Ingredient ingredient = new Ingredient(aliment, quantite);
 

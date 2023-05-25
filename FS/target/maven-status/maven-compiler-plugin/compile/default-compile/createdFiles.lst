@@ -31,6 +31,7 @@ modeleDeDonnees\UnitedeMesure.class
 ScanTicket\TestScan.class
 interfaceGraphique\AjouterRecette$7.class
 interfaceGraphique\ModifierUnAliment$8.class
+modeleDeDonnees\Observable.class
 interfaceGraphique\Accueil$1.class
 interfaceGraphique\MenuRecette$13.class
 interfaceGraphique\AjouterRecette$1.class
@@ -86,12 +87,13 @@ interfaceGraphique\Accueil$2.class
 interfaceGraphique\AjouterRecette$3.class
 interfaceGraphique\FicheRecette$12.class
 interfaceGraphique\FicheRecette.class
+modeleDeDonnees\Observer.class
 interfaceGraphique\MenuListe$8.class
 interfaceGraphique\MenuStock.class
+modeleDeDonnees\ControllerListeCourse$1.class
 interfaceGraphique\FicheAliment$6.class
 modeleDeDonnees\CritereDureeRecette$1.class
 interfaceGraphique\FicheAliment.class
-interfaceGraphique\MenuListe$11.class
 interfaceGraphique\AjouterRecette$13.class
 interfaceGraphique\MenuStock$8.class
 interfaceGraphique\Main.class
@@ -103,9 +105,11 @@ modeleDeDonnees\TypeAliment.class
 modeleDeDonnees\RecetteNonPresenteException.class
 interfaceGraphique\MenuListe$10.class
 interfaceGraphique\MenuListe$9.class
+modeleDeDonnees\ControllerListeCourse$2.class
 interfaceGraphique\AjouterRecette$10.class
 interfaceGraphique\AjouterRecette$4.class
 interfaceGraphique\ModifierUnAliment$1.class
+modeleDeDonnees\ControllerListeCourse.class
 interfaceGraphique\FicheRecette$10.class
 interfaceGraphique\Accueil$4.class
 interfaceGraphique\AjouterAliment$4.class

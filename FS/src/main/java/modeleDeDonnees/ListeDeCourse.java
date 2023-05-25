@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.HashSet;
 
-public class ListeDeCourse {
+public class ListeDeCourse extends Observable{
   
     private Long id;
 
@@ -22,7 +22,12 @@ public class ListeDeCourse {
     }
 	
 	
-	 public Set<Ingredient> getIngredients() {
+	 public ListeDeCourse(Set<Ingredient> ingredients) {
+		 this.ingredients=ingredients;
+	}
+
+
+	public Set<Ingredient> getIngredients() {
 			return ingredients;
 		}
 
@@ -37,6 +42,8 @@ public class ListeDeCourse {
      */
     public void ajouterIngredient(Ingredient ingredient) {
         ingredients.add(ingredient);
+        notifyObservers();
+
     }
 
     /**
@@ -46,6 +53,8 @@ public class ListeDeCourse {
      */
     public void supprimerIngredient(Ingredient ingredient) {
         ingredients.remove(ingredient);
+        notifyObservers();
+
     }
 
     /**
@@ -76,6 +85,8 @@ public class ListeDeCourse {
                 Ingredient nouvelIngredient = new Ingredient(aliment, quantiteNecessaire);
                 ingredients.add(nouvelIngredient);
             }
+            notifyObservers();
+
         }
     }
 

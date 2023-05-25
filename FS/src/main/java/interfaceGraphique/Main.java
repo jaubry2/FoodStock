@@ -51,10 +51,11 @@ public class Main {
         stock = new Stock(AlimentStockeService.importerTableAlimentStock());
         livreRecette = new LivreRecettes(RecetteService.importerTableRecette());
         gestionnaireFichier = new GestionnaireFichier();
-        listeCourse = new ListeDeCourse();
-      
         listAliments = AlimentService.importerTableAliment();
         ensembleAliment = new EnsembleAliment (AlimentService.importerTableAliment());
+		Set<Ingredient> test = gestionnaireFichier.lireIngredientsDepuisFichier("src/main/resources/listeCourse.txt",ensembleAliment );
+
+        listeCourse = new ListeDeCourse(test);
 		/*List<AlimentStockes> list=AlimentStockeService.importerTableAlimentStock();*/
 		/*stocks.remplirstock("principal",list );*/
 		stock.afficherContenuStock();
@@ -62,7 +63,6 @@ public class Main {
 
 		GestionnaireFichier gs = new GestionnaireFichier();
 		//gs.ecrireIngredientsDansFichier( "src/main/resources/listeCourse.txt", livreRecette.getRecettes().iterator().next().getListIngredients());
-		Set<Ingredient> test = gs.lireIngredientsDepuisFichier("src/main/resources/listeCourse.txt",ensembleAliment );
 		
 		Accueil ac = new Accueil();
 		ac.setVisible(true);

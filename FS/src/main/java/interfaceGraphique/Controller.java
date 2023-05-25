@@ -17,6 +17,7 @@ import baseDeDonnees.GestionnaireFichier;
 import modeleDeDonnees.AlimentStockes;
 import modeleDeDonnees.Aliment;
 import modeleDeDonnees.AlimentsNonPresentException;
+import modeleDeDonnees.ControllerListeCourse;
 import modeleDeDonnees.CritereDureeRecette;
 import modeleDeDonnees.Ingredient;
 import modeleDeDonnees.LivreRecettes;
@@ -39,6 +40,7 @@ public class Controller {
     }
     public void ChangerPage(String _page, String _erreur, String _message, String _nomAliment){
         javax.swing.JFrame newPage = null;
+
         
         if (_page.equals("accueil")) {
             newPage = new Accueil();
@@ -55,6 +57,7 @@ public class Controller {
         } else if (_page.equals("menuListe")) {
             newPage = new MenuListe();
            OuvrirPage(newPage);
+           ControllerListeCourse cLdC = new ControllerListeCourse(Main.listeCourse ,(MenuListe) newPage);
         } else if (_page.equals("menuRecette")) {
             newPage = new MenuRecette();
             OuvrirPage(newPage);
@@ -177,14 +180,17 @@ public DefaultTableModel afficherRecetteLieAliment(String nom) {
 
 	    private DefaultTableModel afficherIngredient(Set<Ingredient> listIngredients) {
 		// TODO Auto-generated method stub
-		
+		System.out.println("aaa");
+
 	
 		Object[][] data = new Object[listIngredients.size()][2];
 
 	    int i=0;
 	    for (Ingredient ingredient : listIngredients) {
+	    	
 	    	 
 	         data[i][0] = ingredient.getAliment().getNom();
+	         System.out.println(data[i][0]);
 	         data[i][1] = ingredient.getQuantite();
 	        i++;
 	     }
@@ -194,7 +200,6 @@ public DefaultTableModel afficherRecetteLieAliment(String nom) {
 	}
 	    
 		public 	DefaultTableModel afficherIngredientRecette(String nom ) {
-			
 			
 			Recette recetteFiche = Main.livreRecette.getRecetteByName(nom);
 			return afficherIngredient(recetteFiche.getListIngredients());
