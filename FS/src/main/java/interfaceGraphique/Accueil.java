@@ -15,35 +15,35 @@ public class Accueil extends javax.swing.JFrame {
     /**
      * Bouton dans le menu de navigation qui redirige vers la page Liste 
      */
-    private javax.swing.JButton ListButton;
+    private javax.swing.JButton listButton;
     /**
      * Bouton dans le menu de navigation qui redirige vers la page Recette 
      */
-    private javax.swing.JButton RecetteButton;
+    private javax.swing.JButton recetteButton;
     /**
      * Bouton dans le menu de navigation qui redirige vers la page Stock 
      */
-    private javax.swing.JButton StockButton;
+    private javax.swing.JButton stockButton;
     /**
      * Panel du menu de navigation à gauche
      */
-    private javax.swing.JPanel PageMenu;
+    private javax.swing.JPanel pageMenu;
     /**
      * Panel de la page d'accueil à droite
      */
-    private javax.swing.JPanel PageAccueil;
+    private javax.swing.JPanel pageAccueil;
     /**
      * Text du menu dans le menu de navigation
      */
-    private javax.swing.JLabel MenuText;
+    private javax.swing.JLabel menuText;
     /**
      * Nom de l'application sur la page
      */
-    private javax.swing.JLabel CorpNameText;
+    private javax.swing.JLabel corpNameText;
     /**
      * Text au dessus de la table des aliments bientôt perimes
      */
-    private javax.swing.JLabel TablePerimeText;
+    private javax.swing.JLabel tablePerimeText;
     /**
      * 
      */
@@ -55,7 +55,7 @@ public class Accueil extends javax.swing.JFrame {
     /**
      * Table ou l'on affiche les aliments bientot perimes
      */
-    private javax.swing.JTable TableAlimentPerime;
+    private javax.swing.JTable tableAlimentPerime;
     /**
      * Creer une nouvelle forme d'accueil
      */
@@ -71,16 +71,16 @@ public class Accueil extends javax.swing.JFrame {
     	JPanel PanelTout = new JPanel();
     	
         jMenu1 = new javax.swing.JMenu();
-        PageMenu = new javax.swing.JPanel();
-        MenuText = new javax.swing.JLabel();
-        StockButton = new javax.swing.JButton();
-        RecetteButton = new javax.swing.JButton();
-        ListButton = new javax.swing.JButton();
-        PageAccueil = new javax.swing.JPanel();
-        CorpNameText = new javax.swing.JLabel();
+        pageMenu = new javax.swing.JPanel();
+        menuText = new javax.swing.JLabel();
+        stockButton = new javax.swing.JButton();
+        recetteButton = new javax.swing.JButton();
+        listButton = new javax.swing.JButton();
+        pageAccueil = new javax.swing.JPanel();
+        corpNameText = new javax.swing.JLabel();
         ScrollPaneAlimentPerime = new javax.swing.JScrollPane();
-        TableAlimentPerime = new javax.swing.JTable();
-        TablePerimeText = new javax.swing.JLabel();
+        tableAlimentPerime = new javax.swing.JTable();
+        tablePerimeText = new javax.swing.JLabel();
 
         jMenu1.setText("jMenu1");
 
@@ -109,89 +109,89 @@ public class Accueil extends javax.swing.JFrame {
         /*
          * On set les  couleurs de la page menu
          */
-        PageMenu.setBackground(new java.awt.Color(153, 204, 255));
-        PageMenu.setForeground(new java.awt.Color(51, 204, 255));
+        pageMenu.setBackground(new java.awt.Color(153, 204, 255));
+        pageMenu.setForeground(new java.awt.Color(51, 204, 255));
 
         /*
          * On set Le text menu avec sa police, son alignement, text , etc …
          */
-        MenuText.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); 
-        MenuText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        MenuText.setText("MENU");
-        MenuText.addMouseListener(new java.awt.event.MouseAdapter() {
+        menuText.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); 
+        menuText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        menuText.setText("MENU");
+        menuText.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                MenuTextMouseClicked(evt);
+                menuTextMouseClicked(evt);
             }
         });
 
         /*
          * On set les caracteristiques du bouton stock et les action listener
          */
-        StockButton.setBackground(new java.awt.Color(153, 204, 255));
-        StockButton.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); 
-        StockButton.setText("Stock");
-        StockButton.addActionListener(new java.awt.event.ActionListener() {
+        stockButton.setBackground(new java.awt.Color(153, 204, 255));
+        stockButton.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); 
+        stockButton.setText("Stock");
+        stockButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                StockButtonActionPerformed(evt);
+                stockButtonActionPerformed(evt);
             }
         });
 
         /*
          * On set les caracteristiques du bouton recette et les action listener
          */
-        RecetteButton.setBackground(new java.awt.Color(153, 204, 255));
-        RecetteButton.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); 
-        RecetteButton.setText("Recette");
-        RecetteButton.addActionListener(new java.awt.event.ActionListener() {
+        recetteButton.setBackground(new java.awt.Color(153, 204, 255));
+        recetteButton.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); 
+        recetteButton.setText("Recette");
+        recetteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RecetteButtonActionPerformed(evt);
+                recetteButtonActionPerformed(evt);
             }
         });
 
         /*
          * On set les caracteristiques du bouton liste et les action listener
          */
-        ListButton.setBackground(new java.awt.Color(153, 204, 255));
-        ListButton.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); 
-        ListButton.setText("Liste");
-        ListButton.addActionListener(new java.awt.event.ActionListener() {
+        listButton.setBackground(new java.awt.Color(153, 204, 255));
+        listButton.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); 
+        listButton.setText("Liste");
+        listButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ListButtonActionPerformed(evt);
+                listButtonActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout PageMenuLayout = new javax.swing.GroupLayout(PageMenu);
-        PageMenu.setLayout(PageMenuLayout);
-        PageMenuLayout.setHorizontalGroup(
-            PageMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PageMenuLayout.createSequentialGroup()
+        javax.swing.GroupLayout pageMenuLayout = new javax.swing.GroupLayout(pageMenu);
+        pageMenu.setLayout(pageMenuLayout);
+        pageMenuLayout.setHorizontalGroup(
+            pageMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pageMenuLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(PageMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(MenuText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(ListButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(RecetteButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
-                    .addComponent(StockButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(pageMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(menuText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(listButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(recetteButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
+                    .addComponent(stockButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
-        PageMenuLayout.setVerticalGroup(
-            PageMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PageMenuLayout.createSequentialGroup()
+        pageMenuLayout.setVerticalGroup(
+            pageMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pageMenuLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(MenuText)
+                .addComponent(menuText)
                 .addGap(18, 18, 18)
-                .addComponent(StockButton)
+                .addComponent(stockButton)
                 .addGap(18, 18, 18)
-                .addComponent(RecetteButton)
+                .addComponent(recetteButton)
                 .addGap(18, 18, 18)
-                .addComponent(ListButton)
+                .addComponent(listButton)
                 .addContainerGap(436, Short.MAX_VALUE))
         );
 
-        PageAccueil.setBackground(new java.awt.Color(255, 204, 204));
+        pageAccueil.setBackground(new java.awt.Color(255, 204, 204));
 
-        CorpNameText.setFont(new java.awt.Font("Helvetica Neue", 0, 48)); 
-        CorpNameText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        CorpNameText.setText("FOODSTOCK");
+        corpNameText.setFont(new java.awt.Font("Helvetica Neue", 0, 48)); 
+        corpNameText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        corpNameText.setText("FOODSTOCK");
 
         List<AlimentStockes> stock = Main.stocks.filtrerDate("principal",4);
         Object[][] data = new Object[stock.size()][4];
@@ -204,35 +204,35 @@ public class Accueil extends javax.swing.JFrame {
         }
         String[] columnNames = {"Aliment", "Date de Péremption", "Quantité", "Type"};
         DefaultTableModel model = new DefaultTableModel(data, columnNames);
-        TableAlimentPerime.setModel(model);
-        ScrollPaneAlimentPerime.setViewportView(TableAlimentPerime);
+        tableAlimentPerime.setModel(model);
+        ScrollPaneAlimentPerime.setViewportView(tableAlimentPerime);
 
-        TablePerimeText.setText("Aliments bientôt périmés");
+        tablePerimeText.setText("Aliments bientôt périmés");
 
-        javax.swing.GroupLayout PageAccueilLayout = new javax.swing.GroupLayout(PageAccueil);
-        PageAccueil.setLayout(PageAccueilLayout);
-        PageAccueilLayout.setHorizontalGroup(
-            PageAccueilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(CorpNameText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(PageAccueilLayout.createSequentialGroup()
+        javax.swing.GroupLayout pageAccueilLayout = new javax.swing.GroupLayout(pageAccueil);
+        pageAccueil.setLayout(pageAccueilLayout);
+        pageAccueilLayout.setHorizontalGroup(
+            pageAccueilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(corpNameText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(pageAccueilLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(ScrollPaneAlimentPerime)
+                .addComponent(alimentPerimeScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 889, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(PageAccueilLayout.createSequentialGroup()
-                .addGap(358, 358, 358)
-                .addComponent(TablePerimeText)
-                .addContainerGap(365, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pageAccueilLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(tablePerimeText)
+                .addGap(367, 367, 367))
         );
-        PageAccueilLayout.setVerticalGroup(
-            PageAccueilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PageAccueilLayout.createSequentialGroup()
+        pageAccueilLayout.setVerticalGroup(
+            pageAccueilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pageAccueilLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(CorpNameText)
-                .addGap(29, 29, 29)
-                .addComponent(TablePerimeText)
+                .addComponent(corpNameText)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(tablePerimeText, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ScrollPaneAlimentPerime, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(alimentPerimeScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 559, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -240,14 +240,14 @@ public class Accueil extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(PageMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pageMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(PageAccueil, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(pageAccueil, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PageMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(PageAccueil, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pageMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pageAccueil, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -256,7 +256,7 @@ public class Accueil extends javax.swing.JFrame {
     * Permet d'ouvrir le menu stock
     * @param evt Click sur le bouton Stock
     */
-    private void StockButtonActionPerformed(java.awt.event.ActionEvent evt) {
+    private void stockButtonActionPerformed(java.awt.event.ActionEvent evt) {
     	/*remove(panelTout);*/
         /* Main.controller.ChangerPage("menuStock", null, null, null);
         this.dispose();
@@ -269,7 +269,7 @@ public class Accueil extends javax.swing.JFrame {
     * Permet d'ouvrir le menu recette
     * @param evt Click sur le bouton Recette
     */
-    private void RecetteButtonActionPerformed(java.awt.event.ActionEvent evt) {
+    private void recetteButtonActionPerformed(java.awt.event.ActionEvent evt) {
         MenuRecette newPage = new MenuRecette();
 		newPage.setVisible(true);
         this.dispose();
@@ -278,7 +278,7 @@ public class Accueil extends javax.swing.JFrame {
      * Permet d'ouvrir le menu liste
      * @param evt Click sur le bouton Liste
      */
-    private void ListButtonActionPerformed(java.awt.event.ActionEvent evt) {
+    private void listButtonActionPerformed(java.awt.event.ActionEvent evt) {
         MenuListe newPage = new MenuListe();
 		newPage.setVisible(true);
         this.dispose();
@@ -287,7 +287,7 @@ public class Accueil extends javax.swing.JFrame {
      * Permet d'ouvrir l'accueil
      * @param evt Click sur le text menu
      */
-    private void MenuTextMouseClicked(java.awt.event.MouseEvent evt) {
+    private void menuTextMouseClicked(java.awt.event.MouseEvent evt) {
         Accueil newPage = new Accueil();
 		newPage.setVisible(true);
         this.dispose();
