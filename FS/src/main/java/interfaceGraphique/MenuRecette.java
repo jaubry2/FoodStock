@@ -12,7 +12,28 @@ import modeleDeDonnees.CritereDureeRecette;
  */
 public class MenuRecette extends javax.swing.JFrame {
     /**
-     * Creates new form MenuRecette
+     * Creates new form MenuReceqteAlimenttte
+     */
+	
+	public static String nomRecette;
+    /**
+     * Quantite de l'aliment recherche
+     */
+    public static String quantite;
+    /**
+     * Type de l'aliment recherche
+     */
+    public static String typeAliment;
+    /**
+     * Moyen de stockage de l'aliment recherche
+     */
+    public static String moyenDeStockageAliment;
+    /**
+     * Date de peremption de l'aliment recherche
+     */
+    public static String dateDePeremptionAliment;
+    /**
+     * Bouton dans le menu de navigation qui redirige vers la page Recette 
      */
     public MenuRecette() {
         initComponents();
@@ -40,11 +61,11 @@ public class MenuRecette extends javax.swing.JFrame {
         tableRecettes = new javax.swing.JTable();
         chercherIngredientRecettes = new javax.swing.JPanel();
         titreChercherIngredientRecettes = new javax.swing.JLabel();
-        alimentChosi = new javax.swing.JTextField();
+        alimentChoisi = new javax.swing.JTextField();
         chercherIngredientRecettesButton = new javax.swing.JButton();
         chercherNomRecette = new javax.swing.JPanel();
         titreChercherNomRecettes = new javax.swing.JLabel();
-        alimentChosi1 = new javax.swing.JTextField();
+        recetteChoisi = new javax.swing.JTextField();
         chercherNomRecettesButton = new javax.swing.JButton();
         Vitesses = new javax.swing.JPanel();
         rapideButton = new javax.swing.JButton();
@@ -146,17 +167,7 @@ public class MenuRecette extends javax.swing.JFrame {
         titreMenuRecettes.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titreMenuRecettes.setText("Recettes");
 
-        tableRecettes.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
+        tableRecettes.setModel(Main.controller.afficherRecette(Main.livreRecette));
         jScrollPane1.setViewportView(tableRecettes);
 
         chercherIngredientRecettes.setBackground(new java.awt.Color(153, 204, 255));
@@ -178,7 +189,7 @@ public class MenuRecette extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(titreChercherIngredientRecettes)
                 .addGap(18, 18, 18)
-                .addComponent(alimentChosi, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(alimentChoisi, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(chercherIngredientRecettesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31))
@@ -188,7 +199,7 @@ public class MenuRecette extends javax.swing.JFrame {
             .addGroup(chercherIngredientRecettesLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(chercherIngredientRecettesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(alimentChosi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(alimentChoisi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(chercherIngredientRecettesButton)
                     .addComponent(titreChercherIngredientRecettes))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -213,7 +224,7 @@ public class MenuRecette extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(titreChercherNomRecettes)
                 .addGap(18, 18, 18)
-                .addComponent(alimentChosi1, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(recetteChoisi, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(chercherNomRecettesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -222,7 +233,7 @@ public class MenuRecette extends javax.swing.JFrame {
             .addGroup(chercherNomRecetteLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(chercherNomRecetteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(alimentChosi1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(recetteChoisi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(chercherNomRecettesButton)
                     .addComponent(titreChercherNomRecettes))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -383,33 +394,42 @@ public class MenuRecette extends javax.swing.JFrame {
     private void ListButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListButton3ActionPerformed
         Main.controller.ChangerPage("menuListe", null, null, null);
         this.dispose();
-    }//GEN-LAST:event_ListButton3ActionPerformed
+    }
 
-    private void chercherIngredientRecettesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chercherIngredientRecettesButtonActionPerformed
-        Main.controller.ChangerPage("ficheAliment", null, null, alimentChosi.getText());
-        this.dispose();
-    }//GEN-LAST:event_chercherIngredientRecettesButtonActionPerformed
+    private void chercherIngredientRecettesButtonActionPerformed(java.awt.event.ActionEvent evt) {
+    	
+        System.out.println("chercher ingredient");
+    	System.out.println(alimentChoisi.getText());
 
+    	tableRecettes.setModel(Main.controller.afficherRecetteFiltrerAliment(alimentChoisi.getText()));
+    	
+    }
     private void mediumButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mediumButtonActionPerformed
-        String filtre = "Fruits_Legumes";
+    	System.out.println("bouton moyen");
+    	tableRecettes.setModel(Main.controller.afficherRecetteFiltrerDuree(CritereDureeRecette.MEDIUM));
 
-        for(int i = 0; i < tableRecettes.getRowCount(); i++){
-            if(tableRecettes.getValueAt(i,0).equals(filtre)){
-            }
-        }
-
-    }//GEN-LAST:event_mediumButtonActionPerformed
+    }
 
     private void longueButtonActionPerformed(java.awt.event.ActionEvent evt) {
-    	Main.controller.afficherRecetteFiltrerDuree(CritereDureeRecette.LONG);
+    	System.out.println("bouton long");
+
+    	tableRecettes.setModel(Main.controller.afficherRecetteFiltrerDuree(CritereDureeRecette.LONG));
     }
 
     private void rapideButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rapideButtonActionPerformed
-    	Main.controller.afficherRecetteFiltrerDuree(CritereDureeRecette.RAPIDE);
+    	System.out.println("bouton rapide");
+
+    	tableRecettes.setModel(Main.controller.afficherRecetteFiltrerDuree(CritereDureeRecette.RAPIDE));
     }
 
-    private void chercherNomRecettesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chercherNomRecettesButtonActionPerformed
-        // TODO add your handling code here:
+    private void chercherNomRecettesButtonActionPerformed(java.awt.event.ActionEvent evt) {
+    	
+    	System.out.println(recetteChoisi.getText());
+
+        String[] infoRecette = Main.controller.AfficherFicheRecette(recetteChoisi.getText());
+        FicheRecette mR = new FicheRecette(infoRecette[0], infoRecette[1], infoRecette[2]);                                  
+        mR.setVisible(true);
+        this.dispose();
     }
 
     /**
@@ -453,8 +473,8 @@ public class MenuRecette extends javax.swing.JFrame {
     private javax.swing.JButton RecetteButton3;
     private javax.swing.JButton StockButton3;
     private javax.swing.JPanel Vitesses;
-    private javax.swing.JTextField alimentChosi;
-    private javax.swing.JTextField alimentChosi1;
+    private javax.swing.JTextField alimentChoisi;
+    private javax.swing.JTextField recetteChoisi;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JPanel chercherIngredientRecettes;

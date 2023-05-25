@@ -41,8 +41,10 @@ public class LivreRecettes {
     
     public LivreRecettes FiltrerParDuree(CritereDureeRecette cdr) {
     	LivreRecettes recettesFiltre = new LivreRecettes();
+    	
     	for (Recette recette : recettes) {
     		if(cdr.estDansLaPlage(recette.getDuree())) {
+    			System.out.println("critere duree");
     			recettesFiltre.ajouterRecette(recette);
     		}
     	}

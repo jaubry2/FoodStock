@@ -190,7 +190,16 @@ public DefaultTableModel afficherRecetteLieAliment(String nom) {
 	    return model;
 	}
 	
-	
+	public String[] AfficherFicheRecette(String nom ) {
+		
+		Recette recetteFiche = Main.livreRecette.getRecetteByName(nom);		
+		String[] infoRecette = new String[3];
+		infoRecette[0] = recetteFiche.getNom();
+		infoRecette[1]= String.valueOf(recetteFiche.getDuree());	
+		infoRecette[2] = null;
+		
+		return infoRecette;
+	}	
 
 	
 	

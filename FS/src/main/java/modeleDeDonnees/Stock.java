@@ -158,4 +158,9 @@ public void ajouterAliment(AlimentStockes alimentsStock) {
         throw new AlimentsNonPresentException(nomAliment);    
     }
 
+	public float getQuantiteAlimentStocke(String nom) {
+		
+		return getAlimentStockesByName(nom).getQuantite();
+	}
+
 }

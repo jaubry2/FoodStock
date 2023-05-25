@@ -294,17 +294,8 @@ public class FicheAliment extends javax.swing.JFrame {
         quantiteText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         quantiteText.setText("Quantite :");
 
-        TableRecette.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
+        TableRecette.setModel(Main.controller.afficherRecetteLieAliment(alimentChoisi.getText()));
+            
         jScrollPane1.setViewportView(TableRecette);
 
         recetteAssocieText.setText("Recettes Associés");
