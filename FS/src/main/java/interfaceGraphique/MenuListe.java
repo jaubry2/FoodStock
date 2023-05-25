@@ -135,18 +135,8 @@ public class MenuListe extends javax.swing.JFrame {
         titreMenuListe.setFont(new java.awt.Font("Liberation Sans", 0, 36)); // NOI18N
         titreMenuListe.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titreMenuListe.setText("Listes de course");
-
-        tableListe.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
+        
+        tableListe.setModel(Main.controller.afficherListeCourse());
         jScrollPane1.setViewportView(tableListe);
 
         ajoutRecetteListe.setBackground(new java.awt.Color(153, 204, 255));
@@ -327,17 +317,16 @@ public class MenuListe extends javax.swing.JFrame {
     }//GEN-LAST:event_ListButton3ActionPerformed
 
     private void ajoutRecetteListeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajoutRecetteListeButtonActionPerformed
-        Main.controller.ChangerPage("ficheAliment", null, null, choixRecetteListe.getText());
-        this.dispose();
+      Main.controller.ajouterRecette(choixRecetteListe.getText());
     }//GEN-LAST:event_ajoutRecetteListeButtonActionPerformed
 
-    private void ajoutAlimentListeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajoutAlimentListeButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ajoutAlimentListeButtonActionPerformed
+    private void ajoutAlimentListeButtonActionPerformed(java.awt.event.ActionEvent evt) {
+    	//Main.controller.ajouterListe(choixAlimentListe.getText());
+    }
 
     private void imprimerListeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imprimerListeButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_imprimerListeButtonActionPerformed
+    	Main.controller.ModifierListeFichier();
+    }
 
     /**
      * @param args the command line arguments

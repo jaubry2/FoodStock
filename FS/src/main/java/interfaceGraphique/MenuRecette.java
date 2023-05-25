@@ -4,6 +4,8 @@
  */
 package interfaceGraphique;
 
+import javax.swing.UnsupportedLookAndFeelException;
+
 import modeleDeDonnees.CritereDureeRecette;
 
 /**
@@ -426,7 +428,7 @@ public class MenuRecette extends javax.swing.JFrame {
     	
     	System.out.println(recetteChoisi.getText());
 
-        String[] infoRecette = Main.controller.AfficherFicheRecette(recetteChoisi.getText());
+        String[] infoRecette = Main.controller.afficherFicheRecette(recetteChoisi.getText());
         FicheRecette mR = new FicheRecette(infoRecette[0], infoRecette[1], infoRecette[2]);                                  
         mR.setVisible(true);
         this.dispose();
@@ -454,10 +456,13 @@ public class MenuRecette extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(MenuRecette.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
             java.util.logging.Logger.getLogger(MenuRecette.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(MenuRecette.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+ catch (UnsupportedLookAndFeelException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {

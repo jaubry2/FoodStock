@@ -294,7 +294,7 @@ public class FicheAliment extends javax.swing.JFrame {
         quantiteText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         quantiteText.setText("Quantite :");
 
-        TableRecette.setModel(Main.controller.afficherRecetteLieAliment(alimentChoisi.getText()));
+        TableRecette.setModel(Main.controller.afficherRecetteLieAliment(nomAliment));
             
         jScrollPane1.setViewportView(TableRecette);
 
@@ -476,7 +476,7 @@ public class FicheAliment extends javax.swing.JFrame {
         
         
         // Assigner les differentes valeurs au texte
-        nomAlimentText.setText(infoAliment[0]);
+        alimentName.setText(infoAliment[0]);
         Qte.setText(infoAliment[1]);
         TA.setText(infoAliment[2]);
         MDS.setText(infoAliment[3]);

@@ -4,10 +4,20 @@ import java.util.List;
 
 public class EnsembleAliment {
 	
+	
+
 	private List<Aliment> listAliments;
 	
 	public EnsembleAliment(List<Aliment> listAliments) {
 	 this.listAliments = listAliments;
+	}
+	
+	public List<Aliment> getListAliments() {
+		return listAliments;
+	}
+
+	public void setListAliments(List<Aliment> listAliments) {
+		this.listAliments = listAliments;
 	}
 	
     public  Aliment getAlimentByName(String nom) {
@@ -18,5 +28,6 @@ public class EnsembleAliment {
         }
         throw new AlimentsNonPresentException(nom);
     }
+    
 
 }

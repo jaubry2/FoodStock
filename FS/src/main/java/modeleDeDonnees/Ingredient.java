@@ -23,7 +23,7 @@ public class Ingredient {
     private Aliment aliment;
 
     @Column(name = "quantite")
-    private int quantite;
+    private float quantite;
     
 
     
@@ -34,7 +34,7 @@ public class Ingredient {
     public Ingredient() {
     }
 
-    public Ingredient( Aliment aliment, int quantite) {
+    public Ingredient( Aliment aliment, float quantite) {
         this.aliment = aliment;
         this.quantite = quantite;
     }
@@ -47,11 +47,11 @@ public class Ingredient {
 		return aliment;
 	}
 
-	public void setQuantite(int nouvelleQuantite) {
+	public void setQuantite(float nouvelleQuantite) {
 		this.quantite=nouvelleQuantite;
 	}
 
-	public int  getQuantite() {
+	public float  getQuantite() {
 		return quantite;
 	}
 

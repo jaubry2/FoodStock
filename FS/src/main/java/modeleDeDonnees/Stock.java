@@ -162,5 +162,10 @@ public void ajouterAliment(AlimentStockes alimentsStock) {
 		
 		return getAlimentStockesByName(nom).getQuantite();
 	}
+	
+	public void retirerQuantiteStock( String nomAliment, float quantite) {
+		AlimentStockes  aS = this.getAlimentStockesByName(nomAliment);
+		aS.setQuantite(quantite);
+	}
 
 }

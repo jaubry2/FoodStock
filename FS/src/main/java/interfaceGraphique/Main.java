@@ -17,6 +17,7 @@ import baseDeDonnees.RecetteService;
 import modeleDeDonnees.AlimentStockes;
 import modeleDeDonnees.EnsembleAliment;
 import modeleDeDonnees.Ingredient;
+import modeleDeDonnees.ListeDeCourse;
 import modeleDeDonnees.LivreRecettes;
 import modeleDeDonnees.Recette;
 import modeleDeDonnees.Aliment;
@@ -39,6 +40,9 @@ public class Main {
     public static final Controller controller = new Controller();
     public static List<Aliment> listAliments;
     public static LivreRecettes livreRecette;
+	public static GestionnaireFichier gestionnaireFichier;
+	public static EnsembleAliment ensembleAliment;
+	public static ListeDeCourse listeCourse;
     
     
     public static void main(String[] args) {
@@ -46,17 +50,19 @@ public class Main {
         // importation de la base 
         stock = new Stock(AlimentStockeService.importerTableAlimentStock());
         livreRecette = new LivreRecettes(RecetteService.importerTableRecette());
-        
+        gestionnaireFichier = new GestionnaireFichier();
+        listeCourse = new ListeDeCourse();
+      
         listAliments = AlimentService.importerTableAliment();
-        EnsembleAliment litAliments = new EnsembleAliment (AlimentService.importerTableAliment());
+        ensembleAliment = new EnsembleAliment (AlimentService.importerTableAliment());
 		/*List<AlimentStockes> list=AlimentStockeService.importerTableAlimentStock();*/
 		/*stocks.remplirstock("principal",list );*/
 		stock.afficherContenuStock();
 		System.out.println("afficher Fiche nouv");
 
 		GestionnaireFichier gs = new GestionnaireFichier();
-		gs.ecrireIngredientsDansFichier( "src/main/resources/listeCourse.txt", livreRecette.getRecettes().iterator().next().getListIngredients());
-		Set<Ingredient> test = gs.lireIngredientsDepuisFichier("src/main/resources/listeCourse.txt",litAliments );
+		//gs.ecrireIngredientsDansFichier( "src/main/resources/listeCourse.txt", livreRecette.getRecettes().iterator().next().getListIngredients());
+		Set<Ingredient> test = gs.lireIngredientsDepuisFichier("src/main/resources/listeCourse.txt",ensembleAliment );
 		
 		Accueil ac = new Accueil();
 		ac.setVisible(true);

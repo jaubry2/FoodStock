@@ -83,12 +83,12 @@ public class FicheRecette extends javax.swing.JFrame {
         titreFicheRecette.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titreFicheRecette.setText("Fiche Recette");
 
-        TableIngredients.setModel(Main.controller.AfficherIngredientRecette(nom));
+        TableIngredients.setModel(Main.controller.afficherIngredientRecette(nom));
             
         jScrollPane1.setViewportView(TableIngredients);
 
         nomRecette.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        nomRecette.setText("...");
+        nomRecette.setText(nom);
 
         Qte.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
@@ -119,7 +119,7 @@ public class FicheRecette extends javax.swing.JFrame {
         titreDuree.setText("Durée :");
 
         duree.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        duree.setText("...");
+        duree.setText(dureeRecette);
 
         javax.swing.GroupLayout pageFicheRecetteLayout = new javax.swing.GroupLayout(pageFicheRecette);
         pageFicheRecette.setLayout(pageFicheRecetteLayout);
@@ -361,12 +361,12 @@ public class FicheRecette extends javax.swing.JFrame {
 
     private void actualiserRecetteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualiserRecetteButtonActionPerformed
         String ac = choixRecette.getText();
-        String[] infoRecette = Main.controller.AfficherFicheRecette(ac);
+        String[] infoRecette = Main.controller.afficherFicheRecette(ac);
         
         nomRecette.setText(infoRecette[0]);
         duree.setText(infoRecette[1]);
         instructions.setText(infoRecette[2]);
-        TableIngredients.setModel(Main.controller.AfficherIngredientRecette(ac));
+        TableIngredients.setModel(Main.controller.afficherIngredientRecette(ac));
         
         
 

@@ -172,7 +172,7 @@ public class Recette {
     	return false;
     }
 
-	public int getQuantite(Aliment aliment) {
+	public float getQuantite(Aliment aliment) {
 
 		for (Ingredient ingredients : listIngredient) {
             if (ingredients.isAliment(aliment)) {

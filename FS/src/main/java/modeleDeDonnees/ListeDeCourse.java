@@ -1,5 +1,6 @@
 package modeleDeDonnees;
 
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -14,9 +15,20 @@ public class ListeDeCourse {
 
   
 
-    public ListeDeCourse() {
+   
+
+	public ListeDeCourse() {
     	this.ingredients = new HashSet<>();
     }
+	
+	
+	 public Set<Ingredient> getIngredients() {
+			return ingredients;
+		}
+
+		public void setIngredients(Set<Ingredient> ingredients) {
+			this.ingredients = ingredients;
+		}
 
     /**
      * Ajoute un ingrédient à la liste de course.
@@ -45,14 +57,14 @@ public class ListeDeCourse {
         // Parcourir les ingrédients de la recette avec leurs quantités nécessaires
         for (Ingredient ingredient : recette.getListIngredients()) {
             Aliment aliment = ingredient.getAliment();
-            int quantiteNecessaire = ingredient.getQuantite();
+            float quantiteNecessaire = ingredient.getQuantite();
 
             // Vérifier si l'aliment est déjà présent dans la liste de course
             boolean alimentExiste = false;
             for (Ingredient ingredientListeCourse : ingredients) {
                 if (ingredientListeCourse.getAliment().equals(aliment)) {
                     // Ajouter la quantité nécessaire à la quantité existante dans la liste de course
-                    int quantiteExistante = ingredientListeCourse.getQuantite();
+                    float quantiteExistante = ingredientListeCourse.getQuantite();
                     ingredientListeCourse.setQuantite(quantiteExistante + quantiteNecessaire);
                     alimentExiste = true;
                     break;
@@ -73,17 +85,21 @@ public class ListeDeCourse {
      * @param stock le stock d'ingrédients disponible
      * @return la liste de course avec les ingrédients manquants et leurs quantités nécessaires
      */
-    public Map<Ingredient, Float> comparerStock(Stock stock) {
-        Map<Ingredient, Float> listeCourse = new HashMap<>();
+    public ListeDeCourse comparerStock(Stock stock) {
+        ListeDeCourse listeCourse = new ListeDeCourse();
 
         for (Ingredient ingredient : ingredients) {
             float quantiteNecessaire = ingredient.getQuantite();
-            float quantiteEnStock = stock.getQuantiteAlimentStocke(ingredient.getAliment().getNom());
-            float quantiteRestante = quantiteEnStock - quantiteNecessaire;
-
-            if (quantiteRestante < 0) {
-                listeCourse.put(ingredient, Math.abs(quantiteRestante));
+            AlimentStockes alimentstockes =stock.getAlimentStockesByName(ingredient.getAliment().getNom());
+            if (alimentstockes.getDatePeremption().isAfter(LocalDate.now())) {
+            	 float quantiteEnStock = alimentstockes.getQuantite();
+            	 float quantiteRestante = quantiteEnStock - quantiteNecessaire;
+		            if (quantiteRestante < 0) {
+		            	ingredient.setQuantite(Math.abs(quantiteRestante));
+		                listeCourse.ajouterIngredient(ingredient);
+		            }
             }
+           
         }
 
         return listeCourse;

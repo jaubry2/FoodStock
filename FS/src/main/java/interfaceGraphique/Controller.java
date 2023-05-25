@@ -11,7 +11,9 @@ import java.util.List;
 import java.util.Set;
 
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
+import baseDeDonnees.GestionnaireFichier;
 import modeleDeDonnees.AlimentStockes;
 import modeleDeDonnees.Aliment;
 import modeleDeDonnees.AlimentsNonPresentException;
@@ -98,7 +100,7 @@ public class Controller {
     
 public String[] AfficherFicheAliment(String nom ) {
 	System.out.println("afficher Fiche");
-	
+	System.out.println(nom);
 	AlimentStockes alimentFiche = Main.stock.getAlimentStockesByName(nom);
 	String[] infoAliment = new String[5];
 	infoAliment[0] = alimentFiche.getAliment().getNom();
@@ -172,14 +174,15 @@ public DefaultTableModel afficherRecetteLieAliment(String nom) {
 		Aliment alimentFitre = Stock.getAlimentByName(Main.listAliments, nom);
 		return afficherRecette(Main.livreRecette.FiltrerParAliment(alimentFitre));
 	}
-	public 	DefaultTableModel AfficherIngredientRecette(String nom ) {
-	
+
+	    private DefaultTableModel afficherIngredient(Set<Ingredient> listIngredients) {
+		// TODO Auto-generated method stub
 		
-		Recette recetteFiche = Main.livreRecette.getRecetteByName(nom);
-	    Object[][] data = new Object[recetteFiche.getListIngredients().size()][2];
+	
+		Object[][] data = new Object[listIngredients.size()][2];
 
 	    int i=0;
-	    for (Ingredient ingredient : recetteFiche.getListIngredients()) {
+	    for (Ingredient ingredient : listIngredients) {
 	    	 
 	         data[i][0] = ingredient.getAliment().getNom();
 	         data[i][1] = ingredient.getQuantite();
@@ -189,8 +192,15 @@ public DefaultTableModel afficherRecetteLieAliment(String nom) {
 	    DefaultTableModel model = new DefaultTableModel(data, columnNames);
 	    return model;
 	}
+	    
+		public 	DefaultTableModel afficherIngredientRecette(String nom ) {
+			
+			
+			Recette recetteFiche = Main.livreRecette.getRecetteByName(nom);
+			return afficherIngredient(recetteFiche.getListIngredients());
+		}
 	
-	public String[] AfficherFicheRecette(String nom ) {
+	public String[] afficherFicheRecette(String nom ) {
 		
 		Recette recetteFiche = Main.livreRecette.getRecetteByName(nom);		
 		String[] infoRecette = new String[3];
@@ -199,8 +209,28 @@ public DefaultTableModel afficherRecetteLieAliment(String nom) {
 		infoRecette[2] = null;
 		
 		return infoRecette;
-	}	
+	}
 
+	public TableModel afficherListeCourse() {
+		return afficherIngredient(Main.listeCourse.getIngredients());
+	}
+
+	public void ModifierListeFichier() {
+		Main.gestionnaireFichier.ecrireIngredientsDansFichier("src/main/resources/listeCourse.txt",Main.listeCourse.getIngredients());
+		
+	}
+
+	public void ajouterListe(String nom, float quantite) {
+		Aliment alimentAjout = Main.ensembleAliment.getAlimentByName(nom);
+		Ingredient ingredientAjout = new Ingredient(alimentAjout,quantite);
+		Main.listeCourse.ajouterIngredient(ingredientAjout);
+		
+	}	
+	public void ajouterRecette(String nom) {
+		Recette recetteAjout = Main.livreRecette.getRecetteByName(nom);
+		Main.listeCourse.ajouterRecette(recetteAjout);
+		
+	}
 	
 	
 	

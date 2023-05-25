@@ -496,6 +496,9 @@ public class MenuStock extends javax.swing.JFrame {
     
     private void ficheAlimentButtonActionPerformed(java.awt.event.ActionEvent evt) { 
         String nom = alimentChosi.getText();
+        System.out.println("ficheAlimentButton");
+
+        System.out.println(nom);
         String[] infoAliment = Main.controller.AfficherFicheAliment(nom);
         FicheAliment mF = new FicheAliment(infoAliment[0], infoAliment[1], infoAliment[2], infoAliment[3], infoAliment[4]);                                   ;
         mF.setVisible(true);
