@@ -55,7 +55,8 @@ public class Controller {
             newPage = new FicheAliment(_nomAliment,"","","","");
             OuvrirPage(newPage);
         } else if (_page.equals("menuListe")) {
-            newPage = new MenuListe();
+        	DefaultTableModel model = this.afficherListeCourse();
+            newPage = new MenuListe(model);
             System.out.println("aazz");
             ControllerListeCourse cLdC = new ControllerListeCourse(Main.listeCourse ,(MenuListe) newPage);
            OuvrirPage(newPage);
@@ -218,7 +219,7 @@ public DefaultTableModel afficherRecetteLieAliment(String nom) {
 		return infoRecette;
 	}
 
-	public TableModel afficherListeCourse() {
+	public DefaultTableModel afficherListeCourse() {
 		return afficherIngredient(Main.listeCourse.getIngredients());
 	}
 

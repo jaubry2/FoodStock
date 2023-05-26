@@ -450,9 +450,11 @@ public class FicheAliment extends javax.swing.JFrame {
     }
 
     private void listButtonActionPerformed(java.awt.event.ActionEvent evt) {
-    	MenuListe newPage = new MenuListe();
-		newPage.setVisible(true);
+        Main.controller.ChangerPage("menuListe", null, null, null);
         this.dispose();
+    	/*MenuListe newPage = new MenuListe();
+		newPage.setVisible(true);
+        this.dispose();*/
     }
 
     private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {

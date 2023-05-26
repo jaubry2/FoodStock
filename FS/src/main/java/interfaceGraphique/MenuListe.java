@@ -4,19 +4,38 @@
  */
 package interfaceGraphique;
 
+import java.awt.Component;
+import java.awt.event.ActionEvent;
+
 import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 /**
  *
  * @author julesa
  */
-public class MenuListe extends javax.swing.JFrame {
-    /**
+public class MenuListe extends JFrame {
+    private JButton suprAlimentListeButton;
+	
+
+	private JTextField choixQuantiteeListe;
+	private JLabel titreAjoutQuantiteeListe;
+
+
+	private DefaultTableModel tableListeModel;
+	
+
+	/**
      * Creates new form MenuListe
      */
-    public MenuListe() {
+    public MenuListe(DefaultTableModel tableListeModel) {
+        this.tableListeModel =tableListeModel;
+
         initComponents();
     }
 
@@ -45,8 +64,11 @@ public class MenuListe extends javax.swing.JFrame {
         ajoutAlimentListe = new javax.swing.JPanel();
         titreAjoutAlimentListe = new javax.swing.JLabel();
         choixAlimentListe = new javax.swing.JTextField();
-        imprimerListeButton = new javax.swing.JButton();
+        suprAlimentListeButton = new javax.swing.JButton();
+        choixQuantiteeListe = new javax.swing.JTextField();
         ajoutAlimentListeButton = new javax.swing.JButton();
+        titreAjoutQuantiteeListe = new javax.swing.JLabel();
+        imprimerListeButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -131,7 +153,7 @@ public class MenuListe extends javax.swing.JFrame {
                 .addComponent(RecetteButton3)
                 .addGap(18, 18, 18)
                 .addComponent(ListButton3)
-                .addContainerGap(363, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pageMenuListe.setBackground(new java.awt.Color(255, 204, 204));
@@ -139,8 +161,9 @@ public class MenuListe extends javax.swing.JFrame {
         titreMenuListe.setFont(new java.awt.Font("Liberation Sans", 0, 36)); // NOI18N
         titreMenuListe.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titreMenuListe.setText("Listes de course");
-        
-        tableListe.setModel(Main.controller.afficherListeCourse());
+
+        tableListe.setModel(tableListeModel);
+
         jScrollPane1.setViewportView(tableListe);
 
         ajoutRecetteListe.setBackground(new java.awt.Color(153, 204, 255));
@@ -148,11 +171,7 @@ public class MenuListe extends javax.swing.JFrame {
         titreAjoutRecetteListe.setText("Ajouter une recette :");
 
         ajoutRecetteListeButton.setText("Ajouter");
-        /*ajoutRecetteListeButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ajoutRecetteListeButtonActionPerformed(evt);
-            }
-        });*/
+        
 
         javax.swing.GroupLayout ajoutRecetteListeLayout = new javax.swing.GroupLayout(ajoutRecetteListe);
         ajoutRecetteListe.setLayout(ajoutRecetteListeLayout);
@@ -182,16 +201,48 @@ public class MenuListe extends javax.swing.JFrame {
 
         titreAjoutAlimentListe.setText("Ajouter un aliment:");
 
+        suprAlimentListeButton.setText("Supprimer");
+        
+
+        choixQuantiteeListe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                choixQuantiteeListeActionPerformed(evt);
+            }
+
+			private void choixQuantiteeListeActionPerformed(ActionEvent evt) {
+				// TODO Auto-generated method stub
+				
+			}
+        });
+
+        ajoutAlimentListeButton.setText("Ajouter");
+       
+
+        titreAjoutQuantiteeListe.setText("Quantitée :");
+
         javax.swing.GroupLayout ajoutAlimentListeLayout = new javax.swing.GroupLayout(ajoutAlimentListe);
         ajoutAlimentListe.setLayout(ajoutAlimentListeLayout);
         ajoutAlimentListeLayout.setHorizontalGroup(
             ajoutAlimentListeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ajoutAlimentListeLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ajoutAlimentListeLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(titreAjoutAlimentListe)
-                .addGap(18, 18, 18)
-                .addComponent(choixAlimentListe, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(ajoutAlimentListeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(ajoutAlimentListeLayout.createSequentialGroup()
+                        .addComponent(titreAjoutQuantiteeListe)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(choixQuantiteeListe, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(ajoutAlimentListeLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(titreAjoutAlimentListe)
+                        .addGap(18, 18, 18)
+                        .addComponent(choixAlimentListe, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(145, 145, 145))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ajoutAlimentListeLayout.createSequentialGroup()
+                .addGap(100, 100, 100)
+                .addComponent(ajoutAlimentListeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(suprAlimentListeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(62, 62, 62))
         );
         ajoutAlimentListeLayout.setVerticalGroup(
             ajoutAlimentListeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -200,6 +251,14 @@ public class MenuListe extends javax.swing.JFrame {
                 .addGroup(ajoutAlimentListeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(choixAlimentListe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(titreAjoutAlimentListe))
+                .addGap(18, 18, 18)
+                .addGroup(ajoutAlimentListeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(choixQuantiteeListe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(titreAjoutQuantiteeListe))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(ajoutAlimentListeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(suprAlimentListeButton)
+                    .addComponent(ajoutAlimentListeButton))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -210,39 +269,23 @@ public class MenuListe extends javax.swing.JFrame {
             }
         });
 
-        ajoutAlimentListeButton.setText("Ajouter");
-        ajoutAlimentListeButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ajoutAlimentListeButtonActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout pageMenuListeLayout = new javax.swing.GroupLayout(pageMenuListe);
         pageMenuListe.setLayout(pageMenuListeLayout);
         pageMenuListeLayout.setHorizontalGroup(
             pageMenuListeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pageMenuListeLayout.createSequentialGroup()
-                .addGap(117, 117, 117)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 618, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 26, Short.MAX_VALUE))
+                .addGap(250, 250, 250)
+                .addComponent(titreMenuListe)
+                .addGap(155, 155, 155)
+                .addComponent(imprimerListeButton)
+                .addContainerGap(8, Short.MAX_VALUE))
             .addGroup(pageMenuListeLayout.createSequentialGroup()
-                .addGroup(pageMenuListeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(ajoutRecetteListe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(pageMenuListeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(pageMenuListeLayout.createSequentialGroup()
-                            .addGap(250, 250, 250)
-                            .addComponent(titreMenuListe)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(imprimerListeButton))
-                        .addGroup(pageMenuListeLayout.createSequentialGroup()
-                            .addGap(571, 571, 571)
-                            .addComponent(ajoutAlimentListeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(pageMenuListeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(pageMenuListeLayout.createSequentialGroup()
-                    .addGap(140, 140, 140)
+                .addGap(117, 117, 117)
+                .addGroup(pageMenuListeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ajoutAlimentListe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(59, Short.MAX_VALUE)))
+                    .addComponent(ajoutRecetteListe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 618, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         pageMenuListeLayout.setVerticalGroup(
             pageMenuListeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -251,18 +294,13 @@ public class MenuListe extends javax.swing.JFrame {
                 .addGroup(pageMenuListeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(titreMenuListe)
                     .addComponent(imprimerListeButton))
-                .addGap(28, 28, 28)
-                .addComponent(ajoutAlimentListeButton)
-                .addGap(30, 30, 30)
+                .addGap(18, 18, 18)
+                .addComponent(ajoutAlimentListe, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(ajoutRecetteListe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(35, 35, 35)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
-            .addGroup(pageMenuListeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(pageMenuListeLayout.createSequentialGroup()
-                    .addGap(81, 81, 81)
-                    .addComponent(ajoutAlimentListe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(397, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -282,7 +320,7 @@ public class MenuListe extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }
 
     public JButton getAjoutAlimentListeButton() {
 		return ajoutAlimentListeButton;
@@ -303,6 +341,19 @@ public class MenuListe extends javax.swing.JFrame {
 
 	public JTable getTableListe() {
 		return tableListe;
+	}
+	
+	public JButton getSuprAlimentListeButton() {
+		return suprAlimentListeButton;
+	}
+
+	public JTextField getChoixQuantiteeListe() {
+		return choixQuantiteeListe;
+	}
+	
+	public void setTableListeModel(DefaultTableModel tableListeModel) {
+		
+		this.tableListeModel = tableListeModel;
 	}
 
 	private void titreMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_titreMenu3MouseClicked
@@ -330,24 +381,22 @@ public class MenuListe extends javax.swing.JFrame {
     private void RecetteButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RecetteButton3ActionPerformed
         Main.controller.ChangerPage("menuRecette", null, null, null);
         this.dispose();
-    }//GEN-LAST:event_RecetteButton3ActionPerformed
+    }
 
     private void ListButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListButton3MouseClicked
         //SUP
-    }//GEN-LAST:event_ListButton3MouseClicked
+    }
 
     private void ListButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListButton3ActionPerformed
         Main.controller.ChangerPage("menuListe", null, null, null);
         this.dispose();
-    }//GEN-LAST:event_ListButton3ActionPerformed
+    }
 
     private void ajoutRecetteListeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajoutRecetteListeButtonActionPerformed
       Main.controller.ajouterRecette(choixRecetteListe.getText());
-    }//GEN-LAST:event_ajoutRecetteListeButtonActionPerformed
-
-    private void ajoutAlimentListeButtonActionPerformed(java.awt.event.ActionEvent evt) {
-    	//Main.controller.ajouterListe(choixAlimentListe.getText());
     }
+
+
 
     private void imprimerListeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imprimerListeButtonActionPerformed
     	Main.controller.ModifierListeFichier();
@@ -382,8 +431,10 @@ public class MenuListe extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+        	
             public void run() {
-                new MenuListe().setVisible(true);
+            	System.out.println("zaz");
+               /* new MenuListe().setVisible(true);*/
             }
         });
     }

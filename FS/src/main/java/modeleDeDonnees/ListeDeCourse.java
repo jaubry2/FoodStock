@@ -4,6 +4,9 @@ import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+
+import interfaceGraphique.Main;
+
 import java.util.HashSet;
 
 public class ListeDeCourse extends Observable{
@@ -41,6 +44,7 @@ public class ListeDeCourse extends Observable{
      * @param ingredient l'objet Ingredient à ajouter
      */
     public void ajouterIngredient(Ingredient ingredient) {
+    	System.out.println("ajouter Aliment");
         ingredients.add(ingredient);
         notifyObservers();
 
@@ -78,6 +82,7 @@ public class ListeDeCourse extends Observable{
                     alimentExiste = true;
                     break;
                 }
+               
             }
 
             // Si l'aliment n'existe pas, l'ajouter à la liste de course
@@ -85,6 +90,7 @@ public class ListeDeCourse extends Observable{
                 Ingredient nouvelIngredient = new Ingredient(aliment, quantiteNecessaire);
                 ingredients.add(nouvelIngredient);
             }
+            this.comparerStock(Main.stock);
             notifyObservers();
 
         }
@@ -96,8 +102,8 @@ public class ListeDeCourse extends Observable{
      * @param stock le stock d'ingrédients disponible
      * @return la liste de course avec les ingrédients manquants et leurs quantités nécessaires
      */
-    public ListeDeCourse comparerStock(Stock stock) {
-        ListeDeCourse listeCourse = new ListeDeCourse();
+    public void comparerStock(Stock stock) {
+        Set<Ingredient> ingredientsNecessaire = new HashSet<>();
 
         for (Ingredient ingredient : ingredients) {
             float quantiteNecessaire = ingredient.getQuantite();
@@ -105,12 +111,12 @@ public class ListeDeCourse extends Observable{
            float quantiteRestante = quantiteEnStock - quantiteNecessaire;
 		   if (quantiteRestante < 0) {
 		        ingredient.setQuantite(Math.abs(quantiteRestante));
-		        listeCourse.ajouterIngredient(ingredient);
+		        ingredientsNecessaire.add(ingredient);
 		    }
 
         }
 
-        return listeCourse;
+        this.ingredients = ingredientsNecessaire;
     }
 
 }

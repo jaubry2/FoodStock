@@ -478,8 +478,10 @@ public class AjouterAliment extends javax.swing.JFrame {
      * @param evt Click sur le bouton Liste
      */
     private void listButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        MenuListe newPage = new MenuListe();
+        /*MenuListe newPage = new MenuListe();
 		newPage.setVisible(true);
+        this.dispose();*/
+        Main.controller.ChangerPage("menuListe", null, null, null);
         this.dispose();
     }
     /**

@@ -154,4 +154,5 @@ interfaceGraphique\Accueil.class
 interfaceGraphique\AjouterAliment$5.class
 interfaceGraphique\MenuStock$3.class
 interfaceGraphique\FicheRecette$8.class
+modeleDeDonnees\ControllerListeCourse$3.class
 modeleDeDonnees\MoyendeConservation.class

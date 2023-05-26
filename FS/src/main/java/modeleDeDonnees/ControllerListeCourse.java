@@ -25,9 +25,12 @@ public class ControllerListeCourse implements Observer{
 	        vue.getAjoutAlimentListeButton().addActionListener(new ActionListener() { 
 	            @Override
 	            public void actionPerformed(ActionEvent e) {
-	            	System.out.println("button");
 
-	               // model.ajouterIngredient(vue.getChoixAlimentListe().getText());
+	            	System.out.println("aliment boutton");
+	            	System.out.println(vue.getChoixQuantiteeListe().getText());
+	            	float quantite = Float.parseFloat(vue.getChoixQuantiteeListe().getText());
+	            	Aliment aliment = Main.ensembleAliment.getAlimentByName(vue.getChoixAlimentListe().getText());
+	                model.ajouterIngredient( new Ingredient(aliment,quantite));
 	            }
 	        });
 	        
@@ -39,27 +42,36 @@ public class ControllerListeCourse implements Observer{
 	                model.ajouterRecette(recetteAjout);
 	            }
 	        });
-	        
+	        vue.getSuprAlimentListeButton().addActionListener(new ActionListener() { 
+	            @Override
+	            public void actionPerformed(ActionEvent e) {
+
+	            	float quantite = Float.parseFloat(vue.getChoixQuantiteeListe().getText());
+	            	Aliment aliment = Main.ensembleAliment.getAlimentByName(vue.getChoixAlimentListe().getText());
+	                model.supprimerIngredient(new Ingredient(aliment, quantite));
+	            }
+	        });
 	        
 	    }
 
 	    public void update() {
-	    	ListeDeCourse listeDeCourse =model.comparerStock(Main.stock);
-	    	Set<Ingredient> listIngredient = listeDeCourse.getIngredients();
+	    	System.out.println("update");
+	    	Set<Ingredient> listIngredient = model.getIngredients();
 	    	Object[][] data = new Object[listIngredient.size()][2];
 
 		    int i=0;
 		    for (Ingredient ingredient : listIngredient) {
 		    	
-		    	 
+		    	 System.out.println("update");
+ 
+		    	System.out.println(ingredient.getAliment().getNom());
 		         data[i][0] = ingredient.getAliment().getNom();
 		         System.out.println(data[i][0]);
 		         data[i][1] = ingredient.getQuantite();
 		        i++;
 		     }
 		    String[] columnNames = {"Nom", "Quantite"};
-		    DefaultTableModel tableModel = new DefaultTableModel(data, columnNames);
-	        vue.getTableListe().setModel(tableModel);;
+		    vue.setTableListeModel(new DefaultTableModel(data, columnNames));
 	    }
 		
 
