@@ -1,5 +1,7 @@
 baseDeDonnees\GestionnaireFichier.class
 interfaceGraphique\FermetureFenetre.class
+interfaceGraphique\MenuStockOld$8.class
+interfaceGraphique\MenuStockOld$14.class
 interfaceGraphique\MenuListe$4.class
 modeleDeDonnees\ListeDeCourse.class
 modeleDeDonnees\CritereDureeRecette$2.class
@@ -13,6 +15,7 @@ interfaceGraphique\FicheAliment$7.class
 interfaceGraphique\MenuStock$9.class
 interfaceGraphique\AjouterAliment$7.class
 interfaceGraphique\MenuStock$15.class
+interfaceGraphique\MenuStockOld$2.class
 interfaceGraphique\FenetreErreur$1.class
 modeleDeDonnees\CritereDureeRecette.class
 interfaceGraphique\ModifierUnAliment$5.class
@@ -30,10 +33,12 @@ interfaceGraphique\MenuListe$1.class
 modeleDeDonnees\UnitedeMesure.class
 ScanTicket\TestScan.class
 interfaceGraphique\AjouterRecette$7.class
+interfaceGraphique\MenuStockOld$5.class
 interfaceGraphique\ModifierUnAliment$8.class
 modeleDeDonnees\Observable.class
 interfaceGraphique\Accueil$1.class
 interfaceGraphique\MenuRecette$13.class
+interfaceGraphique\MenuStockOld$3.class
 interfaceGraphique\AjouterRecette$1.class
 modeleDeDonnees\AlimentsNonPresentException.class
 interfaceGraphique\AjouterAliment$8.class
@@ -44,10 +49,12 @@ baseDeDonnees\HibernateService.class
 interfaceGraphique\MenuListe$5.class
 interfaceGraphique\MenuStock$13.class
 interfaceGraphique\AjouterRecette$14.class
+interfaceGraphique\MenuStockOld$12.class
 interfaceGraphique\FicheRecette$4.class
 interfaceGraphique\MenuRecette$5.class
 interfaceGraphique\ModifierUnAliment$4.class
 interfaceGraphique\AjouterAliment$1.class
+interfaceGraphique\MenuStockOld$9.class
 modeleDeDonnees\StockOld.class
 interfaceGraphique\MenuStock$6.class
 interfaceGraphique\AjouterAliment$2.class
@@ -56,6 +63,7 @@ ScanTicket\TestScan$Item.class
 modeleDeDonnees\AlimentStockes.class
 interfaceGraphique\FicheAliment$4.class
 interfaceGraphique\MenuRecette$12.class
+interfaceGraphique\MenuStockOld$11.class
 modeleDeDonnees\Recette.class
 interfaceGraphique\MenuListe$6.class
 interfaceGraphique\ModifierUnAliment$3.class
@@ -82,10 +90,13 @@ interfaceGraphique\MenuRecette$7.class
 interfaceGraphique\FicheRecette$6.class
 interfaceGraphique\AjouterAliment$6.class
 interfaceGraphique\AjouterAliment$9.class
+interfaceGraphique\MenuStockOld$1.class
+interfaceGraphique\MenuStockOld$4.class
 interfaceGraphique\AjouterAliment$10.class
 interfaceGraphique\Accueil$2.class
 interfaceGraphique\AjouterRecette$3.class
 interfaceGraphique\FicheRecette$12.class
+interfaceGraphique\MenuStockOld$13.class
 interfaceGraphique\FicheRecette.class
 modeleDeDonnees\Observer.class
 interfaceGraphique\MenuListe$8.class
@@ -94,6 +105,7 @@ modeleDeDonnees\ControllerListeCourse$1.class
 interfaceGraphique\FicheAliment$6.class
 modeleDeDonnees\CritereDureeRecette$1.class
 interfaceGraphique\FicheAliment.class
+interfaceGraphique\MenuStockOld$10.class
 interfaceGraphique\AjouterRecette$13.class
 interfaceGraphique\MenuStock$8.class
 interfaceGraphique\Main.class
@@ -120,6 +132,8 @@ interfaceGraphique\FicheRecette$1.class
 modeleDeDonnees\CritereDureeRecette$3.class
 interfaceGraphique\Accueil$5.class
 interfaceGraphique\MenuRecette$2.class
+interfaceGraphique\MenuStockOld$6.class
+interfaceGraphique\MenuStockOld.class
 interfaceGraphique\MenuStock$4.class
 interfaceGraphique\FicheRecette$9.class
 interfaceGraphique\MenuListe$2.class
@@ -133,6 +147,8 @@ interfaceGraphique\AjouterRecette$11.class
 interfaceGraphique\FicheAliment$1.class
 interfaceGraphique\MenuStock$10.class
 interfaceGraphique\AjouterRecette$5.class
+interfaceGraphique\MenuStockOld$15.class
+interfaceGraphique\MenuStockOld$7.class
 interfaceGraphique\MenuRecette$1.class
 interfaceGraphique\Accueil.class
 interfaceGraphique\AjouterAliment$5.class

@@ -158,14 +158,26 @@ public void ajouterAliment(AlimentStockes alimentsStock) {
         throw new AlimentsNonPresentException(nomAliment);    
     }
 
-	public float getQuantiteAlimentStocke(String nom) {
+	/*public float getQuantiteAlimentStocke(String nom) {
 		
 		return getAlimentStockesByName(nom).getQuantite();
-	}
+	}*/
 	
 	public void retirerQuantiteStock( String nomAliment, float quantite) {
 		AlimentStockes  aS = this.getAlimentStockesByName(nomAliment);
 		aS.setQuantite(quantite);
+	}
+
+	public float getQuantiteASNonPerime(String nomAliment) {
+		float quantite=0;
+		for (AlimentStockes alimentstockes : stock) {
+            if (alimentstockes.getAliment().getNom().equals(nomAliment)) {
+            	if (alimentstockes.getDatePeremption().isAfter(LocalDate.now())){
+            		quantite+= alimentstockes.getQuantite();
+            	}
+            }
+        }
+		return quantite;
 	}
 
 }

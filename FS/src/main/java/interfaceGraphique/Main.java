@@ -38,11 +38,11 @@ public class Main {
      * Controleur qui permet de mettre à jour les informations
      */
     public static final Controller controller = new Controller();
-    public static List<Aliment> listAliments;
     public static LivreRecettes livreRecette;
 	public static GestionnaireFichier gestionnaireFichier;
 	public static EnsembleAliment ensembleAliment;
 	public static ListeDeCourse listeCourse;
+	public static final String nomFichier = "src/main/resources/listeCourse.txt";
     
     
     public static void main(String[] args) {
@@ -51,20 +51,13 @@ public class Main {
         stock = new Stock(AlimentStockeService.importerTableAlimentStock());
         livreRecette = new LivreRecettes(RecetteService.importerTableRecette());
         gestionnaireFichier = new GestionnaireFichier();
-        listAliments = AlimentService.importerTableAliment();
         ensembleAliment = new EnsembleAliment (AlimentService.importerTableAliment());
-		Set<Ingredient> test = gestionnaireFichier.lireIngredientsDepuisFichier("src/main/resources/listeCourse.txt",ensembleAliment );
-
-        listeCourse = new ListeDeCourse(test);
-		/*List<AlimentStockes> list=AlimentStockeService.importerTableAlimentStock();*/
-		/*stocks.remplirstock("principal",list );*/
-		stock.afficherContenuStock();
-		System.out.println("afficher Fiche nouv");
-
+		Set<Ingredient> ingredients = gestionnaireFichier.lireIngredientsDepuisFichier(nomFichier,ensembleAliment );
+        listeCourse = new ListeDeCourse(ingredients);
 		GestionnaireFichier gs = new GestionnaireFichier();
-		//gs.ecrireIngredientsDansFichier( "src/main/resources/listeCourse.txt", livreRecette.getRecettes().iterator().next().getListIngredients());
-		
 		Accueil ac = new Accueil();
 		ac.setVisible(true);
     }
 }
+
+

@@ -16,6 +16,7 @@ public class ControllerListeCourse implements Observer{
 	     MenuListe vue;
 
 	    public ControllerListeCourse(ListeDeCourse model, MenuListe vue) {
+	    	System.out.println("controlleur");
 	        this.model = model;
 	        this.vue = vue;
 

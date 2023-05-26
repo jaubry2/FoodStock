@@ -2,15 +2,10 @@ package interfaceGraphique ;
 
 import java.util.List;
 
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 import modeleDeDonnees.AlimentStockes;
+import modeleDeDonnees.ControllerListeCourse;
 import modeleDeDonnees.Stock;
 import modeleDeDonnees.TypeAliment;
 
@@ -113,26 +108,26 @@ public class MenuStock extends javax.swing.JFrame {
 
     private void initComponents() {
 
-        Menu = new JPanel();
-        menuText = new JLabel();
-        stockButton = new JButton();
-        recetteButton = new JButton();
-        listButton = new JButton();
-        pageStock = new JPanel();
-        addButton = new JButton();
-        jScrollPane1 = new JScrollPane();
-        jTable1 = new JTable();
+        Menu = new javax.swing.JPanel();
+        menuText = new javax.swing.JLabel();
+        stockButton = new javax.swing.JButton();
+        recetteButton = new javax.swing.JButton();
+        listButton = new javax.swing.JButton();
+        pageStock = new javax.swing.JPanel();
+        addButton = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         ficheAlimentButton = new javax.swing.JButton();
-        stockText = new JLabel();
-        alimentChosi = new JTextField();
-        fruitLegumeButton = new JButton();
-        viandePoissonButton = new JButton();
-        produitsLaitiersButton = new JButton();
-        surgelesButton = new JButton();
-        snacksButton = new JButton();
-        boissonsButton = new JButton();
-        cerealesButton = new JButton();
-        reinitialiserButton = new JButton();
+        stockText = new javax.swing.JLabel();
+        alimentChosi = new javax.swing.JTextField();
+        fruitLegumeButton = new javax.swing.JButton();
+        viandePoissonButton = new javax.swing.JButton();
+        produitsLaitiersButton = new javax.swing.JButton();
+        surgelesButton = new javax.swing.JButton();
+        snacksButton = new javax.swing.JButton();
+        boissonsButton = new javax.swing.JButton();
+        cerealesButton = new javax.swing.JButton();
+        reinitialiserButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);  
@@ -215,7 +210,6 @@ public class MenuStock extends javax.swing.JFrame {
                 addButtonActionPerformed(evt);
             }
         });
-        
         jTable1.setModel(Main.controller.afficherStock(Main.stock.getStock()));
 
         jScrollPane1.setViewportView(jTable1);
@@ -291,78 +285,72 @@ public class MenuStock extends javax.swing.JFrame {
         pageStock.setLayout(pageStockLayout);
         pageStockLayout.setHorizontalGroup(
             pageStockLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pageStockLayout.createSequentialGroup()
-                .addContainerGap(39, Short.MAX_VALUE)
-                .addGroup(pageStockLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pageStockLayout.createSequentialGroup()
-                        .addComponent(addButton)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pageStockLayout.createSequentialGroup()
-                        .addGroup(pageStockLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(pageStockLayout.createSequentialGroup()
-                                .addGap(57, 57, 57)
-                                .addGroup(pageStockLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(fruitLegumeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(cerealesButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(91, 91, 91)
-                                .addGroup(pageStockLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(viandePoissonButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(snacksButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(surgelesButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGroup(pageStockLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(pageStockLayout.createSequentialGroup()
-                                        .addGap(99, 99, 99)
-                                        .addGroup(pageStockLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(produitsLaitiersButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(boissonsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pageStockLayout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(reinitialiserButton))))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 714, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(28, 28, 28))))
             .addGroup(pageStockLayout.createSequentialGroup()
                 .addGroup(pageStockLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pageStockLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(stockText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(pageStockLayout.createSequentialGroup()
-                        .addGap(215, 215, 215)
-                        .addComponent(alimentChosi, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(63, 63, 63)
+                        .addGap(241, 241, 241)
+                        .addComponent(alimentChosi, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(53, 53, 53)
                         .addComponent(ficheAlimentButton, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pageStockLayout.createSequentialGroup()
+                .addContainerGap(117, Short.MAX_VALUE)
+                .addGroup(pageStockLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pageStockLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pageStockLayout.createSequentialGroup()
+                            .addComponent(addButton)
+                            .addContainerGap())
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pageStockLayout.createSequentialGroup()
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 714, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(70, 70, 70)))
+                    .addGroup(pageStockLayout.createSequentialGroup()
+                        .addGap(56, 56, 56)
+                        .addGroup(pageStockLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(cerealesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(fruitLegumeButton))
+                        .addGap(69, 69, 69)
+                        .addGroup(pageStockLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(viandePoissonButton, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(surgelesButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(snacksButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(69, 69, 69)
+                        .addGroup(pageStockLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pageStockLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(produitsLaitiersButton, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(boissonsButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(reinitialiserButton))
+                        .addContainerGap())))
         );
         pageStockLayout.setVerticalGroup(
             pageStockLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pageStockLayout.createSequentialGroup()
-                .addGroup(pageStockLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pageStockLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(stockText, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(pageStockLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(alimentChosi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ficheAlimentButton)))
-                    .addGroup(pageStockLayout.createSequentialGroup()
-                        .addGap(114, 114, 114)
-                        .addGroup(pageStockLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(fruitLegumeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(viandePoissonButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(produitsLaitiersButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pageStockLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addContainerGap()
+                .addComponent(stockText, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(pageStockLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(alimentChosi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ficheAlimentButton))
+                .addGap(66, 66, 66)
+                .addGroup(pageStockLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(fruitLegumeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(viandePoissonButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(produitsLaitiersButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(44, 44, 44)
+                .addGroup(pageStockLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(boissonsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(surgelesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cerealesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(boissonsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(pageStockLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(snacksButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(reinitialiserButton, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                    .addComponent(cerealesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(44, 44, 44)
+                .addGroup(pageStockLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(snacksButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(reinitialiserButton))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22)
                 .addComponent(addButton)
                 .addContainerGap())
         );
@@ -408,6 +396,7 @@ public class MenuStock extends javax.swing.JFrame {
      */
     private void listButtonActionPerformed(java.awt.event.ActionEvent evt) {
         MenuListe newPage = new MenuListe();
+        ControllerListeCourse cLdC = new ControllerListeCourse(Main.listeCourse ,(MenuListe) newPage);
 		newPage.setVisible(true);
         this.dispose();
     }
@@ -429,6 +418,7 @@ public class MenuStock extends javax.swing.JFrame {
         mA.setVisible(true);
         this.dispose();
     }
+
     /**
      * Permet de trier et d'afficher les fruits et legumes
      * @param evt Click sur le bouton Fruits/Legumes
@@ -494,6 +484,8 @@ public class MenuStock extends javax.swing.JFrame {
 
     }
     
+    
+    
     private void ficheAlimentButtonActionPerformed(java.awt.event.ActionEvent evt) { 
         String nom = alimentChosi.getText();
         System.out.println("ficheAlimentButton");
@@ -504,6 +496,7 @@ public class MenuStock extends javax.swing.JFrame {
         mF.setVisible(true);
         this.dispose();
     }
+
 
     /**
      * @param args the command line arguments

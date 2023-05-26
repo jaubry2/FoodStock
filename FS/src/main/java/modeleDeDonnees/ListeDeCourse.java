@@ -101,16 +101,13 @@ public class ListeDeCourse extends Observable{
 
         for (Ingredient ingredient : ingredients) {
             float quantiteNecessaire = ingredient.getQuantite();
-            AlimentStockes alimentstockes =stock.getAlimentStockesByName(ingredient.getAliment().getNom());
-            if (alimentstockes.getDatePeremption().isAfter(LocalDate.now())) {
-            	 float quantiteEnStock = alimentstockes.getQuantite();
-            	 float quantiteRestante = quantiteEnStock - quantiteNecessaire;
-		            if (quantiteRestante < 0) {
-		            	ingredient.setQuantite(Math.abs(quantiteRestante));
-		                listeCourse.ajouterIngredient(ingredient);
-		            }
-            }
-           
+            float quantiteEnStock =stock.getQuantiteASNonPerime(ingredient.getAliment().getNom());
+           float quantiteRestante = quantiteEnStock - quantiteNecessaire;
+		   if (quantiteRestante < 0) {
+		        ingredient.setQuantite(Math.abs(quantiteRestante));
+		        listeCourse.ajouterIngredient(ingredient);
+		    }
+
         }
 
         return listeCourse;

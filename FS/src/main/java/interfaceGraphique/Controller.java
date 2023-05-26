@@ -56,8 +56,10 @@ public class Controller {
             OuvrirPage(newPage);
         } else if (_page.equals("menuListe")) {
             newPage = new MenuListe();
+            System.out.println("aazz");
+            ControllerListeCourse cLdC = new ControllerListeCourse(Main.listeCourse ,(MenuListe) newPage);
            OuvrirPage(newPage);
-           ControllerListeCourse cLdC = new ControllerListeCourse(Main.listeCourse ,(MenuListe) newPage);
+           
         } else if (_page.equals("menuRecette")) {
             newPage = new MenuRecette();
             OuvrirPage(newPage);
@@ -87,7 +89,7 @@ public class Controller {
 		    	
 		    	LocalDate datePeremption = LocalDate.parse((String) d.getValueAt(ligne, 2),DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 
-		    	Aliment aliment = Stock.getAlimentByName(Main.listAliments, nom);
+		    	Aliment aliment = Stock.getAlimentByName(Main.ensembleAliment.getListAliments(), nom);
 		    	
 		    	AlimentStockes alimentRajout= new AlimentStockes(aliment,quantite,datePeremption);
 		    	    	listRajout.add(alimentRajout);
@@ -116,7 +118,7 @@ public String[] AfficherFicheAliment(String nom ) {
 }
 public DefaultTableModel afficherRecetteLieAliment(String nom) {
 	
-	 Aliment aliment= Stock.getAlimentByName(Main.listAliments, nom);
+	 Aliment aliment= Stock.getAlimentByName(Main.ensembleAliment.getListAliments(), nom);
 	 LivreRecettes livreRecetteFiltre = Main.livreRecette.FiltrerParAliment(aliment);
 	 
      Object[][] data = new Object[livreRecetteFiltre.getRecettes().size()][2];
@@ -174,7 +176,7 @@ public DefaultTableModel afficherRecetteLieAliment(String nom) {
 		return afficherRecette(Main.livreRecette.FiltrerParDuree(cdr));
 	}
 	public DefaultTableModel afficherRecetteFiltrerAliment(String nom) {
-		Aliment alimentFitre = Stock.getAlimentByName(Main.listAliments, nom);
+		Aliment alimentFitre = Stock.getAlimentByName(Main.ensembleAliment.getListAliments(), nom);
 		return afficherRecette(Main.livreRecette.FiltrerParAliment(alimentFitre));
 	}
 
@@ -221,7 +223,7 @@ public DefaultTableModel afficherRecetteLieAliment(String nom) {
 	}
 
 	public void ModifierListeFichier() {
-		Main.gestionnaireFichier.ecrireIngredientsDansFichier("src/main/resources/listeCourse.txt",Main.listeCourse.getIngredients());
+		Main.gestionnaireFichier.ecrireIngredientsDansFichier(Main.nomFichier,Main.listeCourse.getIngredients());
 		
 	}
 

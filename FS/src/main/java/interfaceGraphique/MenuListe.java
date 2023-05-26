@@ -4,6 +4,10 @@
  */
 package interfaceGraphique;
 
+import javax.swing.JButton;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+
 /**
  *
  * @author julesa
@@ -280,23 +284,24 @@ public class MenuListe extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public javax.swing.JButton getAjoutAlimentListeButton() {
+    public JButton getAjoutAlimentListeButton() {
 		return ajoutAlimentListeButton;
 	}
 
-	public javax.swing.JButton getAjoutRecetteListeButton() {
+	public JButton getAjoutRecetteListeButton() {
+		System.out.println("aa");
 		return ajoutRecetteListeButton;
 	}
 
-	public javax.swing.JTextField getChoixAlimentListe() {
+	public JTextField getChoixAlimentListe() {
 		return choixAlimentListe;
 	}
 
-	public javax.swing.JTextField getChoixRecetteListe() {
+	public JTextField getChoixRecetteListe() {
 		return choixRecetteListe;
 	}
 
-	public javax.swing.JTable getTableListe() {
+	public JTable getTableListe() {
 		return tableListe;
 	}
 
