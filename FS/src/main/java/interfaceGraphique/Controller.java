@@ -48,9 +48,6 @@ public class Controller {
         } else if (_page.equals("ajouterAliment")) {
             newPage = new AjouterAliment();
            OuvrirPage(newPage);
-        } else if (_page.equals("fenetreErreur")) {
-            newPage = new FenetreErreur(_erreur, _message);
-           OuvrirPage(newPage);
         } else if (_page.equals("ficheAliment")) {
             newPage = new FicheAliment(_nomAliment,"","","","");
             OuvrirPage(newPage);
@@ -68,7 +65,7 @@ public class Controller {
             newPage = new MenuStock();
             OuvrirPage(newPage);
         } else if (_page.equals("modifierUnAliment")) {
-            newPage = new ModifierUnAliment();
+            newPage = new ModifierUnAliment(_nomAliment);
            OuvrirPage(newPage);
         } else {
             // Erreur

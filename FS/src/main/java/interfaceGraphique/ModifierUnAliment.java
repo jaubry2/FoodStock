@@ -1,10 +1,14 @@
 package interfaceGraphique ;
-
+import javax.swing.JOptionPane;
 /**
  *
  * @author julesa
  */
 public class ModifierUnAliment extends javax.swing.JFrame {
+    /**
+     * Aliment choisi
+     */
+    private static String aliment;
     /**
      * Bouton dans le menu de navigation qui redirige vers la page Liste 
      */
@@ -30,13 +34,28 @@ public class ModifierUnAliment extends javax.swing.JFrame {
      */
     private javax.swing.JPanel pageModif;
     /**
+     * Bare séparatrice au milieu
+     */
+    private javax.swing.JPanel barreSep;
+    /**
      * Text du menu dans le menu de navigation
      */
     private javax.swing.JLabel menuText;
     /**
+     * Menu
+     */
+    private javax.swing.JLabel nomAliment;
+    /**
+     * Text proportion
+     */
+    private javax.swing.JLabel proportionText;
+    /**
+     * Text quantite
+     */
+    private javax.swing.JLabel quantiteText;
+    /**
      * Correspond à tous les paliers du slider
      */
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -63,16 +82,32 @@ public class ModifierUnAliment extends javax.swing.JFrame {
      */
     private javax.swing.JSlider Seuil;
     /**
-     * JTextField pour la valeur du seuil
+     * JTextField pour la valeurProp du seuil
      */
-    private javax.swing.JTextField Valeur;
+    private javax.swing.JTextField valeurProp;
+    /**
+     * JTextField pour la valeur quantite
+     */
+    private javax.swing.JTextField valeurQte;
+    /**
+     * CheckBox pour la proportion
+     */
+    private javax.swing.JCheckBox propCheckBox;
+    /**
+     * CheckBox pour la quantité
+     */
+    private javax.swing.JCheckBox qteCheckBox;
+    /**
+     * ComboBox unite de mesure
+     */
+    private javax.swing.JComboBox<String> uniteDeMesureComboBox;
     /**
      * Cree une nouvelle page
      */
-    public ModifierUnAliment() {
+    public ModifierUnAliment(String aliment) {
         initComponents();
         this.addWindowListener(new FermetureFenetre());
-
+        this.aliment = aliment;
     }
 
     private void initComponents() {
@@ -84,7 +119,7 @@ public class ModifierUnAliment extends javax.swing.JFrame {
         listButton = new javax.swing.JButton();
         pageModif = new javax.swing.JPanel();
         Seuil = new javax.swing.JSlider();
-        jLabel1 = new javax.swing.JLabel();
+        nomAliment = new javax.swing.JLabel();
         validerButton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -107,7 +142,14 @@ public class ModifierUnAliment extends javax.swing.JFrame {
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
-        Valeur = new javax.swing.JTextField();
+        valeurProp = new javax.swing.JTextField();
+        proportionText = new javax.swing.JLabel();
+        barreSep = new javax.swing.JPanel();
+        quantiteText = new javax.swing.JLabel();
+        valeurQte = new javax.swing.JTextField();
+        propCheckBox = new javax.swing.JCheckBox();
+        qteCheckBox = new javax.swing.JCheckBox();
+        uniteDeMesureComboBox = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(1020, 768));
@@ -191,9 +233,9 @@ public class ModifierUnAliment extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 0, 36)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Nom Aliments");
+        nomAliment.setFont(new java.awt.Font("Helvetica Neue", 0, 36)); 
+        nomAliment.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        nomAliment.setText("Nom Aliments");
 
         validerButton.setText("Valider");
         validerButton.addActionListener(new java.awt.event.ActionListener() {
@@ -201,6 +243,32 @@ public class ModifierUnAliment extends javax.swing.JFrame {
                 validerButtonActionPerformed(evt);
             }
         });
+
+        proportionText.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); 
+        proportionText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        proportionText.setText("Proportion");
+
+        quantiteText.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); 
+        quantiteText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        quantiteText.setText("Quantité");
+        
+        propCheckBox.setMaximumSize(new java.awt.Dimension(30, 30));
+        propCheckBox.setMinimumSize(new java.awt.Dimension(30, 30));
+        propCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                propCheckBoxActionPerformed(evt);
+            }
+        });
+
+        qteCheckBox.setMaximumSize(new java.awt.Dimension(30, 30));
+        qteCheckBox.setMinimumSize(new java.awt.Dimension(30, 30));
+        qteCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                qteCheckBoxActionPerformed(evt);
+            }
+        });
+
+        uniteDeMesureComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--- Unité de Mesure", "gramme", "cL", "unité", " " }));
 
         jLabel2.setText("--------");
 
@@ -244,72 +312,110 @@ public class ModifierUnAliment extends javax.swing.JFrame {
 
         jLabel22.setText("--------");
 
-        Valeur.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        Valeur.setText("100");
-        Valeur.addKeyListener(new java.awt.event.KeyAdapter() {
+        valeurProp.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        valeurProp.setText("100");
+        valeurProp.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 ValeurKeyPressed(evt);
             }
         });
+
+        javax.swing.GroupLayout barreSepLayout = new javax.swing.GroupLayout(barreSep);
+        barreSep.setLayout(barreSepLayout);
+        barreSepLayout.setHorizontalGroup(
+            barreSepLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 11, Short.MAX_VALUE)
+        );
+        barreSepLayout.setVerticalGroup(
+            barreSepLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 523, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout pageModifLayout = new javax.swing.GroupLayout(pageModif);
         pageModif.setLayout(pageModifLayout);
         pageModifLayout.setHorizontalGroup(
             pageModifLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pageModifLayout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(nomAliment, javax.swing.GroupLayout.DEFAULT_SIZE, 880, Short.MAX_VALUE)
                 .addGap(21, 21, 21))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pageModifLayout.createSequentialGroup()
-                .addContainerGap(315, Short.MAX_VALUE)
+            .addGroup(pageModifLayout.createSequentialGroup()
                 .addGroup(pageModifLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pageModifLayout.createSequentialGroup()
-                        .addComponent(Valeur, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(62, 62, 62)
-                        .addComponent(Seuil, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                    .addGroup(pageModifLayout.createSequentialGroup()
+                        .addGap(362, 362, 362)
+                        .addComponent(validerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pageModifLayout.createSequentialGroup()
+                        .addGap(92, 92, 92)
+                        .addGroup(pageModifLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(proportionText, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(pageModifLayout.createSequentialGroup()
+                                .addGroup(pageModifLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(pageModifLayout.createSequentialGroup()
+                                        .addComponent(valeurProp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(62, 62, 62)
+                                        .addComponent(Seuil, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(pageModifLayout.createSequentialGroup()
+                                        .addComponent(propCheckBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(8, 8, 8)))
+                                .addGap(18, 18, 18)
+                                .addGroup(pageModifLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel22)
+                                    .addComponent(jLabel14)
+                                    .addComponent(jLabel21)
+                                    .addComponent(jLabel11)
+                                    .addComponent(jLabel19)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel15)
+                                    .addComponent(jLabel18)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel12)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel16)
+                                    .addComponent(jLabel17)
+                                    .addComponent(jLabel10)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel20)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel13)
+                                    .addComponent(jLabel9))))
+                        .addGap(121, 121, 121)
+                        .addComponent(barreSep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(pageModifLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel22)
-                            .addComponent(jLabel14)
-                            .addComponent(jLabel21)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel19)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel15)
-                            .addComponent(jLabel18)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel12)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel16)
-                            .addComponent(jLabel17)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel13)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel20))
-                        .addGap(366, 366, 366))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pageModifLayout.createSequentialGroup()
-                        .addComponent(validerButton)
-                        .addGap(406, 406, 406))))
+                            .addGroup(pageModifLayout.createSequentialGroup()
+                                .addGap(155, 155, 155)
+                                .addComponent(quantiteText, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(pageModifLayout.createSequentialGroup()
+                                .addGap(206, 206, 206)
+                                .addComponent(qteCheckBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(pageModifLayout.createSequentialGroup()
+                                .addGap(95, 95, 95)
+                                .addComponent(valeurQte, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(43, 43, 43)
+                                .addComponent(uniteDeMesureComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pageModifLayout.setVerticalGroup(
             pageModifLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pageModifLayout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(nomAliment, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(pageModifLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pageModifLayout.createSequentialGroup()
-                        .addGap(318, 318, 318)
-                        .addComponent(Valeur, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pageModifLayout.createSequentialGroup()
-                        .addGap(164, 164, 164)
-                        .addGroup(pageModifLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(proportionText, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(propCheckBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(66, 66, 66)
+                        .addGroup(pageModifLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pageModifLayout.createSequentialGroup()
+                                .addGap(154, 154, 154)
+                                .addComponent(valeurProp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(pageModifLayout.createSequentialGroup()
                                 .addGap(303, 303, 303)
                                 .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 4, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 4, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(Seuil, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(pageModifLayout.createSequentialGroup()
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 4, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -347,11 +453,19 @@ public class ModifierUnAliment extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 4, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 4, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(Seuil, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addGap(53, 53, 53)
-                .addComponent(validerButton)
-                .addContainerGap())
+                                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 4, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(barreSep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pageModifLayout.createSequentialGroup()
+                        .addComponent(quantiteText, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(qteCheckBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(190, 190, 190)
+                        .addGroup(pageModifLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(valeurQte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(uniteDeMesureComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                .addComponent(validerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(49, 49, 49))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -370,7 +484,7 @@ public class ModifierUnAliment extends javax.swing.JFrame {
         );
 
         pack();
-    }
+    }   
     /**
     * Permet d'ouvrir le menu stock
     * @param evt Click sur le bouton Stock
@@ -411,18 +525,44 @@ public class ModifierUnAliment extends javax.swing.JFrame {
     }
 
     private void validerButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        int p = Seuil.getValue();
-           
+        float p = Float.valueOf(valeurQte.getText());
+
+        if (Main.stock.getQuantiteASNonPerime(aliment) < p)
+        {
+            JOptionPane.showMessageDialog(this, "La quantité choisie est trop élévé \n comparé a votre stock");
+        } else {
+            if (propCheckBox.isSelected()){
+                    p = Main.stock.getQuantiteASNonPerime(aliment) * (Float.valueOf(valeurProp.getText())/100);
+                    Main.stock.retirerQuantiteStock(aliment,  p);  
+                    String[] infoAliment = Main.controller.AfficherFicheAliment(aliment);
+                    FicheAliment mF = new FicheAliment(infoAliment[0], infoAliment[1], infoAliment[2], infoAliment[3], infoAliment[4]);                                   ;
+                    mF.setVisible(true);
+                    this.dispose();    
+            } else if(qteCheckBox.isSelected()){
+                String udm = (String)uniteDeMesureComboBox.getSelectedItem();
+                if(udm.equals("--- Unité de Mesure")){
+                    JOptionPane.showMessageDialog(this, "Selectionnez une unité \n de mesure");
+                } else{
+                Main.stock.retirerQuantiteStock(aliment,  p);
+                String[] infoAliment = Main.controller.AfficherFicheAliment(aliment);
+                FicheAliment mF = new FicheAliment(infoAliment[0], infoAliment[1], infoAliment[2], infoAliment[3], infoAliment[4]);                                   ;
+                mF.setVisible(true);
+                this.dispose();
+                }
+            } else{
+                JOptionPane.showMessageDialog(this, "Selectionnez une option \n avant de valider");
+            }
+        }
     }
 
     private void SeuilMouseMoved(java.awt.event.MouseEvent evt) {
         int v = Seuil.getValue();
         String str = String.valueOf(v);
-        Valeur.setText(str);
+        valeurProp.setText(str);
     }
 
     private void ValeurKeyPressed(java.awt.event.KeyEvent evt) {
-        String str = Valeur.getText();
+        String str = valeurProp.getText();
         try{
             int v = Integer.parseInt(str);
             Seuil.setValue(v);
@@ -431,7 +571,20 @@ public class ModifierUnAliment extends javax.swing.JFrame {
             ex.printStackTrace();
         }
     }
-
+    /**
+     * Change la valeur de la CheckBox proportion de l'autre possibilité a faux
+     * @param evt Cliquer sur le bouton
+     */
+    private void qteCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {                                            
+        propCheckBox.setSelected(false);
+    }                                           
+    /**
+     * Change la valeur de la CheckBox quantite de l'autre possibilité a faux
+     * @param evt Cliquer sur le bouton
+     */
+    private void propCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {                                             
+        qteCheckBox.setSelected(false);
+    } 
     /**
      * @param args the command line arguments
      */
@@ -456,7 +609,7 @@ public class ModifierUnAliment extends javax.swing.JFrame {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ModifierUnAliment().setVisible(true);
+                new ModifierUnAliment(aliment).setVisible(true);
             }
         });
     }

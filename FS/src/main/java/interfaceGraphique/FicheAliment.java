@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package interfaceGraphique ;
-
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -463,31 +463,29 @@ public class FicheAliment extends javax.swing.JFrame {
         ac = alimentChoisi.getText();
         
         //je savais pas si je le passais dans le controlleur;
-        if (ac.equals("")){
-            String erreur = "Le nom d'aliment n'existe pas";
-            String conseil = "Veuillez changer le nom d'aliments";
-            FenetreErreur fe = new FenetreErreur(erreur, conseil);
-            fe.setVisible(true);
+        if (Main.stock.isAlimentStockesByName(ac)){
+            JOptionPane.showMessageDialog(this, "L'aliment recherché n'est \n pas dans le stock");
         }
-        
-       String[] infoAliment =Main.controller.AfficherFicheAliment(ac);
-       DefaultTableModel recette =Main.controller.afficherRecetteLieAliment(ac);
-
-       
+        else {
+            String[] infoAliment =Main.controller.AfficherFicheAliment(ac);
+            DefaultTableModel recette =Main.controller.afficherRecetteLieAliment(ac);
 
         
-        
-        // Assigner les differentes valeurs au texte
-        alimentName.setText(infoAliment[0]);
-        Qte.setText(infoAliment[1]);
-        TA.setText(infoAliment[2]);
-        MDS.setText(infoAliment[3]);
-        DDP.setText(infoAliment[4]);
-        TableRecette.setModel(recette);
+
+            
+            
+            // Assigner les differentes valeurs au texte
+            alimentName.setText(infoAliment[0]);
+            Qte.setText(infoAliment[1]);
+            TA.setText(infoAliment[2]);
+            MDS.setText(infoAliment[3]);
+            DDP.setText(infoAliment[4]);
+            TableRecette.setModel(recette);
+        }
     }
 
     private void modifierAlimButtonActionPerformed(java.awt.event.ActionEvent evt) {
-    	ModifierUnAliment newPage = new ModifierUnAliment();
+    	ModifierUnAliment newPage = new ModifierUnAliment(nomAliment);
 		newPage.setVisible(true);
         this.dispose();
     }
