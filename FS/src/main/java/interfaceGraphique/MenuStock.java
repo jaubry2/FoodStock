@@ -8,6 +8,7 @@ import modeleDeDonnees.AlimentStockes;
 import modeleDeDonnees.ControllerListeCourse;
 import modeleDeDonnees.Stock;
 import modeleDeDonnees.TypeAliment;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -488,6 +489,9 @@ public class MenuStock extends javax.swing.JFrame {
     
     
     private void ficheAlimentButtonActionPerformed(java.awt.event.ActionEvent evt) { 
+        if (Main.stock.isAlimentStockesByName(alimentChosi.getText())){
+            JOptionPane.showMessageDialog(this, "L'aliment recherché n'est \n pas dans le stock");
+        } else{
         String nom = alimentChosi.getText();
         System.out.println("ficheAlimentButton");
 
@@ -496,6 +500,7 @@ public class MenuStock extends javax.swing.JFrame {
         FicheAliment mF = new FicheAliment(infoAliment[0], infoAliment[1], infoAliment[2], infoAliment[3], infoAliment[4]);                                   ;
         mF.setVisible(true);
         this.dispose();
+        }
     }
 
 
