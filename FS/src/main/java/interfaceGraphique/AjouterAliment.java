@@ -6,6 +6,7 @@ package interfaceGraphique ;
 import java.util.Date;
 import javax.swing.table.DefaultTableModel;
 import java.util.*;
+import javax.swing.JOptionPane;
 
 public class AjouterAliment extends javax.swing.JFrame {
 
@@ -439,18 +440,24 @@ public class AjouterAliment extends javax.swing.JFrame {
         String annee = (String)anneeComboBox.getSelectedItem();
         String ddp = jour + "/" + mois + "/" + annee;
 
-        /* On recupere le nom de l'objet */
-        /* try {*/
-            nom = nomTextField.getText();
-            /*}
-        catch(NumberFormatException ex){
-            /* Erreur si c'est pas un String */
-            /*}
+        /* On réupère le nom */
+        nom = nomTextField.getText();
 
         /* On recupere la quantite*/
         quantite = qteTextField.getText();
 
-
+        int result;
+        do{
+        JOptionPane.showMessageDialog(this, "L'aliment n'existe pas dans le stock \n Remplissez les informations suivantes");
+        String ta = JOptionPane.showInputDialog(this, "Rentrez le type d'aliments parmi les possibilités suivantes : \n ( respectez bien l'orthographe et les majuscules ) \n Fruits_Legumes, Viande_Poisson, ProduitsLaitiers, \n Céreales, Surgeles, Boissons, Snacks");
+        String mds = JOptionPane.showInputDialog(this, "Rentrez le moyen de conservation parmi les possibilités suivantes : \n ( respectez bien l'orthographe et les majuscules ) \n Vrac, Bouteille, Conserve, Sachet ");
+        String udm = JOptionPane.showInputDialog(this, "Rentrez l'unité de mesure parmi les possibilités suivantes : \n ( respectez bien l'orthographe et les majuscules ) \n Gramme, Unite, Litre ");
+        result = JOptionPane.showConfirmDialog(this, "Vous voulez ajoutez au stock : " + nom + " / " + ta + " / " + mds + " / " + udm);
+        } while( result == 1 );
+        
+        if (result == 0){
+            // Creer l'aliment et l'ajouter à l'ensemble
+        }
         /* Ajout à la Table */
         String[] ligne = new String[] {nom, quantite, ddp};
         d.addRow(ligne);
