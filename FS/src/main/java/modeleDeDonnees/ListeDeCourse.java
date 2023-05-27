@@ -90,7 +90,7 @@ public class ListeDeCourse extends Observable{
                 Ingredient nouvelIngredient = new Ingredient(aliment, quantiteNecessaire);
                 ingredients.add(nouvelIngredient);
             }
-            this.comparerStock(Main.stock);
+            //this.comparerStock(Main.stock);
             notifyObservers();
 
         }
@@ -115,8 +115,21 @@ public class ListeDeCourse extends Observable{
 		    }
 
         }
+    }
+        
+        public void comparerStock(Stock stock,Recette recette) {
+            Set<Ingredient> ingredientsRecette = recette.getListIngredients();
+            for (Ingredient ingredient : ingredientsRecette) {
+                float quantiteNecessaire = ingredient.getQuantite();
+                float quantiteEnStock =stock.getQuantiteASNonPerime(ingredient.getAliment().getNom());
+               float quantiteRestante = quantiteEnStock - quantiteNecessaire;
+    		   if (quantiteRestante < 0) {
+    		        ingredient.setQuantite(Math.abs(quantiteRestante));
+    		        ajouterIngredient(ingredient);
 
-        this.ingredients = ingredientsNecessaire;
+            }
+
     }
 
+}
 }

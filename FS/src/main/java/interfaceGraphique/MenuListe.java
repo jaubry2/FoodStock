@@ -35,6 +35,7 @@ public class MenuListe extends JFrame {
      */
     public MenuListe(DefaultTableModel tableListeModel) {
         this.tableListeModel =tableListeModel;
+        this.addWindowListener(new FermetureFenetre());
 
         initComponents();
     }
@@ -459,4 +460,9 @@ public class MenuListe extends JFrame {
     private javax.swing.JLabel titreMenu3;
     private javax.swing.JLabel titreMenuListe;
     // End of variables declaration//GEN-END:variables
+
+
+	public DefaultTableModel getTableListeModel() {
+		return tableListeModel;
+	}
 }

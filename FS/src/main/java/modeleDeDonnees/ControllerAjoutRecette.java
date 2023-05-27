@@ -9,14 +9,14 @@ import javax.swing.table.DefaultTableModel;
 import interfaceGraphique.Main;
 import interfaceGraphique.MenuListe;
 
-public class ControllerListeCourse implements Observer{
+public class ControllerAjoutRecette implements Observer{
 
 
 	     ListeDeCourse model;
 
 	     MenuListe vue;
 
-	    public ControllerListeCourse(ListeDeCourse model, MenuListe vue) {
+	    public ControllerAjoutRecette(ListeDeCourse model, MenuListe vue) {
 	    	System.out.println("controlleur");
 	        this.model = model;
 	        this.vue = vue;
