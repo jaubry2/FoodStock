@@ -489,7 +489,7 @@ public class MenuStock extends javax.swing.JFrame {
     
     
     private void ficheAlimentButtonActionPerformed(java.awt.event.ActionEvent evt) { 
-        if (Main.stock.isAlimentStockesByName(alimentChosi.getText())){
+        if (!Main.stock.isAlimentStockesByName(alimentChosi.getText())){
             JOptionPane.showMessageDialog(this, "L'aliment recherché n'est \n pas dans le stock");
         } else{
         String nom = alimentChosi.getText();

@@ -107,10 +107,10 @@ public String[] AfficherFicheAliment(String nom ) {
 	AlimentStockes alimentFiche = Main.stock.getAlimentStockesByName(nom);
 	String[] infoAliment = new String[5];
 	infoAliment[0] = alimentFiche.getAliment().getNom();
-	infoAliment[1]= String.valueOf(alimentFiche.getQuantite());	
+	infoAliment[1]= String.valueOf(Main.stock.getQuantiteASNonPerime(nom));	
 	infoAliment[2] = alimentFiche.getAliment().getTypeAliment().toString();
 	infoAliment[3] = alimentFiche.getAliment().getMoyenConservation().toString();
-	infoAliment[4] = alimentFiche.getDatePeremption().toString();
+	infoAliment[4] = Main.stock.getDatePlusRecente(nom).toString();
 	
 	return infoAliment;
 }

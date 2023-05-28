@@ -28,6 +28,9 @@ public class EnsembleAliment {
         }
         throw new AlimentsNonPresentException(nom);
     }
+    public void ajouterAliment(Aliment aliment) {
+    	listAliments.add(aliment);
+    }
     
 
 }

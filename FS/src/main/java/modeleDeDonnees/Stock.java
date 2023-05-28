@@ -143,7 +143,9 @@ public void ajouterAliment(AlimentStockes alimentsStock) {
      * @return l'objet Aliments correspondant au nom de l'aliment recherché, ou null si l'aliment n'est pas trouvé
      */
     public  boolean  isAlimentStockesByName(String nomAliment) {
+    	System.out.println("recherche");
         for (AlimentStockes alimentstockes : stock) {
+        	
             if (alimentstockes.getAliment().getNom().equals(nomAliment)) {
                 return true;
             }
@@ -180,13 +182,17 @@ public void ajouterAliment(AlimentStockes alimentsStock) {
 		listAlimentSupp.sort(Comparator.comparing(AlimentStockes::getDatePeremption));		
 		int i =0;
 		while(quantite > 0) {
-		float quantiteAliment = listAlimentSupp.get(i).getQuantite();
+			AlimentStockes alimentStock = listAlimentSupp.get(i);
+		float quantiteAliment = alimentStock.getQuantite();
 		 quantite = quantite - quantiteAliment;
-		 if (quantite < 0) {
-			 quantite =0;
+		 if (quantite >= 0) {
+			 this.retirerAliment(alimentStock);
 		 }
-		 listAlimentSupp.get(i).setQuantite(quantite);
-					
+		 else {
+			 listAlimentSupp.get(i).setQuantite(quantite);
+
+		 }
+		i++;		
 		}
 		
 	}
@@ -201,6 +207,17 @@ public void ajouterAliment(AlimentStockes alimentsStock) {
             }
         }
 		return quantite;
+	}
+	public LocalDate getDatePlusRecente(String nomALiment) {
+		List<AlimentStockes> listAliment = new ArrayList<>();
+		for (AlimentStockes alimentstockes : stock) {
+            if (alimentstockes.getAliment().getNom().equals(nomALiment)) {
+            	listAliment.add(alimentstockes);
+            }
+        }
+		//Tri de la liste par date de peremption
+		listAliment.sort(Comparator.comparing(AlimentStockes::getDatePeremption));
+		return listAliment.get(0).getDatePeremption();
 	}
 
 }
