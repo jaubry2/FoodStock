@@ -16,8 +16,8 @@ interfaceGraphique\MenuStock$9.class
 interfaceGraphique\AjouterAliment$7.class
 interfaceGraphique\MenuStock$15.class
 interfaceGraphique\MenuStockOld$2.class
-interfaceGraphique\FenetreErreur$1.class
 modeleDeDonnees\CritereDureeRecette.class
+interfaceGraphique\ModifierUnAliment$10.class
 interfaceGraphique\ModifierUnAliment$5.class
 interfaceGraphique\ModifierUnAliment$2.class
 modeleDeDonnees\Stock.class
@@ -71,6 +71,7 @@ interfaceGraphique\AjouterRecette$9.class
 modeleDeDonnees\Aliment.class
 interfaceGraphique\AjouterRecette$2.class
 modeleDeDonnees\LivreRecettes.class
+modeleDeDonnees\ControllerAjoutRecette$3.class
 interfaceGraphique\Controller.class
 baseDeDonnees\AlimentStockeService.class
 interfaceGraphique\AjouterAliment$11.class
@@ -85,9 +86,10 @@ interfaceGraphique\MenuStock$11.class
 interfaceGraphique\MenuStock$14.class
 interfaceGraphique\MenuStock$2.class
 interfaceGraphique\ModifierUnAliment$6.class
-interfaceGraphique\FenetreErreur$2.class
 interfaceGraphique\MenuRecette$7.class
 interfaceGraphique\FicheRecette$6.class
+modeleDeDonnees\ControllerAjoutRecette$2.class
+interfaceGraphique\ModifierUnAliment$9.class
 interfaceGraphique\AjouterAliment$6.class
 interfaceGraphique\AjouterAliment$9.class
 interfaceGraphique\MenuStockOld$1.class
@@ -109,7 +111,6 @@ interfaceGraphique\MenuStockOld$10.class
 interfaceGraphique\AjouterRecette$13.class
 interfaceGraphique\MenuStock$8.class
 interfaceGraphique\Main.class
-interfaceGraphique\FenetreErreur.class
 interfaceGraphique\MenuRecette$9.class
 interfaceGraphique\FicheAliment$3.class
 interfaceGraphique\MenuStock$5.class
@@ -127,6 +128,7 @@ interfaceGraphique\Accueil$4.class
 interfaceGraphique\AjouterAliment$4.class
 interfaceGraphique\FicheAliment$2.class
 interfaceGraphique\MenuRecette$10.class
+modeleDeDonnees\ControllerAjoutRecette$1.class
 interfaceGraphique\MenuRecette.class
 interfaceGraphique\FicheRecette$1.class
 modeleDeDonnees\CritereDureeRecette$3.class
@@ -153,6 +155,7 @@ interfaceGraphique\MenuRecette$1.class
 interfaceGraphique\Accueil.class
 interfaceGraphique\AjouterAliment$5.class
 interfaceGraphique\MenuStock$3.class
+modeleDeDonnees\ControllerAjoutRecette.class
 interfaceGraphique\FicheRecette$8.class
 modeleDeDonnees\ControllerListeCourse$3.class
 modeleDeDonnees\MoyendeConservation.class

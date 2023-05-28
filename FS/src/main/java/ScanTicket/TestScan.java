@@ -21,14 +21,13 @@ import java.util.regex.Pattern;
 public class TestScan {
     static {
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-
     }
 
     public static void main(String[] args) {
         Tesseract tesseract = new Tesseract();
         try {
 
-            tesseract.setDatapath("Tess4J"); //Mettre le chemin vers le dossier Tess4J
+            tesseract.setDatapath("src/main/java/ScanTicket"); //Mettre le chemin vers le dossier Tess4J
 
             Mat image = Imgcodecs.imread("src/main/java/ScanTicket/ticket5.jpg"); //Mettre le chemin vers le fichier à scanner
             Mat processedImage = preprocessImage(image);
