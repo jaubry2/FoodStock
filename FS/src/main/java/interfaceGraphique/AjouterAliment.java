@@ -464,6 +464,7 @@ public class AjouterAliment extends javax.swing.JFrame {
         
         if (result == 0){
             Aliment aliment = Main.controller.creerAliment(nom, UnitedeMesure.valueOf(infoAliment[0]), MoyendeConservation.valueOf(infoAliment[1]), TypeAliment.valueOf(infoAliment[2]));
+            Main.ensembleAliment.ajouterAliment(aliment);
         }
         /* Ajout à la Table */
         String[] ligne = new String[] {nom, quantite, ddp};
