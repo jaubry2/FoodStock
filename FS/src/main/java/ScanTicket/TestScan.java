@@ -2,6 +2,7 @@ package ScanTicket;
 import org.opencv.core.*;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
+import org.opencv.highgui.HighGui;
 
 import net.sourceforge.tess4j.Tesseract;
 import net.sourceforge.tess4j.TesseractException;
@@ -29,7 +30,7 @@ public class TestScan {
 
             tesseract.setDatapath("src/main/java/ScanTicket"); //Mettre le chemin vers le dossier Tess4J
 
-            Mat image = Imgcodecs.imread("src/main/java/ScanTicket/ticket5.jpg"); //Mettre le chemin vers le fichier à scanner
+            Mat image = Imgcodecs.imread("src/main/java/ScanTicket/ticket10.jpg"); //Mettre le chemin vers le fichier à scanner
             Mat processedImage = preprocessImage(image);
             
             // Appliquer une détection de contours
@@ -39,12 +40,20 @@ public class TestScan {
             // Trouver les contours
             MatOfPoint largestContour = findLargestContour(edges);
             if (largestContour != null) {
+            	
                 // Approximer le polygone du contour
                 MatOfPoint2f approxCurve = new MatOfPoint2f();
                 MatOfPoint2f contour2f = new MatOfPoint2f(largestContour.toArray());
                 double epsilon = 0.02 * Imgproc.arcLength(contour2f, true);
                 Imgproc.approxPolyDP(contour2f, approxCurve, epsilon, true);
 
+                Mat imageWithContours = image.clone();
+                Imgproc.drawContours(imageWithContours, List.of(largestContour), 0, new Scalar(0, 255, 0), 2);
+                drawApproxPoly(imageWithContours, approxCurve);
+
+                // Afficher l'image avec les contours et le polygone approximé
+                HighGui.imshow("Image avec contours et polygone", imageWithContours);
+                HighGui.waitKey(0);
                 // Vérifier si le polygone est un rectangle
                 if (approxCurve.total() == 4) {
                 	System.out.println("mskjdh");
@@ -72,12 +81,19 @@ public class TestScan {
                         System.out.println(item);
                     }
                 }
+                //else peut etre throw une exception pour afficher boite de dialogue qui dit qu'aucun document n'a été trouvé
             }
 
 
 
         } catch (TesseractException e) {
             e.printStackTrace();
+        }
+    }
+    private static void drawApproxPoly(Mat image, MatOfPoint2f approxCurve) {
+        Point[] points = approxCurve.toArray();
+        for (int i = 0; i < points.length; i++) {
+            Imgproc.line(image, points[i], points[(i + 1) % points.length], new Scalar(255, 0, 0), 2);
         }
     }
 
@@ -94,6 +110,17 @@ public class TestScan {
 
         // Debruitage de l'image
         Imgproc.medianBlur(binaryImage, denoisedImage, 3);
+      //Enregistrement de l'image processed
+        MatOfByte matOfByte = new MatOfByte();
+        Imgcodecs.imencode(".png", denoisedImage, matOfByte);
+        byte[] byteArray = matOfByte.toArray();
+
+        File outputFile = new File("src/main/java/ScanTicket/ticket_preprocessed.png");
+        try (FileOutputStream fos = new FileOutputStream(outputFile)) {
+            fos.write(byteArray);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         return denoisedImage;
     }
@@ -138,8 +165,8 @@ public class TestScan {
         Mat correctedImage = new Mat(new Size(imageWidth, imageHeight), image.type());
 
         // Définir les points de destination de l'image redressée
-        MatOfPoint2f dstPoints = new MatOfPoint2f(new Point(0, 0), new Point(imageWidth - 1, 0),
-                new Point(imageWidth - 1, imageHeight - 1), new Point(0, imageHeight - 1));
+        MatOfPoint2f dstPoints = new MatOfPoint2f(
+                new Point(0, 0), new Point(0, imageHeight - 1),new Point(imageWidth - 1, imageHeight - 1),new Point(imageWidth - 1, 0));
 
         // Calculer la matrice de transformation
         Mat perspectiveTransform = Imgproc.getPerspectiveTransform(approxCurve, dstPoints);
