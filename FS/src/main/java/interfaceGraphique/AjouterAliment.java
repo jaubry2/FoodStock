@@ -5,6 +5,12 @@ package interfaceGraphique ;
 
 import java.util.Date;
 import javax.swing.table.DefaultTableModel;
+
+import modeleDeDonnees.Aliment;
+import modeleDeDonnees.MoyendeConservation;
+import modeleDeDonnees.TypeAliment;
+import modeleDeDonnees.UnitedeMesure;
+
 import java.util.*;
 import javax.swing.JOptionPane;
 
@@ -446,18 +452,18 @@ public class AjouterAliment extends javax.swing.JFrame {
 
         /* On recupere la quantite*/
         quantite = qteTextField.getText();
-
+        String[] infoAliment = new String[3];
         int result;
         do{
         JOptionPane.showMessageDialog(this, "L'aliment n'existe pas dans le stock \n Remplissez les informations suivantes");
-        String ta = JOptionPane.showInputDialog(this, "Rentrez le type d'aliments parmi les possibilités suivantes : \n ( respectez bien l'orthographe et les majuscules ) \n Fruits_Legumes, Viande_Poisson, ProduitsLaitiers, \n Céreales, Surgeles, Boissons, Snacks");
-        String mds = JOptionPane.showInputDialog(this, "Rentrez le moyen de conservation parmi les possibilités suivantes : \n ( respectez bien l'orthographe et les majuscules ) \n Vrac, Bouteille, Conserve, Sachet ");
-        String udm = JOptionPane.showInputDialog(this, "Rentrez l'unité de mesure parmi les possibilités suivantes : \n ( respectez bien l'orthographe et les majuscules ) \n Gramme, Unite, Litre ");
-        result = JOptionPane.showConfirmDialog(this, "Vous voulez ajoutez au stock : " + nom + " / " + ta + " / " + mds + " / " + udm);
+        infoAliment[2] = JOptionPane.showInputDialog(this, "Rentrez le type d'aliments parmi les possibilités suivantes : \n ( respectez bien l'orthographe et les majuscules ) \n Fruits_Legumes, Viande_Poisson, ProduitsLaitiers, \n Céreales, Surgeles, Boissons, Snacks");
+        infoAliment[1] = JOptionPane.showInputDialog(this, "Rentrez le moyen de conservation parmi les possibilités suivantes : \n ( respectez bien l'orthographe et les majuscules ) \n Vrac, Bouteille, Conserve, Sachet ");
+        infoAliment[0] = JOptionPane.showInputDialog(this, "Rentrez l'unité de mesure parmi les possibilités suivantes : \n ( respectez bien l'orthographe et les majuscules ) \n Gramme, Unite, Litre ");
+        result = JOptionPane.showConfirmDialog(this, "Vous voulez ajoutez au stock : " + nom + " / " + infoAliment[0] + " / " + infoAliment[1] + " / " + infoAliment[2]);
         } while( result == 1 );
         
         if (result == 0){
-            // Creer l'aliment et l'ajouter à l'ensemble
+            Aliment aliment = Main.controller.creerAliment(nom, UnitedeMesure.valueOf(infoAliment[0]), MoyendeConservation.valueOf(infoAliment[1]), TypeAliment.valueOf(infoAliment[2]));
         }
         /* Ajout à la Table */
         String[] ligne = new String[] {nom, quantite, ddp};
@@ -486,9 +492,6 @@ public class AjouterAliment extends javax.swing.JFrame {
      * @param evt Click sur le bouton Liste
      */
     private void listButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        /*MenuListe newPage = new MenuListe();
-		newPage.setVisible(true);
-        this.dispose();*/
         Main.controller.ChangerPage("menuListe", null, null, null);
         this.dispose();
     }

@@ -21,9 +21,11 @@ import modeleDeDonnees.ControllerListeCourse;
 import modeleDeDonnees.CritereDureeRecette;
 import modeleDeDonnees.Ingredient;
 import modeleDeDonnees.LivreRecettes;
+import modeleDeDonnees.MoyendeConservation;
 import modeleDeDonnees.Recette;
 import modeleDeDonnees.Stock;
 import modeleDeDonnees.TypeAliment;
+import modeleDeDonnees.UnitedeMesure;
 
 
 /**
@@ -236,11 +238,12 @@ public DefaultTableModel afficherRecetteLieAliment(String nom) {
 		Main.listeCourse.ajouterRecette(recetteAjout);
 		
 	}
-	
-	
+	public Aliment creerAliment(String _nom, UnitedeMesure _udm, MoyendeConservation _mdc, TypeAliment _ta){
+		return new Aliment(_nom, _udm, _mdc, _ta) ;
+	}	
 	
 
-    }
+}
         
 
         
