@@ -4,6 +4,7 @@ package modeleDeDonnees;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -163,9 +164,31 @@ public void ajouterAliment(AlimentStockes alimentsStock) {
 		return getAlimentStockesByName(nom).getQuantite();
 	}*/
 	
-	public void retirerQuantiteStock( String nomAliment, float quantite) {
+	/*public void retirerQuantiteStock( String nomAliment, float quantite) {
 		AlimentStockes  aS = this.getAlimentStockesByName(nomAliment);
 		aS.setQuantite(quantite);
+	}*/
+	
+	public void retirerQuantiteStock( String nomAliment, float quantite) {
+		List<AlimentStockes> listAlimentSupp = new ArrayList<>();
+		for (AlimentStockes alimentstockes : stock) {
+            if (alimentstockes.getAliment().getNom().equals(nomAliment)) {
+            	listAlimentSupp.add(alimentstockes);
+            }
+        }
+		//Tri de la liste par date de peremption
+		listAlimentSupp.sort(Comparator.comparing(AlimentStockes::getDatePeremption));		
+		int i =0;
+		while(quantite > 0) {
+		float quantiteAliment = listAlimentSupp.get(i).getQuantite();
+		 quantite = quantite - quantiteAliment;
+		 if (quantite < 0) {
+			 quantite =0;
+		 }
+		 listAlimentSupp.get(i).setQuantite(quantite);
+					
+		}
+		
 	}
 
 	public float getQuantiteASNonPerime(String nomAliment) {

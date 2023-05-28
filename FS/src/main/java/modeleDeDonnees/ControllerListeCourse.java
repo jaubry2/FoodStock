@@ -40,7 +40,7 @@ public class ControllerListeCourse implements Observer{
 	            public void actionPerformed(ActionEvent e) {
 	            	System.out.println("button");
 	        		Recette recetteAjout = Main.livreRecette.getRecetteByName(vue.getChoixRecetteListe().getText());
-	                model.ajouterRecette(recetteAjout);
+	                model.comparerStock(recetteAjout,Main.stock);
 	            }
 	        });
 	        vue.getSuprAlimentListeButton().addActionListener(new ActionListener() { 

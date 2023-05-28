@@ -117,7 +117,7 @@ public class ListeDeCourse extends Observable{
         }
     }
         
-        public void comparerStock(Stock stock,Recette recette) {
+        public void comparerStock(Recette recette,Stock stock) {
             Set<Ingredient> ingredientsRecette = recette.getListIngredients();
             for (Ingredient ingredient : ingredientsRecette) {
                 float quantiteNecessaire = ingredient.getQuantite();
