@@ -58,6 +58,11 @@ public class FicheRecette extends javax.swing.JFrame {
         ListButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);  
+        setMaximumSize(new java.awt.Dimension(1020, 768));
+        setMinimumSize(new java.awt.Dimension(1020, 768));
+        setResizable(false);
+        setPreferredSize(new java.awt.Dimension(1020, 768)); 
 
         pageFicheRecette.setBackground(new java.awt.Color(255, 204, 204));
 

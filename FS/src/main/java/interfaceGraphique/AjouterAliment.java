@@ -167,6 +167,7 @@ public class AjouterAliment extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setLocationRelativeTo(null); 
+        setResizable(false);
         setMaximumSize(new java.awt.Dimension(1020, 768));
         setMinimumSize(new java.awt.Dimension(1020, 768));
         setPreferredSize(new java.awt.Dimension(1020, 768));

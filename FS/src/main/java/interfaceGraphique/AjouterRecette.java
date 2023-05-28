@@ -44,6 +44,14 @@ public class AjouterRecette extends javax.swing.JFrame {
         listButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
+        setLocationRelativeTo(null);  
+        setBackground(new java.awt.Color(255, 153, 153));
+        setMaximumSize(new java.awt.Dimension(1020, 768));
+        setMinimumSize(new java.awt.Dimension(1020, 768));
+        setPreferredSize(new java.awt.Dimension(1020, 768));
+
+
 
         pageAjouterRecette.setBackground(new java.awt.Color(255, 204, 204));
 

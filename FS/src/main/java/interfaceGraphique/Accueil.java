@@ -193,7 +193,7 @@ public class Accueil extends javax.swing.JFrame {
         corpNameText.setFont(new java.awt.Font("Helvetica Neue", 0, 48)); 
         corpNameText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         corpNameText.setText("FOODSTOCK");
-
+        setResizable(false);
         
         tableAlimentPerime.setModel(Main.controller.afficherStockFiltre(4));
         ScrollPaneAlimentPerime.setViewportView(tableAlimentPerime);

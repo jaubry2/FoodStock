@@ -190,6 +190,8 @@ public class FicheAliment extends javax.swing.JFrame {
         setLocationRelativeTo(null);  
         setMaximumSize(new java.awt.Dimension(1020, 768));
         setMinimumSize(new java.awt.Dimension(1020, 768));
+        setResizable(false);
+        setPreferredSize(new java.awt.Dimension(1020, 768)); 
 
         pageMenu.setBackground(new java.awt.Color(153, 204, 255));
         pageMenu.setForeground(new java.awt.Color(51, 204, 255));

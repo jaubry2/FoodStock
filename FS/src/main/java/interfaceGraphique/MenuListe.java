@@ -72,6 +72,11 @@ public class MenuListe extends JFrame {
         imprimerListeButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);  
+        setMaximumSize(new java.awt.Dimension(1020, 768));
+        setMinimumSize(new java.awt.Dimension(1020, 768));
+        setResizable(false);
+        setPreferredSize(new java.awt.Dimension(1020, 768)); 
 
         menu3.setBackground(new java.awt.Color(153, 204, 255));
         menu3.setForeground(new java.awt.Color(51, 204, 255));

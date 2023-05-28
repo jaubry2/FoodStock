@@ -132,10 +132,10 @@ public class MenuStock extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);  
-        setBackground(new java.awt.Color(255, 153, 153));
         setMaximumSize(new java.awt.Dimension(1020, 768));
         setMinimumSize(new java.awt.Dimension(1020, 768));
-        setPreferredSize(new java.awt.Dimension(1020, 768));
+        setResizable(false);
+        setPreferredSize(new java.awt.Dimension(1020, 768)); 
 
         Menu.setBackground(new java.awt.Color(153, 204, 255));
         Menu.setForeground(new java.awt.Color(51, 204, 255));

@@ -155,6 +155,7 @@ public class ModifierUnAliment extends javax.swing.JFrame {
         setLocation(new java.awt.Point(1020, 768));
         setMaximumSize(new java.awt.Dimension(1020, 768));
         setMinimumSize(new java.awt.Dimension(1020, 768));
+        setResizable(false);
 
         Menu3.setBackground(new java.awt.Color(153, 204, 255));
         Menu3.setForeground(new java.awt.Color(51, 204, 255));
