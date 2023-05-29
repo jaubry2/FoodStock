@@ -87,6 +87,8 @@ public class AjouterRecette extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(1020, 768));
         setPreferredSize(new java.awt.Dimension(1020, 768));
         setSize(new java.awt.Dimension(1020, 768));
+        setLocationRelativeTo(null); 
+
 
         nomTextField.setBackground(new java.awt.Color(255, 204, 204));
 
