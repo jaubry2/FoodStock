@@ -299,6 +299,11 @@ public class MenuRecette extends javax.swing.JFrame {
         );
 
         ajoutRecetteButton.setText("Ajouter une recette");
+        ajoutRecetteButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ajoutRecetteButtonActionPerformed(evt);
+            }
+        });
 
         favButton.setText("favorites");
 
