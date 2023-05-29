@@ -282,7 +282,7 @@ public class FicheAliment extends javax.swing.JFrame {
 
         dateDePeremptionText.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); 
         dateDePeremptionText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        dateDePeremptionText.setText("Date de Péremption :");
+        dateDePeremptionText.setText("Date de Péremption la plus proche :");
 
         typeAlimentText.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); 
         typeAlimentText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -294,7 +294,7 @@ public class FicheAliment extends javax.swing.JFrame {
 
         quantiteText.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); 
         quantiteText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        quantiteText.setText("Quantite :");
+        quantiteText.setText("Quantite (non périmée) :");
 
         TableRecette.setModel(Main.controller.afficherRecetteLieAliment(nomAliment));
             
