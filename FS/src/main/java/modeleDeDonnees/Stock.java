@@ -25,7 +25,9 @@ private List<AlimentStockes> stock;
 public Stock(List<AlimentStockes> stock ) {
 	this.stock = stock;   
 }
-
+public Stock() {
+	this.stock = new ArrayList<>();   
+}
 public List<AlimentStockes> getStock(){
 	return stock;
 }
