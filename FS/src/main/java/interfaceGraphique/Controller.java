@@ -256,12 +256,25 @@ public DefaultTableModel afficherRecetteLieAliment(String nom) {
 		String[] infoAliment = new String[3];
 		JOptionPane.showMessageDialog(_frame, "L'aliment n'existe pas dans le stock \n Remplissez les informations suivantes");
 		try{
-		infoAliment[2] = JOptionPane.showInputDialog(_frame, "Rentrez le type d'aliments parmi les possibilités suivantes : \n ( respectez bien l'orthographe et les majuscules ) \n Fruits_Legumes, Viande_Poisson, ProduitsLaitiers, \n Céreales, Surgeles, Boissons, Snacks");
-		infoAliment[1] = JOptionPane.showInputDialog(_frame, "Rentrez le moyen de conservation parmi les possibilités suivantes : \n ( respectez bien l'orthographe et les majuscules ) \n Vrac, Bouteille, Conserve, Sachet ");
-		infoAliment[0] = JOptionPane.showInputDialog(_frame, "Rentrez l'unité de mesure parmi les possibilités suivantes : \n ( respectez bien l'orthographe et les majuscules ) \n Gramme, Unite, Litre ");
+			infoAliment[2] = JOptionPane.showInputDialog(_frame, "Rentrez le type d'aliments parmi les possibilités suivantes : \n ( respectez bien l'orthographe et les majuscules ) \n Fruits_Legumes, Viande_Poisson, ProduitsLaitiers, \n Céreales, Surgeles, Boissons, Snacks");
+			TypeAliment.valueOf(infoAliment[2]);
 		}
 		catch (IllegalArgumentException e){
-			JOptionPane.showMessageDialog(_frame, "Vous vous êtes trompez en remplissant le formulaire");
+			JOptionPane.showMessageDialog(_frame, "Vous vous êtes trompez sur le type d'aliment");
+			popUpAliment(_frame, _nom);
+		}
+		try {
+			infoAliment[1] = JOptionPane.showInputDialog(_frame, "Rentrez le moyen de conservation parmi les possibilités suivantes : \n ( respectez bien l'orthographe et les majuscules ) \n Vrac, Bouteille, Conserve, Sachet ");
+			MoyendeConservation.valueOf(infoAliment[1]);
+		} catch (IllegalArgumentException e){
+			JOptionPane.showMessageDialog(_frame, "Vous vous êtes trompez sur le moyen de conservation");
+			popUpAliment(_frame, _nom);
+		}
+		try {
+			infoAliment[0] = JOptionPane.showInputDialog(_frame, "Rentrez l'unité de mesure parmi les possibilités suivantes : \n ( respectez bien l'orthographe et les majuscules ) \n Gramme, Unite, Litre ");
+			UnitedeMesure.valueOf(infoAliment[0]);
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(_frame, "Vous vous êtes trompez sur l'unité de mesure");
 			popUpAliment(_frame, _nom);
 		}
 		return infoAliment;
