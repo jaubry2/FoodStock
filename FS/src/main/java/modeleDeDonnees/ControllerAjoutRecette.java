@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.swing.JOptionPane;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableModel;
 
@@ -48,9 +49,28 @@ public class ControllerAjoutRecette implements Observer {
                 // Ajoute une nouvelle ligne vide au modèle de table
     	        String nomIngredient = vue.getNomIngredientTextField().getText();
     	        String qteIngredient = vue.getQteTextField().getText();
-    	      
-    	        String[] ligne = new String[] {nomIngredient, qteIngredient};
-    	        vue.getdTMAliment().addRow(ligne);
+    	        String[] infoAliment = new String[3];
+    	        int result;
+
+    	        if (Main.ensembleAliment.isAliment(nomIngredient)){
+    	            /* Ajout à la Table */
+    	            String[] ligne = new String[] {nomIngredient, qteIngredient};
+        	        vue.getdTMAliment().addRow(ligne);
+    	        } else{
+    	                infoAliment = Main.controller.popUpAliment(vue, nomIngredient);
+    	                result = JOptionPane.showConfirmDialog(vue, "Vous voulez ajoutez au stock : " + nomIngredient + " / " + infoAliment[0] + " / " + infoAliment[1] + " / " + infoAliment[2]);
+    	            
+    	            if (result == JOptionPane.YES_OPTION & !infoAliment[0].equals("") & !infoAliment[1].equals("") & !infoAliment[2].equals("")){
+    	                Aliment aliment = Main.controller.creerAliment(nomIngredient, UnitedeMesure.valueOf(infoAliment[0]), MoyendeConservation.valueOf(infoAliment[1]), TypeAliment.valueOf(infoAliment[2]));
+    	                Main.ensembleAliment.ajouterAliment(aliment);
+        	            String[] ligne = new String[] {nomIngredient, qteIngredient};
+            	        vue.getdTMAliment().addRow(ligne);
+    	                JOptionPane.showMessageDialog(vue, "L'aliment a été ajouté à l'ensemble d'aliment");
+    	            } else if(result == JOptionPane.NO_OPTION) {
+    	                JOptionPane.showMessageDialog(vue, "L'aliment n'a pas été ajouté à l'ensemble d'aliment");
+    	            }
+    	        }
+    	        
     	        vue.getTableIngredientsRecette().setModel(vue.getdTMAliment());
     	        
             }

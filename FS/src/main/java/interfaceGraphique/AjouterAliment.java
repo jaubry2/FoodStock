@@ -456,7 +456,7 @@ public class AjouterAliment extends javax.swing.JFrame {
         quantite = qteTextField.getText();
         String[] infoAliment = new String[3];
         int result;
-        if (Main.stock.isAlimentStockesByName(nom)){
+        if (Main.ensembleAliment.isAliment(nom)){
             /* Ajout à la Table */
             String[] ligne = new String[] {nom, quantite, ddp};
             d.addRow(ligne);

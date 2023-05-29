@@ -145,7 +145,6 @@ public void ajouterAliment(AlimentStockes alimentsStock) {
      * @return l'objet Aliments correspondant au nom de l'aliment recherché, ou null si l'aliment n'est pas trouvé
      */
     public  boolean  isAlimentStockesByName(String nomAliment) {
-    	System.out.println("recherche");
         for (AlimentStockes alimentstockes : stock) {
         	
             if (alimentstockes.getAliment().getNom().equals(nomAliment)) {
@@ -217,7 +216,6 @@ public void ajouterAliment(AlimentStockes alimentsStock) {
 		float quantite=0;
 		for (AlimentStockes alimentstockes : stock) {
             if (alimentstockes.getAliment().getNom().equals(nomAliment)) {
-            		quantite+= alimentstockes.getQuantite();
             }
         }
 		return quantite;

@@ -32,5 +32,15 @@ public class EnsembleAliment {
     	listAliments.add(aliment);
     }
     
+    public boolean isAliment(String nom) {
+        for (Aliment aliment : listAliments) {
+        	
+            if (aliment.getNom().equals(nom)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
 
 }
