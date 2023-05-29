@@ -397,11 +397,9 @@ public class MenuStock extends javax.swing.JFrame {
      * @param evt Click sur le bouton Liste
      */
     private void listButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        /*MenuListe newPage = new MenuListe();
+        MenuListe newPage = new MenuListe();
         ControllerListeCourse cLdC = new ControllerListeCourse(Main.listeCourse ,(MenuListe) newPage);
-		newPage.setVisible(true);*/
-    	Main.controller.ChangerPage("MenuListe",null,null,null);
-        this.dispose();
+		newPage.setVisible(true);
     }
     /**
      * Permet d'ouvrir l'accueil
