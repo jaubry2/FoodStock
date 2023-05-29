@@ -12,6 +12,11 @@ import javax.swing.table.DefaultTableModel;
  */
 public class AjouterRecette extends javax.swing.JFrame {
     private DefaultTableModel dTMAliment;
+    private DefaultTableModel d = new DefaultTableModel();
+    /**
+     * Ligne selcetionne dans la table
+     */
+    private int selectedRow;
     /**
      * Creates new form AjouterRecette
      */
@@ -19,6 +24,7 @@ public class AjouterRecette extends javax.swing.JFrame {
         dTMAliment = new DefaultTableModel();
     	dTMAliment.addColumn("Nom");
     	dTMAliment.addColumn("Quantite");
+        d = (DefaultTableModel) TableIngredientsRecette.getModel();
         initComponents();
     }
 
@@ -63,19 +69,9 @@ public class AjouterRecette extends javax.swing.JFrame {
 
         nomRecette.setFont(new java.awt.Font("Helvetica Neue", 0, 12)); // NOI18N
         nomRecette.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        nomRecette.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nomRecetteActionPerformed(evt);
-            }
-        });
 
         dureeRecette.setFont(new java.awt.Font("Helvetica Neue", 0, 12)); // NOI18N
         dureeRecette.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        dureeRecette.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dureeRecetteActionPerformed(evt);
-            }
-        });
 
         titreDureeRecette.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         titreDureeRecette.setText("Durée : ");
@@ -85,7 +81,7 @@ public class AjouterRecette extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nom", "Qte", "DDP"
+                "Nom", "Qte"
             }
         ) {
             Class[] types = new Class [] {
@@ -138,19 +134,9 @@ public class AjouterRecette extends javax.swing.JFrame {
 
         nomIngredientTextField.setFont(new java.awt.Font("Helvetica Neue", 0, 12)); // NOI18N
         nomIngredientTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        nomIngredientTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nomIngredientTextFieldActionPerformed(evt);
-            }
-        });
 
         qteTextField.setFont(new java.awt.Font("Helvetica Neue", 0, 12)); // NOI18N
         qteTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        qteTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                qteTextFieldActionPerformed(evt);
-            }
-        });
 
         nomIngredientText.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         nomIngredientText.setText("Nom de l'ingrédient :");
@@ -159,7 +145,7 @@ public class AjouterRecette extends javax.swing.JFrame {
         qteIngredientText.setText("Quantité de l'ingrédient :");
 
         boutonSupprimer.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        boutonSupprimer.setText("AJOUTER INGRÉDIENT");
+        boutonSupprimer.setText("SUPPRIMER INGRÉDIENT");
         boutonSupprimer.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         boutonSupprimer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -282,11 +268,6 @@ public class AjouterRecette extends javax.swing.JFrame {
         recetteButton.setBackground(new java.awt.Color(153, 204, 255));
         recetteButton.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
         recetteButton.setText("Recette");
-        recetteButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                recetteButtonMouseClicked(evt);
-            }
-        });
         recetteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 recetteButtonActionPerformed(evt);
@@ -296,11 +277,6 @@ public class AjouterRecette extends javax.swing.JFrame {
         listButton.setBackground(new java.awt.Color(153, 204, 255));
         listButton.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
         listButton.setText("Liste");
-        listButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                listButtonMouseClicked(evt);
-            }
-        });
         listButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 listButtonActionPerformed(evt);
@@ -350,69 +326,16 @@ public class AjouterRecette extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>                        
-
-    private void nomRecetteActionPerformed(java.awt.event.ActionEvent evt) {                                           
-        // TODO add your handling code here:
-    }                                          
-
-    private void dureeRecetteActionPerformed(java.awt.event.ActionEvent evt) {                                             
-        // TODO add your handling code here:
-    }                                            
+    }                                                                  
 
     private void boutonAjouterActionPerformed(java.awt.event.ActionEvent evt) {                                              
-        /* 
-        String nom;
-        String quantite;
-        Date DDP;
-        int quantiteint;
-        
-        String jour = (String)jourComboBox.getSelectedItem();
-        String mois = (String)moisComboBox.getSelectedItem();
-        String annee = (String)anneeComboBox.getSelectedItem();
-        String ddp = jour + "/" + mois + "/" + annee;
+        /* On récupère le nom et la quantité */
+        String nomIngredient = nomIngredientTextField.getText();
+        String qteIngredient = qteTextField.getText();
 
-        try{
-            int jourint = Integer.parseInt(jour);
-            int moisint = Integer.parseInt(mois);
-            int anneeint = Integer.parseInt(annee);
-            DDP = new Date(anneeint, moisint, jourint);
-        }
-        catch (NumberFormatException ex){
-            ex.printStackTrace();
-        }
-
-        
-        
-            nom = nomRecette.getText();
-            /*}
-        catch(NumberFormatException ex){
-            /* Erreur si c'est pas un String */
-            /*}
-
-        /* On recupere la quantite*/
-        /* 
-        quantite = dureeRecette.getText();
-
-        try{
-            quantiteint = Integer.parseInt(dureeRecette.getText());
-        }
-        catch (NumberFormatException ex){
-            ex.printStackTrace();
-        }
-        */
-        /* Il faut verifier si le nom correspond à un aliment dans la base de donnee */
-        /* Il faut ensuite recuperer le moyen de stockage et l'unite de mesure de l'aliment */
-        /* On peut ensuite l'ajouter aux stocks */
-
-        /* Définition de l'aliment */
-
-        /* Ajouter un élement à la liste */
-        /*listeAliment.add(A);*/
-
-        /* Ajout à la Table */
-        //String[] ligne = new String[] {nom, quantite, ddp};
-        //d.addRow(ligne);
+        /* Ajout a la table */
+        String[] ligne = new String[] {nomIngredient, qteIngredient};
+        d.addRow(ligne);
     }                                             
 
     private void addLivreButtonActionPerformed(java.awt.event.ActionEvent evt) {                                               
@@ -436,19 +359,13 @@ public class AjouterRecette extends javax.swing.JFrame {
         Main.controller.ChangerPage("menuStock", null, null, null);
         this.dispose();
     }                                           
-
-    private void recetteButtonMouseClicked(java.awt.event.MouseEvent evt) {                                           
-        //SUP
-    }                                          
+                                         
 
     private void recetteButtonActionPerformed(java.awt.event.ActionEvent evt) {                                              
         Main.controller.ChangerPage("menuRecette", null, null, null);
         this.dispose();
     }                                             
-
-    private void listButtonMouseClicked(java.awt.event.MouseEvent evt) {                                        
-        //SUP
-    }                                       
+                                    
 
     private void listButtonActionPerformed(java.awt.event.ActionEvent evt) {                                           
         Main.controller.ChangerPage("menuListe", null, null, null);
@@ -456,19 +373,11 @@ public class AjouterRecette extends javax.swing.JFrame {
     }                                          
 
     private void TableIngredientsRecetteMouseClicked(java.awt.event.MouseEvent evt) {                                                     
-        //selectedRow = TableIngredientsRecette.getSelectedRow();
-    }                                                    
-
-    private void nomIngredientTextFieldActionPerformed(java.awt.event.ActionEvent evt) {                                                       
-        // TODO add your handling code here:
-    }                                                      
-
-    private void qteTextFieldActionPerformed(java.awt.event.ActionEvent evt) {                                             
-        // TODO add your handling code here:
-    }                                            
+        selectedRow = TableIngredientsRecette.getSelectedRow();
+    }                                                                                               
 
     private void boutonSupprimerActionPerformed(java.awt.event.ActionEvent evt) {                                                
-        // TODO add your handling code here:
+        d.removeRow(selectedRow);
     }                                               
 
     /**
@@ -505,8 +414,7 @@ public class AjouterRecette extends javax.swing.JFrame {
             }
         });
     }
-
-    // Variables declaration - do not modify                     
+               
     private javax.swing.JTable TableIngredientsRecette;
     private javax.swing.JButton addLivreButton;
     private javax.swing.JButton boutonAjouter;
@@ -527,6 +435,5 @@ public class AjouterRecette extends javax.swing.JFrame {
     private javax.swing.JLabel titreDureeRecette;
     private javax.swing.JLabel titreNomRecette;
     private javax.swing.JLabel titreRecette;
-    private javax.swing.JLabel titreTableIngredientsRecette;
-    // End of variables declaration                   
+    private javax.swing.JLabel titreTableIngredientsRecette;                 
 }
