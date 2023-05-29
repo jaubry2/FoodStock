@@ -461,16 +461,17 @@ public class AjouterAliment extends javax.swing.JFrame {
             String[] ligne = new String[] {nom, quantite, ddp};
             d.addRow(ligne);
         } else{
-            do{
                 infoAliment = Main.controller.popUpAliment(this, nom);
                 result = JOptionPane.showConfirmDialog(this, "Vous voulez ajoutez au stock : " + nom + " / " + infoAliment[0] + " / " + infoAliment[1] + " / " + infoAliment[2]);
-            } while( result == 1 );
             
-            if (result == 0 & !infoAliment[0].equals("") & !infoAliment[1].equals("") & !infoAliment[2].equals("")){
+            if (result == JOptionPane.YES_OPTION & !infoAliment[0].equals("") & !infoAliment[1].equals("") & !infoAliment[2].equals("")){
                 Aliment aliment = Main.controller.creerAliment(nom, UnitedeMesure.valueOf(infoAliment[0]), MoyendeConservation.valueOf(infoAliment[1]), TypeAliment.valueOf(infoAliment[2]));
                 Main.ensembleAliment.ajouterAliment(aliment);
                 String[] ligne = new String[] {nom, quantite, ddp};
                 d.addRow(ligne);
+                JOptionPane.showMessageDialog(this, "L'aliment a été ajouté à l'ensemble d'aliment");
+            } else if(result == JOptionPane.NO_OPTION) {
+                JOptionPane.showMessageDialog(this, "L'aliment n'a pas été ajouté à l'ensemble d'aliment");
             }
         }
     }
