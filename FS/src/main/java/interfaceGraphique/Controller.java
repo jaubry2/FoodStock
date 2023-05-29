@@ -10,8 +10,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
+import javax.swing.JOptionPane;
+import javax.swing.JFrame;
 
 import baseDeDonnees.GestionnaireFichier;
 import modeleDeDonnees.AlimentStockes;
@@ -249,8 +252,20 @@ public DefaultTableModel afficherRecetteLieAliment(String nom) {
 	public Aliment creerAliment(String _nom, UnitedeMesure _udm, MoyendeConservation _mdc, TypeAliment _ta){
 		return new Aliment(_nom, _udm, _mdc, _ta) ;
 	}	
-	
-
+	public String[] popUpAliment(JFrame _frame, String _nom){
+		String[] infoAliment = new String[3];
+		JOptionPane.showMessageDialog(_frame, "L'aliment n'existe pas dans le stock \n Remplissez les informations suivantes");
+		try{
+		infoAliment[2] = JOptionPane.showInputDialog(this, "Rentrez le type d'aliments parmi les possibilités suivantes : \n ( respectez bien l'orthographe et les majuscules ) \n Fruits_Legumes, Viande_Poisson, ProduitsLaitiers, \n Céreales, Surgeles, Boissons, Snacks");
+		infoAliment[1] = JOptionPane.showInputDialog(this, "Rentrez le moyen de conservation parmi les possibilités suivantes : \n ( respectez bien l'orthographe et les majuscules ) \n Vrac, Bouteille, Conserve, Sachet ");
+		infoAliment[0] = JOptionPane.showInputDialog(this, "Rentrez l'unité de mesure parmi les possibilités suivantes : \n ( respectez bien l'orthographe et les majuscules ) \n Gramme, Unite, Litre ");
+		}
+		catch (IllegalArgumentException e){
+			JOptionPane.showMessageDialog(_frame, "Vous vous êtes trompez en remplissant le formulaire");
+			popUpAliment(_frame, _nom);
+		}
+		return infoAliment;
+	}
 }
         
 
