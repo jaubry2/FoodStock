@@ -59,6 +59,9 @@ public class Ingredient {
 		return this.aliment.equals(aliment);
 		
 	}
+	public boolean equals(Ingredient ingredientComparaison) {
+		return this.getAliment().equals(ingredientComparaison.getAliment());
+	}
 
 
 }

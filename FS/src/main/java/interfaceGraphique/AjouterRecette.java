@@ -414,5 +414,20 @@ public class AjouterRecette extends javax.swing.JFrame {
                 new AjouterRecette().setVisible(true);
             }
         });
-    }             
+    }
+	public DefaultTableModel getdTMAliment() {
+		return dTMAliment;
+	}
+	public javax.swing.JButton getAddLivreButton() {
+		return addLivreButton;
+	}
+	public javax.swing.JButton getBoutonAjouter() {
+		return boutonAjouter;
+	}
+	public javax.swing.JTextField getDureeRecette() {
+		return dureeRecette;
+	}
+	public javax.swing.JTextField getNomRecette() {
+		return nomRecette;
+	}             
 }

@@ -24,7 +24,7 @@ public class ControllerAjoutRecette implements Observer {
 
         model.addObserver(this);
 
-        vue.getAjoutRecettebutton().addActionListener(new ActionListener() {
+        vue.getAddLivreButton().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("recette boutton");

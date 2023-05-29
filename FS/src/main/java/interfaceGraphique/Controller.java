@@ -43,7 +43,7 @@ public class Controller {
     }
     public void ChangerPage(String _page, String _erreur, String _message, String _nomAliment){
         javax.swing.JFrame newPage = null;
-
+        System.out.println("changer page");
         
         if (_page.equals("accueil")) {
             newPage = new Accueil();

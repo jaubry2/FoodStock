@@ -45,7 +45,22 @@ public class ListeDeCourse extends Observable{
      */
     public void ajouterIngredient(Ingredient ingredient) {
     	System.out.println("ajouter Aliment");
-        ingredients.add(ingredient);
+    	boolean alimentExiste = false;
+        for (Ingredient ingredientListeCourse : ingredients) {
+            if (ingredient.equals(ingredientListeCourse)) {
+                // Ajouter la quantité nécessaire à la quantité existante dans la liste de course
+                float quantiteExistante = ingredientListeCourse.getQuantite();
+                ingredientListeCourse.setQuantite(quantiteExistante + ingredient.getQuantite());
+                alimentExiste = true;
+                break;
+            }
+           
+        }
+
+        // Si l'aliment n'existe pas, l'ajouter à la liste de course
+        if (!alimentExiste) {
+            ingredients.add(ingredient);
+        }
         notifyObservers();
 
     }
