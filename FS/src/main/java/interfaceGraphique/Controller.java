@@ -17,6 +17,7 @@ import baseDeDonnees.GestionnaireFichier;
 import modeleDeDonnees.AlimentStockes;
 import modeleDeDonnees.Aliment;
 import modeleDeDonnees.AlimentsNonPresentException;
+import modeleDeDonnees.ControllerAjoutRecette;
 import modeleDeDonnees.ControllerListeCourse;
 import modeleDeDonnees.CritereDureeRecette;
 import modeleDeDonnees.Ingredient;
@@ -69,6 +70,13 @@ public class Controller {
         } else if (_page.equals("modifierUnAliment")) {
             newPage = new ModifierUnAliment(_nomAliment);
            OuvrirPage(newPage);
+        } else if (_page.equals("AjouterRecette")) {
+        	
+        	System.out.println("zaza");
+        	newPage = new AjouterRecette();
+            ControllerAjoutRecette cAR = new ControllerAjoutRecette(Main.livreRecette ,(AjouterRecette) newPage);
+
+        	OuvrirPage(newPage);
         } else {
             // Erreur
         }

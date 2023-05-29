@@ -13,14 +13,18 @@ import javax.swing.table.TableModel;
  */
 public class AjouterRecette extends javax.swing.JFrame {
 
-    private TableModel dTMAliment;
+    private DefaultTableModel dTMAliment;
 	/**
      * Creates new form AjouterRecette
      */
-    public AjouterRecette() {
-    	dTMAliment = (DefaultTableModel) TableIngredientsRecette.getModel();
+    public AjouterRecette() {    	
 
+
+    	dTMAliment = new DefaultTableModel();
+    	dTMAliment.addColumn("Nom");
+    	dTMAliment.addColumn("Quantite");
         initComponents();
+
     }
 
     /**
@@ -285,7 +289,7 @@ public class AjouterRecette extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public TableModel getdTMAliment() {
+    public DefaultTableModel getdTMAliment() {
 		return dTMAliment;
 	}
 
@@ -423,7 +427,15 @@ public class AjouterRecette extends javax.swing.JFrame {
 	}
 
 	private javax.swing.JButton boutonAjouter;
-    private javax.swing.JTextField dureeRecette;
+    public javax.swing.JButton getBoutonAjouter() {
+		return boutonAjouter;
+	}
+
+	public void setBoutonAjouter(javax.swing.JButton boutonAjouter) {
+		this.boutonAjouter = boutonAjouter;
+	}
+
+	private javax.swing.JTextField dureeRecette;
     public javax.swing.JTextField getDureeRecette() {
 		return dureeRecette;
 	}

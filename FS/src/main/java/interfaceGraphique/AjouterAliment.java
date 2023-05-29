@@ -121,6 +121,7 @@ public class AjouterAliment extends javax.swing.JFrame {
      */
     public AjouterAliment() {
         initComponents();
+        
         d = (DefaultTableModel) TableAliments.getModel();
         this.addWindowListener(new FermetureFenetre());
 

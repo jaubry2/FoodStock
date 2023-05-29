@@ -4,6 +4,7 @@
  */
 package interfaceGraphique;
 
+import javax.swing.JButton;
 import javax.swing.UnsupportedLookAndFeelException;
 
 import modeleDeDonnees.CritereDureeRecette;
@@ -34,6 +35,7 @@ public class MenuRecette extends javax.swing.JFrame {
      * Date de peremption de l'aliment recherche
      */
     public static String dateDePeremptionAliment;
+	private JButton ajoutRecetteButton;
     /**
      * Bouton dans le menu de navigation qui redirige vers la page Recette 
      */
@@ -74,6 +76,9 @@ public class MenuRecette extends javax.swing.JFrame {
         mediumButton = new javax.swing.JButton();
         longueButton = new javax.swing.JButton();
         favButton = new javax.swing.JButton();
+        ajoutRecetteButton = new javax.swing.JButton();
+
+        
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);  
@@ -290,6 +295,13 @@ public class MenuRecette extends javax.swing.JFrame {
                 .addComponent(longueButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+        ajoutRecetteButton.setText("Ajouter une recette");
+        
+        ajoutRecetteButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            	ajoutRecetteButtonActionPerformed(evt);
+            }
+        });
 
         favButton.setText("favorites");
 
@@ -311,8 +323,10 @@ public class MenuRecette extends javax.swing.JFrame {
             .addGroup(pageMenuRecettesLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(Vitesses, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(30, 30, 30)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 618, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(ajoutRecetteButton)
                 .addGap(0, 284, Short.MAX_VALUE))
             .addGroup(pageMenuRecettesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pageMenuRecettesLayout.createSequentialGroup()
@@ -331,6 +345,7 @@ public class MenuRecette extends javax.swing.JFrame {
                 .addComponent(favButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                 .addGroup(pageMenuRecettesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(ajoutRecetteButton)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pageMenuRecettesLayout.createSequentialGroup()
                         .addComponent(Vitesses, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(56, 56, 56))
@@ -391,6 +406,8 @@ public class MenuRecette extends javax.swing.JFrame {
         Main.controller.ChangerPage("menuRecette", null, null, null);
         this.dispose();
     }//GEN-LAST:event_RecetteButton3ActionPerformed
+    
+    
 
     private void ListButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListButton3MouseClicked
         //SUP
@@ -419,6 +436,13 @@ public class MenuRecette extends javax.swing.JFrame {
     	System.out.println("bouton long");
 
     	tableRecettes.setModel(Main.controller.afficherRecetteFiltrerDuree(CritereDureeRecette.LONG));
+    }
+    
+    private void ajoutRecetteButtonActionPerformed(java.awt.event.ActionEvent evt) {
+    	System.out.println("bouton ajout recette");
+        Main.controller.ChangerPage("AjouterRecette", null, null, null);
+        this.dispose();
+
     }
 
     private void rapideButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rapideButtonActionPerformed
@@ -500,5 +524,7 @@ public class MenuRecette extends javax.swing.JFrame {
     private javax.swing.JLabel titreChercherNomRecettes;
     private javax.swing.JLabel titreMenu3;
     private javax.swing.JLabel titreMenuRecettes;
+
+
     // End of variables declaration//GEN-END:variables
 }
