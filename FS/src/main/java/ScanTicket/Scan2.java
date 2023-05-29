@@ -17,14 +17,13 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Scan {
+public class Scan2 {
     static {
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
     }
 
-    public List<String[]> scan(String pathImage) {
-        List<String[]> articles = new ArrayList<>();
-    	Tesseract tesseract = new Tesseract();
+    public void scan(String pathImage) {
+        Tesseract tesseract = new Tesseract();
         try {
             tesseract.setDatapath("src/main/java/ScanTicket"); // Spécifie le chemin vers le dossier Tess4J
 
@@ -44,13 +43,13 @@ public class Scan {
                 double epsilon = 0.02 * Imgproc.arcLength(contour2f, true);
                 Imgproc.approxPolyDP(contour2f, approxPoly, epsilon, true);
 
-                //Mat imageContours = image.clone();
-                //Imgproc.drawContours(imageContours, List.of(plusGrandContour), 0, new Scalar(0, 255, 0), 2);
-                //dessinerPolygoneApproxime(imageContours, approxPoly);
+                Mat imageContours = image.clone();
+                Imgproc.drawContours(imageContours, List.of(plusGrandContour), 0, new Scalar(0, 255, 0), 2);
+                dessinerPolygoneApproxime(imageContours, approxPoly);
 
                 // Afficher l'image avec les contours et le polygone approximé
-                //HighGui.imshow("Image avec contours et polygone", imageContours);
-                //HighGui.waitKey(0);
+                HighGui.imshow("Image avec contours et polygone", imageContours);
+                HighGui.waitKey(0);
 
                 // Vérifier si le polygone est un rectangle
                 if (approxPoly.total() == 4) {
@@ -72,18 +71,16 @@ public class Scan {
                         e.printStackTrace();
                     }
 
-                    articles = extraireArticles(texte);
-                    //for (Article article : articles) {
+                    List<Article> articles = extraireArticles(texte);
+                    for (Article article : articles) {
                         
                     	//System.out.println(article);
-                    //}
-                    
+                    }
                 }
             }
         } catch (TesseractException e) {
             e.printStackTrace();
         }
-        return articles;
     }
     
     private static void dessinerPolygoneApproxime(Mat image, MatOfPoint2f approxPoly) {
@@ -176,16 +173,16 @@ public class Scan {
         return imageCorrigee;
     }
 
-    private static List<String[]> extraireArticles(String texte) {
-        List<String[]> articles = new ArrayList<>();
+    private static List<Article> extraireArticles(String texte) {
+        List<Article> articles = new ArrayList<>();
         Pattern pattern = Pattern.compile("([^\\d]+)\\s(\\d+)\\s([\\d,\\.]+)", Pattern.MULTILINE);
         Matcher matcher = pattern.matcher(texte);
         while (matcher.find()) {
             String nom = matcher.group(1);
             int quantite = Integer.parseInt(matcher.group(2));
             double prix = Double.parseDouble(matcher.group(3).replace(',', '.'));
-            String[] ligne = new String[] {nom, Integer.toString(quantite), "01/01/2025"};
-            articles.add(ligne);
+
+            articles.add(new Article(nom, quantite, prix));
         }
 
         return articles;
@@ -195,12 +192,11 @@ public class Scan {
         String nom;
         int quantite;
         double prix;
-        String datePeremption;
 
-        public Article(String nom, int quantite, String datePeremption) {
+        public Article(String nom, int quantite, double prix) {
             this.nom = nom;
             this.quantite = quantite;
-            this.datePeremption = datePeremption;
+            this.prix = prix;
         }
 
         @Override
