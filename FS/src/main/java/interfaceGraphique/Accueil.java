@@ -85,10 +85,7 @@ public class Accueil extends javax.swing.JFrame {
 
         jMenu1.setText("jMenu1");
 
-        /*
-         * On set l'endroit ou se situe la page a l'ouverture
-         */
-        setLocationRelativeTo(null);  
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         /*
          * On set la couleur de la page
@@ -106,6 +103,10 @@ public class Accueil extends javax.swing.JFrame {
          * On set la taille recommande
          */
         setPreferredSize(new java.awt.Dimension(1020, 768));
+        /*
+         * On set l'endroit ou se situe la page a l'ouverture
+         */
+        setLocationRelativeTo(null);  
 
         /*
          * On set les  couleurs de la page menu

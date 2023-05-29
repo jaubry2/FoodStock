@@ -48,7 +48,6 @@ interfaceGraphique\AjouterRecette$8.class
 baseDeDonnees\HibernateService.class
 interfaceGraphique\MenuListe$5.class
 interfaceGraphique\MenuStock$13.class
-interfaceGraphique\AjouterRecette$14.class
 interfaceGraphique\MenuStockOld$12.class
 interfaceGraphique\FicheRecette$4.class
 interfaceGraphique\MenuRecette$5.class

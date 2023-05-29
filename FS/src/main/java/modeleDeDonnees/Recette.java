@@ -72,7 +72,13 @@ public class Recette {
         this.listIngredient = new HashSet<>();
     }
 
-    /**
+    public Recette(String nom, int duree, Set<Ingredient> ingredientsRecette) {
+    	this.duree = duree;
+        this.nom = nom;
+        this.listIngredient = ingredientsRecette;
+	}
+
+	/**
      * Retourne l'identifiant de la recette.
      * 
      * @return L'identifiant de la recette.
@@ -109,7 +115,6 @@ public class Recette {
     }
     /**
      * Retourne la durée de préparation de la recette en minutes.
-     * 
      * @return La durée de préparation de la recette.
      */
     public int getDuree() {
@@ -149,7 +154,6 @@ public class Recette {
     }
     
     public void changerQuantiteRecetteAliment(String nomAliment, int nouvelleQuantite) {
-    	/*this.setId(null);*/
         for (Ingredient ingredients : listIngredient) {
             if (ingredients.getAliment().getNom().equals(nomAliment)) {
                 ingredients.setQuantite(nouvelleQuantite);

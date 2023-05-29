@@ -4,7 +4,7 @@ package modeleDeDonnees;
 import java.util.HashSet;
 import java.util.Set;
 
-public class LivreRecettes {
+public class LivreRecettes extends Observable {
 	private Set<Recette> recettes;
 	
     public LivreRecettes() {
@@ -23,6 +23,8 @@ public class LivreRecettes {
 	}
     public void ajouterRecette(Recette recette) {
         recettes.add(recette);
+        notifyObservers();
+
     }
 
     public void enleverRecette(Recette recette) {
