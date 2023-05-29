@@ -49,7 +49,7 @@ public class ControllerListeCourse implements Observer{
 
 	            	float quantite = Float.parseFloat(vue.getChoixQuantiteeListe().getText());
 	            	Aliment aliment = Main.ensembleAliment.getAlimentByName(vue.getChoixAlimentListe().getText());
-	                model.supprimerIngredient(new Ingredient(aliment, quantite));
+	                model.ajouterIngredient(new Ingredient(aliment, -quantite));
 	            }
 	        });
 	        
