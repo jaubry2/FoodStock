@@ -102,7 +102,7 @@ public class Scan {
         Imgproc.cvtColor(image, imageGrise, Imgproc.COLOR_BGR2GRAY);
 
         // Binarisation de l'image
-        Imgproc.adaptiveThreshold(imageGrise, imageBinaire, 255, Imgproc.ADAPTIVE_THRESH_GAUSSIAN_C, Imgproc.THRESH_BINARY, 61, 10);
+        Imgproc.adaptiveThreshold(imageGrise, imageBinaire, 255, Imgproc.ADAPTIVE_THRESH_GAUSSIAN_C, Imgproc.THRESH_BINARY, 101, 5);
 
         // Réduction du bruit de l'image
         Imgproc.medianBlur(imageBinaire, imageDebruitee, 3);
@@ -162,9 +162,9 @@ public class Scan {
         Mat imageCorrigee = new Mat(new Size(largeurImage, hauteurImage), image.type());
 
         // Définir les points de destination de l'image redressée
-        MatOfPoint2f pointsDest = new MatOfPoint2f(
+        MatOfPoint2f pointsDest = new MatOfPoint2f(new Point(largeurImage - 1, 0),
                 new Point(0, 0), new Point(0, hauteurImage - 1),
-                new Point(largeurImage - 1, hauteurImage - 1), new Point(largeurImage - 1, 0));
+                new Point(largeurImage - 1, hauteurImage - 1) );
 
         // Calculer la matrice de transformation
         Mat matricePerspective = Imgproc.getPerspectiveTransform(approxPoly, pointsDest);
