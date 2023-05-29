@@ -81,11 +81,11 @@ public class MenuRecette extends javax.swing.JFrame {
         
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);  
         setMaximumSize(new java.awt.Dimension(1020, 768));
         setMinimumSize(new java.awt.Dimension(1020, 768));
         setPreferredSize(new java.awt.Dimension(1020, 768));
         setSize(new java.awt.Dimension(1020, 768));
+        setLocationRelativeTo(null);  
         setResizable(false);
 
         Menu3.setBackground(new java.awt.Color(153, 204, 255));
