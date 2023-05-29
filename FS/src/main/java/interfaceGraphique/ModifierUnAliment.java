@@ -526,7 +526,8 @@ public class ModifierUnAliment extends javax.swing.JFrame {
     }
 
     private void validerButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        float p = Float.valueOf(valeurQte.getText());
+        System.out.println(valeurQte.getText());
+    	float p = Float.parseFloat(valeurQte.getText());
 
         if (Main.stock.getQuantiteASNonPerime(aliment) < p)
         {
