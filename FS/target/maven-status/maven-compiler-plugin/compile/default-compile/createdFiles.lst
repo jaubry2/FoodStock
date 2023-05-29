@@ -16,7 +16,6 @@ interfaceGraphique\MenuStock$9.class
 interfaceGraphique\AjouterAliment$7.class
 interfaceGraphique\MenuStock$15.class
 interfaceGraphique\MenuStockOld$2.class
-interfaceGraphique\FenetreErreur$1.class
 modeleDeDonnees\CritereDureeRecette.class
 interfaceGraphique\ModifierUnAliment$5.class
 interfaceGraphique\ModifierUnAliment$2.class
@@ -48,7 +47,6 @@ interfaceGraphique\AjouterRecette$8.class
 baseDeDonnees\HibernateService.class
 interfaceGraphique\MenuListe$5.class
 interfaceGraphique\MenuStock$13.class
-interfaceGraphique\AjouterRecette$14.class
 interfaceGraphique\MenuStockOld$12.class
 interfaceGraphique\FicheRecette$4.class
 interfaceGraphique\MenuRecette$5.class
@@ -85,7 +83,6 @@ interfaceGraphique\MenuStock$11.class
 interfaceGraphique\MenuStock$14.class
 interfaceGraphique\MenuStock$2.class
 interfaceGraphique\ModifierUnAliment$6.class
-interfaceGraphique\FenetreErreur$2.class
 interfaceGraphique\MenuRecette$7.class
 interfaceGraphique\FicheRecette$6.class
 interfaceGraphique\AjouterAliment$6.class
@@ -109,7 +106,6 @@ interfaceGraphique\MenuStockOld$10.class
 interfaceGraphique\AjouterRecette$13.class
 interfaceGraphique\MenuStock$8.class
 interfaceGraphique\Main.class
-interfaceGraphique\FenetreErreur.class
 interfaceGraphique\MenuRecette$9.class
 interfaceGraphique\FicheAliment$3.class
 interfaceGraphique\MenuStock$5.class

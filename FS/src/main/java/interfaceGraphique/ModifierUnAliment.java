@@ -526,25 +526,27 @@ public class ModifierUnAliment extends javax.swing.JFrame {
     }
 
     private void validerButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        float p = Float.valueOf(valeurQte.getText());
 
-        if (Main.stock.getQuantiteASNonPerime(aliment) < p)
+        float valq = Float.valueOf(valeurQte.getText());
+        float valp = Seuil.getValue();
+
+        if (Main.stock.getQuantiteASNonPerime(aliment) < valq)
         {
             JOptionPane.showMessageDialog(this, "La quantité choisie est trop élévé \n comparé a votre stock");
         } else {
             if (propCheckBox.isSelected()){
-                    p = Main.stock.getQuantiteASNonPerime(aliment) * (Float.valueOf(valeurProp.getText())/100);
-                    Main.stock.retirerQuantiteStock(aliment,  p);  
-                    String[] infoAliment = Main.controller.AfficherFicheAliment(aliment);
-                    FicheAliment mF = new FicheAliment(infoAliment[0], infoAliment[1], infoAliment[2], infoAliment[3], infoAliment[4]);                                   ;
-                    mF.setVisible(true);
-                    this.dispose();    
+                Float v = Main.stock.getQuantiteASNonPerime(aliment) * (valp/100);
+                Main.stock.retirerQuantiteStock(aliment,  v);  
+                String[] infoAliment = Main.controller.AfficherFicheAliment(aliment);
+                FicheAliment mF = new FicheAliment(infoAliment[0], infoAliment[1], infoAliment[2], infoAliment[3], infoAliment[4]);                                   ;
+                mF.setVisible(true);
+                this.dispose();    
             } else if(qteCheckBox.isSelected()){
                 String udm = (String)uniteDeMesureComboBox.getSelectedItem();
                 if(udm.equals("--- Unité de Mesure")){
                     JOptionPane.showMessageDialog(this, "Selectionnez une unité \n de mesure");
                 } else{
-                Main.stock.retirerQuantiteStock(aliment,  p);
+                Main.stock.retirerQuantiteStock(aliment,  valq);
                 String[] infoAliment = Main.controller.AfficherFicheAliment(aliment);
                 FicheAliment mF = new FicheAliment(infoAliment[0], infoAliment[1], infoAliment[2], infoAliment[3], infoAliment[4]);                                   ;
                 mF.setVisible(true);

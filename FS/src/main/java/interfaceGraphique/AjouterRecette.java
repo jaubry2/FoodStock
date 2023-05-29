@@ -4,16 +4,22 @@
  */
 package interfaceGraphique;
 
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+
 /**
  *
  * @author idruote
  */
 public class AjouterRecette extends javax.swing.JFrame {
 
-    /**
+    private TableModel dTMAliment;
+	/**
      * Creates new form AjouterRecette
      */
     public AjouterRecette() {
+    	dTMAliment = (DefaultTableModel) TableIngredientsRecette.getModel();
+
         initComponents();
     }
 
@@ -34,7 +40,7 @@ public class AjouterRecette extends javax.swing.JFrame {
         TableIngredientsRecette = new javax.swing.JTable();
         boutonAjouter = new javax.swing.JButton();
         titreNomRecette = new javax.swing.JLabel();
-        addStockButton = new javax.swing.JButton();
+        ajoutRecettebutton = new javax.swing.JButton();
         titreRecette = new javax.swing.JLabel();
         titreTableIngredientsRecette = new javax.swing.JLabel();
         pageMenu = new javax.swing.JPanel();
@@ -74,22 +80,9 @@ public class AjouterRecette extends javax.swing.JFrame {
         titreDureeRecette.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         titreDureeRecette.setText("Durée : ");
 
-        TableIngredientsRecette.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+        TableIngredientsRecette.setModel(dTMAliment);
+           
 
-            },
-            new String [] {
-                "Nom", "Qte", "DDP"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.String.class, java.lang.Object.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
         TableIngredientsRecette.setFocusable(false);
         TableIngredientsRecette.setRowHeight(25);
         TableIngredientsRecette.setSelectionBackground(new java.awt.Color(232, 57, 95));
@@ -113,10 +106,10 @@ public class AjouterRecette extends javax.swing.JFrame {
         titreNomRecette.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         titreNomRecette.setText("Nom :");
 
-        addStockButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        addStockButton.setText("AJOUTER AU STOCK");
-        addStockButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        addStockButton.addActionListener(new java.awt.event.ActionListener() {
+        ajoutRecettebutton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        ajoutRecettebutton.setText("AJOUTER AU STOCK");
+        ajoutRecettebutton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        ajoutRecettebutton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addStockButtonActionPerformed(evt);
             }
@@ -153,7 +146,7 @@ public class AjouterRecette extends javax.swing.JFrame {
                                 .addGap(374, 374, 374)
                                 .addGroup(pageAjouterRecetteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(boutonAjouter)
-                                    .addComponent(addStockButton))))
+                                    .addComponent(ajoutRecettebutton))))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pageAjouterRecetteLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -184,7 +177,7 @@ public class AjouterRecette extends javax.swing.JFrame {
                 .addGap(97, 97, 97)
                 .addComponent(boutonAjouter, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 235, Short.MAX_VALUE)
-                .addComponent(addStockButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ajoutRecettebutton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(47, 47, 47))
         );
 
@@ -292,7 +285,11 @@ public class AjouterRecette extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void nomRecetteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomRecetteActionPerformed
+    public TableModel getdTMAliment() {
+		return dTMAliment;
+	}
+
+	private void nomRecetteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomRecetteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nomRecetteActionPerformed
 
@@ -420,14 +417,30 @@ public class AjouterRecette extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TableIngredientsRecette;
-    private javax.swing.JButton addStockButton;
-    private javax.swing.JButton boutonAjouter;
+    private javax.swing.JButton ajoutRecettebutton;
+    public javax.swing.JButton getAjoutRecettebutton() {
+		return ajoutRecettebutton;
+	}
+
+	private javax.swing.JButton boutonAjouter;
     private javax.swing.JTextField dureeRecette;
-    private javax.swing.JScrollPane jScrollPane4;
+    public javax.swing.JTextField getDureeRecette() {
+		return dureeRecette;
+	}
+
+	private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JButton listButton;
     private javax.swing.JLabel menuText;
     private javax.swing.JTextField nomRecette;
-    private javax.swing.JPanel pageAjouterRecette;
+    public javax.swing.JTable getTableIngredientsRecette() {
+		return TableIngredientsRecette;
+	}
+
+	public javax.swing.JTextField getNomRecette() {
+		return nomRecette;
+	}
+
+	private javax.swing.JPanel pageAjouterRecette;
     private javax.swing.JPanel pageMenu;
     private javax.swing.JButton recetteButton;
     private javax.swing.JButton stockButton;
