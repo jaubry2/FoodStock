@@ -84,8 +84,9 @@ public class MenuRecette extends javax.swing.JFrame {
         setLocationRelativeTo(null);  
         setMaximumSize(new java.awt.Dimension(1020, 768));
         setMinimumSize(new java.awt.Dimension(1020, 768));
+        setPreferredSize(new java.awt.Dimension(1020, 768));
+        setSize(new java.awt.Dimension(1020, 768));
         setResizable(false);
-        setPreferredSize(new java.awt.Dimension(1020, 768)); 
 
         Menu3.setBackground(new java.awt.Color(153, 204, 255));
         Menu3.setForeground(new java.awt.Color(51, 204, 255));
@@ -117,7 +118,7 @@ public class MenuRecette extends javax.swing.JFrame {
         });
 
         RecetteButton3.setBackground(new java.awt.Color(153, 204, 255));
-        RecetteButton3.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        RecetteButton3.setFont(new java.awt.Font("Helvetica Neue", 0, 14));
         RecetteButton3.setText("Recette");
         RecetteButton3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -131,7 +132,7 @@ public class MenuRecette extends javax.swing.JFrame {
         });
 
         ListButton3.setBackground(new java.awt.Color(153, 204, 255));
-        ListButton3.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        ListButton3.setFont(new java.awt.Font("Helvetica Neue", 0, 14));
         ListButton3.setText("Liste");
         ListButton3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -168,7 +169,7 @@ public class MenuRecette extends javax.swing.JFrame {
                 .addComponent(RecetteButton3)
                 .addGap(18, 18, 18)
                 .addComponent(ListButton3)
-                .addContainerGap(399, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pageMenuRecettes.setBackground(new java.awt.Color(255, 204, 204));
@@ -196,13 +197,13 @@ public class MenuRecette extends javax.swing.JFrame {
         chercherIngredientRecettesLayout.setHorizontalGroup(
             chercherIngredientRecettesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(chercherIngredientRecettesLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(16, Short.MAX_VALUE)
                 .addComponent(titreChercherIngredientRecettes)
                 .addGap(18, 18, 18)
-                .addComponent(alimentChoisi, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(alimentChoisi, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(chercherIngredientRecettesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31))
+                .addComponent(chercherIngredientRecettesButton)
+                .addContainerGap())
         );
         chercherIngredientRecettesLayout.setVerticalGroup(
             chercherIngredientRecettesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -231,19 +232,20 @@ public class MenuRecette extends javax.swing.JFrame {
         chercherNomRecetteLayout.setHorizontalGroup(
             chercherNomRecetteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(chercherNomRecetteLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(41, Short.MAX_VALUE)
                 .addComponent(titreChercherNomRecettes)
+                .addGap(33, 33, 33)
+                .addComponent(alimentChoisi, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(recetteChoisi, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(chercherNomRecettesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(chercherNomRecettesButton)
+                .addContainerGap())
         );
         chercherNomRecetteLayout.setVerticalGroup(
             chercherNomRecetteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(chercherNomRecetteLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(chercherNomRecetteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(recetteChoisi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(alimentChoisi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(chercherNomRecettesButton)
                     .addComponent(titreChercherNomRecettes))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -276,32 +278,27 @@ public class MenuRecette extends javax.swing.JFrame {
         Vitesses.setLayout(VitessesLayout);
         VitessesLayout.setHorizontalGroup(
             VitessesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VitessesLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(VitessesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(longueButton)
-                    .addComponent(mediumButton)
-                    .addComponent(rapideButton))
-                .addContainerGap())
+            .addGroup(VitessesLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(rapideButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 169, Short.MAX_VALUE)
+                .addComponent(mediumButton)
+                .addGap(178, 178, 178)
+                .addComponent(longueButton)
+                .addGap(25, 25, 25))
         );
         VitessesLayout.setVerticalGroup(
             VitessesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(VitessesLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(rapideButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(mediumButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(longueButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(VitessesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rapideButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(mediumButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(longueButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
         ajoutRecetteButton.setText("Ajouter une recette");
-        
-        ajoutRecetteButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-            	ajoutRecetteButtonActionPerformed(evt);
-            }
-        });
 
         favButton.setText("favorites");
 
@@ -310,53 +307,53 @@ public class MenuRecette extends javax.swing.JFrame {
         pageMenuRecettesLayout.setHorizontalGroup(
             pageMenuRecettesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pageMenuRecettesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pageMenuRecettesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pageMenuRecettesLayout.createSequentialGroup()
+                        .addComponent(titreMenuRecettes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pageMenuRecettesLayout.createSequentialGroup()
+                        .addGap(0, 153, Short.MAX_VALUE)
+                        .addGroup(pageMenuRecettesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pageMenuRecettesLayout.createSequentialGroup()
+                                .addComponent(chercherIngredientRecettes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap())
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pageMenuRecettesLayout.createSequentialGroup()
+                                .addComponent(chercherNomRecette, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(242, 242, 242))))))
+            .addGroup(pageMenuRecettesLayout.createSequentialGroup()
                 .addGroup(pageMenuRecettesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pageMenuRecettesLayout.createSequentialGroup()
-                        .addGap(250, 250, 250)
-                        .addComponent(titreMenuRecettes))
+                        .addGap(371, 371, 371)
+                        .addComponent(favButton))
                     .addGroup(pageMenuRecettesLayout.createSequentialGroup()
-                        .addGap(139, 139, 139)
+                        .addGap(114, 114, 114)
                         .addGroup(pageMenuRecettesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(favButton)
-                            .addComponent(chercherIngredientRecettes, javax.swing.GroupLayout.PREFERRED_SIZE, 479, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(pageMenuRecettesLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(Vitesses, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 618, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(ajoutRecetteButton)
-                .addGap(0, 284, Short.MAX_VALUE))
-            .addGroup(pageMenuRecettesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(pageMenuRecettesLayout.createSequentialGroup()
-                    .addGap(140, 140, 140)
-                    .addComponent(chercherNomRecette, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(400, Short.MAX_VALUE)))
+                            .addComponent(Vitesses, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(pageMenuRecettesLayout.createSequentialGroup()
+                        .addGap(345, 345, 345)
+                        .addComponent(ajoutRecetteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         pageMenuRecettesLayout.setVerticalGroup(
             pageMenuRecettesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pageMenuRecettesLayout.createSequentialGroup()
-                .addGap(17, 17, 17)
+                .addGap(24, 24, 24)
                 .addComponent(titreMenuRecettes)
-                .addGap(82, 82, 82)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(chercherNomRecette, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
                 .addComponent(chercherIngredientRecettes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(favButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
-                .addGroup(pageMenuRecettesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(ajoutRecetteButton)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pageMenuRecettesLayout.createSequentialGroup()
-                        .addComponent(Vitesses, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(56, 56, 56))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pageMenuRecettesLayout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
-            .addGroup(pageMenuRecettesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(pageMenuRecettesLayout.createSequentialGroup()
-                    .addGap(81, 81, 81)
-                    .addComponent(chercherNomRecette, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(385, Short.MAX_VALUE)))
+                .addGap(30, 30, 30)
+                .addComponent(Vitesses, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addComponent(ajoutRecetteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(129, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -366,19 +363,16 @@ public class MenuRecette extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(Menu3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pageMenuRecettes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(pageMenuRecettes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(Menu3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(pageMenuRecettes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(pageMenuRecettes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }
 
     private void titreMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_titreMenu3MouseClicked
         Main.controller.ChangerPage("accueil", null, null, null);
