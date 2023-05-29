@@ -183,17 +183,19 @@ public void ajouterAliment(AlimentStockes alimentsStock) {
 		//Tri de la liste par date de peremption
 		listAlimentSupp.sort(Comparator.comparing(AlimentStockes::getDatePeremption));		
 		int i =0;
-		while(quantite > 0) {
+		while(quantite > 0 && i < listAlimentSupp.size() ) {
 			AlimentStockes alimentStock = listAlimentSupp.get(i);
-		float quantiteAliment = alimentStock.getQuantite();
-		 quantite = quantite - quantiteAliment;
-		 if (quantite >= 0) {
-			 this.retirerAliment(alimentStock);
-		 }
-		 else {
-			 listAlimentSupp.get(i).setQuantite(quantite);
+			float quantiteAliment = alimentStock.getQuantite();
+			quantiteAliment = quantiteAliment - quantite;
+			if (quantiteAliment <= 0) {
+				this.retirerAliment(alimentStock);
+				quantite = Math.abs(quantiteAliment);
+			}
+			else {
+			 listAlimentSupp.get(i).setQuantite(quantiteAliment);
+			 quantite =0;
 
-		 }
+			}
 		i++;		
 		}
 		
