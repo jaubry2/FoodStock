@@ -31,12 +31,18 @@ public class AjouterRecette extends javax.swing.JFrame {
      * Bouton supprimer de la table
      */
     private javax.swing.JButton boutonSupprimer;
-    private javax.swing.JTextField dureeRecette;
+    public javax.swing.JButton getBoutonSupprimer() {
+		return boutonSupprimer;
+	}
+	private javax.swing.JTextField dureeRecette;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JButton listButton;
     private javax.swing.JLabel menuText;
     private javax.swing.JLabel nomIngredientText;
-    private javax.swing.JTextField nomIngredientTextField;
+    public javax.swing.JLabel getNomIngredientText() {
+		return nomIngredientText;
+	}
+	private javax.swing.JTextField nomIngredientTextField;
     private javax.swing.JTextField nomRecette;
     private javax.swing.JPanel nomTextField;
     private javax.swing.JPanel pageMenu;
@@ -172,11 +178,7 @@ public class AjouterRecette extends javax.swing.JFrame {
         boutonSupprimer.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); 
         boutonSupprimer.setText("SUPPRIMER INGRÉDIENT");
         boutonSupprimer.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        boutonSupprimer.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                boutonSupprimerActionPerformed(evt);
-            }
-        });
+        
 
         javax.swing.GroupLayout nomTextFieldLayout = new javax.swing.GroupLayout(nomTextField);
         nomTextField.setLayout(nomTextFieldLayout);
@@ -346,13 +348,7 @@ public class AjouterRecette extends javax.swing.JFrame {
     }                                                                  
 
     private void boutonAjouterActionPerformed(java.awt.event.ActionEvent evt) {                                              
-        /* On récupère le nom et la quantité */
-        String nomIngredient = nomIngredientTextField.getText();
-        String qteIngredient = qteTextField.getText();
-
-        /* Ajout a la table */
-        String[] ligne = new String[] {nomIngredient, qteIngredient};
-        dTMAliment.addRow(ligne);
+        
     }                                             
 
     private void addLivreButtonActionPerformed(java.awt.event.ActionEvent evt) {                                               
@@ -385,9 +381,7 @@ public class AjouterRecette extends javax.swing.JFrame {
         selectedRow = TableIngredientsRecette.getSelectedRow();
     }                                                                                               
 
-    private void boutonSupprimerActionPerformed(java.awt.event.ActionEvent evt) {                                                
-        dTMAliment.removeRow(selectedRow);
-    }                                               
+                                                
 
     /**
      * @param args the command line arguments
@@ -431,5 +425,26 @@ public class AjouterRecette extends javax.swing.JFrame {
 	}
 	public javax.swing.JTextField getNomRecette() {
 		return nomRecette;
+	}
+	public javax.swing.JLabel getQteIngredientText() {
+		return qteIngredientText;
+	}
+	public javax.swing.JTable getTableIngredientsRecette() {
+		return TableIngredientsRecette;
+	}
+	public void setNomIngredientText(javax.swing.JLabel nomIngredientText) {
+		this.nomIngredientText = nomIngredientText;
+	}
+	public javax.swing.JTextField getNomIngredientTextField() {
+		return nomIngredientTextField;
+	}
+	public javax.swing.JTextField getQteTextField() {
+		return qteTextField;
+	}
+	public int getSelectedRow() {
+		return selectedRow;
+	}
+	public void setSelectedRow(int selectedRow) {
+		this.selectedRow = selectedRow;
 	}             
 }

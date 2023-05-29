@@ -53,6 +53,10 @@ public class ControllerListeCourse implements Observer{
 	            }
 	        });
 	        
+	        
+	    	
+
+	        
 	    }
 
 	    public void update() {

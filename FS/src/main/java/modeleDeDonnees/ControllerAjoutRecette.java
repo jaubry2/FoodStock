@@ -46,10 +46,25 @@ public class ControllerAjoutRecette implements Observer {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Ajoute une nouvelle ligne vide au modèle de table
-            	System.out.println("aa");
-                vue.getdTMAliment().addRow(new Object[]{"", ""});
+    	        String nomIngredient = vue.getNomIngredientTextField().getText();
+    	        String qteIngredient = vue.getQteTextField().getText();
+    	      
+    	        String[] ligne = new String[] {nomIngredient, qteIngredient};
+    	        vue.getdTMAliment().addRow(ligne);
+    	        vue.getTableIngredientsRecette().setModel(vue.getdTMAliment());
+    	        
             }
         });
+        vue.getBoutonSupprimer().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+    	      
+    	        vue.getdTMAliment().removeRow(vue.getTableIngredientsRecette().getSelectedRow());
+
+    	        
+            }
+        });
+
     }
 
     public void update() {
