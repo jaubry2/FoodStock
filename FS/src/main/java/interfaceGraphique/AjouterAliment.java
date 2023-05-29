@@ -472,6 +472,8 @@ public class AjouterAliment extends javax.swing.JFrame {
             if (result == 0 & !infoAliment[0].equals("") & !infoAliment[1].equals("") & !infoAliment[2].equals("")){
                 Aliment aliment = Main.controller.creerAliment(nom, UnitedeMesure.valueOf(infoAliment[0]), MoyendeConservation.valueOf(infoAliment[1]), TypeAliment.valueOf(infoAliment[2]));
                 Main.ensembleAliment.ajouterAliment(aliment);
+                String[] ligne = new String[] {nom, quantite, ddp};
+                d.addRow(ligne);
             }
         }
     }
