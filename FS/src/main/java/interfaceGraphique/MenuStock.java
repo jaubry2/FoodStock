@@ -379,45 +379,40 @@ public class MenuStock extends javax.swing.JFrame {
     * @param evt Click sur le bouton Stock
     */
     private void stockButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        MenuStock newPage = new MenuStock();
-		newPage.setVisible(true);
-        this.dispose();
+        Main.controller.changerPage("menuStock", null, null, null);
+
     }
     /**
     * Permet d'ouvrir le menu recette
     * @param evt Click sur le bouton Recette
     */
     private void recetteButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        MenuRecette newPage = new MenuRecette();
-		newPage.setVisible(true);
-        this.dispose();
+        
+        Main.controller.changerPage("menuRecette", null, null, null);
     }
     /**
      * Permet d'ouvrir le menu liste
      * @param evt Click sur le bouton Liste
      */
     private void listButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        MenuListe newPage = new MenuListe();
-        ControllerListeCourse cLdC = new ControllerListeCourse(Main.listeCourse ,(MenuListe) newPage);
-		newPage.setVisible(true);
+        
+    	Main.controller.changerPage("menuListe",null, null, null);
     }
     /**
      * Permet d'ouvrir l'accueil
      * @param evt Click sur le text menu
      */
     private void menuTextMouseClicked(java.awt.event.MouseEvent evt) {
-        Accueil newPage = new Accueil();
-		newPage.setVisible(true);
-        this.dispose();
+    	Main.controller.changerPage("accueil",null, null, null);
+
     }
     /**
      * Permet d'ouvrir la page d'ajout d'aliment
      * @param evt Click sur le bouton AJOUTER
      */
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        AjouterAliment mA = new AjouterAliment();
-        mA.setVisible(true);
-        this.dispose();
+        Main.controller.changerPage("ajouterAliment", null, null,null);
+
     }
 
     /**
@@ -495,7 +490,7 @@ public class MenuStock extends javax.swing.JFrame {
         System.out.println("ficheAlimentButton");
 
         System.out.println(nom);
-        String[] infoAliment = Main.controller.AfficherFicheAliment(nom);
+        String[] infoAliment = Main.controller.afficherFicheAliment(nom);
         FicheAliment mF = new FicheAliment(infoAliment[0], infoAliment[1], infoAliment[2], infoAliment[3], infoAliment[4]);                                   ;
         mF.setVisible(true);
         this.dispose();

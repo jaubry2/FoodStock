@@ -365,7 +365,7 @@ public class MenuListe extends JFrame {
 	}
 
 	private void titreMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_titreMenu3MouseClicked
-        Main.controller.ChangerPage("accueil", null, null, null);
+        Main.controller.changerPage("accueil", null, null, null);
         this.dispose();
     }//GEN-LAST:event_titreMenu3MouseClicked
 
@@ -378,7 +378,7 @@ public class MenuListe extends JFrame {
     }//GEN-LAST:event_StockButton3MouseEntered
 
     private void StockButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StockButton3ActionPerformed
-        Main.controller.ChangerPage("menuStock", null, null, null);
+        Main.controller.changerPage("menuStock", null, null, null);
         this.dispose();
     }//GEN-LAST:event_StockButton3ActionPerformed
 
@@ -387,7 +387,7 @@ public class MenuListe extends JFrame {
     }//GEN-LAST:event_RecetteButton3MouseClicked
 
     private void RecetteButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RecetteButton3ActionPerformed
-        Main.controller.ChangerPage("menuRecette", null, null, null);
+        Main.controller.changerPage("menuRecette", null, null, null);
         this.dispose();
     }
 
@@ -396,7 +396,7 @@ public class MenuListe extends JFrame {
     }
 
     private void ListButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListButton3ActionPerformed
-        Main.controller.ChangerPage("menuListe", null, null, null);
+        Main.controller.changerPage("menuListe", null, null, null);
         this.dispose();
     }
 

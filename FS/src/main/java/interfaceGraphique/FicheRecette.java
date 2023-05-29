@@ -320,7 +320,7 @@ public class FicheRecette extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void MenuTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuTextMouseClicked
-        Main.controller.ChangerPage("accueil", null, null, null);
+        Main.controller.changerPage("accueil", null, null, null);
         this.dispose();
     }//GEN-LAST:event_MenuTextMouseClicked
 
@@ -333,7 +333,7 @@ public class FicheRecette extends javax.swing.JFrame {
     }//GEN-LAST:event_StockButton3MouseEntered
 
     private void StockButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StockButton3ActionPerformed
-        Main.controller.ChangerPage("menuStock", null, null, null);
+        Main.controller.changerPage("menuStock", null, null, null);
         this.dispose();
     }//GEN-LAST:event_StockButton3ActionPerformed
 
@@ -342,7 +342,7 @@ public class FicheRecette extends javax.swing.JFrame {
     }//GEN-LAST:event_RecetteButton3MouseClicked
 
     private void RecetteButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RecetteButton3ActionPerformed
-        Main.controller.ChangerPage("menuRecette", null, null, null);
+        Main.controller.changerPage("menuRecette", null, null, null);
         this.dispose();
     }//GEN-LAST:event_RecetteButton3ActionPerformed
 
@@ -351,7 +351,7 @@ public class FicheRecette extends javax.swing.JFrame {
     }//GEN-LAST:event_ListButton3MouseClicked
 
     private void ListButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListButton3ActionPerformed
-        Main.controller.ChangerPage("menuListe", null, null, null);
+        Main.controller.changerPage("menuListe", null, null, null);
         this.dispose();
     }//GEN-LAST:event_ListButton3ActionPerformed
 
@@ -360,7 +360,7 @@ public class FicheRecette extends javax.swing.JFrame {
     }//GEN-LAST:event_afficheInstructionsActionPerformed
 
     private void ModifierAlimButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifierAlimButtonActionPerformed
-        Main.controller.ChangerPage("modifierUnAliment", null, null, null);
+        Main.controller.changerPage("modifierUnAliment", null, null, null);
         this.dispose();
     }//GEN-LAST:event_ModifierAlimButtonActionPerformed
 

@@ -356,24 +356,24 @@ public class AjouterRecette extends javax.swing.JFrame {
     }                                              
 
     private void menuTextMouseClicked(java.awt.event.MouseEvent evt) {                                      
-        Main.controller.ChangerPage("accueil", null, null, null);
+        Main.controller.changerPage("accueil", null, null, null);
         this.dispose();
     }                                                                           
 
     private void stockButtonActionPerformed(java.awt.event.ActionEvent evt) {                                            
-        Main.controller.ChangerPage("menuStock", null, null, null);
+        Main.controller.changerPage("menuStock", null, null, null);
         this.dispose();
     }                                           
                                          
 
     private void recetteButtonActionPerformed(java.awt.event.ActionEvent evt) {                                              
-        Main.controller.ChangerPage("menuRecette", null, null, null);
+        Main.controller.changerPage("menuRecette", null, null, null);
         this.dispose();
     }                                             
                                     
 
     private void listButtonActionPerformed(java.awt.event.ActionEvent evt) {                                           
-        Main.controller.ChangerPage("menuListe", null, null, null);
+        Main.controller.changerPage("menuListe", null, null, null);
         this.dispose();
     }                                          
 

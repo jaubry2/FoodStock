@@ -274,7 +274,7 @@ public class Accueil extends javax.swing.JFrame {
         /*MenuListe newPage = new MenuListe();
         ControllerListeCourse cLdC = new ControllerListeCourse(Main.listeCourse ,(MenuListe) newPage);
 		newPage.setVisible(true);*/
-        Main.controller.ChangerPage("menuListe", null, null, null);
+        Main.controller.changerPage("menuListe", null, null, null);
         this.dispose();
     }
     /**

@@ -509,10 +509,8 @@ public class ModifierUnAliment extends javax.swing.JFrame {
      * @param evt Click sur le bouton Liste
      */
     private void listButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        /*MenuListe newPage = new MenuListe();
-		newPage.setVisible(true);*/
-    	Main.controller.ChangerPage("MenuListe",null,null,null);
 
+    	Main.controller.changerPage("MenuListe",null,null,null);
         this.dispose();
     }
     /**
@@ -559,16 +557,16 @@ public class ModifierUnAliment extends javax.swing.JFrame {
 
     	if (propCheckBox.isSelected()) {
             float valp = Seuil.getValue();
-	        Float v = Main.stock.getQuantiteASNonPerime(aliment) * (valp / 100);
+	        Float v = Main.stock.getQuantiteAS(aliment) * (valp / 100);
 	        Main.stock.retirerQuantiteStock(aliment, v);
-	        String[] infoAliment = Main.controller.AfficherFicheAliment(aliment);
+	        String[] infoAliment = Main.controller.afficherFicheAliment(aliment);
 	        FicheAliment mF = new FicheAliment(infoAliment[0], infoAliment[1], infoAliment[2], infoAliment[3], infoAliment[4]);
 	        mF.setVisible(true);
 	        this.dispose();
     	 
     	} else if (qteCheckBox.isSelected()) {
     		float valq = Float.valueOf(valeurQte.getText());
-    		if (Main.stock.getQuantiteASNonPerime(aliment) < valq) {
+    		if (Main.stock.getQuantiteAS(aliment) < valq) {
     	        JOptionPane.showMessageDialog(this, "La quantité choisie est trop élevée\ncomparée à votre stock");
     	    } 
     	    String udm = (String) uniteDeMesureComboBox.getSelectedItem();
@@ -576,7 +574,7 @@ public class ModifierUnAliment extends javax.swing.JFrame {
     	        JOptionPane.showMessageDialog(this, "Sélectionnez une unité de mesure");
     	    } else {
     	        Main.stock.retirerQuantiteStock(aliment, valq);
-    	        String[] infoAliment = Main.controller.AfficherFicheAliment(aliment);
+    	        String[] infoAliment = Main.controller.afficherFicheAliment(aliment);
     	        FicheAliment mF = new FicheAliment(infoAliment[0], infoAliment[1], infoAliment[2], infoAliment[3], infoAliment[4]);
     	        mF.setVisible(true);
     	        this.dispose();

@@ -499,7 +499,7 @@ public class MenuStockOld extends javax.swing.JFrame {
         System.out.println("ficheAlimentButton");
 
         System.out.println(nom);
-        String[] infoAliment = Main.controller.AfficherFicheAliment(nom);
+        String[] infoAliment = Main.controller.afficherFicheAliment(nom);
         FicheAliment mF = new FicheAliment(infoAliment[0], infoAliment[1], infoAliment[2], infoAliment[3], infoAliment[4]);                                   ;
         mF.setVisible(true);
         this.dispose();

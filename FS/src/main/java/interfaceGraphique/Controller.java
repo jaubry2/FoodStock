@@ -41,52 +41,52 @@ public class Controller {
     
 	public Controller() {};
 	
-	public void OuvrirPage(javax.swing.JFrame _page){
+	public void ouvrirPage(javax.swing.JFrame _page){
         _page.setVisible(true);
     }
-    public void ChangerPage(String _page, String _erreur, String _message, String _nomAliment){
+    public void changerPage(String _page, String _erreur, String _message, String _nomAliment){
         javax.swing.JFrame newPage = null;
         System.out.println("changer page");
         
         if (_page.equals("accueil")) {
             newPage = new Accueil();
-           OuvrirPage(newPage);
+           ouvrirPage(newPage);
         } else if (_page.equals("ajouterAliment")) {
             newPage = new AjouterAliment();
-           OuvrirPage(newPage);
+           ouvrirPage(newPage);
         } else if (_page.equals("ficheAliment")) {
             newPage = new FicheAliment(_nomAliment,"","","","");
-            OuvrirPage(newPage);
+            ouvrirPage(newPage);
         } else if (_page.equals("menuListe")) {
         	DefaultTableModel model = this.afficherListeCourse();
             newPage = new MenuListe(model);
             System.out.println("aazz");
             ControllerListeCourse cLdC = new ControllerListeCourse(Main.listeCourse ,(MenuListe) newPage);
-           OuvrirPage(newPage);
+           ouvrirPage(newPage);
            
         } else if (_page.equals("menuRecette")) {
             newPage = new MenuRecette();
-            OuvrirPage(newPage);
+            ouvrirPage(newPage);
         } else if (_page.equals("menuStock")) {
             newPage = new MenuStock();
-            OuvrirPage(newPage);
+            ouvrirPage(newPage);
         } else if (_page.equals("modifierUnAliment")) {
             newPage = new ModifierUnAliment(_nomAliment);
-           OuvrirPage(newPage);
+           ouvrirPage(newPage);
         } else if (_page.equals("AjouterRecette")) {
         	
         	System.out.println("zaza");
         	newPage = new AjouterRecette();
             ControllerAjoutRecette cAR = new ControllerAjoutRecette(Main.livreRecette ,(AjouterRecette) newPage);
 
-        	OuvrirPage(newPage);
+        	ouvrirPage(newPage);
         } else {
             // Erreur
         }
 
             
         }
- public void AjouterStock(DefaultTableModel d) {
+ public void ajouterStock(DefaultTableModel d) {
     	
     	List<AlimentStockes> listRajout= new ArrayList<>();
     	
@@ -111,16 +111,17 @@ public class Controller {
     	}
         Main.stock.ajouterListe(listRajout );
         Main.stock.afficherContenuStock();
+        Main.controller.changerPage("menuStock", null, null, null);
         
     };
     
-public String[] AfficherFicheAliment(String nom ) {
+public String[] afficherFicheAliment(String nom ) {
 	System.out.println("afficher Fiche");
 	System.out.println(nom);
 	AlimentStockes alimentFiche = Main.stock.getAlimentStockesByName(nom);
 	String[] infoAliment = new String[5];
 	infoAliment[0] = alimentFiche.getAliment().getNom();
-	infoAliment[1]= String.valueOf(Main.stock.getQuantiteASNonPerime(alimentFiche.getAliment().getNom()));	
+	infoAliment[1]= String.valueOf(Main.stock.getQuantiteAS(alimentFiche.getAliment().getNom()));	
 	infoAliment[2] = alimentFiche.getAliment().getTypeAliment().toString();
 	infoAliment[3] = alimentFiche.getAliment().getMoyenConservation().toString();
 	infoAliment[4] = Main.stock.getDatePlusRecente(nom).toString();

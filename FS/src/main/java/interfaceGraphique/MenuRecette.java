@@ -380,7 +380,7 @@ public class MenuRecette extends javax.swing.JFrame {
     }
 
     private void titreMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_titreMenu3MouseClicked
-        Main.controller.ChangerPage("accueil", null, null, null);
+        Main.controller.changerPage("accueil", null, null, null);
         this.dispose();
     }//GEN-LAST:event_titreMenu3MouseClicked
 
@@ -393,7 +393,7 @@ public class MenuRecette extends javax.swing.JFrame {
     }//GEN-LAST:event_StockButton3MouseEntered
 
     private void StockButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StockButton3ActionPerformed
-        Main.controller.ChangerPage("menuStock", null, null, null);
+        Main.controller.changerPage("menuStock", null, null, null);
         this.dispose();
     }//GEN-LAST:event_StockButton3ActionPerformed
 
@@ -402,7 +402,7 @@ public class MenuRecette extends javax.swing.JFrame {
     }//GEN-LAST:event_RecetteButton3MouseClicked
 
     private void RecetteButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RecetteButton3ActionPerformed
-        Main.controller.ChangerPage("menuRecette", null, null, null);
+        Main.controller.changerPage("menuRecette", null, null, null);
         this.dispose();
     }//GEN-LAST:event_RecetteButton3ActionPerformed
     
@@ -413,7 +413,7 @@ public class MenuRecette extends javax.swing.JFrame {
     }//GEN-LAST:event_ListButton3MouseClicked
 
     private void ListButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListButton3ActionPerformed
-        Main.controller.ChangerPage("menuListe", null, null, null);
+        Main.controller.changerPage("menuListe", null, null, null);
         this.dispose();
     }
 
@@ -439,7 +439,7 @@ public class MenuRecette extends javax.swing.JFrame {
     
     private void ajoutRecetteButtonActionPerformed(java.awt.event.ActionEvent evt) {
     	System.out.println("bouton ajout recette");
-        Main.controller.ChangerPage("AjouterRecette", null, null, null);
+        Main.controller.changerPage("AjouterRecette", null, null, null);
         this.dispose();
 
     }

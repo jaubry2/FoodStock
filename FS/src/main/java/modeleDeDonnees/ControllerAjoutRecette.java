@@ -69,6 +69,6 @@ public class ControllerAjoutRecette implements Observer {
 
     public void update() {
         System.out.println("update");
-        Main.controller.ChangerPage("Menu Recette", null, null, null);
+        Main.controller.changerPage("Menu Recette", null, null, null);
     }
 }

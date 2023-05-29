@@ -294,7 +294,7 @@ public class FicheAliment extends javax.swing.JFrame {
 
         quantiteText.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); 
         quantiteText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        quantiteText.setText("Quantite (non périmée) :");
+        quantiteText.setText("Quantite :");
 
         TableRecette.setModel(Main.controller.afficherRecetteLieAliment(nomAliment));
             
@@ -452,7 +452,7 @@ public class FicheAliment extends javax.swing.JFrame {
     }
 
     private void listButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        Main.controller.ChangerPage("menuListe", null, null, null);
+        Main.controller.changerPage("menuListe", null, null, null);
         this.dispose();
     	/*MenuListe newPage = new MenuListe();
 		newPage.setVisible(true);
@@ -469,7 +469,7 @@ public class FicheAliment extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "L'aliment recherché n'est \n pas dans le stock");
         }
         else {
-            String[] infoAliment =Main.controller.AfficherFicheAliment(ac);
+            String[] infoAliment =Main.controller.afficherFicheAliment(ac);
             DefaultTableModel recette =Main.controller.afficherRecetteLieAliment(ac);
 
         

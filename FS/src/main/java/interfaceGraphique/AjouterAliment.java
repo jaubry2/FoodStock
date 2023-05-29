@@ -498,7 +498,7 @@ public class AjouterAliment extends javax.swing.JFrame {
      * @param evt Click sur le bouton Liste
      */
     private void listButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        Main.controller.ChangerPage("menuListe", null, null, null);
+        Main.controller.changerPage("menuListe", null, null, null);
         this.dispose();
     }
     /**
@@ -512,7 +512,7 @@ public class AjouterAliment extends javax.swing.JFrame {
     }
 
     private void addStockButtonActionPerformed(java.awt.event.ActionEvent evt) {                                               
-    	Main.controller.AjouterStock(d);
+    	Main.controller.ajouterStock(d);
     }                                              
 
     private void addTicketButtonActionPerformed(java.awt.event.ActionEvent evt) {                                                

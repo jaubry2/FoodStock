@@ -212,6 +212,16 @@ public void ajouterAliment(AlimentStockes alimentsStock) {
         }
 		return quantite;
 	}
+	
+	public float getQuantiteAS(String nomAliment) {
+		float quantite=0;
+		for (AlimentStockes alimentstockes : stock) {
+            if (alimentstockes.getAliment().getNom().equals(nomAliment)) {
+            		quantite+= alimentstockes.getQuantite();
+            }
+        }
+		return quantite;
+	}
 	public LocalDate getDatePlusRecente(String nomALiment) {
 		List<AlimentStockes> listAliment = new ArrayList<>();
 		for (AlimentStockes alimentstockes : stock) {
