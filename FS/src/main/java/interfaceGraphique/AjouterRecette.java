@@ -137,11 +137,6 @@ public class AjouterRecette extends javax.swing.JFrame {
         boutonAjouter.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); 
         boutonAjouter.setText("AJOUTER INGRÉDIENT");
         boutonAjouter.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        boutonAjouter.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                boutonAjouterActionPerformed(evt);
-            }
-        });
 
         titreNomRecette.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         titreNomRecette.setText("Nom :");
@@ -345,11 +340,7 @@ public class AjouterRecette extends javax.swing.JFrame {
         );
 
         pack();
-    }                                                                  
-
-    private void boutonAjouterActionPerformed(java.awt.event.ActionEvent evt) {                                              
-        
-    }                                             
+    }                                                                                                            
 
     private void addLivreButtonActionPerformed(java.awt.event.ActionEvent evt) {                                               
         // TODO add your handling code here:

@@ -480,8 +480,11 @@ public class AjouterAliment extends javax.swing.JFrame {
     * @param evt Click sur le bouton Stock
     */
     private void stockButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        MenuStock newPage = new MenuStock();
-		newPage.setVisible(true);
+    	/*remove(panelTout);*/
+        /* Main.controller.ChangerPage("menuStock", null, null, null);
+        this.dispose();
+        */
+        Main.controller.changerPage("menuStock", null, null, null);
         this.dispose();
     }
     /**
@@ -489,8 +492,7 @@ public class AjouterAliment extends javax.swing.JFrame {
     * @param evt Click sur le bouton Recette
     */
     private void recetteButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        MenuRecette newPage = new MenuRecette();
-		newPage.setVisible(true);
+        Main.controller.changerPage("menuRecette", null, null, null);
         this.dispose();
     }
     /**
@@ -498,6 +500,9 @@ public class AjouterAliment extends javax.swing.JFrame {
      * @param evt Click sur le bouton Liste
      */
     private void listButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        /*MenuListe newPage = new MenuListe();
+        ControllerListeCourse cLdC = new ControllerListeCourse(Main.listeCourse ,(MenuListe) newPage);
+		newPage.setVisible(true);*/
         Main.controller.changerPage("menuListe", null, null, null);
         this.dispose();
     }
@@ -506,8 +511,7 @@ public class AjouterAliment extends javax.swing.JFrame {
      * @param evt Click sur le text menu
      */
     private void menuTextMouseClicked(java.awt.event.MouseEvent evt) {
-        Accueil newPage = new Accueil();
-		newPage.setVisible(true);
+        Main.controller.changerPage("accueil", null, null, null);
         this.dispose();
     }
 

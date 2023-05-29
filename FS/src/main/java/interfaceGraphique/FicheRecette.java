@@ -60,8 +60,8 @@ public class FicheRecette extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);  
         setMaximumSize(new java.awt.Dimension(1020, 768));
         setMinimumSize(new java.awt.Dimension(1020, 768));
-        setResizable(false);
         setPreferredSize(new java.awt.Dimension(1020, 768));
+        setResizable(false);
         setLocationRelativeTo(null);
 
         pageFicheRecette.setBackground(new java.awt.Color(255, 204, 204));
@@ -211,7 +211,7 @@ public class FicheRecette extends javax.swing.JFrame {
         Menu3.setBackground(new java.awt.Color(153, 204, 255));
         Menu3.setForeground(new java.awt.Color(51, 204, 255));
 
-        MenuText.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        MenuText.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); 
         MenuText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         MenuText.setText("MENU");
         MenuText.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -221,16 +221,8 @@ public class FicheRecette extends javax.swing.JFrame {
         });
 
         StockButton3.setBackground(new java.awt.Color(153, 204, 255));
-        StockButton3.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        StockButton3.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); 
         StockButton3.setText("Stock");
-        StockButton3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                StockButton3MouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                StockButton3MouseEntered(evt);
-            }
-        });
         StockButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 StockButton3ActionPerformed(evt);
@@ -238,13 +230,8 @@ public class FicheRecette extends javax.swing.JFrame {
         });
 
         RecetteButton3.setBackground(new java.awt.Color(153, 204, 255));
-        RecetteButton3.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        RecetteButton3.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); 
         RecetteButton3.setText("Recette");
-        RecetteButton3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                RecetteButton3MouseClicked(evt);
-            }
-        });
         RecetteButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RecetteButton3ActionPerformed(evt);
@@ -252,13 +239,8 @@ public class FicheRecette extends javax.swing.JFrame {
         });
 
         ListButton3.setBackground(new java.awt.Color(153, 204, 255));
-        ListButton3.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        ListButton3.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); 
         ListButton3.setText("Liste");
-        ListButton3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ListButton3MouseClicked(evt);
-            }
-        });
         ListButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ListButton3ActionPerformed(evt);
@@ -319,42 +301,45 @@ public class FicheRecette extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void MenuTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuTextMouseClicked
-        Main.controller.changerPage("accueil", null, null, null);
+     /**
+    * Permet d'ouvrir le menu stock
+    * @param evt Click sur le bouton Stock
+    */
+    private void StockButton3ActionPerformed(java.awt.event.ActionEvent evt) {
+    	/*remove(panelTout);*/
+        /* Main.controller.ChangerPage("menuStock", null, null, null);
         this.dispose();
-    }//GEN-LAST:event_MenuTextMouseClicked
-
-    private void StockButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StockButton3MouseClicked
-        //SUP
-    }//GEN-LAST:event_StockButton3MouseClicked
-
-    private void StockButton3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StockButton3MouseEntered
-        //SUP
-    }//GEN-LAST:event_StockButton3MouseEntered
-
-    private void StockButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StockButton3ActionPerformed
+        */
         Main.controller.changerPage("menuStock", null, null, null);
         this.dispose();
-    }//GEN-LAST:event_StockButton3ActionPerformed
-
-    private void RecetteButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RecetteButton3MouseClicked
-        //SUP
-    }//GEN-LAST:event_RecetteButton3MouseClicked
-
-    private void RecetteButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RecetteButton3ActionPerformed
+    }
+    /**
+    * Permet d'ouvrir le menu recette
+    * @param evt Click sur le bouton Recette
+    */
+    private void RecetteButton3ActionPerformed(java.awt.event.ActionEvent evt) {
         Main.controller.changerPage("menuRecette", null, null, null);
         this.dispose();
-    }//GEN-LAST:event_RecetteButton3ActionPerformed
-
-    private void ListButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListButton3MouseClicked
-        //SUP
-    }//GEN-LAST:event_ListButton3MouseClicked
-
-    private void ListButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListButton3ActionPerformed
+    }
+    /**
+     * Permet d'ouvrir le menu liste
+     * @param evt Click sur le bouton Liste
+     */
+    private void ListButton3ActionPerformed(java.awt.event.ActionEvent evt) {
+        /*MenuListe newPage = new MenuListe();
+        ControllerListeCourse cLdC = new ControllerListeCourse(Main.listeCourse ,(MenuListe) newPage);
+		newPage.setVisible(true);*/
         Main.controller.changerPage("menuListe", null, null, null);
         this.dispose();
-    }//GEN-LAST:event_ListButton3ActionPerformed
-
+    }
+    /**
+     * Permet d'ouvrir l'accueil
+     * @param evt Click sur le text menu
+     */
+    private void MenuTextMouseClicked(java.awt.event.MouseEvent evt) {
+        Main.controller.changerPage("accueil", null, null, null);
+        this.dispose();
+    }
     private void afficheInstructionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_afficheInstructionsActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_afficheInstructionsActionPerformed

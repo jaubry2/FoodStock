@@ -103,14 +103,6 @@ public class MenuRecette extends javax.swing.JFrame {
         StockButton3.setBackground(new java.awt.Color(153, 204, 255));
         StockButton3.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
         StockButton3.setText("Stock");
-        StockButton3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                StockButton3MouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                StockButton3MouseEntered(evt);
-            }
-        });
         StockButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 StockButton3ActionPerformed(evt);
@@ -120,11 +112,6 @@ public class MenuRecette extends javax.swing.JFrame {
         RecetteButton3.setBackground(new java.awt.Color(153, 204, 255));
         RecetteButton3.setFont(new java.awt.Font("Helvetica Neue", 0, 14));
         RecetteButton3.setText("Recette");
-        RecetteButton3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                RecetteButton3MouseClicked(evt);
-            }
-        });
         RecetteButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RecetteButton3ActionPerformed(evt);
@@ -134,11 +121,6 @@ public class MenuRecette extends javax.swing.JFrame {
         ListButton3.setBackground(new java.awt.Color(153, 204, 255));
         ListButton3.setFont(new java.awt.Font("Helvetica Neue", 0, 14));
         ListButton3.setText("Liste");
-        ListButton3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ListButton3MouseClicked(evt);
-            }
-        });
         ListButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ListButton3ActionPerformed(evt);
@@ -379,40 +361,23 @@ public class MenuRecette extends javax.swing.JFrame {
         pack();
     }
 
-    private void titreMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_titreMenu3MouseClicked
+    private void titreMenu3MouseClicked(java.awt.event.MouseEvent evt) {
         Main.controller.changerPage("accueil", null, null, null);
         this.dispose();
-    }//GEN-LAST:event_titreMenu3MouseClicked
+    }
 
-    private void StockButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StockButton3MouseClicked
-        //SUP
-    }//GEN-LAST:event_StockButton3MouseClicked
-
-    private void StockButton3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StockButton3MouseEntered
-        //SUP
-    }//GEN-LAST:event_StockButton3MouseEntered
-
-    private void StockButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StockButton3ActionPerformed
+    private void StockButton3ActionPerformed(java.awt.event.ActionEvent evt) {
         Main.controller.changerPage("menuStock", null, null, null);
         this.dispose();
-    }//GEN-LAST:event_StockButton3ActionPerformed
+    }
 
-    private void RecetteButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RecetteButton3MouseClicked
-        //SUP
-    }//GEN-LAST:event_RecetteButton3MouseClicked
 
-    private void RecetteButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RecetteButton3ActionPerformed
+    private void RecetteButton3ActionPerformed(java.awt.event.ActionEvent evt) {
         Main.controller.changerPage("menuRecette", null, null, null);
         this.dispose();
-    }//GEN-LAST:event_RecetteButton3ActionPerformed
-    
-    
+    }
 
-    private void ListButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListButton3MouseClicked
-        //SUP
-    }//GEN-LAST:event_ListButton3MouseClicked
-
-    private void ListButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListButton3ActionPerformed
+    private void ListButton3ActionPerformed(java.awt.event.ActionEvent evt) {
         Main.controller.changerPage("menuListe", null, null, null);
         this.dispose();
     }
@@ -425,7 +390,7 @@ public class MenuRecette extends javax.swing.JFrame {
     	tableRecettes.setModel(Main.controller.afficherRecetteFiltrerAliment(alimentChoisi.getText()));
     	
     }
-    private void mediumButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mediumButtonActionPerformed
+    private void mediumButtonActionPerformed(java.awt.event.ActionEvent evt) {
     	System.out.println("bouton moyen");
     	tableRecettes.setModel(Main.controller.afficherRecetteFiltrerDuree(CritereDureeRecette.MEDIUM));
 
@@ -444,7 +409,7 @@ public class MenuRecette extends javax.swing.JFrame {
 
     }
 
-    private void rapideButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rapideButtonActionPerformed
+    private void rapideButtonActionPerformed(java.awt.event.ActionEvent evt) {
     	System.out.println("bouton rapide");
 
     	tableRecettes.setModel(Main.controller.afficherRecetteFiltrerDuree(CritereDureeRecette.RAPIDE));

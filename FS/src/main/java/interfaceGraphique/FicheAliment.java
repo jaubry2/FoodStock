@@ -186,17 +186,17 @@ public class FicheAliment extends javax.swing.JFrame {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);  
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE); 
         setMaximumSize(new java.awt.Dimension(1020, 768));
         setMinimumSize(new java.awt.Dimension(1020, 768));
-        setResizable(false);
         setPreferredSize(new java.awt.Dimension(1020, 768)); 
+        setResizable(false);
+        setLocationRelativeTo(null); 
 
         pageMenu.setBackground(new java.awt.Color(153, 204, 255));
         pageMenu.setForeground(new java.awt.Color(51, 204, 255));
 
-        menuText.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        menuText.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); 
         menuText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         menuText.setText("MENU");
         menuText.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -206,7 +206,7 @@ public class FicheAliment extends javax.swing.JFrame {
         });
 
         stockButton.setBackground(new java.awt.Color(153, 204, 255));
-        stockButton.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        stockButton.setFont(new java.awt.Font("Helvetica Neue", 0, 14));
         stockButton.setText("Stock");
 
         stockButton.addActionListener(new java.awt.event.ActionListener() {
@@ -216,7 +216,7 @@ public class FicheAliment extends javax.swing.JFrame {
         });
 
         recetteButton.setBackground(new java.awt.Color(153, 204, 255));
-        recetteButton.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        recetteButton.setFont(new java.awt.Font("Helvetica Neue", 0, 14));
         recetteButton.setText("Recette");
 
         recetteButton.addActionListener(new java.awt.event.ActionListener() {
@@ -431,32 +431,44 @@ public class FicheAliment extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void menuTextMouseClicked(java.awt.event.MouseEvent evt) {
-    	Accueil newPage = new Accueil();
-		newPage.setVisible(true);
-        this.dispose();
-    }
-
-
+    /**
+    * Permet d'ouvrir le menu stock
+    * @param evt Click sur le bouton Stock
+    */
     private void stockButtonActionPerformed(java.awt.event.ActionEvent evt) {
-    	MenuStock newPage = new MenuStock();
-		newPage.setVisible(true);
+    	/*remove(panelTout);*/
+        /* Main.controller.ChangerPage("menuStock", null, null, null);
+        this.dispose();
+        */
+        Main.controller.changerPage("menuStock", null, null, null);
         this.dispose();
     }
-
-
+    /**
+    * Permet d'ouvrir le menu recette
+    * @param evt Click sur le bouton Recette
+    */
     private void recetteButtonActionPerformed(java.awt.event.ActionEvent evt) {
-    	MenuRecette newPage = new MenuRecette();
-		newPage.setVisible(true);
+        Main.controller.changerPage("menuRecette", null, null, null);
         this.dispose();
     }
-
+    /**
+     * Permet d'ouvrir le menu liste
+     * @param evt Click sur le bouton Liste
+     */
     private void listButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        /*MenuListe newPage = new MenuListe();
+        ControllerListeCourse cLdC = new ControllerListeCourse(Main.listeCourse ,(MenuListe) newPage);
+		newPage.setVisible(true);*/
         Main.controller.changerPage("menuListe", null, null, null);
         this.dispose();
-    	/*MenuListe newPage = new MenuListe();
-		newPage.setVisible(true);
-        this.dispose();*/
+    }
+    /**
+     * Permet d'ouvrir l'accueil
+     * @param evt Click sur le text menu
+     */
+    private void menuTextMouseClicked(java.awt.event.MouseEvent evt) {
+        Main.controller.changerPage("accueil", null, null, null);
+        this.dispose();
     }
 
     private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {
@@ -487,8 +499,7 @@ public class FicheAliment extends javax.swing.JFrame {
     }
 
     private void modifierAlimButtonActionPerformed(java.awt.event.ActionEvent evt) {
-    	ModifierUnAliment newPage = new ModifierUnAliment(nomAliment);
-		newPage.setVisible(true);
+    	Main.controller.changerPage("modifierUnAliment", null, null, nomAliment);
         this.dispose();
     }
 

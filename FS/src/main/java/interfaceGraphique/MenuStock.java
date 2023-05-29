@@ -133,8 +133,8 @@ public class MenuStock extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1020, 768));
         setMinimumSize(new java.awt.Dimension(1020, 768));
-        setResizable(false);
         setPreferredSize(new java.awt.Dimension(1020, 768)); 
+        setResizable(false);
         setLocationRelativeTo(null);  
 
 
@@ -380,7 +380,7 @@ public class MenuStock extends javax.swing.JFrame {
     */
     private void stockButtonActionPerformed(java.awt.event.ActionEvent evt) {
         Main.controller.changerPage("menuStock", null, null, null);
-
+        this.dispose();
     }
     /**
     * Permet d'ouvrir le menu recette
@@ -389,6 +389,7 @@ public class MenuStock extends javax.swing.JFrame {
     private void recetteButtonActionPerformed(java.awt.event.ActionEvent evt) {
         
         Main.controller.changerPage("menuRecette", null, null, null);
+        this.dispose();
     }
     /**
      * Permet d'ouvrir le menu liste
@@ -397,6 +398,7 @@ public class MenuStock extends javax.swing.JFrame {
     private void listButtonActionPerformed(java.awt.event.ActionEvent evt) {
         
     	Main.controller.changerPage("menuListe",null, null, null);
+        this.dispose();
     }
     /**
      * Permet d'ouvrir l'accueil
@@ -404,7 +406,7 @@ public class MenuStock extends javax.swing.JFrame {
      */
     private void menuTextMouseClicked(java.awt.event.MouseEvent evt) {
     	Main.controller.changerPage("accueil",null, null, null);
-
+        this.dispose();
     }
     /**
      * Permet d'ouvrir la page d'ajout d'aliment

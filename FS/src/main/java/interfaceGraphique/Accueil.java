@@ -253,8 +253,7 @@ public class Accueil extends javax.swing.JFrame {
         /* Main.controller.ChangerPage("menuStock", null, null, null);
         this.dispose();
         */
-        MenuStock newPage = new MenuStock();
-		newPage.setVisible(true);
+        Main.controller.changerPage("menuStock", null, null, null);
         this.dispose();
     }
     /**
@@ -262,8 +261,7 @@ public class Accueil extends javax.swing.JFrame {
     * @param evt Click sur le bouton Recette
     */
     private void recetteButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        MenuRecette newPage = new MenuRecette();
-		newPage.setVisible(true);
+        Main.controller.changerPage("menuRecette", null, null, null);
         this.dispose();
     }
     /**
@@ -282,8 +280,7 @@ public class Accueil extends javax.swing.JFrame {
      * @param evt Click sur le text menu
      */
     private void menuTextMouseClicked(java.awt.event.MouseEvent evt) {
-        Accueil newPage = new Accueil();
-		newPage.setVisible(true);
+        Main.controller.changerPage("accueil", null, null, null);
         this.dispose();
     }
 
