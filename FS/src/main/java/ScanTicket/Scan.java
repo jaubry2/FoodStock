@@ -1,4 +1,5 @@
 package ScanTicket;
+
 import org.opencv.core.*;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
@@ -17,20 +18,29 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Classe qui effectue la numérisation d'un ticket de caisse.
+ */
 public class Scan {
     static {
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
     }
 
+    /**
+     * Numérise un ticket de caisse à partir d'une image spécifiée.
+     *
+     * @param pathImage le chemin vers l'image du ticket
+     * @return une liste d'articles extraits du ticket
+     */
     public List<String[]> scan(String pathImage) {
         List<String[]> articles = new ArrayList<>();
-    	Tesseract tesseract = new Tesseract();
+        Tesseract tesseract = new Tesseract();
         try {
             tesseract.setDatapath("src/main/java/ScanTicket"); // Spécifie le chemin vers le dossier Tess4J
 
             Mat image = Imgcodecs.imread(pathImage); // Spécifie le chemin vers le fichier à scanner
             Mat imageTraitee = pretraiterImage(image);
-            
+
             // Appliquer la détection de contours
             Mat contours = new Mat();
             Imgproc.Canny(imageTraitee, contours, 50, 150, 3, false);
@@ -74,10 +84,8 @@ public class Scan {
 
                     articles = extraireArticles(texte);
                     //for (Article article : articles) {
-                        
-                    	//System.out.println(article);
+                    //System.out.println(article);
                     //}
-                    
                 }
             }
         } catch (TesseractException e) {
@@ -85,7 +93,13 @@ public class Scan {
         }
         return articles;
     }
-    
+
+    /**
+     * Dessine le polygone approximatif sur une image.
+     *
+     * @param image      l'image sur laquelle dessiner
+     * @param approxPoly le polygone approximatif
+     */
     private static void dessinerPolygoneApproxime(Mat image, MatOfPoint2f approxPoly) {
         Point[] points = approxPoly.toArray();
         for (int i = 0; i < points.length; i++) {
@@ -93,6 +107,13 @@ public class Scan {
         }
     }
 
+    /**
+     * Effectue le prétraitement de l'image en la convertissant en niveaux de gris,
+     * en binarisant l'image et en réduisant le bruit.
+     *
+     * @param image l'image à prétraiter
+     * @return l'image prétraitée
+     */
     private static Mat pretraiterImage(Mat image) {
         Mat imageGrise = new Mat();
         Mat imageBinaire = new Mat();
@@ -122,6 +143,12 @@ public class Scan {
         return imageDebruitee;
     }
 
+    /**
+     * Convertit une matrice OpenCV en BufferedImage.
+     *
+     * @param mat la matrice à convertir
+     * @return l'image BufferedImage
+     */
     private static BufferedImage convertirMatEnBufferedImage(Mat mat) {
         int type = BufferedImage.TYPE_BYTE_GRAY;
         if (mat.channels() > 1) {
@@ -137,6 +164,12 @@ public class Scan {
         return image;
     }
 
+    /**
+     * Trouve le contour de plus grande taille dans une image.
+     *
+     * @param image l'image contenant les contours
+     * @return le contour de plus grande taille
+     */
     private static MatOfPoint trouverPlusGrandContour(Mat image) {
         MatOfPoint plusGrandContour = null;
         Mat hierarchy = new Mat();
@@ -155,6 +188,13 @@ public class Scan {
         return plusGrandContour;
     }
 
+    /**
+     * Corrige la perspective de l'image en redressant le polygone approximatif.
+     *
+     * @param image      l'image à corriger
+     * @param approxPoly le polygone approximatif
+     * @return l'image corrigée
+     */
     private static Mat corrigerPerspective(Mat image, MatOfPoint2f approxPoly) {
         // Définir les dimensions de l'image redressée
         float largeurImage = 500;
@@ -164,7 +204,7 @@ public class Scan {
         // Définir les points de destination de l'image redressée
         MatOfPoint2f pointsDest = new MatOfPoint2f(new Point(largeurImage - 1, 0),
                 new Point(0, 0), new Point(0, hauteurImage - 1),
-                new Point(largeurImage - 1, hauteurImage - 1) );
+                new Point(largeurImage - 1, hauteurImage - 1));
 
         // Calculer la matrice de transformation
         Mat matricePerspective = Imgproc.getPerspectiveTransform(approxPoly, pointsDest);
@@ -176,6 +216,12 @@ public class Scan {
         return imageCorrigee;
     }
 
+    /**
+     * Extrait les articles du texte OCR en utilisant une expression régulière.
+     *
+     * @param texte le texte OCR
+     * @return la liste des articles extraits
+     */
     private static List<String[]> extraireArticles(String texte) {
         List<String[]> articles = new ArrayList<>();
         Pattern pattern = Pattern.compile("([^\\d]+)\\s(\\d+)\\s([\\d,\\.]+)", Pattern.MULTILINE);
@@ -184,7 +230,7 @@ public class Scan {
             String nom = matcher.group(1);
             int quantite = Integer.parseInt(matcher.group(2));
             double prix = Double.parseDouble(matcher.group(3).replace(',', '.'));
-            String[] ligne = new String[] {nom, Integer.toString(quantite), "01/01/2025"};
+            String[] ligne = new String[]{nom, Integer.toString(quantite), "01/01/2025"};
             articles.add(ligne);
         }
 
