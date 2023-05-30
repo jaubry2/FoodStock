@@ -13,8 +13,8 @@ public class FermetureFenetre extends WindowAdapter {
     @Override
     public void windowClosing(WindowEvent e) {
     	System.out.println("fermeture");
+        AlimentService.mettreAJourTable(Main.ensembleAliment.getListAliments());
        AlimentStockeService.mettreAJourTable(Main.stock.getStock());
-       AlimentService.mettreAJourTable(Main.ensembleAliment.getListAliments());
        RecetteService.enregistrer(Main.livreRecette.getRecettes());
        ListeDeCourse l= Main.listeCourse;
        Main.gestionnaireFichier.ecrireIngredientsDansFichier(Main.nomFichier,l.getIngredients() );
