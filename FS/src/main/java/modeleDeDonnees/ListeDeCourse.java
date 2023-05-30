@@ -9,33 +9,46 @@ import interfaceGraphique.Main;
 
 import java.util.HashSet;
 
-public class ListeDeCourse extends Observable{
+public class ListeDeCourse extends Observable {
   
     private Long id;
-
- 
     private Set<Ingredient> ingredients;
 
-
-   
-
-	public ListeDeCourse() {
-    	this.ingredients = new HashSet<>();
+    /**
+     * Constructeur par défaut de la classe ListeDeCourse.
+     * Initialise un nouvel ensemble d'ingrédients vide.
+     */
+    public ListeDeCourse() {
+        this.ingredients = new HashSet<>();
     }
 	
-	
-	 public ListeDeCourse(Set<Ingredient> ingredients) {
-		 this.ingredients=ingredients;
-	}
+	/**
+     * Constructeur de la classe ListeDeCourse.
+     * Initialise l'ensemble d'ingrédients avec l'ensemble donné en paramètre.
+     *
+     * @param ingredients l'ensemble d'ingrédients à associer à la liste de course
+     */
+    public ListeDeCourse(Set<Ingredient> ingredients) {
+        this.ingredients = ingredients;
+    }
 
+    /**
+     * Renvoie l'ensemble des ingrédients de la liste de course.
+     *
+     * @return l'ensemble des ingrédients de la liste de course
+     */
+    public Set<Ingredient> getIngredients() {
+        return ingredients;
+    }
 
-	public Set<Ingredient> getIngredients() {
-			return ingredients;
-		}
-
-		public void setIngredients(Set<Ingredient> ingredients) {
-			this.ingredients = ingredients;
-		}
+    /**
+     * Modifie l'ensemble des ingrédients de la liste de course.
+     *
+     * @param ingredients le nouvel ensemble d'ingrédients à associer à la liste de course
+     */
+    public void setIngredients(Set<Ingredient> ingredients) {
+        this.ingredients = ingredients;
+    }
 
     /**
      * Ajoute un ingrédient à la liste de course.
@@ -43,8 +56,7 @@ public class ListeDeCourse extends Observable{
      * @param ingredient l'objet Ingredient à ajouter
      */
     public void ajouterIngredient(Ingredient ingredient) {
-    	System.out.println("ajouter Aliment");
-    	boolean alimentExiste = false;
+        boolean alimentExiste = false;
         for (Ingredient ingredientListeCourse : ingredients) {
             if (ingredient.equals(ingredientListeCourse)) {
                 // Ajouter la quantité nécessaire à la quantité existante dans la liste de course
@@ -53,16 +65,15 @@ public class ListeDeCourse extends Observable{
                 alimentExiste = true;
                 break;
             }
-           
         }
 
         // Si l'aliment n'existe pas, l'ajouter à la liste de course
         if (!alimentExiste) {
-        	Ingredient ingredientAjout = new Ingredient(ingredient.getAliment(),ingredient.getQuantite());
+            Ingredient ingredientAjout = new Ingredient(ingredient.getAliment(), ingredient.getQuantite());
             ingredients.add(ingredientAjout);
         }
-        notifyObservers();
 
+        notifyObservers();
     }
 
     /**
@@ -73,7 +84,6 @@ public class ListeDeCourse extends Observable{
     public void supprimerIngredient(Ingredient ingredient) {
         ingredients.remove(ingredient);
         notifyObservers();
-
     }
 
     /**
@@ -97,7 +107,6 @@ public class ListeDeCourse extends Observable{
                     alimentExiste = true;
                     break;
                 }
-               
             }
 
             // Si l'aliment n'existe pas, l'ajouter à la liste de course
@@ -105,9 +114,8 @@ public class ListeDeCourse extends Observable{
                 Ingredient nouvelIngredient = new Ingredient(aliment, quantiteNecessaire);
                 ingredients.add(nouvelIngredient);
             }
-            //this.comparerStock(Main.stock);
+            
             notifyObservers();
-
         }
     }
 
@@ -115,36 +123,41 @@ public class ListeDeCourse extends Observable{
      * Compare la liste de course avec le stock pour générer la liste finale.
      *
      * @param stock le stock d'ingrédients disponible
-     * @return la liste de course avec les ingrédients manquants et leurs quantités nécessaires
      */
     public void comparerStock(Stock stock) {
         Set<Ingredient> ingredientsNecessaire = new HashSet<>();
 
         for (Ingredient ingredient : ingredients) {
             float quantiteNecessaire = ingredient.getQuantite();
-            float quantiteEnStock =stock.getQuantiteASNonPerime(ingredient.getAliment().getNom());
-           float quantiteRestante = quantiteEnStock - quantiteNecessaire;
-		   if (quantiteRestante < 0) {
-		        ingredient.setQuantite(Math.abs(quantiteRestante));
-		        ingredientsNecessaire.add(ingredient);
-		    }
+            float quantiteEnStock = stock.getQuantiteASNonPerime(ingredient.getAliment().getNom());
+            float quantiteRestante = quantiteEnStock - quantiteNecessaire;
 
+            if (quantiteRestante < 0) {
+                ingredient.setQuantite(Math.abs(quantiteRestante));
+                ingredientsNecessaire.add(ingredient);
+            }
         }
     }
+    
+    /**
+     * Compare la liste de course avec le stock pour générer la liste finale.
+     * Ajoute les ingrédients manquants à la liste de course.
+     *
+     * @param recette la recette pour laquelle comparer le stock
+     * @param stock   le stock d'ingrédients disponible
+     */
+    public void comparerStock(Recette recette, Stock stock) {
+        Set<Ingredient> ingredientsRecette = recette.getListIngredients();
         
-        public void comparerStock(Recette recette,Stock stock) {
-            Set<Ingredient> ingredientsRecette = recette.getListIngredients();
-            for (Ingredient ingredient : ingredientsRecette) {
-                float quantiteNecessaire = ingredient.getQuantite();
-                float quantiteEnStock =stock.getQuantiteASNonPerime(ingredient.getAliment().getNom());
-               float quantiteRestante = quantiteEnStock - quantiteNecessaire;
-    		   if (quantiteRestante < 0) {
-                    Ingredient nouvelIngredient = new Ingredient(ingredient.getAliment(), Math.abs(quantiteRestante));
-    		        ajouterIngredient(nouvelIngredient);
+        for (Ingredient ingredient : ingredientsRecette) {
+            float quantiteNecessaire = ingredient.getQuantite();
+            float quantiteEnStock = stock.getQuantiteASNonPerime(ingredient.getAliment().getNom());
+            float quantiteRestante = quantiteEnStock - quantiteNecessaire;
 
+            if (quantiteRestante < 0) {
+                Ingredient nouvelIngredient = new Ingredient(ingredient.getAliment(), Math.abs(quantiteRestante));
+                ajouterIngredient(nouvelIngredient);
             }
-
+        }
     }
-
-}
 }
