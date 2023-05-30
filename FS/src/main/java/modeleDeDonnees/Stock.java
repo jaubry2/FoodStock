@@ -216,6 +216,8 @@ public void ajouterAliment(AlimentStockes alimentsStock) {
 		float quantite=0;
 		for (AlimentStockes alimentstockes : stock) {
             if (alimentstockes.getAliment().getNom().equals(nomAliment)) {
+        		quantite+= alimentstockes.getQuantite();
+
             }
         }
 		return quantite;
