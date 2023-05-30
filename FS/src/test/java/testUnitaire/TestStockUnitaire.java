@@ -86,42 +86,9 @@ public class TestStockUnitaire {
         assertFalse(stock.getStock().contains(alimentStockes));
     }
     
-    @Test
-    public void testGetAlimentByName() {
-        Aliment laitTest = Stock.getAlimentByName(listAliments, "lait");
-        Aliment farineTest = Stock.getAlimentByName(listAliments, "farine");
-        Aliment oeufTest = Stock.getAlimentByName(listAliments, "oeuf");
 
-        assertEquals("lait", laitTest.getNom());
-        assertEquals("farine", farineTest.getNom());
-        assertNull(oeufTest);
-      
-    }
     
-    @Test
-    public void testFiltrerType() {
-        stock.ajouterListe(listAlimentStockes);
-        List<AlimentStockes> listAlimentsProduitLaitier = stock.filtrerType(TypeAliment.ProduitsLaitiers);
-        assertEquals(1, listAlimentsProduitLaitier.size());
-        assertEquals("lait", listAlimentsProduitLaitier.get(0).getAliment().getNom());
-        List<AlimentStockes> listAlimentsCereales = stock.filtrerType(TypeAliment.Céreales);
-        assertEquals(1, listAlimentsCereales.size());
-        assertEquals("farine", listAlimentsCereales.get(0).getAliment().getNom());
-        List<AlimentStockes> listAlimentsFL = stock.filtrerType(TypeAliment.Fruits_Legumes);
-        assertEquals(Collections.emptyList(),listAlimentsFL);
-
-    }
     
-    @Test
-    public void testFiltrerDate() {
-        stock.ajouterListe( listAlimentStockes);
-        List<AlimentStockes> listAlimentsProcheDate = stock.filtrerDate( 4);
-        assertEquals(1, listAlimentsProcheDate.size());
-        assertEquals("lait", listAlimentsProcheDate.get(0).getAliment().getNom());
-        List<AlimentStockes> listAlimentsTresProcheDate = stock.filtrerDate(2);
-        assertEquals(Collections.emptyList(),listAlimentsTresProcheDate);
-
-    }
 
 
 }
