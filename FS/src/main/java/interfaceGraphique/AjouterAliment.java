@@ -3,15 +3,18 @@ package interfaceGraphique ;
  * @author Jules Aubry
  */
 
-import java.util.Date;
 import javax.swing.table.DefaultTableModel;
 
 import modeleDeDonnees.Aliment;
 import modeleDeDonnees.MoyendeConservation;
 import modeleDeDonnees.TypeAliment;
 import modeleDeDonnees.UnitedeMesure;
+import ScanTicket.Scan;
 
+import java.io.File;
 import java.util.*;
+
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
 public class AjouterAliment extends javax.swing.JFrame {
@@ -520,8 +523,37 @@ public class AjouterAliment extends javax.swing.JFrame {
     }                                              
 
     private void addTicketButtonActionPerformed(java.awt.event.ActionEvent evt) {                                                
-        // TODO add your handling code here:
+    	JFileChooser fileChooser = new JFileChooser();
+    	List<String[]> articles = new ArrayList<>();
+        int result = fileChooser.showOpenDialog(this);
+
+        if (result == JFileChooser.APPROVE_OPTION) {
+            File fichierChoisi = fileChooser.getSelectedFile();
+            String chemin = fichierChoisi.getAbsolutePath();
+            String extension = getFileExtension(chemin);
+
+            if (extension.equalsIgnoreCase("jpg")) {
+                Scan scan = new Scan();
+				articles = scan.scan(chemin);
+				for (String[] article : articles) {
+					d.addRow(article);
+					Aliment aliment = Main.controller.creerAliment(article[0], UnitedeMesure.valueOf("Gramme"), MoyendeConservation.valueOf("Vrac"), TypeAliment.valueOf("Snacks"));
+		            Main.ensembleAliment.ajouterAliment(aliment);
+				}
+            	//System.out.println("Fichier sélectionné : " + chemin);
+            } else {
+                JOptionPane.showMessageDialog(this, "Type de fichier invalide. Veuillez sélectionner un fichier PNG.", "Erreur", JOptionPane.ERROR_MESSAGE);
+            }
+        }
     } 
+    
+    private static String getFileExtension(String filePath) {
+        int indicePoint = filePath.lastIndexOf(".");
+        if (indicePoint == -1) {
+            return "";
+        }
+        return filePath.substring(indicePoint + 1);
+    }
 
     private void SupprimerButtonActionPerformed(java.awt.event.ActionEvent evt) {                                                
         d.removeRow(selectedRow);

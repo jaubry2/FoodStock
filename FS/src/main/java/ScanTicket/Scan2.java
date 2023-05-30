@@ -17,24 +17,24 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class TestScan {
+public class Scan2 {
     static {
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
     }
 
-    public static void main(String[] args) {
+    public void scan(String pathImage) {
         Tesseract tesseract = new Tesseract();
         try {
             tesseract.setDatapath("src/main/java/ScanTicket"); // Spécifie le chemin vers le dossier Tess4J
 
-            Mat image = Imgcodecs.imread("src/main/java/ScanTicket/ticket_test_final.jpg"); // Spécifie le chemin vers le fichier à scanner
+            Mat image = Imgcodecs.imread(pathImage); // Spécifie le chemin vers le fichier à scanner
             Mat imageTraitee = pretraiterImage(image);
             
             // Appliquer la détection de contours
             Mat contours = new Mat();
             Imgproc.Canny(imageTraitee, contours, 50, 150, 3, false);
 
-            // Trouver les contours
+            // Trouver les contours et plus particulièrement le contour le plus grand
             MatOfPoint plusGrandContour = trouverPlusGrandContour(contours);
             if (plusGrandContour != null) {
                 // Approximer le polygone du contour
@@ -54,7 +54,7 @@ public class TestScan {
                 // Vérifier si le polygone est un rectangle
                 if (approxPoly.total() == 4) {
                     // Redresser l'image
-                    Mat imageCorrigee = corrigerPerspective(imageTraitee, approxPoly);
+                    Mat imageCorrigee = corrigerPerspective(image, approxPoly);
                     String texte = tesseract.doOCR(convertirMatEnBufferedImage(imageCorrigee));
                     texte.replaceAll("\n", "");
                     System.out.println(texte);
@@ -73,7 +73,8 @@ public class TestScan {
 
                     List<Article> articles = extraireArticles(texte);
                     for (Article article : articles) {
-                        System.out.println(article);
+                        
+                    	//System.out.println(article);
                     }
                 }
             }
@@ -98,7 +99,7 @@ public class TestScan {
         Imgproc.cvtColor(image, imageGrise, Imgproc.COLOR_BGR2GRAY);
 
         // Binarisation de l'image
-        Imgproc.adaptiveThreshold(imageGrise, imageBinaire, 255, Imgproc.ADAPTIVE_THRESH_GAUSSIAN_C, Imgproc.THRESH_BINARY, 141, 7);
+        Imgproc.adaptiveThreshold(imageGrise, imageBinaire, 255, Imgproc.ADAPTIVE_THRESH_GAUSSIAN_C, Imgproc.THRESH_BINARY, 61, 10);
 
         // Réduction du bruit de l'image
         Imgproc.medianBlur(imageBinaire, imageDebruitee, 3);
@@ -158,9 +159,9 @@ public class TestScan {
         Mat imageCorrigee = new Mat(new Size(largeurImage, hauteurImage), image.type());
 
         // Définir les points de destination de l'image redressée
-        MatOfPoint2f pointsDest = new MatOfPoint2f(new Point(largeurImage - 1, 0),
+        MatOfPoint2f pointsDest = new MatOfPoint2f(
                 new Point(0, 0), new Point(0, hauteurImage - 1),
-                new Point(largeurImage - 1, hauteurImage - 1) );
+                new Point(largeurImage - 1, hauteurImage - 1), new Point(largeurImage - 1, 0));
 
         // Calculer la matrice de transformation
         Mat matricePerspective = Imgproc.getPerspectiveTransform(approxPoly, pointsDest);

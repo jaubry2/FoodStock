@@ -17,24 +17,25 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class TestScan {
+public class Scan {
     static {
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
     }
 
-    public static void main(String[] args) {
-        Tesseract tesseract = new Tesseract();
+    public List<String[]> scan(String pathImage) {
+        List<String[]> articles = new ArrayList<>();
+    	Tesseract tesseract = new Tesseract();
         try {
             tesseract.setDatapath("src/main/java/ScanTicket"); // Spécifie le chemin vers le dossier Tess4J
 
-            Mat image = Imgcodecs.imread("src/main/java/ScanTicket/ticket_test_final.jpg"); // Spécifie le chemin vers le fichier à scanner
+            Mat image = Imgcodecs.imread(pathImage); // Spécifie le chemin vers le fichier à scanner
             Mat imageTraitee = pretraiterImage(image);
             
             // Appliquer la détection de contours
             Mat contours = new Mat();
             Imgproc.Canny(imageTraitee, contours, 50, 150, 3, false);
 
-            // Trouver les contours
+            // Trouver les contours et plus particulièrement le contour le plus grand
             MatOfPoint plusGrandContour = trouverPlusGrandContour(contours);
             if (plusGrandContour != null) {
                 // Approximer le polygone du contour
@@ -43,18 +44,18 @@ public class TestScan {
                 double epsilon = 0.02 * Imgproc.arcLength(contour2f, true);
                 Imgproc.approxPolyDP(contour2f, approxPoly, epsilon, true);
 
-                Mat imageContours = image.clone();
-                Imgproc.drawContours(imageContours, List.of(plusGrandContour), 0, new Scalar(0, 255, 0), 2);
-                dessinerPolygoneApproxime(imageContours, approxPoly);
+                //Mat imageContours = image.clone();
+                //Imgproc.drawContours(imageContours, List.of(plusGrandContour), 0, new Scalar(0, 255, 0), 2);
+                //dessinerPolygoneApproxime(imageContours, approxPoly);
 
                 // Afficher l'image avec les contours et le polygone approximé
-                HighGui.imshow("Image avec contours et polygone", imageContours);
-                HighGui.waitKey(0);
+                //HighGui.imshow("Image avec contours et polygone", imageContours);
+                //HighGui.waitKey(0);
 
                 // Vérifier si le polygone est un rectangle
                 if (approxPoly.total() == 4) {
                     // Redresser l'image
-                    Mat imageCorrigee = corrigerPerspective(imageTraitee, approxPoly);
+                    Mat imageCorrigee = corrigerPerspective(image, approxPoly);
                     String texte = tesseract.doOCR(convertirMatEnBufferedImage(imageCorrigee));
                     texte.replaceAll("\n", "");
                     System.out.println(texte);
@@ -71,15 +72,18 @@ public class TestScan {
                         e.printStackTrace();
                     }
 
-                    List<Article> articles = extraireArticles(texte);
-                    for (Article article : articles) {
-                        System.out.println(article);
-                    }
+                    articles = extraireArticles(texte);
+                    //for (Article article : articles) {
+                        
+                    	//System.out.println(article);
+                    //}
+                    
                 }
             }
         } catch (TesseractException e) {
             e.printStackTrace();
         }
+        return articles;
     }
     
     private static void dessinerPolygoneApproxime(Mat image, MatOfPoint2f approxPoly) {
@@ -98,7 +102,7 @@ public class TestScan {
         Imgproc.cvtColor(image, imageGrise, Imgproc.COLOR_BGR2GRAY);
 
         // Binarisation de l'image
-        Imgproc.adaptiveThreshold(imageGrise, imageBinaire, 255, Imgproc.ADAPTIVE_THRESH_GAUSSIAN_C, Imgproc.THRESH_BINARY, 141, 7);
+        Imgproc.adaptiveThreshold(imageGrise, imageBinaire, 255, Imgproc.ADAPTIVE_THRESH_GAUSSIAN_C, Imgproc.THRESH_BINARY, 101, 5);
 
         // Réduction du bruit de l'image
         Imgproc.medianBlur(imageBinaire, imageDebruitee, 3);
@@ -172,16 +176,16 @@ public class TestScan {
         return imageCorrigee;
     }
 
-    private static List<Article> extraireArticles(String texte) {
-        List<Article> articles = new ArrayList<>();
+    private static List<String[]> extraireArticles(String texte) {
+        List<String[]> articles = new ArrayList<>();
         Pattern pattern = Pattern.compile("([^\\d]+)\\s(\\d+)\\s([\\d,\\.]+)", Pattern.MULTILINE);
         Matcher matcher = pattern.matcher(texte);
         while (matcher.find()) {
             String nom = matcher.group(1);
             int quantite = Integer.parseInt(matcher.group(2));
             double prix = Double.parseDouble(matcher.group(3).replace(',', '.'));
-
-            articles.add(new Article(nom, quantite, prix));
+            String[] ligne = new String[] {nom, Integer.toString(quantite), "01/01/2025"};
+            articles.add(ligne);
         }
 
         return articles;
@@ -191,11 +195,12 @@ public class TestScan {
         String nom;
         int quantite;
         double prix;
+        String datePeremption;
 
-        public Article(String nom, int quantite, double prix) {
+        public Article(String nom, int quantite, String datePeremption) {
             this.nom = nom;
             this.quantite = quantite;
-            this.prix = prix;
+            this.datePeremption = datePeremption;
         }
 
         @Override
