@@ -17,10 +17,6 @@ public class ListeDeCourse extends Observable{
     private Set<Ingredient> ingredients;
 
 
-
-	private Set<Ingredient> ingredientsReserve;
-
-
    
 
 	public ListeDeCourse() {
@@ -29,8 +25,7 @@ public class ListeDeCourse extends Observable{
 	
 	
 	 public ListeDeCourse(Set<Ingredient> ingredients) {
-		 this.ingredientsReserve=new HashSet<>();
-		 this.ingredients = ingredients;
+		 this.ingredients=ingredients;
 	}
 
 
@@ -63,7 +58,8 @@ public class ListeDeCourse extends Observable{
 
         // Si l'aliment n'existe pas, l'ajouter à la liste de course
         if (!alimentExiste) {
-            ingredients.add(ingredient);
+        	Ingredient ingredientAjout = new Ingredient(ingredient.getAliment(),ingredient.getQuantite());
+            ingredients.add(ingredientAjout);
         }
         notifyObservers();
 
@@ -139,47 +135,16 @@ public class ListeDeCourse extends Observable{
         public void comparerStock(Recette recette,Stock stock) {
             Set<Ingredient> ingredientsRecette = recette.getListIngredients();
             for (Ingredient ingredient : ingredientsRecette) {
-            	float quantiteReserve = getQuantite(ingredient,ingredientsReserve);
                 float quantiteNecessaire = ingredient.getQuantite();
                 float quantiteEnStock =stock.getQuantiteASNonPerime(ingredient.getAliment().getNom());
-               float quantiteRestante = quantiteEnStock-quantiteReserve - quantiteNecessaire;
+               float quantiteRestante = quantiteEnStock - quantiteNecessaire;
     		   if (quantiteRestante < 0) {
-    		        ingredient.setQuantite(Math.abs(quantiteRestante));
-    		        ajouterIngredient(ingredient);
+                    Ingredient nouvelIngredient = new Ingredient(ingredient.getAliment(), Math.abs(quantiteRestante));
+    		        ajouterIngredient(nouvelIngredient);
 
             }
-    		   else {
-   		        	ingredient.setQuantite(Math.abs(quantiteRestante));
-   		        	
-
-    		   }
 
     }
 
-
 }
-        public boolean isIngredient(Ingredient ingredientTest,Set<Ingredient> ingredients) {
-            for (Ingredient ingredient : ingredients) {
-            	if (ingredient.equals(ingredientTest)) {
-            		return true;
-            	}
-            }
-            return false;
-        }
-        public float getQuantite(Ingredient ingredientTest,Set<Ingredient> ingredients) {
-            for (Ingredient ingredient : ingredients) {
-            	if (ingredient.equals(ingredientTest)) {
-            		return ingredient.getQuantite();
-            	}
-            }
-            return 0;
-        }
-        public void AjouterQuantiteReserve(Ingredient ingredientAjout) {
-            for (Ingredient ingredient : ingredientsReserve) {
-            	if (ingredient.equals(ingredientAjout)) {
-            		ingredient.setQuantite(ingredient.getQuantite()+ingredientAjout.getQuantite());
-            	}
-            }
-        }
-        
 }

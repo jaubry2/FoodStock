@@ -9,7 +9,7 @@ import interfaceGraphique.Main;
 
 import java.util.HashSet;
 
-public class ListeDeCourseSauv extends Observable{
+public class ListeDeCourseNOuv extends Observable{
   
     private Long id;
 
@@ -17,15 +17,20 @@ public class ListeDeCourseSauv extends Observable{
     private Set<Ingredient> ingredients;
 
 
+
+	private Set<Ingredient> ingredientsReserve;
+
+
    
 
-	public ListeDeCourseSauv() {
+	public ListeDeCourseNOuv() {
     	this.ingredients = new HashSet<>();
     }
 	
 	
-	 public ListeDeCourseSauv(Set<Ingredient> ingredients) {
-		 this.ingredients=ingredients;
+	 public ListeDeCourseNOuv(Set<Ingredient> ingredients) {
+		 this.ingredientsReserve=new HashSet<>();
+		 this.ingredients = ingredients;
 	}
 
 
@@ -132,18 +137,69 @@ public class ListeDeCourseSauv extends Observable{
     }
         
         public void comparerStock(Recette recette,Stock stock) {
+        	System.out.println("comparerStock");
+
             Set<Ingredient> ingredientsRecette = recette.getListIngredients();
             for (Ingredient ingredient : ingredientsRecette) {
+            	System.out.println("ingredientsRecette");
+
+            	float quantiteReserve = getQuantite(ingredient,ingredientsReserve);
+            	System.out.println(quantiteReserve);
                 float quantiteNecessaire = ingredient.getQuantite();
+            	System.out.println(quantiteNecessaire);
                 float quantiteEnStock =stock.getQuantiteASNonPerime(ingredient.getAliment().getNom());
-               float quantiteRestante = quantiteEnStock - quantiteNecessaire;
-    		   if (quantiteRestante < 0) {
+            	System.out.println(quantiteEnStock);
+
+               float quantiteRestante = quantiteEnStock-quantiteReserve - quantiteNecessaire;
+           	   System.out.println(quantiteRestante);
+
+               if (quantiteRestante < 0) {
+            	   
+            	   System.out.println("<0");
+               	   System.out.println(quantiteRestante);
     		        ingredient.setQuantite(Math.abs(quantiteRestante));
     		        ajouterIngredient(ingredient);
 
             }
+    		   else {
+            	   System.out.println(">0");
+   		        	AjouterQuantiteReserve(ingredient);
+   		        	
+
+    		   }
 
     }
 
+
 }
+        public boolean isIngredient(Ingredient ingredientTest,Set<Ingredient> ingredients) {
+            for (Ingredient ingredient : ingredients) {
+            	if (ingredient.equals(ingredientTest)) {
+            		return true;
+            	}
+            }
+            return false;
+        }
+        public float getQuantite(Ingredient ingredientTest,Set<Ingredient> ingredients) {
+            for (Ingredient ingredient : ingredients) {
+            	if (ingredient.equals(ingredientTest)) {
+            		return ingredient.getQuantite();
+            	}
+            }
+            return 0;
+        }
+        public void AjouterQuantiteReserve(Ingredient ingredientAjout) {
+            for (Ingredient ingredient : ingredientsReserve) {
+            	if (ingredient.equals(ingredientAjout)) {
+            		System.out.println("aa");
+            		ingredient.setQuantite(ingredient.getQuantite()+ingredientAjout.getQuantite());
+            	}
+            	else {
+            		System.out.println("bb");
+
+            		ingredientsReserve.add(new Ingredient(ingredientAjout.getAliment(),ingredient.getQuantite()));
+            	}
+            }
+        }
+        
 }
