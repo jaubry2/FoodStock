@@ -21,10 +21,8 @@ import java.util.Set;
 @Table(name = "recette")
 public class Recette {
 	
-
     @Id 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private Long id;
     
     /**
@@ -42,7 +40,7 @@ public class Recette {
 
 
     /**
-     * Aliments liés à la recette.
+     * Aliments liés à la recette avec leur quantité.
      */
     /*@OneToMany(mappedBy = "recette")
     @JoinTable(name = "recette_aliment",
@@ -50,7 +48,7 @@ public class Recette {
             inverseJoinColumns = @JoinColumn(name = "idAliment"))*/
     @OneToMany ( cascade = CascadeType.ALL)
     @JoinColumn(name = "recette_id")
-     private Set<Ingredient> listIngredient;
+    private Set<Ingredient> listIngredient;
 
 
     
@@ -66,19 +64,26 @@ public class Recette {
      * @param duree La durée de préparation de la recette en minutes.
      * @param nom   Le nom de la recette.
      */
-    public Recette(String nom,int duree) {
+    public Recette(String nom, int duree) {
         this.duree = duree;
         this.nom = nom;
         this.listIngredient = new HashSet<>();
     }
 
+    /**
+     * Constructeur avec paramètres de la classe Recette.
+     * 
+     * @param nom                   Le nom de la recette.
+     * @param duree                 La durée de préparation de la recette en minutes.
+     * @param ingredientsRecette    Les aliments liés à la recette avec leur quantité.
+     */
     public Recette(String nom, int duree, Set<Ingredient> ingredientsRecette) {
     	this.duree = duree;
         this.nom = nom;
         this.listIngredient = ingredientsRecette;
 	}
 
-	/**
+    /**
      * Retourne l'identifiant de la recette.
      * 
      * @return L'identifiant de la recette.
@@ -113,8 +118,10 @@ public class Recette {
     public void setNom(String nom) {
         this.nom = nom;
     }
+
     /**
      * Retourne la durée de préparation de la recette en minutes.
+     * 
      * @return La durée de préparation de la recette.
      */
     public int getDuree() {
@@ -129,44 +136,72 @@ public class Recette {
     public void setDuree(int duree) {
         this.duree = duree;
     }
+
     /**
      * Retourne les aliments liés à la recette avec leur quantité.
      *
      * @return Les aliments liés à la recette avec leur quantité.
      */
-    
     public Set<Ingredient> getListIngredients() {
         return listIngredient;
     }
 
     /**
      * Modifie les aliments liés à la recette avec leur quantité.
-     * @param recetteAliments Les nouveaux aliments liés à la recette avec leur quantité.
+     * 
+     * @param listIngredients Les nouveaux aliments liés à la recette avec leur quantité.
      */
     public void setListIngredients(Set<Ingredient> listIngredients) {
         this.listIngredient = listIngredients;
     }
+
+    /**
+     * Affiche les aliments et leurs quantités respectives pour la recette.
+     */
     public void afficherIngredient() {
     	for (Ingredient i : listIngredient) {
     		System.out.println(i.getAliment().getNom());
     		System.out.println(i.getQuantite());
     	}
     }
-    
+
+    /**
+     * Modifie la quantité d'un aliment dans la recette.
+     * 
+     * @param nomAliment       Le nom de l'aliment à modifier.
+     * @param nouvelleQuantite La nouvelle quantité de l'aliment.
+     */
     public void changerQuantiteRecetteAliment(String nomAliment, int nouvelleQuantite) {
-        for (Ingredient ingredients : listIngredient) {
-            if (ingredients.getAliment().getNom().equals(nomAliment)) {
-                ingredients.setQuantite(nouvelleQuantite);
+        for (Ingredient ingredient : listIngredient) {
+            if (ingredient.getAliment().getNom().equals(nomAliment)) {
+                ingredient.setQuantite(nouvelleQuantite);
                 break;
             }
         }
     }
-    public  static Recette creerRecette(String nom , int  duree , Aliment aliment, int quantite) {
+
+    /**
+     * Crée une nouvelle recette avec un seul aliment et sa quantité.
+     * 
+     * @param nom       Le nom de la recette.
+     * @param duree     La durée de préparation de la recette en minutes.
+     * @param aliment   L'aliment à ajouter à la recette.
+     * @param quantite  La quantité de l'aliment dans la recette.
+     * @return          La recette créée.
+     */
+    public static Recette creerRecette(String nom, int duree, Aliment aliment, int quantite) {
     	Recette recette = new Recette(nom, duree);
     	Ingredient ingredient = new Ingredient(aliment, quantite);
     	recette.getListIngredients().add(ingredient);
     	return recette;
     }
+
+    /**
+     * Vérifie si un aliment est présent dans la recette.
+     * 
+     * @param aliment   L'aliment à vérifier.
+     * @return          Vrai si l'aliment est présent dans la recette, sinon faux.
+     */
     public boolean isAliment(Aliment aliment) {
     	for (Ingredient ingredient : listIngredient) {
     		if (ingredient.isAliment(aliment)) {
@@ -176,16 +211,19 @@ public class Recette {
     	return false;
     }
 
-	public float getQuantite(Aliment aliment) {
-
-		for (Ingredient ingredients : listIngredient) {
-            if (ingredients.isAliment(aliment)) {
-                return ingredients.getQuantite();
+    /**
+     * Retourne la quantité d'un aliment dans la recette.
+     * 
+     * @param aliment   L'aliment dont on souhaite connaître la quantité.
+     * @return          La quantité de l'aliment dans la recette.
+     * @throws AlimentsNonPresentException Si l'aliment n'est pas présent dans la recette.
+     */
+    public float getQuantite(Aliment aliment) throws AlimentsNonPresentException {
+        for (Ingredient ingredient : listIngredient) {
+            if (ingredient.isAliment(aliment)) {
+                return ingredient.getQuantite();
             }
-	
-		}
-        throw new AlimentsNonPresentException(aliment.getNom());    
-
-	}
-
+        }
+        throw new AlimentsNonPresentException(aliment.getNom());
+    }
 }
