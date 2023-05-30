@@ -41,6 +41,8 @@ public class MenuRecette extends javax.swing.JFrame {
      */
     public MenuRecette() {
         initComponents();
+        this.addWindowListener(new FermetureFenetre());
+
     }
 
     /**

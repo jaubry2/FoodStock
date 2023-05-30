@@ -62,6 +62,8 @@ public class AjouterRecette extends javax.swing.JFrame {
     	dTMAliment.addColumn("Nom");
     	dTMAliment.addColumn("Quantite");
         initComponents();
+        this.addWindowListener(new FermetureFenetre());
+
     }
     @SuppressWarnings("unchecked")                      
     private void initComponents() {

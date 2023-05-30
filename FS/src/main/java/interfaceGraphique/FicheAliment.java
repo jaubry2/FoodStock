@@ -477,7 +477,7 @@ public class FicheAliment extends javax.swing.JFrame {
         ac = alimentChoisi.getText();
         
         //je savais pas si je le passais dans le controlleur;
-        if (Main.stock.isAlimentStockesByName(ac)){
+        if (!Main.stock.isAlimentStockesByName(ac)){
             JOptionPane.showMessageDialog(this, "L'aliment recherché n'est \n pas dans le stock");
         }
         else {
