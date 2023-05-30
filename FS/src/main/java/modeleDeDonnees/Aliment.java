@@ -181,6 +181,6 @@ public boolean equals(Aliment alimentComparaison) {
 	}
 	return this.nom.equals(alimentComparaison.getNom());
 }
-
+}
 
 

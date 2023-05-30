@@ -250,4 +250,15 @@ public class Stock {
         }
         return quantite;
     }
+    public LocalDate getDatePlusRecente(String nomALiment) {
+        List<AlimentStockes> listAliment = new ArrayList<>();
+        for (AlimentStockes alimentstockes : stock) {
+            if (alimentstockes.getAliment().getNom().equals(nomALiment)) {
+                listAliment.add(alimentstockes);
+            }
+        }
+        //Tri de la liste par date de peremption
+        listAliment.sort(Comparator.comparing(AlimentStockes::getDatePeremption));
+        return listAliment.get(0).getDatePeremption();
+    }
 }

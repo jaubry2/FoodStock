@@ -537,8 +537,13 @@ public class AjouterAliment extends javax.swing.JFrame {
 				articles = scan.scan(chemin);
 				for (String[] article : articles) {
 					d.addRow(article);
+					if (Main.ensembleAliment.isAliment(article[0])) {
+						Aliment aliment = Main.ensembleAliment.getAlimentByName(article[0]);
+					}
+					else {
 					Aliment aliment = Main.controller.creerAliment(article[0], UnitedeMesure.valueOf("Gramme"), MoyendeConservation.valueOf("Vrac"), TypeAliment.valueOf("Snacks"));
 		            Main.ensembleAliment.ajouterAliment(aliment);
+					}
 				}
             	//System.out.println("Fichier sélectionné : " + chemin);
             } else {
