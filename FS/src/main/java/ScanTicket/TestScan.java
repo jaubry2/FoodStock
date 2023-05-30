@@ -54,7 +54,7 @@ public class TestScan {
                 // Vérifier si le polygone est un rectangle
                 if (approxPoly.total() == 4) {
                     // Redresser l'image
-                    Mat imageCorrigee = corrigerPerspective(image, approxPoly);
+                    Mat imageCorrigee = corrigerPerspective(imageTraitee, approxPoly);
                     String texte = tesseract.doOCR(convertirMatEnBufferedImage(imageCorrigee));
                     texte.replaceAll("\n", "");
                     System.out.println(texte);
@@ -98,7 +98,7 @@ public class TestScan {
         Imgproc.cvtColor(image, imageGrise, Imgproc.COLOR_BGR2GRAY);
 
         // Binarisation de l'image
-        Imgproc.adaptiveThreshold(imageGrise, imageBinaire, 255, Imgproc.ADAPTIVE_THRESH_GAUSSIAN_C, Imgproc.THRESH_BINARY, 101, 5);
+        Imgproc.adaptiveThreshold(imageGrise, imageBinaire, 255, Imgproc.ADAPTIVE_THRESH_GAUSSIAN_C, Imgproc.THRESH_BINARY, 141, 7);
 
         // Réduction du bruit de l'image
         Imgproc.medianBlur(imageBinaire, imageDebruitee, 3);
